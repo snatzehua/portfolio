@@ -12,6 +12,13 @@ import {
 import "./globals.css";
 import "./styles.css";
 
+const navLinks = [
+  { name: "Home", href: "/" },
+  { name: "About", href: "/about" },
+  { name: "Projects", href: "/projects" },
+  { name: "Contact", href: "/contact" },
+];
+
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -98,26 +105,17 @@ export default function RootLayout({
                 className="menu-dropdown-wrapper"
               >
                 <motion.ul className="menu-dropdown" variants={menuVariants}>
-                  <motion.li variants={itemVariants} className="nav-link">
-                    <a href="/">
-                      <span>Home</span>
-                    </a>
-                  </motion.li>
-                  <motion.li variants={itemVariants} className="nav-link">
-                    <a href="/projects">
-                      <span>Projects</span>
-                    </a>
-                  </motion.li>
-                  <motion.li variants={itemVariants} className="nav-link">
-                    <a href="/about">
-                      <span>About</span>
-                    </a>
-                  </motion.li>
-                  <motion.li variants={itemVariants} className="nav-link">
-                    <a href="/contact">
-                      <span>Contact</span>
-                    </a>
-                  </motion.li>
+                  {navLinks.map((link, index) => (
+                    <motion.li
+                      key={index}
+                      variants={itemVariants}
+                      className="nav-link"
+                    >
+                      <a href={link.href}>
+                        <span>{link.name}</span>
+                      </a>
+                    </motion.li>
+                  ))}
                 </motion.ul>
               </motion.div>
             )}

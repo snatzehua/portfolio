@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export default function Home() {
   return (
     <div className="scroll-view">
@@ -45,7 +47,9 @@ export default function Home() {
         </div>
       </div>
       <div className="section-wrapper">
-        <div className="pattern-bg"></div>
+        <div className="pattern-bg">
+          <div style={{ color: "red" }}>test</div>
+        </div>
       </div>
     </div>
   );
