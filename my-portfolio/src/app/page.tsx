@@ -5,27 +5,46 @@ export default function Home() {
     <div className="scroll-view">
       <div className="base-screen">
         <div className="image-container">
-          <img
+          {/* 
+
+          Mask layer for advanced layout - use as needed
+
+          <Image
             className="mask-layer"
             src="/images/background-mask-layer.png"
             alt="Mask Image"
-          ></img>
+            layout="fill"
+            objectFit="cover"
+            priority
+          /> */}
         </div>
       </div>
       <div className="section-wrapper">
         <div className="timeline">
           <div className="timeline-item">
-            <img src="/images/RI-logo-circle.png"></img>
+            <Image
+              src="/images/RI-logo-circle.png"
+              alt="RI Logo"
+              width={100}
+              height={100}
+              className="timeline-image"
+            />
             <div className="content">
               <h2>Raffles Institution (IP)</h2>
-              <h3>GCE 'A'-levels (2015-2020)</h3>
+              <h3>{"GCE 'A'-levels (2015-2020)"}</h3>
               <p>83.75 RP - AAB/B</p>
               <p>Raffles Diploma - Distinction</p>
               <p>Integrated Programme Y1-6 PCME</p>
             </div>
           </div>
           <div className="timeline-item">
-            <img src="/images/MINDEF-logo-circle.png"></img>
+            <Image
+              src="/images/MINDEF-logo-circle.png"
+              alt="MINDEF Logo"
+              width={100}
+              height={100}
+              className="timeline-image"
+            />
             <div className="content">
               <h2>National Service (Joint Service)</h2>
               <h3>Regular Service / Full-time NS (2021 - 2022)</h3>
@@ -35,12 +54,18 @@ export default function Home() {
             </div>
           </div>
           <div className="timeline-item">
-            <img src="/images/NUS-logo-circle.png"></img>
+            <Image
+              src="/images/NUS-logo-circle.png"
+              alt="NUS Logo"
+              width={100}
+              height={100}
+              className="timeline-image"
+            />
             <div className="content">
               <h2>National University of Singapore (NUS)</h2>
               <h3>BSC (Hons) in Business Analytics (2023 - Present)</h3>
               <p>4.48/5.00 CAP</p>
-              <p>Double Speciailisation in Machine Learning & Finance</p>
+              <p>Double Specialisation in Machine Learning & Finance</p>
               <p>Teaching Assistant for CS1010 - Programming Methodology</p>
             </div>
           </div>

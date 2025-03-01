@@ -2,7 +2,6 @@ body {
   color: var(--foreground);
   background: var(--background);
   font-family: Inter, Arial, Helvetica, sans-serif;
-  overscroll-behavior: none;
 }
 
 .overlay {
@@ -125,6 +124,7 @@ body {
 .scroll-view {
   display: flex;
   flex-direction: column;
+  height: 300vh;
   width: 100vw;
   overflow-y: scroll;
   scroll-snap-type: y mandatory;
@@ -212,13 +212,14 @@ body {
 }
 
 .section-wrapper {
+  display: flex;
   height: 100vh;
   background-color: white;
-  display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
   z-index: 3;
+  scroll-snap-align: start;
 }
 
 .pattern-bg {

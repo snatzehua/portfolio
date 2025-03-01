@@ -125,9 +125,9 @@ export default function RootLayout({
           className="header-statement"
           style={{ opacity: fadeOnScroll }}
         >
-          Hi, I'm Kieran.
+          {"Hi, I'm Kieran."}
           <div className="white-line"></div>{" "}
-          <p>I'm a Y2 Business Analytics student</p>
+          <p>{"I'm a Y2 Business Analytics student"}</p>
         </motion.div>
         <motion.img
           className="polaroid-pfp"
