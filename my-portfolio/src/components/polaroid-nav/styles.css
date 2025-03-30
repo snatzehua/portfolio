@@ -1,0 +1,156 @@
+.scrap-container {
+  transform: rotate(-3deg) translate(-50%, -50%);
+  position: absolute;
+  top: 25%;
+  left: 50%;
+  width: 768px;
+  aspect-ratio: 900 / 369;
+}
+
+.scrap-container .scrap-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+}
+
+.scrap-container p {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  font-size: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: black;
+  font-family: var(--font-reenie-beanie), cursive;
+  pointer-events: none;
+  transform: translateY(3%);
+}
+
+.scrap-image {
+  transform: scaleX(-1) rotate(2deg);
+}
+
+.polaroid-experience,
+.polaroid-about,
+.polaroid-explorations {
+  pointer-events: auto;
+  width: calc(10vw + 8vh); /* Set a visible size */
+  height: auto;
+  object-fit: contain;
+  display: block;
+  box-shadow: -4px 4px 4px rgba(0, 0, 0, 0.5);
+  z-index: 4;
+  transition: transform 0.15s ease-out, box-shadow 0.15s ease-out;
+}
+
+.polaroid-experience {
+  transform: translateY(calc(3vh + 3vw)) rotate(-3deg);
+}
+
+.polaroid-about {
+  transform: translateY(0vw) rotate(0deg);
+}
+
+.polaroid-explorations {
+  transform: translateY(calc(-3vh - 3vw)) rotate(3deg);
+}
+
+.polaroid-experience:hover,
+.polaroid-about:hover,
+.polaroid-explorations:hover {
+  box-shadow: -10px 16px 24px rgba(0, 0, 0, 0.25);
+}
+
+.polaroid-experience:hover {
+  transform: scale(1.1) translateY(2vw) rotate(0deg);
+}
+
+.polaroid-about:hover {
+  transform: scale(1.1) translateY(-2vw) rotate(0deg);
+}
+
+.polaroid-explorations:hover {
+  transform: scale(1.1) translateY(-6vw) rotate(0deg);
+}
+
+.nav-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  justify-content: space-between;
+  gap: calc(5vw + 4vh);
+  margin-top: 24vh;
+}
+
+.quote-container {
+  pointer-events: none;
+  position: absolute;
+  top: 10vh;
+  left: 2vw;
+  z-index: 2;
+  width: 80vw;
+  max-width: 700px;
+  padding: 1.5rem;
+  border-radius: 10px;
+}
+
+@media (max-width: 768px) {
+  .scrap-container {
+    width: 100%;
+  }
+
+  .scrap-container p {
+    font-size: 6.51vw;
+  }
+}
+
+@media (max-width: 480px) {
+  .nav-container {
+    flex-direction: column;
+    margin-top: 20vh;
+    margin-bottom: 5vh;
+    gap: 5vh;
+    justify-content: center;
+  }
+
+  .polaroid-experience,
+  .polaroid-about,
+  .polaroid-explorations {
+    width: calc(9vw + 9vh); 
+  }
+
+  .polaroid-experience {
+    transform: translate(24vw, 24vw) rotate(-2deg);
+  }
+
+  .polaroid-about {
+    transform: translateX(0vw) rotate(1deg);
+  }
+
+  .polaroid-explorations {
+    transform: translate(-24vw, -24vw) rotate(-3deg);
+  }
+
+  .polaroid-experience:hover {
+    transform: scale(1.2) translateX(0vw) translateY(2vw) rotate(0deg);
+  }
+  
+  .polaroid-about:hover {
+    transform: scale(1.2) translateX(0) translateY(0vw) rotate(0deg);
+  }
+  
+  .polaroid-explorations:hover {
+    transform: scale(1.2) translateX(-8vw) translateY(2vw) rotate(0deg);
+  }
+
+  .scrap-container {
+    top: 20vh;
+  }
+}

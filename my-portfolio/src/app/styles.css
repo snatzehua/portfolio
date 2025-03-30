@@ -1,147 +1,29 @@
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Inter, Arial, Helvetica, sans-serif;
-}
-
-.overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  background-color: #fbfafa; /* Equivalent to bg-black bg-opacity-50 */
-  color: #101827; /* Equivalent to text-white */
-  z-index: 50; /* Equivalent to z-50 */
-  box-shadow: 0px 1px 15px gray;
-}
-
-.menu-button {
-  display: flex;
-  align-items: center;
-  padding: 2vh; /* Equivalent to p-6 */
-  gap: 1vh; /* Equivalent to space-x-3 */
-  font-weight: 600; /* Equivalent to font-semibold */
-  cursor: pointer;
-  z-index: 3;
-}
-
-.burger-menu {
-  display: flex;
-  flex-direction: column;
-  gap: 6; /* Equivalent to space-y-1 */
-  align-items: center; /* Centers items */
-  justify-content: center;
-}
-
-.burger-menu div {
-  border-radius: 10px;
-  width: 24px; /* Equivalent to w-6 */
-  height: 3px; /* Equivalent to h-0.5 */
-  background-color: #101827;
-  margin: 0; /* Reset margin */
-  padding: 0; /* Reset padding */
-}
-
-.divider {
-  margin-left: 8px; /* Fix: ml-10px should be ml-2 or similar */
-  width: 1px; /* Equivalent to w-0.5 */
-  height: 36px; /* Equivalent to h-6 */
-  background-color: #101827;
-}
-
-.menu-text {
-  padding-left: 3;
-  font-weight: 600;
-  font-size: 24;
-}
-
-.menu-dropdown-wrapper {
-  position: absolute;    /* absolute */
-  top: 100%;             /* top-full → Positions it right below its parent */
-  left: 0;               /* left-0 */
-  width: 100vw;          /* w-screen → Full width of the viewport */
-  background-color: #111827; /* bg-gray-900 */
-  color: white;          /* text-white */
-  padding-top: 0.5rem;   /* py-2 → 2 * 0.25rem = 0.5rem */
-  padding-bottom: 0.5rem;
-}
-
-.menu-dropdown {
-  display: flex;           /* flex */
-  flex-direction: column;  /* flex-col */
-  align-items: center;     /* items-center */
-  justify-content: center; /* justify-center */
-  gap: 1.75rem;            /* space-y-7 → 7 * 0.25rem = 1.75rem */
-  padding: 2rem;           /* p-8 → 8 * 0.25rem = 2rem */
-  font-size: 1.125rem;     /* text-lg → 1.125rem = 18px */
-}
-
-/* Base navigation link */
-.nav-link {
-  position: relative;
-  text-decoration: none;
-  font-weight: 600;
-  font-size: 18px;
-  display: flex;
-  align-items: center; /* Aligns text and line vertically */
-  width: 100%;
-}
-
-/* Ensures all text items have the same width */
-.nav-link span {
-  display: inline-block;
-  min-width: 100px; /* Adjust this to match the longest text */
-  transition: transform 0.2s ease-in-out; /* Smooth expand effect */
-}
-
-/* Move the line to the right using ::after */
-.nav-link a::after {
-  content: "";
-  position: absolute;
-  left: 110px; /* Same as min-width + some padding */
-  top: 50%; /* Center aligns vertically */
-  transform: translateY(-50%); /* Perfect vertical centering */
-  width: calc(100% - 110px); /* Ensure it fills the rest of the space */
-  height: 2px; /* Thickness */
-  background: linear-gradient(to right, white, #101827); /* Gradient effect */
-  opacity: 0.5;
-  transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out;
-  pointer-events: none; /* Prevents interaction with the line */
-}
-
-/* Expand the text when hovering */
-.nav-link a:hover span {
-  transform: scale(1.1); /* Slightly enlarges text */
-}
-
-/* On hover, make the line fully visible */
-.nav-link a:hover::after {
-  opacity: 1;
-  transform: translateY(-50%) scaleX(1.01); /* Slightly expands on hover */
-}
-
-/* Scrollable container (must have `overflow-y: scroll` for snapping to work) */
-.scroll-view {
-  display: flex;
-  flex-direction: column;
-  height: 300vh;
-  width: 100vw;
-  overflow-y: scroll;
-  scroll-snap-type: y mandatory;
-}
-
 .base-screen {
   display: flex;
   width: 100vw;
-  height: 100vh; /* Full height of viewport */
-  background-image: url("/images/IMG_3726.PNG"); /* Replace with your image path */
-  background-size: cover; /* Makes sure the image covers the entire div */
-  background-position: center; /* Centers the image */
-  background-repeat: no-repeat; /* Prevents repeating */
-  scroll-snap-align: start; /* Ensures it snaps at the top */
+  min-height: 100vh;
+  background-image: url("/images/IMG_3726.PNG");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.polaroid-pfp {
+  pointer-events: none;
+  position: fixed;
+  top: 54vh; /* Centers it in the viewport */
+  left: 75vw;
+  transform: translate(-50%, -50%) rotate(3deg); /* Centers it properly */
+  width: 16vw; /* Set a visible size */
+  height: auto;
+  object-fit: contain;
+  display: block;
+  box-shadow: 0 0 10 2 #444444;
+  z-index: 3; /* Ensure it's above other elements */
 }
 
 .header-statement {
+  pointer-events: none;
   position: fixed;
   top: 45vh;
   left: 39vw;
@@ -157,7 +39,7 @@ body {
 
 .white-line {
   width: 100%;
-  height: 2px;
+  height: 3px;
   background-color: white;
   margin-bottom: 12;
   text-shadow: 0 0 20 black;
@@ -166,24 +48,10 @@ body {
 .header-statement p {
   text-align: left;
   font-size: 2.4vw;
-  z-index: 3;
+  z-index: 100;
   text-shadow: 0 0 20 black;
 }
 
-.polaroid-pfp {
-  position: fixed;
-  top: 54vh; /* Centers it in the viewport */
-  left: 75vw;
-  transform: translate(-50%, -50%) rotate(3deg); /* Centers it properly */
-  width: 16vw; /* Set a visible size */
-  height: auto;
-  object-fit: contain;
-  display: block;
-  box-shadow: 0 0 10 2 #444444;
-  z-index: 3; /* Ensure it's above other elements */
-}
-
-/* Container for the image */
 .image-container {
   position: absolute;
   top: 0;
@@ -193,103 +61,23 @@ body {
   z-index: 2; /* Ensure the image is above the text */
 }
 
-/* Image styling */
-.mask-layer {
-  width: 100vw;
-  height: 100vh;
-  object-fit: cover; /* Ensure the image covers the container */
-}
-
-.word-layer {
-  width: 100vw;
-  height: 100vh;
-  z-index: 1;
-}
-
 .dynamic-wrapper {
   width: 100vw;
   height: 100vh;
 }
 
-.section-wrapper {
-  display: flex;
-  height: 100vh;
-  background-color: white;
-  flex-direction: row;
+.arrow-container {
+  position: absolute;
+  bottom: 2vh;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  cursor: pointer;
+  width: 10vh;
+  display: flex; /* Ensures no extra space */
   justify-content: center;
   align-items: center;
-  z-index: 3;
-  scroll-snap-align: start;
-}
-
-.pattern-bg {
-  border-radius: 5;
-  margin: 1vw;
-  background: 
-    radial-gradient(circle, #ccc 1px, transparent 2px), 
-    repeating-linear-gradient(white 0px, white 20px, transparent 21px, transparent 40px),
-    repeating-linear-gradient(90deg, white 0px, white 20px, transparent 21px, transparent 40px);
-  background-size: 16px 16px;
-  background-color: white;
-  height: 100%;
-  flex: 1;
-  box-shadow: inset 0 0 10 3 rgb(0, 0, 0, 0.1), 0 0 10 3 rgb(0, 0, 0, 0.2);
-  z-index: 5;
-}
-
-.timeline {
-  position: relative;
-  margin: 0 auto;
-}
-
-/* Vertical Line */
-.timeline::after {
-  content: "";
-  position: absolute;
-  width: 0.2vh;
-  height: 45vh;
-  background-color: #a2a3a6;
-  top: 0;
-  bottom: 0;
-  left: 7.5vh;
-}
-
-.timeline-item {
-  background-color: white;
-  display: flex;
-  align-items: flex-start;
-  margin-bottom: 6vh;
-  position: relative;
-}
-
-.timeline-item h2 {
-  color: black;
-  font-weight: 600;
-  font-size: 2.4vh;
-  margin-bottom: -0.5vh;
-}
-
-.timeline-item h3 {
-  color: #818181;
-  font-weight: 600;
-  font-size: 1.6vh;
-  margin-bottom: 0.5vh;
-  text-shadow: 0 0 10 white;
-}
-
-.timeline-item p {
-  color: #444444;
-  font-weight: 400;
-  font-size: 1.6vh;
-}
-
-.timeline-item img {
-  width: 15vh;
-  height: 15vh;
-  object-fit: cover;
-  border-radius: 50%;
-  margin-right: 2vh;
-  z-index: 3;
+  pointer-events: none; /* Ensures it doesn't interact with other elements */
 }
 
 @media (max-width: 480px) {
@@ -299,79 +87,15 @@ body {
     font-size: 11vw;
   }
 
+  .header-statement p {
+    text-align: center;
+    font-size: 4vw;
+  }
+
   .polaroid-pfp {
     transform: translate(-50%, -50%) rotate(1deg); /* Centers it properly */
     top: 45vh;
     left: 51vw;
     width: 45vw;
-  }
-
-  .menu-dropdown-wrapper {
-    padding-top: 0.1rem;
-    padding-bottom: 0.3rem;
-  }
-
-  .menu-dropdown {
-    padding: 20;
-    gap: 1.25rem;
-  }
-
-  .header-statement p {
-    text-align: center;
-    font-size: 4vw;
-  }
-  
-  .timeline {
-    position: relative;
-    max-width: 800px;
-    margin: 1vw;
-  }
-  
-  /* Vertical Line */
-  .timeline::after {
-    content: "";
-    position: absolute;
-    width: 0.2vh;
-    height: 36vh;
-    background-color: #a2a3a6;
-    left: 4vh;
-  }
-  
-  .timeline-item {
-    background-color: white;
-    display: flex;
-    align-items: flex-start;
-    margin-bottom: 6vh;
-    position: relative;
-  }
-  
-  .timeline-item h2 {
-    color: black;
-    font-weight: 600;
-    font-size: 1.6vh;
-    margin-bottom: -0.2vh;
-  }
-  
-  .timeline-item h3 {
-    color: #818181;
-    font-weight: 600;
-    font-size: 1.2vh;
-    margin-bottom: 0.3vh;
-    text-shadow: 0 0 10 white;
-  }
-  
-  .timeline-item p {
-    color: #444444;
-    font-weight: 400;
-    font-size: 1.2vh;
-  }
-  
-  .timeline-item img {
-    width: 8vh;
-    height: 8vh;
-    object-fit: cover;
-    border-radius: 50%;
-    margin-right: 1.5vh;
-    z-index: 3;
   }
 }

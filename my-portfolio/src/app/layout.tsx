@@ -1,21 +1,18 @@
 "use client";
 
-import { Geist, Geist_Mono, Inter } from "next/font/google";
-import { useState } from "react";
-import {
-  motion,
-  AnimatePresence,
-  useScroll,
-  useTransform,
-} from "framer-motion";
-
 import "./globals.css";
-import "./styles.css";
+
+import { Geist, Geist_Mono, Inter, Reenie_Beanie } from "next/font/google";
+import { useState, useRef, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { usePathname } from "next/navigation";
+import Link from "next/link"; // Import Link
 
 const navLinks = [
   { name: "Home", href: "/" },
   { name: "About", href: "/about" },
-  { name: "Projects", href: "/projects" },
+  { name: "Experience", href: "/experience" },
+  { name: "Explorations", href: "/explorations" },
   { name: "Contact", href: "/contact" },
 ];
 
@@ -34,6 +31,12 @@ const inter = Inter({
   subsets: ["latin"],
 });
 
+const reenieBeanie = Reenie_Beanie({
+  variable: "--font-reenie-beanie",
+  weight: "400",
+  subsets: ["latin"],
+});
+
 // Menu animation using clipPath for a smooth reveal
 const menuVariants = {
   hidden: { clipPath: "inset(0% 0% 100% 0%)", opacity: 0 },
@@ -43,7 +46,7 @@ const menuVariants = {
     transition: {
       duration: 0.4,
       ease: "easeInOut",
-      staggerChildren: 0.2,
+      staggerChildren: 0.12,
       delayChildren: 0.1,
     },
   },
@@ -66,17 +69,41 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   const [menuOpen, setMenuOpen] = useState(false);
-  const { scrollYProgress } = useScroll();
-  const fadeOnScroll = useTransform(scrollYProgress, [0, 0.25], [1, 0]); // Reverse mapping
+  const menuRef = useRef<HTMLDivElement>(null);
+  const menuButtonRef = useRef<HTMLButtonElement>(null); // New reference for menu button
+  const pathname = usePathname();
+
+  // Close menu when clicking outside
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent) {
+      if (
+        menuRef.current &&
+        !menuRef.current.contains(event.target as Node) &&
+        menuButtonRef.current &&
+        !menuButtonRef.current.contains(event.target as Node) // Ignore clicks on the menu button
+      ) {
+        setMenuOpen(false);
+      }
+    }
+
+    if (menuOpen) {
+      document.addEventListener("mousedown", handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [menuOpen]);
 
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${inter.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${inter.variable} ${reenieBeanie.variable} antialiased`}
       >
         {/* Fixed Overlay */}
         <div className="overlay">
           <button
+            ref={menuButtonRef} // Attach ref to menu button
             className="menu-button"
             onClick={() => setMenuOpen(!menuOpen)}
           >
@@ -94,10 +121,16 @@ export default function RootLayout({
             <p className="menu-text">M E N U</p>
           </button>
 
+          {/* Full-screen overlay that closes the menu when clicked */}
+          {menuOpen && (
+            <div className="menu-overlay" onClick={() => setMenuOpen(false)} />
+          )}
+
           {/* Full-width sliding dropdown with smooth clipPath animation */}
           <AnimatePresence>
             {menuOpen && (
               <motion.div
+                ref={menuRef} // Attach ref to the menu container
                 initial="hidden"
                 animate="visible"
                 exit="exit"
@@ -111,9 +144,13 @@ export default function RootLayout({
                       variants={itemVariants}
                       className="nav-link"
                     >
-                      <a href={link.href}>
+                      <Link
+                        href={link.href}
+                        scroll={false}
+                        onClick={() => setMenuOpen(false)}
+                      >
                         <span>{link.name}</span>
-                      </a>
+                      </Link>
                     </motion.li>
                   ))}
                 </motion.ul>
@@ -122,20 +159,15 @@ export default function RootLayout({
           </AnimatePresence>
         </div>
         <motion.div
-          className="header-statement"
-          style={{ opacity: fadeOnScroll }}
+          key={pathname}
+          initial={{ y: 10 }}
+          animate={{ y: 0 }}
+          exit={{ y: -10 }}
+          transition={{ duration: 0.4, ease: "easeInOut" }}
+          className="min-h-screen w-full bg-[#EDEBE9]" // or whatever your page bg is
         >
-          {"Hi, I'm Kieran."}
-          <div className="white-line"></div>{" "}
-          <p>{"I'm a Y2 Business Analytics student"}</p>
+          {children}
         </motion.div>
-        <motion.img
-          className="polaroid-pfp"
-          src="/images/polaroid_pfp_edited.png"
-          alt="PFP Image"
-          style={{ opacity: fadeOnScroll }}
-        ></motion.img>
-        {children}
       </body>
     </html>
   );

@@ -1,0 +1,38 @@
+.quote-wrapper {
+  border-left: 4px solid #ccc;
+  padding-left: 1.5rem;
+  margin: 2rem auto;
+  max-width: 700px;
+  font-family: Georgia, serif;
+  position: relative;
+}
+
+.quote-header {
+  font-weight: 600;
+  font-size: 1.6rem;
+  margin-bottom: 0.5rem;
+  color: #333;
+}
+
+.quote {
+  white-space: normal;
+  font-size: 1.4rem;
+  font-style: italic;
+  color: #333;
+  line-height: 2;
+  position: relative;
+}
+
+@media (max-width: 480px) {
+  .quote-header {
+    font-size: 1.2rem;
+  }
+
+  .quote {
+    font-size: 1rem;
+  }
+
+  .quote-mark {
+    font-size: 1rem;
+  }
+}
