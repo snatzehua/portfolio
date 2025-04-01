@@ -4,7 +4,23 @@ export default {
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/app/**/*.{js,ts,jsx,tsx,mdx,css}",
+  ],  
+  safelist: [
+    'overlay',
+    'menu-button',
+    'burger-menu',
+    'divider',
+    'menu-text',
+    'menu-dropdown-wrapper',
+    'menu-dropdown',
+    'nav-link',
+    'site-footer',
+    'scroll-section',
+    'scroll-view',
+    'section-wrapper',
+    'pattern-bg',
+    // ...any other custom class names you use in CSS
   ],
   theme: {
     extend: {
