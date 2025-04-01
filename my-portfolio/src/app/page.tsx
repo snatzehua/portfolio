@@ -6,6 +6,16 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import ArrowSVG from "@/assets/svg/ArrowSVG";
 import PolaroidNavigation from "@/components/polaroid-nav/polaroid-nav";
+import Head from "next/head";
+
+<Head>
+  <link
+    rel="preload"
+    as="image"
+    href="/images/IMG_3726.PNG"
+    fetchPriority="high"
+  />
+</Head>;
 
 export default function Home() {
   const scrollRef = useRef(null);

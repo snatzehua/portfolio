@@ -21,7 +21,7 @@ export default function Home() {
         />
         <div className="scroll-section">
           <div className="section-wrapper">
-            <video className="video-element" controls>
+            <video className="video-element" controls preload="auto">
               <source src="/videos/japan-vlog-portfolio.mp4" type="video/mp4" />
               Your browser does not support the video tag.
             </video>
@@ -36,6 +36,7 @@ export default function Home() {
                 width={1000}
                 height={1000}
                 className="bs1"
+                priority
               />
               <Image
                 src="/images/blacksmith2.JPG"
@@ -43,6 +44,7 @@ export default function Home() {
                 width={1000}
                 height={1000}
                 className="bs2"
+                priority
               />
             </div>
           </div>

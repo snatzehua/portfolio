@@ -1,6 +1,16 @@
 import "./styles.css";
 
 import Image from "next/image";
+import Head from "next/head";
+
+<Head>
+  <link
+    rel="preload"
+    as="image"
+    href="/images/folder.png"
+    fetchPriority="high"
+  />
+</Head>;
 
 interface FolderProps {
   title: string;
@@ -40,6 +50,7 @@ export default function Folder({
               width={10000}
               height={10000}
               className="project-image"
+              priority
             />
           </div>
           <div className="folder-tags">

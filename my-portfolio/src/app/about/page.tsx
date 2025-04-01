@@ -51,6 +51,7 @@ export default function Home() {
                     width={1000}
                     height={1000}
                     className="img"
+                    priority
                   />
                 </div>
               </div>
@@ -68,6 +69,7 @@ export default function Home() {
                     width={1000}
                     height={1000}
                     className="img"
+                    priority
                   />
                 </div>
               </div>
@@ -122,6 +124,7 @@ export default function Home() {
                     width={1000}
                     height={1000}
                     className="img"
+                    priority
                   />
                 </div>
               </div>
