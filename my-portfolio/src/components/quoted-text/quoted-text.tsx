@@ -1,7 +1,7 @@
 import "./styles.css";
 
 interface QuoteProps {
-  text: string;
+  text: React.ReactNode;
   header?: string;
 }
 

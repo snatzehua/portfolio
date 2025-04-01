@@ -19,7 +19,7 @@ export default function Home() {
       >
         {"Hi, I'm Kieran."}
         <div className="white-line"></div>{" "}
-        <p>{"I'm a Y2 Business Analytics student"}</p>
+        <p>{"I'm a computing student at NUS"}</p>
       </motion.div>
       <motion.img
         className="polaroid-pfp"

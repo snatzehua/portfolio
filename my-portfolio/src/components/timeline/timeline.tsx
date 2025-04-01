@@ -1,7 +1,7 @@
 import Image from "next/image";
 
 import "./styles.css";
-import { timelineEntries } from "@/components/timeline/timeline-entries"; // adjust path accordingly
+import { timelineEntries } from "@/components/timeline/timeline-entries";
 
 export default function Timeline() {
   return (

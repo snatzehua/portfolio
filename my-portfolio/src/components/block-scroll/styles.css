@@ -1,0 +1,43 @@
+.folder-scroll-view {
+  display: flex;
+  overflow-y: hidden;
+  overflow-x: auto;
+  scroll-snap-type: x proximity;
+  scroll-behavior: smooth;
+  height: auto;
+  width: 100vw;
+  overscroll-behavior-x: contain; /* Prevent iOS-like bounce */
+  -webkit-overflow-scrolling: touch; /* Improves mobile behavior */
+}
+
+.h-scroll-prompt {
+  left: 50%;
+  bottom: 5%;
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-family: sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  animation: scrollBounce 10s ease-in-out infinite;
+  gap: 5px;
+  z-index: 100;
+}
+
+.h-scroll-text {
+  color: black;
+  font-weight: 600;
+}
+
+.h-scroll-line {
+  width: 30px;
+  height: 2px;
+  background: black;
+}
+
+.section-wrapper {
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}

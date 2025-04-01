@@ -1,0 +1,38 @@
+.video-element {
+  width: auto;
+  max-width: 100%;
+  max-height: 80vh;
+  border-radius: 12px;
+  margin-top: 2rem;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+.bs1,
+.bs2 {
+  position: relative;
+  min-width: 150px;
+  width: 20vw;
+  border-width: 5px;
+  border-color: white;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+.bs1 {
+  left: 10px;
+  transform: rotate(-4deg)
+}
+
+.bs2 {
+  left: 10px;
+  transform: translate(-1vw, 3vh) rotate(3deg)
+}
+
+.section-container {
+  display: flex;
+}
+
+@media (max-width: 768px) {
+  .section-container {
+    flex-direction: column;
+  }
+}

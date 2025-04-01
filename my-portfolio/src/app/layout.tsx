@@ -168,6 +168,9 @@ export default function RootLayout({
         >
           {children}
         </motion.div>
+        <footer className="site-footer">
+          <p>© 2025 Kieran Ho. All rights reserved.</p>
+        </footer>
       </body>
     </html>
   );

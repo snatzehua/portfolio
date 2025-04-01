@@ -1,0 +1,139 @@
+.folder-section {
+  flex-shrink: 0;
+  width: 100vw;
+  height: 100vh;
+  scroll-snap-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: sticky;
+  left: 0;
+  top: 0;
+  pointer-events: none;
+  z-index: calc(10 + var(--i));
+  transform: translate(calc(var(--i) * 2px), calc(var(--i) * 4px)) rotate(calc(var(--i) * -0.1deg));
+}
+
+/* default - scale with vh, capped at 70vh */
+.folder-image-wrapper {
+  background-image: url("/images/folder.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 70vh;
+  aspect-ratio: 4134 / 5000; /* 0.8268 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.folder-content {
+  height: 50vh;
+  aspect-ratio: 4134 / 5000; /* 0.8268 */
+  display: flex;
+  flex-direction: column;
+  gap: 1.5vh;
+  overflow: hidden;
+  box-sizing: border-box;
+  color: black;
+  justify-content: space-between;
+  padding-left: 5vh;
+  padding-right: 0vh;
+}
+
+.folder-content h1 {
+  font-size: 3vh;
+  font-weight: bold;
+  margin-bottom: 1vh;
+}
+
+.folder-period {
+  font-size: 1.5vh;
+  font-weight: 600;
+  color: #555;
+  margin: 0;
+}
+
+.folder-description {
+  line-height: 2vh;
+  font-size: 1.4vh;
+}
+
+.folder-image {
+  position: relative;
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  transform: rotate(1deg);
+}
+
+.project-image {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  width: auto;
+  height: auto;
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.25);
+  border-width: 5px;
+  border-color: white;
+}
+
+.folder-tags {
+  display: flex;
+  gap: 0.6vh;
+}
+
+.folder-tag {
+  background: #e0e0e0;
+  padding: 0.4vh 0.8vh;
+  border-radius: 0.4vh;
+  font-size: 1.2vh;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.25);
+  margin-bottom: 5px;
+}
+
+@media (max-aspect-ratio: 0.8268) {
+
+  .folder-image-wrapper {
+    height: 120.948vw;
+  }
+  
+  .folder-content {
+    height: 86.39vw;
+    padding-left: 8.639vw;
+  }
+  
+  .folder-content h1 {
+    font-size: 5.1834vw;
+    margin-bottom: 1.7278vw;
+  }
+  
+  .folder-period {
+    font-size: 2.5917vw;
+  }
+  
+  .folder-description {
+    line-height: 3.4556vw;
+    font-size: 2.419vw;
+  }
+  
+  .folder-tags {  
+    gap: 1.0367vw;
+  }
+  
+  .folder-tag {
+    background: #e0e0e0;
+    padding: 0.6911vw 1.3822vw;
+    border-radius: 0.6911vw;
+    font-size: 2.0734vw;
+  }
+}
+
+@media (max-width: 480px) {
+  .section-wrapper {
+    flex-direction: row;
+  }
+}

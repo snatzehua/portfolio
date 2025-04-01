@@ -12,6 +12,21 @@ export default {
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
+      animation: {
+        bounceLine: 'scrollBounce 1.5s infinite ease-in-out',
+      },
+      keyframes: {
+        scrollBounce: {
+          '0%, 100%': {
+            transform: 'translateY(0)',
+            opacity: '0.3',
+          },
+          '50%': {
+            transform: 'translateY(10px)',
+            opacity: '1',
+          },
+        },
+      },
     },
   },
   plugins: [],

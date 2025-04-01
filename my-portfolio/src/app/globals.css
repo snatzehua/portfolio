@@ -180,6 +180,21 @@ body {
   z-index: 5;
 }
 
+.site-footer {
+  text-align: start;
+  position: fixed;
+  width: 100%;
+  bottom: 5px;
+  left: 0px;
+  z-index: 50;
+  background-color: transparent;
+  color: #555;
+  font-size: 0.75rem;
+  pointer-events: none;
+  text-align: center;
+}
+
+
 @media (max-width: 480px) {
   .section-wrapper {
     flex-direction: column;

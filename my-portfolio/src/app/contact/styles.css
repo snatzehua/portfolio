@@ -1,0 +1,55 @@
+.contacts-container {
+  padding: 6vh 4vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centers the block horizontally */
+  justify-content: center;
+  text-align: left; /* Ensure internal text is left-aligned */
+  min-height: 100vh;
+}
+
+.contacts-block {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Align all inner content to the left */
+  width: 100%;
+  max-width: 480px; /* Controls the width of the entire block */
+}
+
+.contacts-title {
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 700;
+  color: #111;
+}
+
+.contacts-subtext {
+  font-size: clamp(0.8rem, 2vw, 1.25rem);
+  color: #555;
+  margin-bottom: 2vh;
+}
+
+.contacts-icons {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.5rem;
+  width: 100%;
+}
+
+.contacts-icons a {
+  text-decoration: none;
+  color: #222;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: clamp(0.8rem, 2vw, 1.25rem);
+  transition: transform 0.2s ease;
+}
+
+.contacts-icons a:hover {
+  transform: scale(1.03);
+}
+
+.contacts-icon {
+  font-size: 2rem;
+}
