@@ -25,7 +25,7 @@
 .burger-menu {
   display: flex;
   flex-direction: column;
-  gap: 6; /* Equivalent to space-y-1 */
+  gap: 6px; /* Equivalent to space-y-1 */
   align-items: center; /* Centers items */
   justify-content: center;
 }
@@ -47,9 +47,9 @@
 }
 
 .menu-text {
-  padding-left: 3;
+  padding-left: 3px;
   font-weight: 600;
-  font-size: 24;
+  font-size: 24px;
 }
 
 .menu-dropdown-wrapper {
