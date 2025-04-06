@@ -110,7 +110,7 @@ export default function Home() {
                     master — just a broad curiosity and the drive to keep
                     growing wherever I can bring value.
                   </p>
-                  <Link href="/explorations" className="learn-more">
+                  <Link href="/contact" className="learn-more">
                     <span>Find my contact information and socials here</span>
                     <span className="arrow">→</span>
                   </Link>
