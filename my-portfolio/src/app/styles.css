@@ -1,7 +1,8 @@
 .base-screen {
   display: flex;
   width: 100vw;
-  min-height: 100vh;
+  min-height: calc(var(--vh, 1vh) * 100);
+;
   background-image: url("/images/IMG_3726.PNG");
   background-size: cover;
   background-position: center;
@@ -57,13 +58,15 @@
   top: 0;
   left: 0;
   width: 100vw;
-  height: 100vh; /* Make the image cover the viewport */
+  height: calc(var(--vh, 1vh) * 100);
+; /* Make the image cover the viewport */
   z-index: 2; /* Ensure the image is above the text */
 }
 
 .dynamic-wrapper {
   width: 100vw;
-  height: 100vh;
+  height: calc(var(--vh, 1vh) * 100);
+;
 }
 
 .arrow-container {

@@ -17,7 +17,7 @@ body {
 .scroll-view {
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  height: calc(var(--vh, 1vh) * 100);
   width: 100vw;
   overflow-y: scroll;
   scroll-snap-type: y mandatory;
@@ -25,7 +25,7 @@ body {
 
 .scroll-section {
   width: 100vw;
-  min-height: 100vh;
+  height: calc(var(--vh, 1vh) * 100);
   scroll-snap-align: start;
   z-index: 2
 }
@@ -33,9 +33,11 @@ body {
 .section-wrapper {
   position: relative;
   display: flex;
-  height: 100vh;
+  height: calc(var(--vh, 1vh) * 100);
+;
   width: 100vw;
-  min-height: 100vh;
+  min-height: calc(var(--vh, 1vh) * 100);
+;
   background-color: #FAFAFA;
   flex-direction: row;
   justify-content: center;

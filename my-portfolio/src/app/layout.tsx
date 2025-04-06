@@ -4,8 +4,10 @@ import "./styles.css";
 import "./globals.css";
 
 import { Geist, Geist_Mono, Inter, Reenie_Beanie } from "next/font/google";
+import { Analytics } from "@vercel/analytics/react";
 import { motion } from "framer-motion";
 import { usePathname } from "next/navigation";
+import { useEffect } from "react";
 import NavBar from "@/components/navbar/navbar"; // Adjust path accordingly
 
 const geistSans = Geist({
@@ -36,6 +38,17 @@ export default function RootLayout({
 }>) {
   const pathname = usePathname();
 
+  useEffect(() => {
+    const setVh = () => {
+      const vh = window.innerHeight * 0.01;
+      document.documentElement.style.setProperty("--vh", `${vh}px`);
+    };
+
+    setVh(); // Run on mount
+    window.addEventListener("resize", setVh);
+    return () => window.removeEventListener("resize", setVh);
+  }, []);
+
   return (
     <html lang="en">
       <body
@@ -51,6 +64,7 @@ export default function RootLayout({
           className="min-h-screen w-full bg-[#EDEBE9]" // or whatever your page bg is
         >
           {children}
+          <Analytics />
         </motion.div>
         <footer className="site-footer">
           <p>© 2025 Kieran Ho. All rights reserved.</p>

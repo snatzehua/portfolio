@@ -1,7 +1,8 @@
 .folder-section {
   flex-shrink: 0;
   width: 100vw;
-  height: 100vh;
+  height: calc(var(--vh, 1vh) * 100);
+;
   scroll-snap-align: center;
   display: flex;
   justify-content: center;
@@ -56,6 +57,7 @@
 }
 
 .folder-description {
+  text-align: justify;
   line-height: 2vh;
   font-size: 1.4vh;
 }
@@ -96,40 +98,41 @@
 }
 
 @media (max-aspect-ratio: 0.8268) {
-
   .folder-image-wrapper {
-    height: 120.948vw;
+    height: 100vw;
+    /* height: 120.948vw; */
   }
   
   .folder-content {
-    height: 86.39vw;
-    padding-left: 8.639vw;
+    height: 71.4295vw;
+    padding-left: 7.1411vw;
   }
   
   .folder-content h1 {
-    font-size: 5.1834vw;
-    margin-bottom: 1.7278vw;
+    font-size: 4.2858vw;
+    margin-bottom: 1.4286vw;
   }
   
   .folder-period {
-    font-size: 2.5917vw;
+    font-size: 2.1429vw;
   }
   
   .folder-description {
-    line-height: 3.4556vw;
-    font-size: 2.419vw;
+    line-height: 2.8572vw;
+    font-size: 2.2000vw;
   }
   
-  .folder-tags {  
-    gap: 1.0367vw;
+  .folder-tags {
+    gap: 0.8571vw;
   }
   
   .folder-tag {
     background: #e0e0e0;
-    padding: 0.6911vw 1.3822vw;
-    border-radius: 0.6911vw;
-    font-size: 2.0734vw;
+    padding: 0.5714vw 1.1429vw;
+    border-radius: 0.5714vw;
+    font-size: 1.7143vw;
   }
+
 }
 
 @media (max-width: 480px) {

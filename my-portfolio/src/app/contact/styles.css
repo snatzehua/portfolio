@@ -5,7 +5,8 @@
   align-items: center; /* Centers the block horizontally */
   justify-content: center;
   text-align: left; /* Ensure internal text is left-aligned */
-  min-height: 100vh;
+  min-height: calc(var(--vh, 1vh) * 100);
+;
 }
 
 .contacts-block {

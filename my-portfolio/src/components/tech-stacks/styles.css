@@ -3,6 +3,7 @@
   flex-direction: column;
   gap: clamp(0.75rem, 2vw, 2rem); 
   padding: clamp(3rem, 6vh, 6rem) clamp(1rem, 2.5vw, 2rem) clamp(1.5rem, 4vh, 3rem);
+  margin-top: 50px;
   width: 100%;
   box-sizing: border-box;
 }
