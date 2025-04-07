@@ -36,7 +36,7 @@ export default function PolaroidNavigation() {
                 className="polaroid-about"
               ></Image>
             </Link>
-            <Link className="nav-component" href="/projects">
+            <Link className="nav-component" href="/explorations">
               <Image
                 src="/images/polaroid-explorations-1.jpg"
                 alt="NUS Logo"
