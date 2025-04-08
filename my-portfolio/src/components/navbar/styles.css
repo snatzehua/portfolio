@@ -116,3 +116,15 @@
   opacity: 1;
   transform: translateY(-50%) scaleX(1.01);
 }
+
+@media (max-width: 480px) {
+  .menu-dropdown-wrapper {
+    padding-top: 0.1rem;
+    padding-bottom: 0.3rem;
+  }
+
+  .menu-dropdown {
+    padding: 20px;
+    gap: 1.25rem;
+  }
+}
