@@ -1,0 +1,78 @@
+.mobile-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(10, 10, 10, 0.85); /* dark overlay */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+}
+
+.mobile-modal {
+  background-color: #1a1a1a; /* dark background */
+  border: 1px solid #e6e6e6; /* soft light border */
+  border-radius: 12px;
+  padding: 24px;
+  max-width: 90vw;
+  color: white;
+  text-align: center;
+  font-family: "Inter", sans-serif;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+.mobile-modal h2 {
+  color: white;
+  font-size: 1.2rem;
+  margin-bottom: 16px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.mobile-modal p {
+  font-size: 0.95rem;
+  color: #dddddd;
+  margin-bottom: 16px;
+}
+
+.mobile-modal button {
+  background-color: white;
+  color: #1a1a1a;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: background-color 0.2s ease;
+}
+
+.checkbox-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.85rem;
+  color: #cccccc;
+  margin: 12px 0;
+  justify-content: center;
+  user-select: none;
+}
+
+.checkbox-row input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  accent-color: white;
+}
+
+
+.mobile-modal button:hover {
+  background-color: #e6e6e6;
+}
+
+@media (min-width: 768px) {
+  .mobile-modal-overlay {
+    display: none;
+  }
+}

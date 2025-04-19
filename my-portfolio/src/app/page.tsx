@@ -18,7 +18,7 @@ export default function Home() {
         <link
           rel="preload"
           as="image"
-          href="/images/IMG_3726.PNG"
+          href="/images/IMG_3726.webp"
           fetchPriority="high"
         />
       </Head>

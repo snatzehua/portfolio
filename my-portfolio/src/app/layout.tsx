@@ -8,7 +8,8 @@ import { Analytics } from "@vercel/analytics/react";
 import { motion } from "framer-motion";
 import { usePathname } from "next/navigation";
 import { useEffect } from "react";
-import NavBar from "@/components/navbar/navbar"; // Adjust path accordingly
+import NavBar from "@/components/navbar/navbar";
+import MobileWarning from "@/components/mobile-warning/mobile-warning";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -54,6 +55,8 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${inter.variable} ${reenieBeanie.variable} antialiased`}
       >
+        <MobileWarning />
+
         <NavBar />
         <motion.div
           key={pathname}
@@ -61,7 +64,8 @@ export default function RootLayout({
           animate={{ y: 0 }}
           exit={{ y: -10 }}
           transition={{ duration: 0.4, ease: "easeInOut" }}
-          className="min-h-screen w-full bg-[#EDEBE9]" // or whatever your page bg is
+          className="w-full"
+          style={{ minHeight: "calc(var(--vh, 1vh) * 100)" }}
         >
           {children}
           <Analytics />

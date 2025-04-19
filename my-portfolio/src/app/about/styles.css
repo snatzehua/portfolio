@@ -10,7 +10,6 @@
   display: flex;
   width: 55vw;
   height: calc(var(--vh, 1vh) * 100);
-;
   color: black;
   flex-direction: column;
   align-items: center;
