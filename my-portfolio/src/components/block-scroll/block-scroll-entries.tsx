@@ -4,7 +4,7 @@ export const projects = [
     period: "JAN 2025 - PRESENT",
     description:
       "Client-agent matching model to improve policy conversion, trained on 60k+ records using PyTorch and custom loss functions, outperforming baseline by 800×.",
-    tags: ["Machine Learing", "Financial Analytics", "Python"],
+    tags: ["Machine Learning", "Financial Analytics", "Python"],
     imgSrc: "/images/singlife.png",
   },
   {
