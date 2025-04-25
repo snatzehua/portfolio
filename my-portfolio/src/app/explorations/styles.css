@@ -86,6 +86,28 @@
   height: 100%;
 }
 
+.flow-line-1,
+.flow-line-2 {
+  content: "";
+  position: absolute;
+  width: 1px;
+  height: 15vh;
+  background-color: black; /* light grey */
+  opacity: 0.3;
+}
+
+.flow-line-1 {
+  left: 0px; /* align to start of text */
+  bottom: 0px;
+  transform: translateX(50vw);
+}
+
+.flow-line-2 {
+  left: 0px; /* align to start of text */
+  top: 0px;
+  transform: translateX(50vw);
+}
+
 @media (max-width: 768px) {
   .explorations-section-container {
     flex-direction: column;
@@ -117,5 +139,10 @@
 
   .explorations-photo-grid {
     grid-template-columns: repeat(6, 1fr);
+  }
+
+  .flow-line-1,
+  .flow-line-2 {
+    display: none;
   }
 }

@@ -21,6 +21,7 @@ export default function Home() {
         />
         <div className="scroll-section">
           <div className="section-wrapper">
+            <div className="flow-line-1" />
             <div className="explorations-section-container">
               <video className="video-element" controls preload="auto">
                 <source
@@ -45,6 +46,8 @@ export default function Home() {
         </div>
         <div className="scroll-section">
           <div className="section-wrapper">
+            <div className="flow-line-1" />
+            <div className="flow-line-2" />
             <div className="explorations-section-container reverse-on-mobile">
               <div className="explorations-text-container-right">
                 <h1>Finding Moments</h1>
@@ -75,6 +78,7 @@ export default function Home() {
         </div>
         <div className="scroll-section">
           <div className="section-wrapper">
+            <div className="flow-line-2" />
             <div className="explorations-section-container">
               <div className="explorations-img-container">
                 <Image

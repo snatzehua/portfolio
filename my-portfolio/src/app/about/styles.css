@@ -49,6 +49,28 @@
   margin: 5vw;
 }
 
+.flow-line-1,
+.flow-line-2 {
+  content: "";
+  position: absolute;
+  width: 1px;
+  height: 15vh;
+  background-color: black; /* light grey */
+  opacity: 0.3;
+}
+
+.flow-line-1 {
+  left: 0px; /* align to start of text */
+  bottom: 0px;
+  transform: translateX(50vw);
+}
+
+.flow-line-2 {
+  left: 0px; /* align to start of text */
+  top: 0px;
+  transform: translateX(50vw);
+}
+
 .text-container h1 {
   margin-bottom: 1vh;
   font-size: 2.4vh;
@@ -114,5 +136,10 @@
     margin-left: 10vw;
     margin-right: 10vw;
     max-width: 40vh;
+  }
+
+  .flow-line-1,
+  .flow-line-2 {
+    display: none;
   }
 }

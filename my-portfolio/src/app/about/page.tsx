@@ -56,10 +56,13 @@ export default function Home() {
                 </div>
               </div>
             </div>
+            <div className="flow-line-1" />
           </div>
         </div>
         <div className="scroll-section">
           <div className="section-wrapper">
+            <div className="flow-line-1" />
+            <div className="flow-line-2" />
             <div className="section-container">
               <div className="img-side">
                 <div className="img-wrapper">
@@ -85,17 +88,19 @@ export default function Home() {
                     and I’m drawn to projects that let me build something that
                     feels authentic and meaningful.
                   </p>
+                  <div className="flow-line" />
                   <Link href="/explorations" className="learn-more">
                     <span>Find out more about my hobbies & explorations</span>
                     <span className="arrow">→</span>
                   </Link>
-                </div>{" "}
+                </div>
               </div>
             </div>
           </div>
         </div>
         <div className="scroll-section">
           <div className="section-wrapper">
+            <div className="flow-line-2" />
             <div className="section-container">
               <div className="text-side">
                 <div className="text-container">
