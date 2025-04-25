@@ -20,6 +20,8 @@ import {
   SiAdobephotoshop,
   SiCanva,
   SiFigma,
+  SiVuedotjs,
+  SiScikitlearn,
   SiCplusplus, // used as a fallback for C
 } from "react-icons/si";
 
@@ -51,7 +53,9 @@ export const techStacks = [
       { name: "PyTorch", icon: <SiPytorch /> },
       { name: "NumPy", icon: <SiNumpy /> },
       { name: "pandas", icon: <SiPandas /> },
+      { name: "scikit-learn", icon: <SiScikitlearn /> },
       { name: "Next.js", icon: <SiNextdotjs /> },
+      { name: "Vue.js", icon: <SiVuedotjs /> },
       { name: "Expo", icon: <SiExpo /> },
       { name: "Tableau", icon: <SiTableau /> },
       { name: "GitHub", icon: <SiGithub /> },
