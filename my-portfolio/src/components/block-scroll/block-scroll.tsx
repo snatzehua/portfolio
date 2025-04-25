@@ -8,27 +8,21 @@ import { projects } from "@/components/block-scroll/block-scroll-entries";
 
 export default function BlockScroll() {
   const scrollRef = useRef<HTMLDivElement>(null);
-  const [scrollProgress, setScrollProgress] = useState(0);
+  const [activeIndex, setActiveIndex] = useState(0);
 
   useEffect(() => {
     const el = scrollRef.current;
     if (!el) return;
 
-    const updateScrollProgress = () => {
-      const maxScrollLeft = el.scrollWidth - el.clientWidth;
-      const progress = (el.scrollLeft / maxScrollLeft) * 100;
-      setScrollProgress(progress);
+    const handleScroll = () => {
+      const scrollLeft = el.scrollLeft;
+      const itemWidth = el.scrollWidth / projects.length;
+      const index = Math.round(scrollLeft / itemWidth);
+      setActiveIndex(index);
     };
 
-    el.addEventListener("scroll", updateScrollProgress);
-    window.addEventListener("resize", updateScrollProgress);
-
-    updateScrollProgress();
-
-    return () => {
-      el.removeEventListener("scroll", updateScrollProgress);
-      window.removeEventListener("resize", updateScrollProgress);
-    };
+    el.addEventListener("scroll", handleScroll);
+    return () => el.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
@@ -36,6 +30,16 @@ export default function BlockScroll() {
       <div className="scroll-section">
         <div className="section-wrapper">
           <div className="scroll-indicator-wrapper">
+            <div className="resume-download-container">
+              <a
+                href="/documents/KieranHoChengHong_Resume_Apr25.pdf"
+                download
+                className="resume-btn"
+              >
+                DOWNLOAD RESUME
+              </a>
+              <p className="resume-date">Accurate as of April 2025</p>
+            </div>
             <div className="folder-scroll-view" ref={scrollRef}>
               {projects.map((project, index) => (
                 <Folder
@@ -49,11 +53,13 @@ export default function BlockScroll() {
                 />
               ))}
             </div>
-            <div className="custom-scroll-bar">
-              <div
-                className="custom-scroll-thumb"
-                style={{ width: `${scrollProgress}%` }}
-              />
+            <div className="pagination-dots">
+              {projects.map((_, i) => (
+                <div
+                  key={i}
+                  className={`dot ${i === activeIndex ? "active" : ""}`}
+                />
+              ))}
             </div>
           </div>
         </div>
