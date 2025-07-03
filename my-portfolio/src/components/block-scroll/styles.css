@@ -79,6 +79,7 @@
 }
 
 .pagination-dots {
+  margin-top: 5px;
   margin-left: 3vh;
   display: flex;
   justify-content: center;
@@ -86,7 +87,7 @@
 }
 
 .dot {
-  width: calc(45vh / 5); /* Adjust the width based on the number of dots */
+  width: calc(45vh / 6); /* Adjust the width based on the number of dots */
   height: 6px;
   background-color: #d3d3d3;
   border-radius: 3px;
@@ -133,6 +134,6 @@
   }
 
   .dot {
-    width: calc(64vw / 5); /* Adjust the width based on the number of dots */
+    width: calc(64vw / 6); /* Adjust the width based on the number of dots */
   }
 }

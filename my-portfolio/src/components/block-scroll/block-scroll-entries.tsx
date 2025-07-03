@@ -1,7 +1,15 @@
 export const projects = [
   {
+    title: "Amazon Electronics Recommendation Model",
+    period: "JAN 2025 - APR 2025",
+    description:
+      "Introduced sentiment-analysis pipeline for reviews, improving NDCG by ~31.4% from 0.5356 to 0.7041 and MAP by ~53.7% from 0.4535 to 0.6973",
+    tags: ["Machine Learning", "Sentiment Analysis", "Python"],
+    imgSrc: "/images/amazon-recommender.png",
+  },
+  {
     title: "SingLife Matching",
-    period: "JAN 2025 - PRESENT",
+    period: "JAN 2025 - FEB 2025",
     description:
       "Client-agent matching model to improve policy conversion, trained on 60k+ records using PyTorch and custom loss functions, outperforming baseline by 800×.",
     tags: ["Machine Learning", "Financial Analytics", "Python"],
@@ -17,7 +25,7 @@ export const projects = [
   },
   {
     title: "Travla (iOS App)",
-    period: "MAY 2024 - JULY 2024",
+    period: "MAY 2024 - APR 2025",
     description:
       "A full-stack iOS travel planning app using React Native Expo, Firebase, and Supabase with real-time data sync, secure authentication, and integrated Google Places APIs.",
     tags: ["React Native (Expo)", "Database", "iOS"],

@@ -22,6 +22,10 @@ import {
   SiFigma,
   SiVuedotjs,
   SiScikitlearn,
+  SiAmazonwebservices,
+  SiDatabricks,
+  SiInformatica,
+  SiC,
   SiCplusplus, // used as a fallback for C
 } from "react-icons/si";
 
@@ -36,15 +40,19 @@ export const techStacks = [
       { name: "CSS", icon: <SiCss3 /> },
       { name: "JavaScript", icon: <SiJavascript /> },
       { name: "TypeScript", icon: <SiTypescript /> },
-      { name: "C", icon: <SiCplusplus /> }, // close enough visually
+      { name: "C", icon: <SiC /> },
+      { name: "C++", icon: <SiCplusplus /> }, // close enough visually
     ],
   },
   {
-    category: "Databases",
+    category: "Databases & Cloud Services",
     items: [
       { name: "MySQL", icon: <SiMysql /> },
       { name: "Supabase", icon: <SiSupabase /> },
       { name: "Firebase", icon: <SiFirebase /> },
+      { name: "AWS", icon: <SiAmazonwebservices /> },
+      { name: "Databricks", icon: <SiDatabricks /> }, // Placeholder
+      { name: "Informatica", icon: <SiInformatica /> }, // Placeholder
     ],
   },
   {
@@ -53,7 +61,7 @@ export const techStacks = [
       { name: "PyTorch", icon: <SiPytorch /> },
       { name: "NumPy", icon: <SiNumpy /> },
       { name: "pandas", icon: <SiPandas /> },
-      { name: "scikit-learn", icon: <SiScikitlearn /> },
+      { name: "scikit", icon: <SiScikitlearn /> },
       { name: "Next.js", icon: <SiNextdotjs /> },
       { name: "Vue.js", icon: <SiVuedotjs /> },
       { name: "Expo", icon: <SiExpo /> },

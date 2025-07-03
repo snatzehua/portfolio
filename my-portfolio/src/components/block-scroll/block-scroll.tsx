@@ -32,13 +32,13 @@ export default function BlockScroll() {
           <div className="scroll-indicator-wrapper">
             <div className="resume-download-container">
               <a
-                href="/documents/KieranHoChengHong_Resume_Apr25.pdf"
+                href="/documents/Resume - kieran-ho (2 July 2025).pdf"
                 download
                 className="resume-btn"
               >
                 DOWNLOAD RESUME
               </a>
-              <p className="resume-date">Accurate as of April 2025</p>
+              <p className="resume-date">Accurate as of June 2025</p>
             </div>
             <div className="folder-scroll-view" ref={scrollRef}>
               {projects.map((project, index) => (
@@ -53,7 +53,14 @@ export default function BlockScroll() {
                 />
               ))}
             </div>
-            <div className="pagination-dots">
+            <div
+              className="pagination-dots"
+              style={
+                {
+                  "--entry-count": projects.length.toString(),
+                } as React.CSSProperties
+              }
+            >
               {projects.map((_, i) => (
                 <div
                   key={i}

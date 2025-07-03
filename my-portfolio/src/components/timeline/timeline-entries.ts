@@ -29,4 +29,14 @@ export const timelineEntries = [
       "Teaching Assistant for CS1010 - Programming Methodology",
     ],
   },
+  {
+    title: "Synapxe Pte Ltd",
+    subtitle: "BSC (Hons) in Business Analytics (2023 - Present)",
+    image: "/images/synapxe-logo-edited.png",
+    details: [
+      "AI & Cloud Engineering Intern (2025)",
+      "HEALIX implementation (cloud-based analytics platform)",
+      "AWS, Informatica, Databricks",
+    ],
+  },
 ];
