@@ -56,7 +56,6 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} ${inter.variable} ${reenieBeanie.variable} antialiased`}
       >
         <MobileWarning />
-
         <NavBar />
         <motion.div
           key={pathname}

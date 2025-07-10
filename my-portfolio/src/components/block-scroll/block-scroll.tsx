@@ -32,7 +32,7 @@ export default function BlockScroll() {
           <div className="scroll-indicator-wrapper">
             <div className="resume-download-container">
               <a
-                href="/documents/Resume - kieran-ho (2 July 2025).pdf"
+                href="/documents/kieran-ho-resume.pdf"
                 download
                 className="resume-btn"
               >
