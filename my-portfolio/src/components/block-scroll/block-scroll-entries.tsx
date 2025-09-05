@@ -1,4 +1,31 @@
+// Format:
+/*
+{
+  title: "",
+  period: "",
+  description: "",
+  tags: [],
+  imgSrc: ""
+}
+ */
+
 export const projects = [
+  {
+    title: "Introduction to Finance",
+    period: "JUL 2025 - AUG 2025",
+    description:
+      "Analysed historical S&P 500 price data and integrated GDELT global news sentiment to explore predictive signals for future price movements, outperforming S&P 500 by 28.14% across 10.45 years in Python prototype backtesting.",
+    tags: ["Time Series Analysis", "Sentiment", "Backtesting"],
+    imgSrc: "/images/experience-entries.introduction-to-finance.png",
+  },
+  {
+    title: "Part-of-Speech Tagger",
+    period: "APR 2025",
+    description:
+      "Created a part-of-speech (POS) tagger trained on labeled Twitter tweet data, using hidden markov models (HMM) and Viterbi algorithm to calculate the highest likelihood tag sequence for each tweet, 81.79% classification accuracy.",
+    tags: ["Hidden Markov Models", "Probability", "POS Tagger"],
+    imgSrc: "/images/experience-entries.pos-tagger.png",
+  },
   {
     title: "Amazon Electronics Recommendation Model",
     period: "JAN 2025 - APR 2025",
