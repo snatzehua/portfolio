@@ -30,7 +30,7 @@ export default function BlockScroll() {
       <div className="scroll-section">
         <div className="section-wrapper">
           <div className="scroll-indicator-wrapper">
-            <div className="resume-download-container">
+            {/* <div className="resume-download-container">
               <a
                 href="backend/api/resume-download"
                 download
@@ -39,7 +39,8 @@ export default function BlockScroll() {
                 DOWNLOAD RESUME
               </a>
               <p className="resume-date">Accurate as of June 2025</p>
-            </div>
+            </div> */}
+            <div className="section-title">Current Projects</div>
             <div className="folder-scroll-view" ref={scrollRef}>
               {projects.map((project, index) => (
                 <Folder

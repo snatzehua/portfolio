@@ -7,11 +7,11 @@ import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 
 const navLinks = [
-  { name: "Home", href: "/" },
-  { name: "About", href: "/about" },
-  { name: "Experience", href: "/experience" },
-  { name: "Explorations", href: "/explorations" },
-  { name: "Contact", href: "/contact" },
+  { name: "Home", href: "/#" },
+  { name: "About", href: "/#about" },
+  { name: "Experience", href: "/#experience" },
+  { name: "Explorations", href: "/#explorations" },
+  { name: "Contact", href: "/#contact" },
 ];
 
 const menuVariants = {
@@ -104,8 +104,21 @@ export default function NavBar() {
                   >
                     <Link
                       href={link.href}
-                      scroll={false}
-                      onClick={() => setMenuOpen(false)}
+                      scroll={link.href.includes("#") ? true : false}
+                      onClick={() => {
+                        setMenuOpen(false);
+                        // If it's a hash link on the same page, manually scroll
+                        if (link.href.startsWith("/#")) {
+                          const id = link.href.split("#")[1];
+                          const el = document.getElementById(id);
+                          if (el) {
+                            setTimeout(
+                              () => el.scrollIntoView({ behavior: "smooth" }),
+                              100,
+                            );
+                          }
+                        }
+                      }}
                     >
                       <span>{link.name}</span>
                     </Link>
