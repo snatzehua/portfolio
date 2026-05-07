@@ -11,9 +11,22 @@
   position: absolute;
   width: 0.2vh;
   height: 100%;
-  background-color: #a2a3a6;
+  background-color: #828285;
   bottom: 0;
   left: clamp(40px, 8vw, 60px);
+}
+
+.timeline-entry {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5vh;
+}
+
+.timeline-year {
+  color: #828285;
+  font-weight: 600;
+  font-size: clamp(10px, 1.8vw, 14px);
+  padding-left: clamp(40px, 8vw, 60px);
 }
 
 .timeline-item {

@@ -1,0 +1,20 @@
+.page-layout {
+  display: flex;
+  height: calc(var(--vh, 1vh) * 100);
+  width: 100vw;
+  overflow: hidden;
+  background-color: #fafafa;
+}
+
+.page-content {
+  margin-left: 160px;
+  flex: 1;
+  height: 100%;
+  overflow: hidden;
+}
+
+@media (max-width: 600px) {
+  .page-content {
+    margin-left: 120px;
+  }
+}
