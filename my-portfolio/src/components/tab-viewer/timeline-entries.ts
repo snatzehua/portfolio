@@ -29,6 +29,13 @@ export const timelineEntries: TimelineEntry[] = [
     year: "2023",
   },
   {
+    title: "National University of Singapore (NUS)",
+    subtitle: "Teaching Assistant",
+    image: "/images/NUS-logo-circle.png",
+    details: ["Laboratory tutoring for programming methodology in C"],
+    year: "2024",
+  },
+  {
     title: "Synapxe Pte Ltd",
     subtitle: "Data & Cloud Engineer Intern",
     image: "/images/synapxe-logo-edited.png",

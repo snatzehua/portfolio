@@ -205,6 +205,14 @@
   overflow: hidden;
 }
 
+.timeline-track .post-card {
+  transition: transform 0.3s ease;
+}
+
+.timeline-track .post-card:hover {
+  transform: translateX(5px);
+}
+
 /* ── Experience card ── */
 
 .post-header {
@@ -224,13 +232,18 @@
 }
 
 .post-title {
+  font-family: var(--font-inter), Inter, sans-serif;
   font-size: 0.95rem;
   font-weight: 600;
+  letter-spacing: -0.01em;
   color: #111;
 }
 
 .post-subtitle {
+  font-family: var(--font-inter), Inter, sans-serif;
   font-size: 0.78rem;
+  font-weight: 400;
+  letter-spacing: 0.01em;
   color: #999;
   margin: 0;
 }
@@ -245,6 +258,7 @@
 }
 
 .post-details li {
+  font-family: var(--font-inter), Inter, sans-serif;
   font-size: 0.72rem;
   color: #666;
   padding-left: 0.3rem;

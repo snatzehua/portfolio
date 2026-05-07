@@ -72,7 +72,7 @@ export default function Sidebar({ activeTab, onTabChange }: SidebarProps) {
         ))}
       </div>
 
-      <p className="sidebar-copyright">© 2025 Kieran Ho</p>
+      <p className="sidebar-copyright">© {new Date().getFullYear()} Kieran Ho</p>
     </aside>
   );
 }
