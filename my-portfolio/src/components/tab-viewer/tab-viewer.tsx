@@ -4,13 +4,12 @@ import "./styles.css";
 
 import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useRef } from "react";
-import ExperiencePanel from "./experience-panel";
-import EducationPanel from "./education-panel";
+import ExperienceEducationPanel from "./experience-education-panel";
 import ProjectsPanel from "./projects-panel";
 import WritingPanel from "./writing-panel";
 import LifestylePanel from "./lifestyle-panel";
 
-export type Tab = "Experience" | "Education" | "Projects" | "Writing" | "Lifestyle";
+export type Tab = "Experience" | "Projects" | "Writing" | "Lifestyle";
 
 interface TabViewerProps {
   activeTab: Tab;
@@ -35,8 +34,7 @@ export default function TabViewer({ activeTab }: TabViewerProps) {
               exit={{ opacity: 0 }}
               transition={{ duration: 0.14, ease: "easeInOut" }}
             >
-              {activeTab === "Experience" && <ExperiencePanel />}
-              {activeTab === "Education" && <EducationPanel />}
+              {activeTab === "Experience" && <ExperienceEducationPanel />}
               {activeTab === "Projects" && <ProjectsPanel />}
               {activeTab === "Writing" && <WritingPanel />}
               {activeTab === "Lifestyle" && <LifestylePanel />}
