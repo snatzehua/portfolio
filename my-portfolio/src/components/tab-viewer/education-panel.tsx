@@ -1,10 +1,10 @@
 import { Fragment } from "react";
 import Image from "next/image";
-import { experienceEntries, type ExperienceEntry } from "./entries/experience-entries";
+import { educationEntries, type EducationEntry } from "./entries/education-entries";
 
-type Group = { year?: string; entries: ExperienceEntry[] };
+type Group = { year?: string; entries: EducationEntry[] };
 
-const entries = [...experienceEntries].reverse();
+const entries = [...educationEntries].reverse();
 
 const groups = entries.reduce<Group[]>((acc, entry) => {
   const last = acc[acc.length - 1];
@@ -16,7 +16,7 @@ const groups = entries.reduce<Group[]>((acc, entry) => {
   return acc;
 }, []);
 
-export default function ExperiencePanel() {
+export default function EducationPanel() {
   return (
     <div className="timeline-track">
       {groups.map((group, gi) => (
@@ -26,7 +26,7 @@ export default function ExperiencePanel() {
               <span className="year-text">{group.year}</span>
             </div>
           )}
-          <article id={`exp-${gi}`} className="post-card">
+          <article id={`edu-${gi}`} className="post-card">
             {group.entries.map((entry, ei) => (
               <Fragment key={ei}>
                 {ei > 0 && <div className="post-divider" />}

@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { projects } from "@/components/block-scroll/block-scroll-entries";
+import { projects } from "./entries/project-entries";
 
 export const PROJECTS_NAV = projects.map((p, i) => ({
   id: `proj-${i}`,

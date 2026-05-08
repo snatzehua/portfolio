@@ -5,7 +5,7 @@ import "./styles.css";
 import { SiLinkedin, SiGithub, SiMaildotru } from "react-icons/si";
 import type { Tab } from "@/components/tab-viewer/tab-viewer";
 
-const TABS: Tab[] = ["Experience", "Projects", "Lifestyle"];
+const TABS: Tab[] = ["Experience", "Education", "Projects", "Writing", "Lifestyle"];
 
 const CONTACT_LINKS = [
   {
