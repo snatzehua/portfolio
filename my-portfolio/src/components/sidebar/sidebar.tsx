@@ -21,12 +21,6 @@ export default function Sidebar({ activeSection, navigation }: {
 }) {
   const pathname = usePathname();
   const [hash, setHash] = useState("");
-  const [expanded, setExpanded] = useState<Partial<Record<Section, boolean>>>(() => activeSection === "home" ? {} : { [activeSection]: true });
-
-  useEffect(() => {
-    if (activeSection !== "home") setExpanded({ [activeSection]: true });
-    else setExpanded({});
-  }, [activeSection]);
 
   useEffect(() => {
     const updateHash = () => setHash(window.location.hash);
@@ -51,12 +45,9 @@ export default function Sidebar({ activeSection, navigation }: {
         {navigation.map((group) => (
           <div key={group.id} className="sidebar-menu-group">
             <div className="sidebar-menu-row">
-              <Link href={group.href} className={`sidebar-tab${activeSection === group.id ? " active" : ""}`} aria-current={activeSection === group.id ? pathname === group.href ? "page" : "location" : undefined} onClick={() => { if (activeSection === group.id) setExpanded({ [group.id]: true }); }}>{group.label}</Link>
-              <button type="button" className="sidebar-expand" aria-label={`${group.label} subsections`} aria-expanded={!!expanded[group.id]} aria-controls={`menu-${group.id}`} onClick={() => setExpanded((previous) => ({ ...previous, [group.id]: !previous[group.id] }))}>
-                <span aria-hidden="true">{expanded[group.id] ? "−" : "+"}</span>
-              </button>
+              <Link href={group.href} className={`sidebar-tab${activeSection === group.id ? " active" : ""}`} aria-current={activeSection === group.id ? pathname === group.href ? "page" : "location" : undefined} aria-expanded={activeSection === group.id} aria-controls={`menu-${group.id}`}>{group.label}</Link>
             </div>
-            <div id={`menu-${group.id}`} className="sidebar-submenu-wrap" data-expanded={!!expanded[group.id]} aria-hidden={!expanded[group.id]} inert={!expanded[group.id]}>
+            <div id={`menu-${group.id}`} className="sidebar-submenu-wrap" data-expanded={activeSection === group.id} aria-hidden={activeSection !== group.id} inert={activeSection !== group.id}>
               <div className="sidebar-submenu-content"><ul className="sidebar-submenu">
               {group.children.map((child) => {
                 const current = child.detailHref === pathname ? "page" : child.href === `${pathname}${hash}` ? "location" : undefined;

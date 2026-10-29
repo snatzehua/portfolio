@@ -19,9 +19,13 @@ export default function LifestylePanel() {
         <p>With a Sony A6400 and an iPhone 15 Pro, I try to capture authentic moments — expressing emotions in subtle ways. Photography for me isn&apos;t about technical perfection; it&apos;s about presence and noticing the beauty in what&apos;s already there.</p>
       </section>
       <section className="lifestyle-section" id="blacksmithing">
-        <div className="lifestyle-section-heading"><span className="eyebrow">03 / Blacksmithing</span><h2>Forging ahead</h2></div>
-        <PhotoGallery polaroids photos={[{ src: "/images/blacksmith1-polaroid.png", alt: "blacksmithing workshop photograph 1" }, { src: "/images/blacksmith2-polaroid.png", alt: "blacksmithing workshop photograph 2" }]} />
-        <p>Blacksmithing is something most people don&apos;t expect when they ask about your hobbies. I jumped at the chance to try it at a local workshop — learning to work with high-carbon steel, shape it into a blade, and refine it through grinding and polishing.</p>
+        <div className="blacksmithing-layout">
+          <div className="blacksmithing-copy">
+            <div className="lifestyle-section-heading"><span className="eyebrow">03 / Blacksmithing</span><h2>Forging ahead</h2></div>
+            <p>Blacksmithing is something most people don&apos;t expect when they ask about your hobbies. I jumped at the chance to try it at a local workshop — learning to work with high-carbon steel, shape it into a blade, and refine it through grinding and polishing.</p>
+          </div>
+          <PhotoGallery polaroids photos={[{ src: "/images/blacksmith1-polaroid.png", alt: "blacksmithing workshop photograph 1" }, { src: "/images/blacksmith2-polaroid.png", alt: "blacksmithing workshop photograph 2" }]} />
+        </div>
       </section>
     </div>
   );

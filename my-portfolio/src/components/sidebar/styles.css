@@ -40,13 +40,10 @@
 
 .sidebar-menu-group { min-width: 0; }
 .sidebar-menu-row { display: flex; align-items: stretch; min-width: 0; }
-.sidebar-expand { flex: 0 0 30px; color: #777; font-size: 18px; line-height: 1; border-radius: 3px; }
-.sidebar-expand:hover { color: #111; background: #f2f2f2; }
 .sidebar-submenu { list-style: none; margin: 3px 0 10px 10px; padding: 0 0 0 12px; border-left: 1px solid #ddd; }
 .sidebar-submenu a { display: block; padding: 7px 0; color: #666; font-size: 12px; line-height: 1.6; text-decoration: none; overflow-wrap: anywhere; }
 .sidebar-submenu a:hover { color: #111; text-decoration: underline; text-underline-offset: 3px; }
 @media (max-width: 760px) {
-  .sidebar-expand { flex-basis: 30px; }
   .sidebar-submenu { margin-left: 8px; padding-left: 10px; }
 }
 
@@ -62,8 +59,6 @@
 .sidebar-tab.active { color: #26221c; border-left-color: #393026; }
 .sidebar-submenu { border-left-color: #b6a68d; }
 .sidebar-submenu a[aria-current] { color: #27221c; font-weight: 600; }
-.sidebar-expand { color: #706451; }
-.sidebar-expand:hover { background: #ffffff50; }
 .sidebar-note, .sidebar-copyright { color: #746a5c; }
 .sidebar-contact { border-top-color: #b5a48b70; }
 @media (max-width: 760px) {

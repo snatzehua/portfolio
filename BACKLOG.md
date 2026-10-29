@@ -53,6 +53,7 @@ None.
 | 2026-10-30 | Try plywood navigation and a thicker pegboard container | CC0 Poly Haven plywood texture with a pale CSS wash; original hole pattern retained; painted board edge and cast shadow supply depth. |
 | 2026-10-30 | Refine Overview, navigation, and greeting | Lifestyle precedes Extras (working name for Writing); Home is labelled Overview; greeting replaces the sidebar name on translucent black; main banner and profile bio removed; pegboard restored to a flat surface. |
 | 2026-10-30 | Restore the greeting, unify previews, and animate navigation | Banner above Overview; sidebar name/bio restored; equal-height cards with white-washed full-size images behind preview text; Background shows the author-confirmed current Govtech role. Persistent layout animates banner closure before route changes, page entrance, and sidebar disclosures; fragment links settle after animations. |
+| 2026-10-30 | Simplify selection and improve photo/text presentation | Remove expansion buttons and derive submenu visibility from the selected section. Strengthen preview text contrast with a white gradient and darker text. Place both blacksmithing polaroids to the right of Lifestyle overview copy and the full blacksmithing write-up. |
 
 ## Implemented structure
 
