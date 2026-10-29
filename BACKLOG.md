@@ -25,6 +25,7 @@ Add new ideas below, one per line:
 | P01 | Next | Deepen project case studies with first-hand evidence | User requested deeper project explanations | The initial notes are expanded with actual alternatives, experiments, failure cases, and concrete ownership; missing facts are supplied by the author. |
 | P04 | Next | Finish the factual audit of project cards | Existing content needs author confirmation | Confirm dates, current status, role, and repository/demo URLs. Attach benchmark, period, costs, and evaluation method to GDELT's reported outperformance. Tags and copied OpenClaw artwork are already corrected. |
 | P09 | Later | Improve media descriptions and education details | Follow-up from implementation | Replace generic photography alt text with scene descriptions; confirm GPA/year-of-study wording and any changed experience/education facts. |
+| P10 | Next | Review component styling against the original design | User feedback: the current design still feels AI generated | Agree the component palette and treatment using the original neutral styling as a reference. Review diagram covers, tinted takeaway boxes, repeated labels, and navigation styling before another broad restyle. |
 
 ## In progress
 
@@ -45,6 +46,7 @@ None.
 | 2026-10-29 | Make Lifestyle media browsable | Inline travel video; image viewer with next/previous, keyboard controls, and focus return. |
 | 2026-10-29 | Reintroduce original background photography and portrait | Mountain photo behind the layout and in the Projects welcome banner; original polaroid above the menu; forest photo in the Lifestyle header. Original assets are unchanged. |
 | 2026-10-29 | Refine hierarchy and readability | One continuous mountain backdrop, a compact welcome area and Projects heading, larger and darker text, matching project diagrams, and visible current-result takeaways. Detailed chart retained in the GDELT case study. |
+| 2026-10-29 | Center and resize the sidebar polaroid | 120px desktop portrait centered within the 244px sidebar; 84px on short desktop screens and 56px in the mobile header. Browser checks confirm alignment and that navigation fits. |
 
 ## Implemented structure
 
@@ -64,6 +66,8 @@ Keep stable project metadata together: slug, title, summary, dates, status, role
 The first implementation uses typed content records and a shared block renderer to preserve the existing text/image/KaTeX pipeline without adding dependencies. MDX remains an option if future content needs justify it.
 
 ## Decisions
+
+Component review following the latest feedback: the original surfaces were white/`#fafafa`, headings `#111`, body text `#555`–`#666`, and tags `#f3f3f3`–`#f5f5f5`. The sage palette and repeated three-step diagrams were introduced during the redesign. Returning to the original neutral palette and using real project visuals are proposed directions for P10, not yet applied.
 
 - 2026-10-29 — Keep the existing light paper/card style, open directly to Projects, and retain the four main sections. Give Projects and Writing separate detail routes. — Matches the agreed visitor flow. — P02, P05.
 - 2026-10-29 — Use typed local content files and shared article blocks. — The existing content already uses text/image/math blocks; this supports immediate migration without an additional authoring toolchain. — P03, P07.

@@ -20,7 +20,7 @@ export default function Sidebar({ activeSection }: { activeSection: Section }) {
     <aside className="sidebar">
       <div className="sidebar-profile">
         <Link href="/" className="sidebar-portrait" aria-label="Kieran Ho — portrait and home">
-          <Image src="/images/polaroid_pfp_edited.png" alt="Kieran holding a white dog in a polaroid photograph" width={377} height={601} sizes="(max-width: 760px) 46px, 96px" priority />
+          <Image src="/images/polaroid_pfp_edited.png" alt="Kieran holding a white dog in a polaroid photograph" width={377} height={601} sizes="(max-width: 760px) 56px, (max-height: 700px) 84px, 120px" priority />
         </Link>
         <div className="sidebar-profile-copy">
           <Link href="/" className="sidebar-name" aria-label="Kieran Ho — home">KIERAN HO<span className="name-dot">.</span></Link>
