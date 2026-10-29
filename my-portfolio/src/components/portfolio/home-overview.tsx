@@ -24,7 +24,7 @@ export default function HomeOverview() {
     <section id="experience" aria-labelledby="overview-experience">
       <Link className="overview-sheet" href="/experience">
         <div className="overview-description"><p className="eyebrow">02 / Along the way</p><h2 id="overview-experience">Background</h2><p>The teams I&apos;ve worked with and the places I&apos;ve learned.</p><span className="overview-action">Experience & education <span aria-hidden="true">→</span></span></div>
-        <div className="overview-preview overview-current-role">{experience && <div className="overview-credential"><Image src={experience.image} alt="" width={44} height={44} /><div><span className="preview-label">Current role</span><h3>{experience.title}</h3><p>{experience.subtitle}</p><p className="current-role-summary">{experience.details[0]}</p></div></div>}</div>
+        <div className="overview-preview overview-illustrated overview-current-role"><PreviewImage src="/images/background-study.webp" />{experience && <div className="overview-credential overview-preview-copy"><Image src={experience.image} alt="" width={44} height={44} /><div><span className="preview-label">Current role</span><h3>{experience.title}</h3><p>{experience.subtitle}</p><p className="current-role-summary">{experience.details[0]}</p></div></div>}</div>
       </Link>
     </section>
     <section id="lifestyle" aria-labelledby="overview-lifestyle">

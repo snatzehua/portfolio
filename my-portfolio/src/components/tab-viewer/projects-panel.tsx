@@ -1,3 +1,4 @@
+import SectionHeader from "@/components/portfolio/section-header";
 import Image from "next/image";
 import Link from "next/link";
 import { projects } from "@/content/projects";
@@ -6,13 +7,7 @@ import { formatDate } from "@/content/types";
 export default function ProjectsPanel() {
   return (
     <div className="section-page projects-page">
-      <header className="section-heading projects-heading project-header-sheet">
-        <Link href="/#projects" className="back-link project-header-back">← Overview</Link>
-        <p className="eyebrow">01 / Work & experiments</p>
-        <h1 id="projects-heading">Selected projects<span className="heading-dot">.</span></h1>
-        <p>The questions, decisions, and lessons behind my work.</p>
-        <div className="section-caption"><span>{String(projects.length).padStart(2, "0")} projects</span><span>Newest case studies first</span></div>
-      </header>
+      <SectionHeader section="projects" eyebrow="01 / Work & experiments" title="Selected projects" headingId="projects-heading" description="The questions, decisions, and lessons behind my work." caption={[`${String(projects.length).padStart(2, "0")} projects`, "Newest case studies first"]} />
       <div className="project-grid">
         {projects.map((project, i) => (
           <Link href={`/projects/${project.slug}`} key={project.slug} id={`project-${project.slug}`} className="project-card">

@@ -1,3 +1,4 @@
+import SectionHeader from "@/components/portfolio/section-header";
 import Image from "next/image";
 import Link from "next/link";
 import { writingEntries } from "@/content/writing";
@@ -6,12 +7,7 @@ import { formatDate } from "@/content/types";
 export default function WritingPanel() {
   return (
     <div className="section-page">
-      <header className="section-heading">
-        <p className="eyebrow">04 / Puzzles & practice</p>
-        <h1 id="writing-heading">Extras<span className="heading-dot">.</span></h1>
-        <p>Competitions, problem-solving, and other things I’m working on.</p>
-        <div className="section-caption"><span>{String(writingEntries.length).padStart(2, "0")} entries</span><span>Newest first</span></div>
-      </header>
+      <SectionHeader section="writing" eyebrow="04 / Puzzles & practice" title="Extras" headingId="writing-heading" description="Competitions, problem-solving, and other things I’m working on." caption={[`${String(writingEntries.length).padStart(2, "0")} entries`, "Newest first"]} />
       <div className="writing-list">
         {writingEntries.map((entry) => (
           <Link key={entry.slug} id={`article-${entry.slug}`} href={`/writing/${entry.slug}`} className="writing-card">

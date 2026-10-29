@@ -57,6 +57,7 @@ None.
 | 2026-10-30 | Unify overview dividers and restore the Lifestyle composition | All four previews share a middle divider. Restore Lifestyle forest image and copy, with the polaroids at the far right of that preview. Reduce image whitening while retaining the strong white fade from the text and the top/bottom fades. |
 | 2026-10-30 | Make Overview the navigation parent | Nest all four section links beneath Overview, with indentation and a branch line; preserve selection-driven subsection expansion and responsive columns. |
 | 2026-10-30 | Trial a paper header on Projects and soften the overview fade | Group the Overview link, title, description, and count on one opaque paper surface aligned with the project cards. Other section headers remain under review. Reduce text-side image whitening slightly while keeping the directional fade. |
+| 2026-10-30 | Extend the banner, share all section headers, and add Background imagery | Greeting reaches from the sidebar to the right browser edge with no top gap; all four section pages share the paper header. Add an optimized Unsplash study-room image by Clay Banks to Background’s overview preview, with source/license recorded. |
 
 ## Implemented structure
 

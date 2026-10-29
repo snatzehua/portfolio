@@ -53,7 +53,7 @@ export default function PortfolioFrame({ children, navigation }: { children: Rea
     document.getElementById(window.location.hash.slice(1))?.scrollIntoView({ block: "start", behavior: "instant" });
   }
 
-  return <div className="portfolio-shell" onClickCapture={navigateWithTransition} data-transition={leaving ? "leaving" : "ready"}>
+  return <div className="portfolio-shell" onClickCapture={navigateWithTransition} data-transition={leaving ? "leaving" : "ready"} data-overview={isOverview}>
     <div className="portfolio-backdrop" aria-hidden="true"><Image src="/images/IMG_3726.webp" alt="" fill sizes="100vw" quality={80} priority /></div>
     <a className="skip-link" href="#main-content">Skip to content</a>
     <Sidebar activeSection={activeSection} navigation={navigation} />
