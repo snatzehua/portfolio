@@ -11,7 +11,8 @@ const project: Project = {
   tags: ["Time series", "Sentiment analysis", "Backtesting"],
   cover: "/images/experience-entries.introduction-to-finance.png",
   coverAlt: "Exploratory strategy backtest compared with a buy-and-hold portfolio",
-  outcome: "An encouraging backtest, with an inconclusive research result so far.",
+  coverSteps: ["News", "Sentiment", "Signal"],
+  outcome: "Early backtests encouraging; validation ongoing.",
   sections: [
     { id: "problem", title: "The question", blocks: [
       { type: "text", content: "This started with a simple question: can I beat the market? I wanted to explore whether aggregated news sentiment from the Global Database of Events, Language and Tone (GDELT) could help predict market movements and inform the timing of trades." },

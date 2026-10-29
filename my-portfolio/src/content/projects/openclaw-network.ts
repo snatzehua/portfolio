@@ -9,7 +9,8 @@ const project: Project = {
   role: "Personal project",
   status: "In progress",
   tags: ["Knowledge management", "Obsidian", "Automation"],
-  outcome: "An idea under implementation and testing; its usefulness is still being evaluated.",
+  coverSteps: ["People", "Context", "Connections"],
+  outcome: "Implementation and testing underway; usefulness still unproven.",
   sections: [
     { id: "problem", title: "The problem", blocks: [
       { type: "text", content: "I often meet new people, both while travelling and while learning from people in the industry. I wanted a way to keep track of those connections and the context around them, rather than relying on memory alone." },

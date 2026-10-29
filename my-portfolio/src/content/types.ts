@@ -18,6 +18,7 @@ export interface Project {
   tags: string[];
   cover?: string;
   coverAlt?: string;
+  coverSteps?: [string, string, string];
   repository?: string;
   demo?: string;
   outcome: string;

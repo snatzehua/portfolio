@@ -44,6 +44,7 @@ None.
 | 2026-10-29 | P08: Refresh repository guidance | README, CLAUDE.md, npm scripts, and one npm lockfile convention; add `check:content`. |
 | 2026-10-29 | Make Lifestyle media browsable | Inline travel video; image viewer with next/previous, keyboard controls, and focus return. |
 | 2026-10-29 | Reintroduce original background photography and portrait | Mountain photo behind the layout and in the Projects welcome banner; original polaroid above the menu; forest photo in the Lifestyle header. Original assets are unchanged. |
+| 2026-10-29 | Refine hierarchy and readability | One continuous mountain backdrop, a compact welcome area and Projects heading, larger and darker text, matching project diagrams, and visible current-result takeaways. Detailed chart retained in the GDELT case study. |
 
 ## Implemented structure
 
@@ -54,7 +55,7 @@ Current content structure:
 ```text
 my-portfolio/src/
   content/projects/             # One long-form file per project
-  components/project-detail/   # Shared case-study layout
+  components/article/          # Shared project and article layout
   app/projects/[slug]/page.tsx # Shareable detail route
 ```
 

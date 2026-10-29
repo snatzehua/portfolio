@@ -14,7 +14,6 @@ export default function PortfolioShell({ section, children, showIntro = false }:
       <main className="portfolio-main" id="main-content" tabIndex={-1}>
         {showIntro && (
           <header className="welcome-banner">
-            <Image src="/images/IMG_3726.webp" alt="Snow-capped mountains beyond a quiet countryside road" fill sizes="(max-width: 760px) 100vw, 80vw" quality={85} priority />
             <div className="welcome-banner-copy">
               <p className="eyebrow">Building, learning, exploring</p>
               <h2>Hi, I&apos;m Kieran.</h2>
@@ -22,7 +21,7 @@ export default function PortfolioShell({ section, children, showIntro = false }:
             </div>
           </header>
         )}
-        <div className="portfolio-paper">{children}</div>
+        <div className={`portfolio-paper${showIntro ? " portfolio-paper-projects" : ""}`}>{children}</div>
       </main>
     </div>
   );

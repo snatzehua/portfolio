@@ -30,7 +30,9 @@ The content uses typed TypeScript records and shared text/image/math blocks. MDX
 
 Images belong in `my-portfolio/public/images/`. Add article-image dimensions to `my-portfolio/src/content/media.ts`. The writing images have optimized WebP copies under `public/images/writing/`; the original images remain available. Body images load only on article pages and use native lazy loading with reserved aspect ratios.
 
-The shared shell reuses the original mountain photograph as its backdrop and the Projects welcome banner. The original polaroid appears in the menu, and the forest path photograph heads Lifestyle. Reading panels stay opaque for legibility; detail pages omit the welcome banner.
+The shared shell displays the original mountain photograph once as a continuous backdrop. The compact Projects welcome area reveals that same image through a gradient; it does not load a second crop. The original polaroid appears in the menu, and the forest path photograph heads Lifestyle. Reading panels stay opaque for legibility; detail pages omit the welcome area.
+
+Projects can supply `coverSteps`, a three-label tuple for the shared cover diagram. Existing `cover` images remain a fallback; detailed results charts belong inside the case study. The project's `outcome` supplies both its card takeaway and the detail page's current-result summary.
 
 ## Checks
 
