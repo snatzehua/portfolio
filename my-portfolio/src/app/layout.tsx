@@ -1,4 +1,6 @@
 import "./globals.css";
+import PortfolioFrame from "@/components/portfolio/portfolio-frame";
+import { navigation } from "@/content/navigation";
 
 import { Geist, Geist_Mono, Inter, Reenie_Beanie } from "next/font/google";
 import { Analytics } from "@vercel/analytics/react";
@@ -41,7 +43,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} ${inter.variable} ${reenieBeanie.variable} antialiased`}
         suppressHydrationWarning
       >
-        {children}
+        <PortfolioFrame navigation={navigation}>{children}</PortfolioFrame>
         <Analytics />
       </body>
     </html>

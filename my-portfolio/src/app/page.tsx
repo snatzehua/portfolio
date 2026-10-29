@@ -15,7 +15,6 @@ export default async function Home({ searchParams }: Props) {
   return (
     <PortfolioShell section="home">
       <ScrollMemory section="overview" />
-      <h1 className="sr-only">Overview</h1>
       <HomeOverview />
     </PortfolioShell>
   );

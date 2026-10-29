@@ -52,10 +52,11 @@ None.
 | 2026-10-30 | Add a compact home overview and dedicated section pages | Four home previews; `/projects`, `/experience`, `/writing`, `/lifestyle`; automatic menu expansion, subsection anchors, Home links, and article returns to section indexes. |
 | 2026-10-30 | Try plywood navigation and a thicker pegboard container | CC0 Poly Haven plywood texture with a pale CSS wash; original hole pattern retained; painted board edge and cast shadow supply depth. |
 | 2026-10-30 | Refine Overview, navigation, and greeting | Lifestyle precedes Extras (working name for Writing); Home is labelled Overview; greeting replaces the sidebar name on translucent black; main banner and profile bio removed; pegboard restored to a flat surface. |
+| 2026-10-30 | Restore the greeting, unify previews, and animate navigation | Banner above Overview; sidebar name/bio restored; equal-height cards with white-washed full-size images behind preview text; Background shows the author-confirmed current Govtech role. Persistent layout animates banner closure before route changes, page entrance, and sidebar disclosures; fragment links settle after animations. |
 
 ## Implemented structure
 
-The Overview shows four compact previews in order: Projects, Experience & Education, Lifestyle, Extras. Each opens its complete section page, with all its subsections in one scroll. The active sidebar group expands automatically; child links jump to anchors within that section, and Overview returns to the overview. Each project and article has a detail page with a route back to its section page. Initial project notes use only the facts in the previous descriptions; deeper evidence remains in P01/P04.
+The Overview shows four compact previews in order: Projects, Background, Lifestyle, Extras. Each opens its complete section page, with all its subsections in one scroll. The active sidebar group expands automatically; child links jump to anchors within that section, and Overview returns to the overview. Each project and article has a detail page with a route back to its section page. Initial project notes use only the facts in the previous descriptions; deeper evidence remains in P01/P04.
 
 Current content structure:
 
@@ -82,6 +83,8 @@ Component review following the latest feedback: the original surfaces were white
 - 2026-10-30 — Replace the full-content home scroll with previews and full section routes. — Keep the overview short while allowing every section to grow; all subsections remain visible on the section page. Add pale plywood navigation and give the pegboard depth through its sides and edges, following the user's clarification.
 
 - 2026-10-30 — Use Extras as a provisional display label for broader work and practice; retain existing writing URLs until the name settles. Move Lifestyle ahead of it, relocate the greeting to the menu, label Home as Overview, and remove the pegboard depth at the user's request.
+
+- 2026-10-30 — Restore the greeting above the overview, shorten Experience & Education to Background, and show only the current Govtech internship there (confirmed by the author). Use equal-height previews with image backdrops and add coordinated page, banner, and menu transitions. The pegboard remains flat.
 
 Future entry format: `YYYY-MM-DD — Decision — Why — Affected backlog IDs`.
 

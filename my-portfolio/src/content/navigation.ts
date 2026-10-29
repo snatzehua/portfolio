@@ -11,7 +11,7 @@ export interface NavigationGroup {
 
 export const navigation: NavigationGroup[] = [
   { id: "projects", label: "Projects", href: "/projects", children: projects.map(({ title, slug }) => ({ label: title, href: `/projects#project-${slug}`, detailHref: `/projects/${slug}` })) },
-  { id: "experience", label: "Experience & Education", href: "/experience", children: [
+  { id: "experience", label: "Background", href: "/experience", children: [
     { label: "Work experience", href: "/experience#work-experience" },
     { label: "Education", href: "/experience#education" },
   ] },

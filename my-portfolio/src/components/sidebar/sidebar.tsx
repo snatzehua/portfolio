@@ -42,7 +42,8 @@ export default function Sidebar({ activeSection, navigation }: {
           <Image src="/images/polaroid_pfp_edited.png" alt="Kieran holding a white dog in a polaroid photograph" width={377} height={601} sizes="(max-width: 760px) 56px, (max-height: 700px) 84px, (max-height: 800px) 100px, 120px" priority />
         </div>
         <div className="sidebar-profile-copy">
-          <Link href="/" className="sidebar-greeting" aria-label="Hi, I’m Kieran — overview">Hi, I&apos;m Kieran.</Link>
+          <Link href="/" className="sidebar-name" aria-label="Kieran Ho — overview">KIERAN HO<span className="name-dot">.</span></Link>
+          <p className="sidebar-intro">Business Analytics at NUS. Curious about data, systems, and how things work.</p>
         </div>
       </div>
       <nav className="sidebar-nav" aria-label="Main navigation">
@@ -50,17 +51,19 @@ export default function Sidebar({ activeSection, navigation }: {
         {navigation.map((group) => (
           <div key={group.id} className="sidebar-menu-group">
             <div className="sidebar-menu-row">
-              <Link href={group.href} className={`sidebar-tab${activeSection === group.id ? " active" : ""}`} aria-current={activeSection === group.id ? pathname === group.href ? "page" : "location" : undefined} onClick={() => setExpanded({ [group.id]: true })}>{group.label}</Link>
+              <Link href={group.href} className={`sidebar-tab${activeSection === group.id ? " active" : ""}`} aria-current={activeSection === group.id ? pathname === group.href ? "page" : "location" : undefined} onClick={() => { if (activeSection === group.id) setExpanded({ [group.id]: true }); }}>{group.label}</Link>
               <button type="button" className="sidebar-expand" aria-label={`${group.label} subsections`} aria-expanded={!!expanded[group.id]} aria-controls={`menu-${group.id}`} onClick={() => setExpanded((previous) => ({ ...previous, [group.id]: !previous[group.id] }))}>
                 <span aria-hidden="true">{expanded[group.id] ? "−" : "+"}</span>
               </button>
             </div>
-            <ul id={`menu-${group.id}`} className="sidebar-submenu" hidden={!expanded[group.id]}>
+            <div id={`menu-${group.id}`} className="sidebar-submenu-wrap" data-expanded={!!expanded[group.id]} aria-hidden={!expanded[group.id]} inert={!expanded[group.id]}>
+              <div className="sidebar-submenu-content"><ul className="sidebar-submenu">
               {group.children.map((child) => {
                 const current = child.detailHref === pathname ? "page" : child.href === `${pathname}${hash}` ? "location" : undefined;
                 return <li key={child.href}><Link href={child.href} aria-current={current} onClick={() => setHash(child.href.includes("#") ? `#${child.href.split("#")[1]}` : "")}>{child.label}</Link></li>;
               })}
-            </ul>
+              </ul></div>
+            </div>
           </div>
         ))}
       </nav>

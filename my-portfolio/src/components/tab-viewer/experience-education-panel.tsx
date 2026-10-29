@@ -29,7 +29,7 @@ export default function ExperienceEducationPanel() {
   return <div className="section-page timeline-page">
     <header className="section-heading">
       <p className="eyebrow">02 / Along the way</p>
-      <h1 id="experience-heading">Experience & Education<span className="heading-dot">.</span></h1>
+      <h1 id="experience-heading">Background<span className="heading-dot">.</span></h1>
       <p>The places I&apos;ve learned, the teams I&apos;ve worked with, and the work that has shaped how I think.</p>
     </header>
     <section id="work-experience" className="timeline-subsection" aria-labelledby="work-experience-heading"><h2 id="work-experience-heading">Work experience</h2><Timeline entries={experienceEntries} label="Experience timeline" /></section>

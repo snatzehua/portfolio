@@ -5,6 +5,7 @@ export interface ExperienceEntry {
   details: string[];
   "details-list"?: string[];
   year?: string;
+  isCurrent?: boolean;
 }
 
 export const experienceEntries: ExperienceEntry[] = [
@@ -53,6 +54,7 @@ export const experienceEntries: ExperienceEntry[] = [
   {
     title: "Data Science / Data Engineering Intern",
     subtitle: "Govtech Singapore",
+    isCurrent: true,
     image: "/images/experience/03e053c00a03ed937548f5ea8275db46.png",
     details: ["Internal Audit (Finance & IT), anomaly detection & forecasting"],
     year: "2026",
