@@ -4,5 +4,5 @@ import ProjectsPanel from "@/components/tab-viewer/projects-panel";
 
 export const metadata: Metadata = { title: "Projects | Kieran Ho" };
 export default function Page() {
-  return <SectionPage section="projects"><ProjectsPanel /></SectionPage>;
+  return <SectionPage section="projects" showOverviewLink={false}><ProjectsPanel /></SectionPage>;
 }

@@ -56,6 +56,7 @@ None.
 | 2026-10-30 | Simplify selection and improve photo/text presentation | Remove expansion buttons and derive submenu visibility from the selected section. Strengthen preview text contrast with a white gradient and darker text. Place both blacksmithing polaroids to the right of Lifestyle overview copy and the full blacksmithing write-up. |
 | 2026-10-30 | Unify overview dividers and restore the Lifestyle composition | All four previews share a middle divider. Restore Lifestyle forest image and copy, with the polaroids at the far right of that preview. Reduce image whitening while retaining the strong white fade from the text and the top/bottom fades. |
 | 2026-10-30 | Make Overview the navigation parent | Nest all four section links beneath Overview, with indentation and a branch line; preserve selection-driven subsection expansion and responsive columns. |
+| 2026-10-30 | Trial a paper header on Projects and soften the overview fade | Group the Overview link, title, description, and count on one opaque paper surface aligned with the project cards. Other section headers remain under review. Reduce text-side image whitening slightly while keeping the directional fade. |
 
 ## Implemented structure
 

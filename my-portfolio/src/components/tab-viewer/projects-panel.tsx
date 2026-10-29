@@ -6,7 +6,8 @@ import { formatDate } from "@/content/types";
 export default function ProjectsPanel() {
   return (
     <div className="section-page projects-page">
-      <header className="section-heading projects-heading">
+      <header className="section-heading projects-heading project-header-sheet">
+        <Link href="/#projects" className="back-link project-header-back">← Overview</Link>
         <p className="eyebrow">01 / Work & experiments</p>
         <h1 id="projects-heading">Selected projects<span className="heading-dot">.</span></h1>
         <p>The questions, decisions, and lessons behind my work.</p>
