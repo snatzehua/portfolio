@@ -1,78 +1,44 @@
-"use client";
-
+import Link from "next/link";
+import { SiLinkedin, SiGithub, SiMaildotru } from "react-icons/si";
+import type { Section } from "@/content/types";
 import "./styles.css";
 
-import { SiLinkedin, SiGithub, SiMaildotru } from "react-icons/si";
-import type { Tab } from "@/components/tab-viewer/tab-viewer";
-
-const TABS: Tab[] = ["Experience", "Projects", "Writing", "Lifestyle"];
-
-const CONTACT_LINKS = [
-  {
-    href: "https://www.linkedin.com/in/kieranhch",
-    icon: SiLinkedin,
-    label: "/kieranhch",
-    external: true,
-  },
-  {
-    href: "https://github.com/snatzehua",
-    icon: SiGithub,
-    label: "/snatzehua",
-    external: true,
-  },
-  {
-    href: "mailto:snatzehua@gmail.com",
-    icon: SiMaildotru,
-    label: "snatzehua",
-    external: false,
-  },
+const sections: { id: Section; label: string; number: string }[] = [
+  { id: "projects", label: "Projects", number: "01" },
+  { id: "experience", label: "Experience & Education", number: "02" },
+  { id: "writing", label: "Writing", number: "03" },
+  { id: "lifestyle", label: "Lifestyle", number: "04" },
 ];
-
-interface SidebarProps {
-  activeTab: Tab;
-  onTabChange: (tab: Tab) => void;
-}
-
-export default function Sidebar({ activeTab, onTabChange }: SidebarProps) {
+const contacts = [
+  { href: "https://www.linkedin.com/in/kieranhch", icon: SiLinkedin, label: "LinkedIn" },
+  { href: "https://github.com/snatzehua", icon: SiGithub, label: "GitHub" },
+  { href: "mailto:snatzehua@gmail.com", icon: SiMaildotru, label: "Email" },
+];
+export default function Sidebar({ activeSection }: { activeSection: Section }) {
   return (
     <aside className="sidebar">
-      <p className="sidebar-name">K I E R A N</p>
-
-      <div className="sidebar-divider" />
-
-      <nav className="sidebar-nav">
-        {TABS.map((tab) => (
-          <button
-            key={tab}
-            className={`sidebar-tab ${activeTab === tab ? "active" : ""}`}
-            onClick={() => onTabChange(tab)}
-          >
-            {tab}
-          </button>
+      <div className="sidebar-profile">
+        <Link href="/" className="sidebar-name" aria-label="Kieran Ho — home">KIERAN HO<span className="name-dot">.</span></Link>
+        <p className="sidebar-intro">Business Analytics at NUS. Curious about data, systems, and how things work.</p>
+      </div>
+      <nav className="sidebar-nav" aria-label="Main navigation">
+        {sections.map(({ id, label, number }) => (
+          <Link key={id} href={id === "projects" ? "/" : `/?section=${id}`} className={`sidebar-tab${activeSection === id ? " active" : ""}`} aria-current={activeSection === id ? "page" : undefined}>
+            <span className="sidebar-number" aria-hidden="true">{number}</span><span>{label}</span>
+          </Link>
         ))}
       </nav>
-
-      <div className="sidebar-spacer" />
-
-      <div className="sidebar-divider" />
-
-      <div className="sidebar-contact">
-        {CONTACT_LINKS.map(({ href, icon: Icon, label, external }) => (
-          <a
-            key={href}
-            href={href}
-            className="contact-link"
-            {...(external
-              ? { target: "_blank", rel: "noopener noreferrer" }
-              : {})}
-          >
-            <Icon className="contact-icon" />
-            <span className="contact-label">{label}</span>
-          </a>
-        ))}
+      <div className="sidebar-bottom">
+        <p className="sidebar-note">Always a work in progress.</p>
+        <div className="sidebar-contact">
+          {contacts.map(({ href, icon: Icon, label }) => (
+            <a key={label} href={href} className="contact-link" aria-label={label} {...(href.startsWith("https:") ? { target: "_blank", rel: "noopener noreferrer" } : {})}>
+              <Icon aria-hidden="true" /><span>{label}</span>
+            </a>
+          ))}
+        </div>
+        <p className="sidebar-copyright">© {new Date().getFullYear()} Kieran Ho</p>
       </div>
-
-      <p className="sidebar-copyright">© {new Date().getFullYear()} Kieran Ho</p>
     </aside>
   );
 }

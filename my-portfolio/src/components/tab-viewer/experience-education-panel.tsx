@@ -1,111 +1,44 @@
 "use client";
 
 import { useState } from "react";
-import { Fragment } from "react";
 import Image from "next/image";
 import { experienceEntries, type ExperienceEntry } from "./entries/experience-entries";
 import { educationEntries, type EducationEntry } from "./entries/education-entries";
 
 type View = "experience" | "education";
-type Group<T> = { year?: string; entries: T[] };
-
-function buildGroups<T extends { year?: string }>(entries: T[]): Group<T>[] {
-  return [...entries].reverse().reduce<Group<T>[]>((acc, entry) => {
-    const last = acc[acc.length - 1];
-    if (last && last.year && entry.year && last.year === entry.year) {
-      last.entries.push(entry);
-    } else {
-      acc.push({ year: entry.year, entries: [entry] });
-    }
-    return acc;
-  }, []);
+function groupEntries(entries: (ExperienceEntry | EducationEntry)[]) {
+  const groups = new Map<string, (ExperienceEntry | EducationEntry)[]>();
+  [...entries].reverse().forEach((entry) => {
+    const year = entry.year ?? "Other";
+    groups.set(year, [...(groups.get(year) ?? []), entry]);
+  });
+  return [...groups].sort(([a], [b]) => b.localeCompare(a));
 }
-
-const expGroups = buildGroups(experienceEntries);
-const eduGroups = buildGroups(educationEntries);
-
-function EntryCard({ entry }: { entry: ExperienceEntry | EducationEntry }) {
-  return (
-    <>
-      <div className="post-header">
-        <Image src={entry.image} alt={entry.title} width={88} height={88} className="post-logo" />
-        <div>
-          <h2 className="post-title">{entry.title}</h2>
-          <p className="post-subtitle">{entry.subtitle}</p>
-        </div>
-      </div>
-      {entry.details && (
-        <ul className="post-details">
-          {entry.details.map((d, j) => <li key={j}>{d}</li>)}
-        </ul>
-      )}
-      {entry["details-list"] && (
-        <ul className="post-details-list">
-          {entry["details-list"].map((d, j) => <li key={j}>{d}</li>)}
-        </ul>
-      )}
-    </>
-  );
-}
-
 export default function ExperienceEducationPanel() {
   const [view, setView] = useState<View>("experience");
-
-  const switchTo = (next: View) => {
-    if (next === view) return;
-    setView(next);
-  };
-
+  const groups = groupEntries(view === "experience" ? experienceEntries : educationEntries);
   return (
-    <div className="exp-edu-wrapper">
-      <div className="exp-edu-header">
-        <div className="view-switcher" data-view={view}>
-          <div className="view-switcher-pill" />
-          <button className="view-switcher-btn" onClick={() => switchTo("education")}>
-            Education
-          </button>
-          <button className="view-switcher-btn" onClick={() => switchTo("experience")}>
-            Experience
-          </button>
-        </div>
+    <div className="section-page timeline-page">
+      <header className="section-heading">
+        <p className="eyebrow">02 / Along the way</p>
+        <h1>A little context<span className="heading-dot">.</span></h1>
+        <p>The places I&apos;ve learned, the teams I&apos;ve worked with, and the work that has shaped how I think.</p>
+      </header>
+      <div className="timeline-controls" role="group" aria-label="Timeline view">
+        {(["experience", "education"] as const).map((option) => <button key={option} aria-pressed={view === option} aria-controls="timeline-entries" onClick={() => setView(option)}>{option === "experience" ? "Experience" : "Education"}</button>)}
       </div>
-
-      <div className="timeline-viewport" data-view={view}>
-        <div className="timeline-double">
-          {/* Education column */}
-          <div className="timeline-col timeline-col-edu" onClick={() => switchTo("education")}>
-            {eduGroups.map((group, i) => (
-              <div key={group.year ?? i} className="timeline-group">
-                {group.year && <p className="col-year-label">{group.year}</p>}
-                <article className="post-card">
-                  {group.entries.map((entry, ei) => (
-                    <Fragment key={ei}>
-                      {ei > 0 && <div className="post-divider" />}
-                      <EntryCard entry={entry} />
-                    </Fragment>
-                  ))}
-                </article>
-              </div>
-            ))}
-          </div>
-
-          {/* Experience column */}
-          <div className="timeline-col timeline-col-exp" onClick={() => switchTo("experience")}>
-            {expGroups.map((group, i) => (
-              <div key={group.year ?? i} className="timeline-group">
-                {group.year && <p className="col-year-label">{group.year}</p>}
-                <article className="post-card">
-                  {group.entries.map((entry, ei) => (
-                    <Fragment key={ei}>
-                      {ei > 0 && <div className="post-divider" />}
-                      <EntryCard entry={entry} />
-                    </Fragment>
-                  ))}
-                </article>
-              </div>
-            ))}
-          </div>
-        </div>
+      <div id="timeline-entries" className="timeline-list" aria-label={view === "experience" ? "Experience timeline" : "Education timeline"}>
+        {groups.map(([year, entries]) => (
+          <section className="timeline-year-group" key={`${view}-${year}`}>
+            <h2 className="timeline-year">{year}</h2>
+            <div className="timeline-year-entries">
+              {entries.map((entry, i) => <article className="timeline-entry" key={`${entry.title}-${i}`}>
+                <div className="timeline-entry-header"><Image src={entry.image} alt="" width={52} height={52} className="timeline-logo" /><div><h3>{entry.title}</h3><p>{entry.subtitle}</p></div></div>
+                <ul>{entry.details.map((detail) => <li key={detail}>{detail}</li>)}{entry["details-list"]?.map((detail) => <li key={detail}>{detail}</li>)}</ul>
+              </article>)}
+            </div>
+          </section>
+        ))}
       </div>
     </div>
   );

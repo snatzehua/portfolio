@@ -1,0 +1,50 @@
+export type Section = "projects" | "experience" | "writing" | "lifestyle";
+
+export type ContentBlock =
+  | { type: "text"; content: string }
+  | { type: "image"; src: string; caption?: string; width?: "full" | "half" }
+  | { type: "latex"; content: string; caption?: string };
+
+export interface ArticleSection { id: string; title: string; blocks: ContentBlock[] }
+
+export interface Project {
+  slug: string;
+  title: string;
+  summary: string;
+  publishedAt: string;
+  period: string;
+  role: string;
+  status: string;
+  tags: string[];
+  cover?: string;
+  coverAlt?: string;
+  repository?: string;
+  demo?: string;
+  outcome: string;
+  sections: ArticleSection[];
+}
+
+export interface WritingEntry {
+  slug: string;
+  title: string;
+  subtitle?: string;
+  publishedAt: string;
+  period: string;
+  summary: string;
+  banner?: string;
+  body: string;
+  sections: ArticleSection[];
+  tags: string[];
+}
+
+export function newestFirst<T extends { publishedAt: string }>(entries: T[]): T[] {
+  return [...entries].sort((a, b) => b.publishedAt.localeCompare(a.publishedAt));
+}
+
+export function formatDate(date: string): string {
+  return new Intl.DateTimeFormat("en-SG", {
+    month: "short", year: "numeric",
+    ...(date.length > 7 ? { day: "numeric" as const } : {}),
+    timeZone: "UTC",
+  }).format(new Date(`${date.length === 7 ? `${date}-01` : date}T00:00:00Z`));
+}

@@ -22,14 +22,9 @@ Add new ideas below, one per line:
 
 | ID | Priority | Item | Origin | Done when |
 | --- | --- | --- | --- | --- |
-| P01 | First | Expand one project into a case study | User requested deeper project explanations | One project explains its problem, role, decisions, alternatives, evidence, limitations, and next steps, using the [template](docs/project-case-study-template.md). |
-| P02 | First | Add a reusable project detail page | Suggested implementation for P01 | A card opens a shareable `/projects/<slug>` page; refresh, browser Back, return to Projects, and unknown slugs work; entering a detail page does not replay the home introduction. |
-| P03 | First | Separate project summaries from long-form content | Suggested maintenance improvement | Typed metadata supplies the cards; one local content file supplies each case study; adding another project reuses the same layout without duplicating rendering code. |
-| P04 | Next | Audit current project cards | Observed in current files | OpenClaw has relevant tags and imagery instead of the sentiment project's copies; titles, dates, status, repository/demo links, and personal contribution are checked. GDELT's reported outperformance links to its benchmark, period, evaluation method, and limitations. |
-| P05 | Next | Make the reading layout responsive | Existing review finding | Project detail, Writing, and the timeline remain readable at 390px, tablet, and desktop widths; essential content is not clipped by fixed-width columns or trapped in nested scrolling. |
-| P06 | Next | Reduce image loading and fix article expansion | Existing review finding | Writing's 26.1 MiB of source images are resized/compressed; collapsed articles defer body images; expanded content remains visible after delayed image/font loading. |
-| P07 | Later | Share article presentation components | Suggested maintenance improvement | Project case studies and Writing reuse figures, captions, headings, and math presentation where useful, while retaining their different content purposes. |
-| P08 | Later | Refresh repository guidance | Observed documentation drift | README and CLAUDE.md describe the actual single-page tab interface, current routes, content locations, and working checks; a single package manager/lockfile convention is documented. |
+| P01 | Next | Deepen project case studies with first-hand evidence | User requested deeper project explanations | The initial notes are expanded with actual alternatives, experiments, failure cases, and concrete ownership; missing facts are supplied by the author. |
+| P04 | Next | Finish the factual audit of project cards | Existing content needs author confirmation | Confirm dates, current status, role, and repository/demo URLs. Attach benchmark, period, costs, and evaluation method to GDELT's reported outperformance. Tags and copied OpenClaw artwork are already corrected. |
+| P09 | Later | Improve media descriptions and education details | Follow-up from implementation | Replace generic photography alt text with scene descriptions; confirm GPA/year-of-study wording and any changed experience/education facts. |
 
 ## In progress
 
@@ -40,12 +35,20 @@ None.
 | Date | Item | Evidence |
 | --- | --- | --- |
 | 2026-10-29 | Establish the backlog and a reusable case-study outline | This file and [project-case-study-template.md](docs/project-case-study-template.md); documentation only. |
+| 2026-10-29 | Save the starting state on a branch | `codex/portfolio-case-studies`, baseline commit `a47c901`. |
+| 2026-10-29 | P02: Add shareable project and writing detail pages | `/projects/<slug>` and `/writing/<slug>`, Back links, contents links, direct loading, and missing-entry pages. |
+| 2026-10-29 | P03: Separate content from UI | One typed file per project/article under `src/content/`; shared layouts and explicit indexes. |
+| 2026-10-29 | P05: Make the reading layout responsive | Single-column timeline; 390px mobile, tablet, and desktop browser checks. |
+| 2026-10-29 | P06: Reduce writing image weight and remove clipping | 26.14 MiB of original writing images have 1.51 MiB of WebP derivatives; original images retained. Full articles live on dedicated pages, with lazy images and natural height. |
+| 2026-10-29 | P07: Share article presentation | Project and Writing pages share headings, figures, captions, math, contents links, and footer navigation. |
+| 2026-10-29 | P08: Refresh repository guidance | README, CLAUDE.md, npm scripts, and one npm lockfile convention; add `check:content`. |
+| 2026-10-29 | Make Lifestyle media browsable | Inline travel video; image viewer with next/previous, keyboard controls, and focus return. |
 
-## Proposed approach
+## Implemented structure
 
-Keep the current project cards as a quick overview. Give substantial projects their own detail pages, with a consistent reading layout and a clear route back to Projects. Start with one case study before migrating other content.
+Project cards provide a quick overview. Each project and article has a detail page with a consistent reading layout and a route back to its overview. Experience/Education and Lifestyle remain complete scrolling views. Initial project notes use only the facts in the previous descriptions; deeper evidence remains in P01/P04.
 
-Suggested content structure when P02/P03 are implemented:
+Current content structure:
 
 ```text
 my-portfolio/src/
@@ -56,17 +59,20 @@ my-portfolio/src/
 
 Keep stable project metadata together: slug, title, summary, dates, status, role, tags, image, and optional repository/demo links. Do not duplicate the full story in the project card.
 
-Local MDX is a candidate for long-form content because it combines prose with reusable figures, code, and interactive components. Decide during P03 after drafting the first story; the current app does not have MDX configured. Reference: [Next.js 15 MDX guide](https://nextjs.org/docs/15/app/guides/mdx).
+The first implementation uses typed content records and a shared block renderer to preserve the existing text/image/KaTeX pipeline without adding dependencies. MDX remains an option if future content needs justify it.
 
 ## Decisions
 
-No implementation decisions recorded yet. The approach above is a recommendation.
+- 2026-10-29 — Keep the existing light paper/card style, open directly to Projects, and retain the four main sections. Give Projects and Writing separate detail routes. — Matches the agreed visitor flow. — P02, P05.
+- 2026-10-29 — Use typed local content files and shared article blocks. — The existing content already uses text/image/math blocks; this supports immediate migration without an additional authoring toolchain. — P03, P07.
+- 2026-10-29 — Preserve original media and add optimized copies. — Avoid losing source material while reducing image loading. — P06.
+- 2026-10-29 — Use this backlog as the work log. — Keep intent and follow-up work beside the code; completed implementation is recorded in Git. — P01, P08.
 
 Future entry format: `YYYY-MM-DD — Decision — Why — Affected backlog IDs`.
 
-## Suggested first session
+## Suggested next content session
 
 1. Choose the project with the clearest evidence and decisions you can explain.
 2. Draft its story with the template before changing the interface.
-3. Build only the detail layout and content support needed for that story.
-4. Check the reading experience and direct link, then use the same structure for the next project.
+3. Add evidence and only extend the shared content blocks if the story needs it.
+4. Run the content check and build, then review the reading experience and direct link.

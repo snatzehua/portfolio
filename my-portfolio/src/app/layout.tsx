@@ -1,9 +1,13 @@
-import "./styles.css";
 import "./globals.css";
 
 import { Geist, Geist_Mono, Inter, Reenie_Beanie } from "next/font/google";
 import { Analytics } from "@vercel/analytics/react";
-import PageTransition from "@/components/page-transition/page-transition";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Kieran Ho | Projects, writing & explorations",
+  description: "Kieran Ho — Business Analytics at NUS. Projects, experiments, writing, and the decisions behind them.",
+};
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -37,10 +41,8 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} ${inter.variable} ${reenieBeanie.variable} antialiased`}
         suppressHydrationWarning
       >
-        <PageTransition>
-          {children}
-          <Analytics />
-        </PageTransition>
+        {children}
+        <Analytics />
       </body>
     </html>
   );
