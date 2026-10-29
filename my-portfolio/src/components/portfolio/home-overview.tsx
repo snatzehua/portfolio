@@ -30,7 +30,7 @@ export default function HomeOverview() {
     <section id="lifestyle" aria-labelledby="overview-lifestyle">
       <Link className="overview-sheet" href="/lifestyle">
         <div className="overview-description"><p className="eyebrow">03 / Outside the screen</p><h2 id="overview-lifestyle">Lifestyle</h2><p>Places, moments, and the occasional unexpected hobby.</p><span className="overview-action">Travel, photography & more <span aria-hidden="true">→</span></span></div>
-        <div className="overview-preview overview-polaroids"><div className="overview-polaroid-pair"><Image src="/images/blacksmith1-polaroid.png" alt="A polaroid from my blacksmithing workshop" width={240} height={300} sizes="(max-width: 600px) 38vw, 200px" /><Image src="/images/blacksmith2-polaroid.png" alt="A second polaroid from my blacksmithing workshop" width={240} height={300} sizes="(max-width: 600px) 38vw, 200px" /></div></div>
+        <div className="overview-preview overview-illustrated overview-lifestyle"><PreviewImage src="/images/path.jpg" /><div className="overview-preview-copy"><span className="preview-label">A few other things</span><h3>Finding moments</h3><p>Travel, photography, and blacksmithing.</p></div><div className="overview-polaroid-pair"><Image src="/images/blacksmith1-polaroid.png" alt="A polaroid from my blacksmithing workshop" width={240} height={300} sizes="(max-width: 600px) 38vw, 200px" /><Image src="/images/blacksmith2-polaroid.png" alt="A second polaroid from my blacksmithing workshop" width={240} height={300} sizes="(max-width: 600px) 38vw, 200px" /></div></div>
       </Link>
     </section>
     <section id="writing" aria-labelledby="overview-writing">
