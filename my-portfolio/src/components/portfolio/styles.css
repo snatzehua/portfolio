@@ -1,4 +1,14 @@
-.portfolio-shell { --ink: #272d24; --muted: #70776b; --accent: #526d40; color: var(--ink); background: #f6f6f3; min-height: 100dvh; font-family: var(--font-inter), Inter, Arial, sans-serif; }
+.portfolio-shell { --ink: #272d24; --muted: #70776b; --accent: #526d40; position: relative; isolation: isolate; color: var(--ink); background: transparent; min-height: 100dvh; font-family: var(--font-inter), Inter, Arial, sans-serif; }
+.portfolio-backdrop { position: fixed; inset: 0; z-index: -1; background: #546c73; pointer-events: none; }
+.portfolio-backdrop img { object-fit: cover; object-position: center; }
+.portfolio-backdrop::after { content: ""; position: absolute; inset: 0; background: #1b2b331c; }
+.welcome-banner { position: relative; isolation: isolate; height: clamp(220px, 24vw, 300px); margin-bottom: 20px; overflow: hidden; border-radius: 12px; border: 1px solid #ffffff40; box-shadow: 0 4px 20px #152a3014; }
+.welcome-banner > img { object-fit: cover; object-position: center 54%; z-index: -2; }
+.welcome-banner::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, #10252cbd, #14283035 70%, #1428300d); z-index: -1; }
+.welcome-banner-copy { display: flex; flex-direction: column; justify-content: flex-end; height: 100%; padding: 34px clamp(28px, 5vw, 76px); color: white; }
+.welcome-banner-copy .eyebrow { color: #ecf0e4; font-size: 9px; letter-spacing: .17em; }
+.welcome-banner-copy h2 { font-family: var(--font-reenie-beanie), cursive; font-size: clamp(46px, 5vw, 70px); line-height: 1.1; margin: 8px 0 10px; text-shadow: 0 2px 8px #132b3030; }
+.welcome-banner-copy > p:last-child { font-size: 12px; color: #f2f4ed; line-height: 1.8; }
 .portfolio-shell * { box-sizing: border-box; }
 .portfolio-shell a, .portfolio-shell button { -webkit-tap-highlight-color: transparent; }
 .portfolio-shell :focus-visible { outline: 2px solid #587645; outline-offset: 5px; border-radius: 3px; }
@@ -63,6 +73,13 @@
 .timeline-entry-header p { font-size: 12px; color: #828a78; margin-top: 4px; }
 .timeline-entry ul { padding-left: 17px; margin: 16px 0 0 57px; list-style: disc; color: #6c7661; font-size: 12px; line-height: 1.9; }
 .lifestyle-page { max-width: 780px; }
+.lifestyle-photo-heading { position: relative; isolation: isolate; overflow: hidden; border-radius: 8px; padding: 38px 32px; min-height: 265px; display: flex; align-items: flex-end; }
+.lifestyle-photo-heading > img { object-fit: cover; object-position: center 60%; z-index: -2; }
+.lifestyle-photo-heading::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, #101c1526, #101c15db); z-index: -1; }
+.lifestyle-photo-copy { color: white; }
+.lifestyle-photo-copy .eyebrow { color: #dce5d4; }
+.lifestyle-photo-copy .heading-dot { color: #c5d2b7; }
+.lifestyle-photo-copy > p:last-child { color: #e4eadc; font-size: 13px; line-height: 1.9; max-width: 430px; }
 .lifestyle-section { padding-top: 30px; margin-top: 32px; border-top: 1px solid #dfe4d7; }
 .lifestyle-section-heading { margin-bottom: 22px; }
 .lifestyle-section h2 { font-size: 25px; font-weight: 500; letter-spacing: -.035em; margin-top: 8px; }
@@ -127,6 +144,10 @@
   .writing-card { grid-template-columns: minmax(0, 1fr) 145px; gap: 20px; padding: 23px; }
 }
 @media (max-width: 760px) {
+  .welcome-banner { height: 225px; margin-bottom: 12px; border-radius: 7px; }
+  .welcome-banner-copy { padding: 25px 24px; }
+  .welcome-banner > img { object-position: 58% center; }
+  .lifestyle-photo-heading { padding: 25px 22px; min-height: 245px; }
   .portfolio-main { margin-left: 0; padding: 12px; }
   .portfolio-paper { padding: 30px 22px; border-radius: 7px; min-height: calc(100dvh - 170px); }
   .section-heading { margin-bottom: 28px; }

@@ -1,12 +1,14 @@
 .sidebar {
   position: fixed; inset: 0 auto 0 0; width: 244px; height: 100dvh;
-  background: #f6f6f3; border-right: 1px solid #e6e6df; display: flex;
-  flex-direction: column; padding: 48px 25px 28px; z-index: 20;
+  background: #f6f6f3f5; border-right: 1px solid #e6e6df; display: flex;
+  flex-direction: column; padding: 30px 25px 28px; z-index: 20; overflow-y: auto;
 }
+.sidebar-portrait { display: block; width: 96px; margin: 0 0 25px 8px; transform: rotate(-6deg); filter: drop-shadow(2px 5px 5px #26332224); }
+.sidebar-portrait img { display: block; width: 100%; height: auto; }
 .sidebar-name { display: inline-block; font-size: 15px; font-weight: 750; letter-spacing: .11em; text-decoration: none; color: #242922; }
 .name-dot { color: #6a7d57; }
 .sidebar-intro { color: #777c73; font-size: 12px; line-height: 1.9; margin: 17px 0 0; }
-.sidebar-nav { display: flex; flex-direction: column; gap: 7px; margin-top: 54px; }
+.sidebar-nav { display: flex; flex-direction: column; gap: 7px; margin-top: 28px; }
 .sidebar-tab { display: flex; align-items: baseline; gap: 12px; padding: 11px 9px; font-size: 12px; line-height: 1.5; color: #71766b; text-decoration: none; border-radius: 5px; transition: background .15s, color .15s; }
 .sidebar-number { font-size: 10px; color: #989e90; font-variant-numeric: tabular-nums; }
 .sidebar-tab.active { background: #e8ecdf; color: #314328; font-weight: 600; }
@@ -22,9 +24,11 @@
 @media (max-width: 760px) {
   .sidebar { position: relative; width: 100%; height: auto; padding: 24px 22px 0; border-right: 0; border-bottom: 1px solid #e2e5da; }
   .sidebar-profile { display: flex; justify-content: space-between; align-items: center; gap: 16px; }
-  .sidebar-intro { font-size: 10px; line-height: 1.6; margin: 0; }
+  .sidebar-portrait { width: 60px; flex-shrink: 0; margin: 0 3px 0 0; }
+  .sidebar-profile-copy { flex: 1; min-width: 0; }
+  .sidebar-intro { font-size: 11px; line-height: 1.6; margin: 8px 0 0; }
   .sidebar-intro br { display: none; }
-  .sidebar-intro { max-width: 165px; }
+  .sidebar-intro { max-width: 245px; }
   .sidebar-nav { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 4px; margin-top: 22px; padding-bottom: 12px; }
   .sidebar-tab { font-size: 10px; padding: 9px 5px; white-space: normal; justify-content: center; align-items: center; text-align: center; }
   .sidebar-number { display: none; }
@@ -32,4 +36,10 @@
   .sidebar-contact { border: 0; padding: 0; }
   .sidebar-note { display: block; margin: 0; font-size: 10px; }
   .sidebar-copyright { display: none; }
+}
+@media (min-width: 761px) and (max-height: 700px) {
+  .sidebar { padding-top: 22px; padding-bottom: 20px; }
+  .sidebar-portrait { width: 64px; margin-bottom: 16px; }
+  .sidebar-nav { margin-top: 20px; }
+  .sidebar-bottom { padding-top: 20px; }
 }

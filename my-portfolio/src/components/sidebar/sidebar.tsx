@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { SiLinkedin, SiGithub, SiMaildotru } from "react-icons/si";
 import type { Section } from "@/content/types";
 import "./styles.css";
@@ -18,8 +19,13 @@ export default function Sidebar({ activeSection }: { activeSection: Section }) {
   return (
     <aside className="sidebar">
       <div className="sidebar-profile">
-        <Link href="/" className="sidebar-name" aria-label="Kieran Ho — home">KIERAN HO<span className="name-dot">.</span></Link>
-        <p className="sidebar-intro">Business Analytics at NUS. Curious about data, systems, and how things work.</p>
+        <Link href="/" className="sidebar-portrait" aria-label="Kieran Ho — portrait and home">
+          <Image src="/images/polaroid_pfp_edited.png" alt="Kieran holding a white dog in a polaroid photograph" width={377} height={601} sizes="(max-width: 760px) 60px, 96px" priority />
+        </Link>
+        <div className="sidebar-profile-copy">
+          <Link href="/" className="sidebar-name" aria-label="Kieran Ho — home">KIERAN HO<span className="name-dot">.</span></Link>
+          <p className="sidebar-intro">Business Analytics at NUS. Curious about data, systems, and how things work.</p>
+        </div>
       </div>
       <nav className="sidebar-nav" aria-label="Main navigation">
         {sections.map(({ id, label, number }) => (

@@ -18,7 +18,7 @@ export async function generateMetadata({ searchParams }: Props): Promise<Metadat
 export default async function Home({ searchParams }: Props) {
   const section = getSection((await searchParams).section);
   return (
-    <PortfolioShell section={section}>
+    <PortfolioShell section={section} showIntro={section === "projects"}>
       <ScrollMemory section={section} />
       {section === "projects" && <ProjectsPanel />}
       {section === "writing" && <WritingPanel />}

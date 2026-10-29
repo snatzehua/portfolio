@@ -30,6 +30,8 @@ The content uses typed TypeScript records and shared text/image/math blocks. MDX
 
 Images belong in `my-portfolio/public/images/`. Add article-image dimensions to `my-portfolio/src/content/media.ts`. The writing images have optimized WebP copies under `public/images/writing/`; the original images remain available. Body images load only on article pages and use native lazy loading with reserved aspect ratios.
 
+The shared shell reuses the original mountain photograph as its backdrop and the Projects welcome banner. The original polaroid appears in the menu, and the forest path photograph heads Lifestyle. Reading panels stay opaque for legibility; detail pages omit the welcome banner.
+
 ## Checks
 
 Run from `my-portfolio/`:

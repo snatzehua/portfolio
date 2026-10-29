@@ -43,6 +43,7 @@ None.
 | 2026-10-29 | P07: Share article presentation | Project and Writing pages share headings, figures, captions, math, contents links, and footer navigation. |
 | 2026-10-29 | P08: Refresh repository guidance | README, CLAUDE.md, npm scripts, and one npm lockfile convention; add `check:content`. |
 | 2026-10-29 | Make Lifestyle media browsable | Inline travel video; image viewer with next/previous, keyboard controls, and focus return. |
+| 2026-10-29 | Reintroduce original background photography and portrait | Mountain photo behind the layout and in the Projects welcome banner; original polaroid above the menu; forest photo in the Lifestyle header. Original assets are unchanged. |
 
 ## Implemented structure
 
