@@ -15,7 +15,8 @@ export default function ScrollMemory({ section }: { section: string }) {
       secondFrame = requestAnimationFrame(() => {
         let previous = 0;
         try { previous = Number(sessionStorage.getItem(key)) || 0; } catch { /* Use the top. */ }
-        window.scrollTo({ top: previous, behavior: "instant" });
+        // Native fragment navigation takes priority over the remembered position.
+        if (!window.location.hash) window.scrollTo({ top: previous, behavior: "instant" });
         window.addEventListener("scroll", remember, { passive: true });
       });
     });

@@ -14,7 +14,7 @@ export default function ArticlePage({ kind, title, subtitle, intro, date, tags, 
   outcome?: string;
   links?: { label: string; href: string }[];
 }) {
-  const backHref = kind === "projects" ? "/" : "/?section=writing";
+  const backHref = kind === "projects" ? "/#projects" : "/#writing";
   const label = kind === "projects" ? "Projects" : "Writing";
   return (
     <article className="detail-page">

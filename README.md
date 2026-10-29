@@ -1,6 +1,6 @@
 # Kieran Ho — portfolio
 
-A Next.js portfolio with a persistent desktop side menu, responsive mobile navigation, and dedicated pages for project case studies and writing.
+A Next.js portfolio with one continuous home page, an expandable desktop side menu, responsive mobile navigation, and dedicated pages for project case studies and writing.
 
 ## Run locally
 
@@ -11,7 +11,7 @@ npm install
 npm run dev
 ```
 
-The home page opens directly to Projects. The other sections use `/?section=experience`, `/?section=writing`, and `/?section=lifestyle`. Experience and Education share a switchable timeline. Detail pages use `/projects/<slug>` and `/writing/<slug>`.
+The home page scrolls through Projects, Experience & Education, Writing, and Lifestyle in one document. The menu jumps to `/#projects`, `/#experience`, `/#writing`, and `/#lifestyle`; expandable groups link to project cards, both timelines, article cards, and individual interests. The active menu marker follows the scroll position. Old `/?section=...` links redirect to their equivalent anchors. Detail pages still use `/projects/<slug>` and `/writing/<slug>`, with Back links to the appropriate home-page section.
 
 ## Add or edit content
 
@@ -30,7 +30,7 @@ The content uses typed TypeScript records and shared text/image/math blocks. MDX
 
 Images belong in `my-portfolio/public/images/`. Add article-image dimensions to `my-portfolio/src/content/media.ts`. The writing images have optimized WebP copies under `public/images/writing/`; the original images remain available. Body images load only on article pages and use native lazy loading with reserved aspect ratios.
 
-The shared shell displays the original mountain photograph once as a continuous backdrop. The compact Projects welcome area reveals that same image through a gradient; it does not load a second crop. The original polaroid appears in the menu, and the forest path photograph heads Lifestyle. Reading panels stay opaque for legibility; detail pages omit the welcome area.
+The shared shell displays the original mountain photograph once as a continuous backdrop. The borderless welcome area reveals that same image through a gradient. The sidebar and main reading panel use the original white pegboard pattern. The centered polaroid is decorative, without a link or pointer cursor; the forest path photograph heads Lifestyle. Detail pages omit the welcome area. Root and menu overscroll are disabled, and the main content uses the document scrollbar.
 
 Projects can supply `coverSteps`, a three-label tuple for the shared cover diagram. Existing `cover` images remain a fallback; detailed results charts belong inside the case study. The project's `outcome` supplies both its card takeaway and the detail page's current-result summary.
 

@@ -1,6 +1,6 @@
 # Portfolio backlog
 
-Updated: 2026-10-29
+Updated: 2026-10-30
 
 Purpose: make the portfolio easier to maintain and expand projects into case studies that show how decisions were made.
 
@@ -47,10 +47,11 @@ None.
 | 2026-10-29 | Reintroduce original background photography and portrait | Mountain photo behind the layout and in the Projects welcome banner; original polaroid above the menu; forest photo in the Lifestyle header. Original assets are unchanged. |
 | 2026-10-29 | Refine hierarchy and readability | One continuous mountain backdrop, a compact welcome area and Projects heading, larger and darker text, matching project diagrams, and visible current-result takeaways. Detailed chart retained in the GDELT case study. |
 | 2026-10-29 | Center and resize the sidebar polaroid | 120px desktop portrait centered within the 244px sidebar; 84px on short desktop screens and 56px in the mobile header. Browser checks confirm alignment and that navigation fits. |
+| 2026-10-30 | Apply six navigation and surface refinements | Decorative portrait with a default cursor; original white pegboard on sidebar/main panel; overscroll disabled; borderless introduction; one continuous home page; expandable menu groups with anchor links and active-section tracking. Legacy section URLs redirect to anchors; detail pages remain available. |
 
 ## Implemented structure
 
-Project cards provide a quick overview. Each project and article has a detail page with a consistent reading layout and a route back to its overview. Experience/Education and Lifestyle remain complete scrolling views. Initial project notes use only the facts in the previous descriptions; deeper evidence remains in P01/P04.
+The home page renders Projects, Experience & Education, Writing, and Lifestyle in one continuous scroll. Expandable menu groups jump to sections and individual entries. Both experience and education timelines are visible. Each project and article has a detail page with a route back to its home-page section. Initial project notes use only the facts in the previous descriptions; deeper evidence remains in P01/P04.
 
 Current content structure:
 
@@ -69,7 +70,7 @@ The first implementation uses typed content records and a shared block renderer 
 
 Component review following the latest feedback: the original surfaces were white/`#fafafa`, headings `#111`, body text `#555`–`#666`, and tags `#f3f3f3`–`#f5f5f5`. The sage palette and repeated three-step diagrams were introduced during the redesign. Returning to the original neutral palette and using real project visuals are proposed directions for P10, not yet applied.
 
-- 2026-10-29 — Keep the existing light paper/card style, open directly to Projects, and retain the four main sections. Give Projects and Writing separate detail routes. — Matches the agreed visitor flow. — P02, P05.
+- 2026-10-29 — Retain four main content areas and separate project/article routes. Later refined at the user's request into one continuous home page with expandable anchor navigation and the original white pegboard surfaces. — P02, P05, P10.
 - 2026-10-29 — Use typed local content files and shared article blocks. — The existing content already uses text/image/math blocks; this supports immediate migration without an additional authoring toolchain. — P03, P07.
 - 2026-10-29 — Preserve original media and add optimized copies. — Avoid losing source material while reducing image loading. — P06.
 - 2026-10-29 — Use this backlog as the work log. — Keep intent and follow-up work beside the code; completed implementation is recorded in Git. — P01, P08.

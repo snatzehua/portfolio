@@ -8,13 +8,13 @@ export default function ProjectsPanel() {
     <div className="section-page projects-page">
       <header className="section-heading projects-heading">
         <p className="eyebrow">01 / Work & experiments</p>
-        <h1>Selected projects<span className="heading-dot">.</span></h1>
+        <h2 id="projects-heading">Selected projects<span className="heading-dot">.</span></h2>
         <p>The questions, decisions, and lessons behind my work.</p>
         <div className="section-caption"><span>{String(projects.length).padStart(2, "0")} projects</span><span>Newest case studies first</span></div>
       </header>
       <div className="project-grid">
         {projects.map((project, i) => (
-          <Link href={`/projects/${project.slug}`} key={project.slug} className="project-card">
+          <Link href={`/projects/${project.slug}`} key={project.slug} id={`project-${project.slug}`} className="project-card">
             <div className="project-cover">
               {project.coverSteps ? (
                 <div className="project-flow" aria-hidden="true">
@@ -30,7 +30,7 @@ export default function ProjectsPanel() {
             </div>
             <div className="project-card-content">
               <div className="card-meta"><span className="status"><span aria-hidden="true" />{project.status}</span><time dateTime={project.publishedAt}>{formatDate(project.publishedAt)}</time></div>
-              <h2>{project.title}</h2>
+              <h3>{project.title}</h3>
               <p>{project.summary}</p>
               <div className="project-takeaway"><span>Where it stands</span><p>{project.outcome}</p></div>
               <p className="project-role">{project.role} · {project.period}</p>
