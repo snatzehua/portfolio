@@ -56,3 +56,29 @@
   .sidebar-expand { flex-basis: 30px; }
   .sidebar-submenu { margin-left: 8px; padding-left: 10px; }
 }
+
+/* A pale plywood panel: grain supplies texture while the wash keeps text clear. */
+.sidebar {
+  background-color: #e4d6bf;
+  background-image: linear-gradient(#f9f2e7bf, #f0e6d4bf), url('/images/textures/plywood.webp');
+  background-size: auto, 480px 480px;
+  border-right: 1px solid #c5b69f;
+  box-shadow: inset -2px 0 0 #ffffff40, 2px 0 5px #2921161c;
+}
+.sidebar-intro, .sidebar-tab, .sidebar-submenu a, .contact-link { color: #655d51; }
+.sidebar-tab.active { color: #26221c; border-left-color: #393026; }
+.sidebar-submenu { border-left-color: #b6a68d; }
+.sidebar-submenu a[aria-current] { color: #27221c; font-weight: 600; }
+.sidebar-expand { color: #706451; }
+.sidebar-expand:hover { background: #ffffff50; }
+.sidebar-note, .sidebar-copyright { color: #746a5c; }
+.sidebar-contact { border-top-color: #b5a48b70; }
+@media (max-width: 760px) {
+  .sidebar { border-right: 0; border-bottom: 1px solid #c5b69f; }
+  .sidebar-home { grid-column: 1 / -1; }
+}
+@media (min-width: 761px) and (min-height: 701px) and (max-height: 800px) {
+  .sidebar-portrait { width: 100px; margin-bottom: 16px; }
+  .sidebar-nav { margin-top: 20px; }
+  .sidebar-bottom { padding-top: 16px; }
+}

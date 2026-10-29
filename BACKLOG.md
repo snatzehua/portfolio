@@ -48,10 +48,12 @@ None.
 | 2026-10-29 | Refine hierarchy and readability | One continuous mountain backdrop, a compact welcome area and Projects heading, larger and darker text, matching project diagrams, and visible current-result takeaways. Detailed chart retained in the GDELT case study. |
 | 2026-10-29 | Center and resize the sidebar polaroid | 120px desktop portrait centered within the 244px sidebar; 84px on short desktop screens and 56px in the mobile header. Browser checks confirm alignment and that navigation fits. |
 | 2026-10-30 | Apply six navigation and surface refinements | Decorative portrait with a default cursor; original white pegboard on sidebar/main panel; overscroll disabled; borderless introduction; one continuous home page; expandable menu groups with anchor links and active-section tracking. Legacy section URLs redirect to anchors; detail pages remain available. |
+| 2026-10-30 | Add a compact home overview and dedicated section pages | Four home previews; `/projects`, `/experience`, `/writing`, `/lifestyle`; automatic menu expansion, subsection anchors, Home links, and article returns to section indexes. |
+| 2026-10-30 | Try plywood navigation and a thicker pegboard container | CC0 Poly Haven plywood texture with a pale CSS wash; original hole pattern retained; painted board edge and cast shadow supply depth. |
 
 ## Implemented structure
 
-The home page renders Projects, Experience & Education, Writing, and Lifestyle in one continuous scroll. Expandable menu groups jump to sections and individual entries. Both experience and education timelines are visible. Each project and article has a detail page with a route back to its home-page section. Initial project notes use only the facts in the previous descriptions; deeper evidence remains in P01/P04.
+The home page shows four compact previews. Each opens its complete section page, with all its subsections in one scroll. The active sidebar group expands automatically; child links jump to anchors within that section, and Home returns to the overview. Each project and article has a detail page with a route back to its section page. Initial project notes use only the facts in the previous descriptions; deeper evidence remains in P01/P04.
 
 Current content structure:
 
@@ -74,6 +76,8 @@ Component review following the latest feedback: the original surfaces were white
 - 2026-10-29 — Use typed local content files and shared article blocks. — The existing content already uses text/image/math blocks; this supports immediate migration without an additional authoring toolchain. — P03, P07.
 - 2026-10-29 — Preserve original media and add optimized copies. — Avoid losing source material while reducing image loading. — P06.
 - 2026-10-29 — Use this backlog as the work log. — Keep intent and follow-up work beside the code; completed implementation is recorded in Git. — P01, P08.
+
+- 2026-10-30 — Replace the full-content home scroll with previews and full section routes. — Keep the overview short while allowing every section to grow; all subsections remain visible on the section page. Add pale plywood navigation and give the pegboard depth through its sides and edges, following the user's clarification.
 
 Future entry format: `YYYY-MM-DD — Decision — Why — Affected backlog IDs`.
 

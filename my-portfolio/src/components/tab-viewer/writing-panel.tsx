@@ -8,7 +8,7 @@ export default function WritingPanel() {
     <div className="section-page">
       <header className="section-heading">
         <p className="eyebrow">03 / Notes & explorations</p>
-        <h2 id="writing-heading">Working it out<span className="heading-dot">.</span></h2>
+        <h1 id="writing-heading">Working it out<span className="heading-dot">.</span></h1>
         <p>Puzzles, explanations, and ideas worth spending a little more time with.</p>
         <div className="section-caption"><span>{String(writingEntries.length).padStart(2, "0")} articles</span><span>Newest first</span></div>
       </header>
@@ -17,7 +17,7 @@ export default function WritingPanel() {
           <Link key={entry.slug} id={`article-${entry.slug}`} href={`/writing/${entry.slug}`} className="writing-card">
             <div className="writing-card-content">
               <time className="eyebrow" dateTime={entry.publishedAt}>{formatDate(entry.publishedAt)}</time>
-              <h3>{entry.title}</h3>
+              <h2>{entry.title}</h2>
               <p className="writing-subtitle">{entry.subtitle}</p>
               <p>{entry.summary}</p>
               <div className="tag-list">{entry.tags.map((tag) => <span key={tag}>{tag}</span>)}</div>
