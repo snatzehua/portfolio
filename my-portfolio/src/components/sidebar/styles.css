@@ -83,3 +83,11 @@
 @media (prefers-reduced-motion: reduce) {
   .sidebar-submenu-wrap { transition: none; }
 }
+
+.sidebar-nav { display: block; }
+.sidebar-tree, .sidebar-sections { list-style: none; margin: 0; padding: 0; }
+.sidebar-home { font-weight: 600; }
+.sidebar-sections { display: grid; gap: 4px; margin: 2px 0 0 11px; padding-left: 12px; border-left: 1px solid #b6a68d; }
+@media (max-width: 760px) {
+  .sidebar-sections { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}

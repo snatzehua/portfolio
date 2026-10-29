@@ -41,9 +41,11 @@ export default function Sidebar({ activeSection, navigation }: {
         </div>
       </div>
       <nav className="sidebar-nav" aria-label="Main navigation">
-        <Link href="/" className={`sidebar-tab sidebar-home${activeSection === "home" ? " active" : ""}`} aria-current={activeSection === "home" ? "page" : undefined}>Overview</Link>
+        <ul className="sidebar-tree"><li>
+        <Link id="overview-navigation-label" href="/" className={`sidebar-tab sidebar-home${activeSection === "home" ? " active" : ""}`} aria-current={activeSection === "home" ? "page" : undefined}>Overview</Link>
+        <ul className="sidebar-sections" aria-labelledby="overview-navigation-label">
         {navigation.map((group) => (
-          <div key={group.id} className="sidebar-menu-group">
+          <li key={group.id} className="sidebar-menu-group">
             <div className="sidebar-menu-row">
               <Link href={group.href} className={`sidebar-tab${activeSection === group.id ? " active" : ""}`} aria-current={activeSection === group.id ? pathname === group.href ? "page" : "location" : undefined} aria-expanded={activeSection === group.id} aria-controls={`menu-${group.id}`}>{group.label}</Link>
             </div>
@@ -55,8 +57,9 @@ export default function Sidebar({ activeSection, navigation }: {
               })}
               </ul></div>
             </div>
-          </div>
+          </li>
         ))}
+        </ul></li></ul>
       </nav>
       <div className="sidebar-bottom">
         <p className="sidebar-note">Always a work in progress.</p>
