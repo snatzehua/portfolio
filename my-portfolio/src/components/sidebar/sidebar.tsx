@@ -42,12 +42,11 @@ export default function Sidebar({ activeSection, navigation }: {
           <Image src="/images/polaroid_pfp_edited.png" alt="Kieran holding a white dog in a polaroid photograph" width={377} height={601} sizes="(max-width: 760px) 56px, (max-height: 700px) 84px, (max-height: 800px) 100px, 120px" priority />
         </div>
         <div className="sidebar-profile-copy">
-          <Link href="/" className="sidebar-name" aria-label="Kieran Ho — home">KIERAN HO<span className="name-dot">.</span></Link>
-          <p className="sidebar-intro">Business Analytics at NUS. Curious about data, systems, and how things work.</p>
+          <Link href="/" className="sidebar-greeting" aria-label="Hi, I’m Kieran — overview">Hi, I&apos;m Kieran.</Link>
         </div>
       </div>
       <nav className="sidebar-nav" aria-label="Main navigation">
-        <Link href="/" className={`sidebar-tab sidebar-home${activeSection === "home" ? " active" : ""}`} aria-current={activeSection === "home" ? "page" : undefined}>Home</Link>
+        <Link href="/" className={`sidebar-tab sidebar-home${activeSection === "home" ? " active" : ""}`} aria-current={activeSection === "home" ? "page" : undefined}>Overview</Link>
         {navigation.map((group) => (
           <div key={group.id} className="sidebar-menu-group">
             <div className="sidebar-menu-row">

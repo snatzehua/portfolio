@@ -27,16 +27,16 @@ export default function HomeOverview() {
         </div>
       </Link>
     </section>
-    <section id="writing" aria-labelledby="overview-writing">
-      <Link className="overview-sheet" href="/writing">
-        <div className="overview-description"><p className="eyebrow">03 / Notes & explorations</p><h2 id="overview-writing">Writing</h2><p>Puzzles, explanations, and ideas I&apos;m working through.</p><span className="overview-action">Browse writing ({writingEntries.length}) <span aria-hidden="true">→</span></span></div>
-        <div className="overview-preview overview-writing">{writing.banner && <Image src={writing.banner} alt="" width={130} height={130} />}<div><span className="preview-label">Latest article · {formatDate(writing.publishedAt)}</span><h3>{writing.title}</h3><p>{writing.summary}</p></div></div>
-      </Link>
-    </section>
     <section id="lifestyle" aria-labelledby="overview-lifestyle">
       <Link className="overview-sheet" href="/lifestyle">
-        <div className="overview-description"><p className="eyebrow">04 / Outside the screen</p><h2 id="overview-lifestyle">Lifestyle</h2><p>Places, moments, and the occasional unexpected hobby.</p><span className="overview-action">Travel, photography & more <span aria-hidden="true">→</span></span></div>
+        <div className="overview-description"><p className="eyebrow">03 / Outside the screen</p><h2 id="overview-lifestyle">Lifestyle</h2><p>Places, moments, and the occasional unexpected hobby.</p><span className="overview-action">Travel, photography & more <span aria-hidden="true">→</span></span></div>
         <div className="overview-preview overview-photos"><div className="overview-photo-pair"><Image src="/images/grid/photo1.webp" alt="A photograph from my travel collection" width={240} height={260} /><Image src="/images/blacksmith1-polaroid.png" alt="A polaroid from a blacksmithing workshop" width={240} height={260} /></div><span className="preview-meta">Travel / Photography / Blacksmithing</span></div>
+      </Link>
+    </section>
+    <section id="writing" aria-labelledby="overview-writing">
+      <Link className="overview-sheet" href="/writing">
+        <div className="overview-description"><p className="eyebrow">04 / Puzzles & practice</p><h2 id="overview-writing">Extras</h2><p>Competitions, problem-solving, and other things I&apos;m working on.</p><span className="overview-action">Browse extras ({writingEntries.length}) <span aria-hidden="true">→</span></span></div>
+        <div className="overview-preview overview-writing">{writing.banner && <Image src={writing.banner} alt="" width={130} height={130} />}<div><span className="preview-label">Latest entry · {formatDate(writing.publishedAt)}</span><h3>{writing.title}</h3><p>{writing.summary}</p></div></div>
       </Link>
     </section>
   </div>;

@@ -7,10 +7,10 @@ export default function WritingPanel() {
   return (
     <div className="section-page">
       <header className="section-heading">
-        <p className="eyebrow">03 / Notes & explorations</p>
-        <h1 id="writing-heading">Working it out<span className="heading-dot">.</span></h1>
-        <p>Puzzles, explanations, and ideas worth spending a little more time with.</p>
-        <div className="section-caption"><span>{String(writingEntries.length).padStart(2, "0")} articles</span><span>Newest first</span></div>
+        <p className="eyebrow">04 / Puzzles & practice</p>
+        <h1 id="writing-heading">Extras<span className="heading-dot">.</span></h1>
+        <p>Competitions, problem-solving, and other things I’m working on.</p>
+        <div className="section-caption"><span>{String(writingEntries.length).padStart(2, "0")} entries</span><span>Newest first</span></div>
       </header>
       <div className="writing-list">
         {writingEntries.map((entry) => (

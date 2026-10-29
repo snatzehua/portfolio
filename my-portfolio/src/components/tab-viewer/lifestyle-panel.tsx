@@ -6,7 +6,7 @@ export default function LifestylePanel() {
     <div className="section-page lifestyle-page">
       <header className="section-heading lifestyle-photo-heading">
         <Image src="/images/path.jpg" alt="A stone path winding through a green forest" fill sizes="(max-width: 760px) 90vw, 780px" />
-        <div className="lifestyle-photo-copy"><p className="eyebrow">04 / Outside the screen</p><h1 id="lifestyle-heading">A few other things<span className="heading-dot">.</span></h1><p>Places, moments, and the occasional unexpected hobby.</p></div>
+        <div className="lifestyle-photo-copy"><p className="eyebrow">03 / Outside the screen</p><h1 id="lifestyle-heading">A few other things<span className="heading-dot">.</span></h1><p>Places, moments, and the occasional unexpected hobby.</p></div>
       </header>
       <section className="lifestyle-section" id="travel">
         <div className="lifestyle-section-heading"><span className="eyebrow">01 / Travel</span><h2>Exploring authenticity</h2></div>

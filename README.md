@@ -11,9 +11,11 @@ npm install
 npm run dev
 ```
 
-The home page previews Projects, Experience & Education, Writing, and Lifestyle. Each overview opens its full section at `/projects`, `/experience`, `/writing`, or `/lifestyle`. Each section shows all its subsections in one document: both experience/education timelines and all three Lifestyle interests remain visible. Project and writing cards open `/projects/<slug>` and `/writing/<slug>`; their Back links return to the section page.
+The Overview previews Projects, Experience & Education, Lifestyle, and Extras, in that order. Each overview opens its full section at `/projects`, `/experience`, `/lifestyle`, or `/writing` (Extras). Each section shows all its subsections in one document: both experience/education timelines and all three Lifestyle interests remain visible. Project and writing cards open `/projects/<slug>` and `/writing/<slug>`; their Back links return to the section page.
 
-The sidebar includes Home and automatically expands the active section. The `+` buttons also let visitors browse other groups. Subsection links go to anchors within the relevant section page, including when followed from Home or another section. Individual entries stay highlighted while their detail page is open. Old `/?section=...` links redirect to the corresponding section page; home `/#projects` etc. still locate their overview.
+The sidebar includes Overview and automatically expands the active section. The `+` buttons also let visitors browse other groups. Subsection links go to anchors within the relevant section page, including when followed from Overview or another section. Individual entries stay highlighted while their detail page is open. Old `/?section=...` links redirect to the corresponding section page; home `/#projects` etc. still locate their overview.
+
+“Extras” is the working label for writing, puzzles, competition efforts, and other work outside the main three sections. Its existing `/writing` and `/writing/<slug>` URLs and content records stay in place while the name is being considered.
 
 ## Add or edit content
 
@@ -32,7 +34,7 @@ The content uses typed TypeScript records and shared text/image/math blocks. MDX
 
 Images belong in `my-portfolio/public/images/`. Add article-image dimensions to `my-portfolio/src/content/media.ts`. The writing images have optimized WebP copies under `public/images/writing/`; the original images remain available. Body images load only on article pages and use native lazy loading with reserved aspect ratios.
 
-The shared shell displays the original mountain photograph once as a continuous backdrop. The borderless welcome area reveals that same image through a gradient. The sidebar uses a softly washed plywood texture; see `public/images/textures/README.md` for source and CC0 attribution. The main panel retains the original white pegboard pattern, with a painted edge and cast shadow giving the container thickness. The home previews sit on opaque paper-like panels. The centered polaroid is decorative, without a link or pointer cursor; the forest path photograph heads Lifestyle. Section and detail pages omit the welcome area. Root and menu overscroll are disabled, and the main content uses the document scrollbar.
+The shared shell displays the original mountain photograph once as a continuous backdrop. The greeting sits beneath the portrait in the sidebar on a translucent black panel. The former main welcome banner and its supporting copy are removed. The sidebar uses a softly washed plywood texture; see `public/images/textures/README.md` for source and CC0 attribution. The main panel retains the original white pegboard pattern, on a flat surface, without the layered edge or cast shadow. The home previews sit on opaque paper-like panels. The centered polaroid is decorative, without a link or pointer cursor; the forest path photograph heads Lifestyle. Root and menu overscroll are disabled, and the main content uses the document scrollbar.
 
 Projects can supply `coverSteps`, a three-label tuple for the shared cover diagram. Existing `cover` images remain a fallback; detailed results charts belong inside the case study. The project's `outcome` supplies both its card takeaway and the detail page's current-result summary.
 

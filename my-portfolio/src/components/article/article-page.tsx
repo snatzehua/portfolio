@@ -15,12 +15,12 @@ export default function ArticlePage({ kind, title, subtitle, intro, date, tags, 
   links?: { label: string; href: string }[];
 }) {
   const backHref = `/${kind}`;
-  const label = kind === "projects" ? "Projects" : "Writing";
+  const label = kind === "projects" ? "Projects" : "Extras";
   return (
     <article className="detail-page">
       <Link href={backHref} className="back-link">← Back to {label}</Link>
       <header className="article-header">
-        <p className="eyebrow">{kind === "projects" ? "Project notes" : "Writing"} / {date}</p>
+        <p className="eyebrow">{kind === "projects" ? "Project notes" : "Extras"} / {date}</p>
         <h1>{title}</h1>
         {subtitle && <p className="article-subtitle">{subtitle}</p>}
         <p className="article-intro"><RichText text={intro} /></p>

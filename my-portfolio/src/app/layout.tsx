@@ -5,8 +5,8 @@ import { Analytics } from "@vercel/analytics/react";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Kieran Ho | Projects, writing & explorations",
-  description: "Kieran Ho — Business Analytics at NUS. Projects, experiments, writing, and the decisions behind them.",
+  title: "Kieran Ho | Projects, lifestyle & extras",
+  description: "Kieran Ho — Business Analytics at NUS. Projects, experience, lifestyle, and things I’m working on.",
 };
 
 const geistSans = Geist({

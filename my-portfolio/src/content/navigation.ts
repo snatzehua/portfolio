@@ -15,10 +15,10 @@ export const navigation: NavigationGroup[] = [
     { label: "Work experience", href: "/experience#work-experience" },
     { label: "Education", href: "/experience#education" },
   ] },
-  { id: "writing", label: "Writing", href: "/writing", children: writingEntries.map(({ title, slug }) => ({ label: title, href: `/writing#article-${slug}`, detailHref: `/writing/${slug}` })) },
   { id: "lifestyle", label: "Lifestyle", href: "/lifestyle", children: [
     { label: "Travel", href: "/lifestyle#travel" },
     { label: "Photography", href: "/lifestyle#photography" },
     { label: "Blacksmithing", href: "/lifestyle#blacksmithing" },
   ] },
+  { id: "writing", label: "Extras", href: "/writing", children: writingEntries.map(({ title, slug }) => ({ label: title, href: `/writing#article-${slug}`, detailHref: `/writing/${slug}` })) },
 ];

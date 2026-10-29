@@ -16,7 +16,8 @@ Purpose: make the portfolio easier to maintain and expand projects into case stu
 
 Add new ideas below, one per line:
 
-- No additional ideas captured yet.
+- Expand Extras with Codeforces competitions and practice efforts once the author supplies the entries, dates, links, and any results.
+- Choose the final name for Extras. Candidates: Extras, Explorations, Practice & Play, Side Quests.
 
 ## Planned
 
@@ -50,10 +51,11 @@ None.
 | 2026-10-30 | Apply six navigation and surface refinements | Decorative portrait with a default cursor; original white pegboard on sidebar/main panel; overscroll disabled; borderless introduction; one continuous home page; expandable menu groups with anchor links and active-section tracking. Legacy section URLs redirect to anchors; detail pages remain available. |
 | 2026-10-30 | Add a compact home overview and dedicated section pages | Four home previews; `/projects`, `/experience`, `/writing`, `/lifestyle`; automatic menu expansion, subsection anchors, Home links, and article returns to section indexes. |
 | 2026-10-30 | Try plywood navigation and a thicker pegboard container | CC0 Poly Haven plywood texture with a pale CSS wash; original hole pattern retained; painted board edge and cast shadow supply depth. |
+| 2026-10-30 | Refine Overview, navigation, and greeting | Lifestyle precedes Extras (working name for Writing); Home is labelled Overview; greeting replaces the sidebar name on translucent black; main banner and profile bio removed; pegboard restored to a flat surface. |
 
 ## Implemented structure
 
-The home page shows four compact previews. Each opens its complete section page, with all its subsections in one scroll. The active sidebar group expands automatically; child links jump to anchors within that section, and Home returns to the overview. Each project and article has a detail page with a route back to its section page. Initial project notes use only the facts in the previous descriptions; deeper evidence remains in P01/P04.
+The Overview shows four compact previews in order: Projects, Experience & Education, Lifestyle, Extras. Each opens its complete section page, with all its subsections in one scroll. The active sidebar group expands automatically; child links jump to anchors within that section, and Overview returns to the overview. Each project and article has a detail page with a route back to its section page. Initial project notes use only the facts in the previous descriptions; deeper evidence remains in P01/P04.
 
 Current content structure:
 
@@ -78,6 +80,8 @@ Component review following the latest feedback: the original surfaces were white
 - 2026-10-29 — Use this backlog as the work log. — Keep intent and follow-up work beside the code; completed implementation is recorded in Git. — P01, P08.
 
 - 2026-10-30 — Replace the full-content home scroll with previews and full section routes. — Keep the overview short while allowing every section to grow; all subsections remain visible on the section page. Add pale plywood navigation and give the pegboard depth through its sides and edges, following the user's clarification.
+
+- 2026-10-30 — Use Extras as a provisional display label for broader work and practice; retain existing writing URLs until the name settles. Move Lifestyle ahead of it, relocate the greeting to the menu, label Home as Overview, and remove the pegboard depth at the user's request.
 
 Future entry format: `YYYY-MM-DD — Decision — Why — Affected backlog IDs`.
 

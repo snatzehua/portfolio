@@ -5,9 +5,6 @@
 }
 .sidebar-portrait { cursor: default; display: block; width: 120px; margin: 0 auto 20px; transform: rotate(-3deg); filter: drop-shadow(2px 4px 5px #00000024); }
 .sidebar-portrait img { display: block; width: 100%; height: auto; }
-.sidebar-name { display: inline-block; font-size: 15px; font-weight: 750; letter-spacing: .11em; text-decoration: none; color: #222; }
-.name-dot { color: #444; }
-.sidebar-intro { color: #666; font-size: 13px; line-height: 1.9; margin: 17px 0 0; }
 .sidebar-nav { display: flex; flex-direction: column; gap: 4px; margin-top: 24px; }
 .sidebar-tab { display: flex; align-items: center; flex: 1; min-width: 0; border-left: 2px solid transparent; padding: 10px 9px; font-size: 13px; line-height: 1.5; color: #666; text-decoration: none; transition: color .15s, border-color .15s; }
 .sidebar-number { font-size: 11px; color: #69765f; font-variant-numeric: tabular-nums; }
@@ -26,9 +23,6 @@
   .sidebar-profile { display: flex; justify-content: space-between; align-items: center; gap: 16px; }
   .sidebar-portrait { width: 56px; flex-shrink: 0; margin: 0 3px 0 0; }
   .sidebar-profile-copy { flex: 1; min-width: 0; }
-  .sidebar-intro { font-size: 12px; line-height: 1.6; margin: 8px 0 0; }
-  .sidebar-intro br { display: none; }
-  .sidebar-intro { max-width: 245px; }
   .sidebar-nav { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 4px; margin-top: 15px; padding-bottom: 10px; }
   .sidebar-tab { font-size: 12px; padding: 9px 7px; white-space: normal; }
   .sidebar-number { display: none; }
@@ -65,7 +59,7 @@
   border-right: 1px solid #c5b69f;
   box-shadow: inset -2px 0 0 #ffffff40, 2px 0 5px #2921161c;
 }
-.sidebar-intro, .sidebar-tab, .sidebar-submenu a, .contact-link { color: #655d51; }
+.sidebar-tab, .sidebar-submenu a, .contact-link { color: #655d51; }
 .sidebar-tab.active { color: #26221c; border-left-color: #393026; }
 .sidebar-submenu { border-left-color: #b6a68d; }
 .sidebar-submenu a[aria-current] { color: #27221c; font-weight: 600; }
@@ -81,4 +75,15 @@
   .sidebar-portrait { width: 100px; margin-bottom: 16px; }
   .sidebar-nav { margin-top: 20px; }
   .sidebar-bottom { padding-top: 16px; }
+}
+
+.sidebar-greeting {
+  display: block; padding: 14px 10px 12px; background: #0009;
+  font-family: var(--font-reenie-beanie), cursive; font-size: 34px;
+  font-weight: 400; line-height: 1.15; letter-spacing: -.02em;
+  color: #fff; text-align: center; text-decoration: none;
+}
+.sidebar-greeting:hover { background: #000a; }
+@media (max-width: 760px) {
+  .sidebar-greeting { font-size: 34px; padding: 12px 10px; }
 }

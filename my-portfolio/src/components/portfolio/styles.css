@@ -2,12 +2,6 @@
 .portfolio-backdrop { position: fixed; inset: -32vh 0 0; z-index: -1; background: #546c73; pointer-events: none; }
 .portfolio-backdrop img { object-fit: cover; object-position: center; }
 .portfolio-backdrop::after { content: ""; position: absolute; inset: 0; background: #1b2b331c; }
-.welcome-banner { position: relative; isolation: isolate; height: 180px; margin-bottom: 16px; overflow: hidden; border-radius: 0; border: 0; }
-.welcome-banner::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, #10252cbd, #14283055 65%, #1428300d); z-index: -1; }
-.welcome-banner-copy { display: flex; flex-direction: column; justify-content: flex-end; height: 100%; padding: 22px clamp(24px, 3.5vw, 44px); color: white; }
-.welcome-banner-copy .eyebrow { color: #ecf0e4; font-size: 10px; letter-spacing: .17em; }
-.welcome-banner-copy h1 { font-family: var(--font-reenie-beanie), cursive; font-size: clamp(44px, 4.3vw, 58px); line-height: 1.1; margin: 8px 0 10px; text-shadow: 0 2px 8px #132b3030; }
-.welcome-banner-copy > p:last-child { font-size: 14px; color: #f2f4ed; line-height: 1.8; }
 .portfolio-shell * { box-sizing: border-box; }
 .portfolio-shell a, .portfolio-shell button { -webkit-tap-highlight-color: transparent; }
 .portfolio-shell :focus-visible { outline: 2px solid #587645; outline-offset: 5px; border-radius: 3px; }
@@ -23,7 +17,7 @@
 .heading-dot { color: #7c9168; }
 .section-heading > p:last-of-type { font-size: 14px; line-height: 1.9; max-width: 560px; color: var(--muted); }
 .section-caption { margin-top: 38px; padding-top: 19px; border-top: 1px solid #dfe4d7; display: flex; gap: 12px; justify-content: space-between; font-size: 11px; letter-spacing: .025em; color: #606d55; }
-.portfolio-paper-projects { padding: clamp(24px, 3.5vw, 44px); }
+.portfolio-paper-overview { padding: clamp(24px, 3.5vw, 44px); }
 .projects-heading { margin-bottom: 24px; }
 .projects-heading :is(h1, h2) { font-size: clamp(27px, 2.6vw, 34px); margin: 9px 0; }
 .projects-heading .section-caption { margin-top: 20px; padding-top: 13px; }
@@ -149,8 +143,6 @@
 }
 @media (max-width: 760px) {
   .portfolio-backdrop { top: -10vh; }
-  .welcome-banner { height: 148px; margin-bottom: 12px; border-radius: 0; }
-  .welcome-banner-copy { padding: 18px 22px; }
   .lifestyle-photo-heading { padding: 25px 22px; min-height: 245px; }
   .portfolio-main { margin-left: 0; padding: 12px; }
   .portfolio-paper { padding: 30px 22px; border-radius: 7px; min-height: calc(100dvh - 170px); }
@@ -209,16 +201,8 @@
 .timeline-subsection + .timeline-subsection { margin-top: 42px; }
 .portfolio-main, .portfolio-paper, .photo-dialog { overscroll-behavior: none; }
 
-/* Thickness comes from the painted board's exposed edge and cast shadow. */
-.portfolio-paper {
-  position: relative;
-  border-radius: 5px;
-  border-color: #fff #d8d6d0 #bbb8b0 #fff;
-  box-shadow: 1px 1px 0 #e5e3dc, 2px 2px 0 #d7d4cc, 3px 3px 0 #e5e3dc,
-    4px 4px 0 #cbc8bf, 5px 5px 0 #b1ada2, 6px 6px 0 #928e84,
-    10px 14px 24px #15202948, inset 1px 1px 0 #fff;
-}
-.portfolio-main { padding: 20px 28px 30px 20px; }
+/* A flat pegboard surface; no layered edge or cast shadow. */
+.portfolio-paper { border-radius: 5px; box-shadow: none; }
 .section-home-link { margin-bottom: 28px; color: #625c51; }
 .section-home-link:hover { color: #24211b; }
 .home-overview { display: grid; gap: 30px; max-width: 1120px; margin: 0 auto; }
@@ -270,7 +254,7 @@
   .overview-writing > img { width: 90px; height: 100px; }
 }
 @media (max-width: 760px) {
-  .portfolio-main { padding: 12px 20px 24px 12px; }
+  .portfolio-main { padding: 12px; }
   .portfolio-paper { border-radius: 4px; padding: 24px 18px; }
   .home-overview { gap: 24px; }
   .overview-sheet { padding: 22px; }

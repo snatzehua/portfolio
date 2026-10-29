@@ -4,7 +4,7 @@ import PortfolioShell from "@/components/portfolio/portfolio-shell";
 import ScrollMemory from "@/components/portfolio/scroll-memory";
 import HomeOverview from "@/components/portfolio/home-overview";
 
-export const metadata: Metadata = { title: "Kieran Ho | Projects, writing & explorations" };
+export const metadata: Metadata = { title: "Kieran Ho | Projects, lifestyle & extras" };
 type Props = { searchParams: Promise<{ section?: string | string[] }> };
 
 export default async function Home({ searchParams }: Props) {
@@ -13,8 +13,9 @@ export default async function Home({ searchParams }: Props) {
     redirect(`/${section}`);
   }
   return (
-    <PortfolioShell section="home" showIntro>
+    <PortfolioShell section="home">
       <ScrollMemory section="overview" />
+      <h1 className="sr-only">Overview</h1>
       <HomeOverview />
     </PortfolioShell>
   );

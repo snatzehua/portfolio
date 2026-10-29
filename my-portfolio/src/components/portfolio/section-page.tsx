@@ -4,7 +4,7 @@ import type { Section } from "@/content/types";
 
 export default function SectionPage({ section, children }: { section: Section; children: React.ReactNode }) {
   return <PortfolioShell section={section}>
-    <Link href={`/#${section}`} className="back-link section-home-link">← Home</Link>
+    <Link href={`/#${section}`} className="back-link section-home-link">← Overview</Link>
     {children}
   </PortfolioShell>;
 }
