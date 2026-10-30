@@ -90,4 +90,5 @@
 .sidebar-sections { display: grid; gap: 4px; margin: 2px 0 0 11px; padding-left: 12px; border-left: 1px solid #b6a68d; }
 @media (max-width: 760px) {
   .sidebar-sections { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .sidebar-submenu { max-height: 180px; overflow-y: auto; overscroll-behavior: contain; padding-right: 8px; scrollbar-width: thin; }
 }

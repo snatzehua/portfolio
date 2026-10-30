@@ -23,8 +23,8 @@ Add new ideas below, one per line:
 
 | ID | Priority | Item | Origin | Done when |
 | --- | --- | --- | --- | --- |
-| P01 | Next | Deepen project case studies with first-hand evidence | User requested deeper project explanations | The initial notes are expanded with actual alternatives, experiments, failure cases, and concrete ownership; missing facts are supplied by the author. |
-| P04 | Next | Finish the factual audit of project cards | Existing content needs author confirmation | Confirm dates, current status, role, and repository/demo URLs. Attach benchmark, period, costs, and evaluation method to GDELT's reported outperformance. Tags and copied OpenClaw artwork are already corrected. |
+| P01 | Next | Deepen project case studies with first-hand evidence | User requested deeper project explanations | The repository-grounded summaries are expanded with actual alternatives, experiments, failure cases, and concrete ownership; missing facts are supplied by the author. |
+| P04 | Next | Finish the factual audit of project cards | Existing content needs author confirmation | Confirm individual contributions, exact dates, current status, and repository/demo visibility for the imported entries. GDELT now reflects its negative confirmatory result; no earlier outperformance claim remains. See the local project inventory. |
 | P09 | Later | Improve media descriptions and education details | Follow-up from implementation | Replace generic photography alt text with scene descriptions; confirm GPA/year-of-study wording and any changed experience/education facts. |
 | P10 | Next | Review component styling against the original design | User feedback: the current design still feels AI generated | Agree the component palette and treatment using the original neutral styling as a reference. Review diagram covers, tinted takeaway boxes, repeated labels, and navigation styling before another broad restyle. |
 
@@ -58,10 +58,11 @@ None.
 | 2026-10-30 | Make Overview the navigation parent | Nest all four section links beneath Overview, with indentation and a branch line; preserve selection-driven subsection expansion and responsive columns. |
 | 2026-10-30 | Trial a paper header on Projects and soften the overview fade | Group the Overview link, title, description, and count on one opaque paper surface aligned with the project cards. Other section headers remain under review. Reduce text-side image whitening slightly while keeping the directional fade. |
 | 2026-10-30 | Extend the banner, share all section headers, and add Background imagery | Greeting reaches from the sidebar to the right browser edge with no top gap; all four section pages share the paper header. Add an optimized Unsplash study-room image by Clay Banks to Background’s overview preview, with source/license recorded. |
+| 2026-10-30 | Remove the stock photo, share entry headers, import local projects, and tidy Background | All project/Extras detail headers use the shared paper surface; 12 project entries with local-source inventory; GDELT conclusion corrected from its current README; year-grouped work/education lists replace connector lines. |
 
 ## Implemented structure
 
-The Overview shows four compact previews in order: Projects, Background, Lifestyle, Extras. Each opens its complete section page, with all its subsections in one scroll. The active sidebar group expands automatically; child links jump to anchors within that section, and Overview returns to the overview. Each project and article has a detail page with a route back to its section page. Initial project notes use only the facts in the previous descriptions; deeper evidence remains in P01/P04.
+The Overview shows four compact previews in order: Projects, Background, Lifestyle, Extras. Each opens its complete section page, with all its subsections in one scroll. The active sidebar group expands automatically; child links jump to anchors within that section, and Overview returns to the overview. Each project and article has a detail page with a route back to its section page. Projects now contains 12 entries, including ten imported from local repository evidence. Deeper first-hand accounts and individual contribution confirmation remain in P01/P04.
 
 Current content structure:
 

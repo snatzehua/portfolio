@@ -18,7 +18,7 @@ function Timeline({ entries, label }: { entries: (ExperienceEntry | EducationEnt
       <p className="timeline-year">{year}</p>
       <div className="timeline-year-entries">
         {items.map((entry, i) => <article className="timeline-entry" key={`${entry.title}-${i}`}>
-          <div className="timeline-entry-header"><Image src={entry.image} alt="" width={52} height={52} className="timeline-logo" /><div><h3>{entry.title}</h3><p>{entry.subtitle}</p></div></div>
+          <div className="timeline-entry-header"><Image src={entry.image} alt="" width={52} height={52} className="timeline-logo" /><div><h3>{entry.title}{"isCurrent" in entry && entry.isCurrent && <span className="timeline-current">Current</span>}</h3><p>{entry.subtitle}</p></div></div>
           <ul>{entry.details.map((detail) => <li key={detail}>{detail}</li>)}{entry["details-list"]?.map((detail) => <li key={detail}>{detail}</li>)}</ul>
         </article>)}
       </div>
@@ -29,7 +29,7 @@ function Timeline({ entries, label }: { entries: (ExperienceEntry | EducationEnt
 export default function ExperienceEducationPanel() {
   return <div className="section-page timeline-page">
     <SectionHeader section="experience" eyebrow="02 / Along the way" title="Background" headingId="experience-heading" description="The places I’ve learned, the teams I’ve worked with, and the work that has shaped how I think." caption={[`${experienceEntries.length} roles · ${educationEntries.length} education entries`, "Newest first"]} />
-    <section id="work-experience" className="timeline-subsection" aria-labelledby="work-experience-heading"><h2 id="work-experience-heading">Work experience</h2><Timeline entries={experienceEntries} label="Experience timeline" /></section>
-    <section id="education" className="timeline-subsection" aria-labelledby="education-heading"><h2 id="education-heading">Education</h2><Timeline entries={educationEntries} label="Education timeline" /></section>
+    <section id="work-experience" className="timeline-subsection" aria-labelledby="work-experience-heading"><div className="timeline-subsection-heading"><h2 id="work-experience-heading">Work experience</h2><span>{experienceEntries.length} roles</span></div><Timeline entries={experienceEntries} label="Experience timeline" /></section>
+    <section id="education" className="timeline-subsection" aria-labelledby="education-heading"><div className="timeline-subsection-heading"><h2 id="education-heading">Education</h2><span>{educationEntries.length} entries</span></div><Timeline entries={educationEntries} label="Education timeline" /></section>
   </div>;
 }

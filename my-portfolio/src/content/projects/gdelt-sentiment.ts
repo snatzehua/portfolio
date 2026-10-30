@@ -1,36 +1,95 @@
 import type { Project } from "../types";
 
 const project: Project = {
-  slug: "gdelt-sentiment",
-  title: "GDELT Sentiment for Timing Trades",
-  summary: "Exploring whether the gap between news sentiment and market prices can reveal a useful trading signal.",
-  publishedAt: "2026-10-29",
-  period: "Jul 2025 — present",
-  role: "Personal research project",
-  status: "Exploratory",
-  tags: ["Time series", "Sentiment analysis", "Backtesting"],
-  cover: "/images/experience-entries.introduction-to-finance.png",
-  coverAlt: "Exploratory strategy backtest compared with a buy-and-hold portfolio",
-  coverSteps: ["News", "Sentiment", "Signal"],
-  outcome: "Early backtests encouraging; validation ongoing.",
-  sections: [
-    { id: "problem", title: "The question", blocks: [
-      { type: "text", content: "This started with a simple question: can I beat the market? I wanted to explore whether aggregated news sentiment from the Global Database of Events, Language and Tone (GDELT) could help predict market movements and inform the timing of trades." },
-    ] },
-    { id: "approach", title: "From sentiment to divergence", blocks: [
-      { type: "text", content: "I experimented with GDELT's aggregated sentiment data and its relationship with market movements. The investigation shifted toward comparing sentiment-price divergences: situations where the tone of the news and the movement of prices tell different stories. The hypothesis is that some of these disagreements could indicate mispricing." },
-    ] },
-    { id: "evidence", title: "What the backtest shows", blocks: [
-      { type: "image", src: "/images/experience-entries.introduction-to-finance.png", caption: "Exploratory backtest of the custom strategy against buy and hold. This is a historical comparison, not evidence of future performance." },
-      { type: "text", content: "Early backtests suggested roughly 2.5% annual outperformance over a ten-year period. I still consider the result inconclusive. The benchmark, exact dates, trading costs, and evaluation protocol need to be documented alongside the result before drawing a stronger conclusion." },
-    ] },
-    { id: "limitations", title: "What remains unresolved", blocks: [
-      { type: "text", content: "A positive historical result does not establish that sentiment-price divergence is a reliable signal. The next question is whether the result holds under a clearly specified evaluation and realistic assumptions, rather than whether one backtest looks encouraging." },
-    ] },
-    { id: "next-steps", title: "Next steps", blocks: [
-      { type: "text", content: "Document the data preparation, benchmark, and evaluation setup; explain the decisions behind the strategy; and add reproducible evidence for its results and failure cases. These are the next steps for making the research assessable." },
-    ] },
+  "slug": "gdelt-sentiment",
+  "title": "GDELT Sentiment: Testing Market Timing",
+  "summary": "Testing whether daily news tone adds a robust out-of-sample timing signal for the S&P 500.",
+  "publishedAt": "2026-10-30",
+  "period": "Jul 2025 — 2026",
+  "role": "Personal research project",
+  "status": "Research finding",
+  "tags": [
+    "Time series",
+    "Sentiment analysis",
+    "Backtesting"
   ],
+  "repository": "https://github.com/snatzehua/c-finance",
+  "outcome": "Confirmatory tests found no robust timing edge under the tested design.",
+  "coverSteps": [
+    "News tone",
+    "Causal tests",
+    "No robust edge"
+  ],
+  "sections": [
+    {
+      "id": "problem",
+      "title": "The question",
+      "blocks": [
+        {
+          "type": "text",
+          "content": "The project asks whether daily GDELT news tone can help time the S&P 500. It began with heuristic notebook strategies and later added explicit signal timing, trading costs, statistical tests, and walk-forward evaluation."
+        }
+      ]
+    },
+    {
+      "id": "early-exploration",
+      "title": "Why the early chart is not the final result",
+      "blocks": [
+        {
+          "type": "text",
+          "content": "The original exploratory notebook suggested promising historical results. Those same-bar, cost-free comparisons are retained as part of the research history, rather than treated as authoritative performance evidence."
+        }
+      ]
+    },
+    {
+      "id": "approach",
+      "title": "Make information availability explicit",
+      "blocks": [
+        {
+          "type": "text",
+          "content": "The current c-finance repository treats each calendar day’s aggregate tone as available only on the first trading session strictly after that date. It separates forward-return labels from signal inputs and models next-close execution with trading costs."
+        },
+        {
+          "type": "text",
+          "content": "The implementation includes lead–lag and HAC regression tests, a cash/share backtest ledger, causal filters, and an expanding walk-forward regime model."
+        }
+      ]
+    },
+    {
+      "id": "finding",
+      "title": "The hypothesis did not survive confirmation",
+      "blocks": [
+        {
+          "type": "text",
+          "content": "The repository’s confirmatory evaluation reports no robust S&P 500 timing signal from the tested daily market-wide tone series. The documented legacy comparisons trail buy-and-hold after costs, and the final causal model also fails its out-of-sample test."
+        },
+        {
+          "type": "text",
+          "content": "That is a finding about this data series and evaluation design. It does not establish that every form of news information is uninformative."
+        }
+      ]
+    },
+    {
+      "id": "lessons",
+      "title": "What the research changed",
+      "blocks": [
+        {
+          "type": "text",
+          "content": "The useful result is the evaluation process: define when information is available, separate exploratory rules from confirmation, include costs, and compare against common benchmarks. A visually encouraging chart is not enough to establish a trading edge."
+        }
+      ]
+    },
+    {
+      "id": "source",
+      "title": "Current research record",
+      "blocks": [
+        {
+          "type": "text",
+          "content": "The updated conclusion follows the local [c-finance repository](https://github.com/snatzehua/c-finance), its current README, and its documented notebook structure. These portfolio notes summarize that record; they are not a fresh execution of the experiments."
+        }
+      ]
+    }
+  ]
 };
 
 export default project;

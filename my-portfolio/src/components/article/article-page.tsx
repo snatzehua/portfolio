@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { PaperHeader } from "@/components/portfolio/section-header";
 import ArticleBody, { RichText } from "./article-body";
 import type { ArticleSection } from "@/content/types";
 
@@ -18,8 +19,8 @@ export default function ArticlePage({ kind, title, subtitle, intro, date, tags, 
   const label = kind === "projects" ? "Projects" : "Extras";
   return (
     <article className="detail-page">
-      <Link href={backHref} className="back-link">← Back to {label}</Link>
-      <header className="article-header">
+      <PaperHeader className="article-header">
+        <Link href={backHref} className="back-link section-header-back">← Back to {label}</Link>
         <p className="eyebrow">{kind === "projects" ? "Project notes" : "Extras"} / {date}</p>
         <h1>{title}</h1>
         {subtitle && <p className="article-subtitle">{subtitle}</p>}
@@ -28,7 +29,7 @@ export default function ArticlePage({ kind, title, subtitle, intro, date, tags, 
         {facts && <dl className="project-facts">{facts.map(({ label, value }) => <div key={label}><dt>{label}</dt><dd>{value}</dd></div>)}</dl>}
         {outcome && <div className="project-outcome"><span className="eyebrow">Where it stands</span><p>{outcome}</p></div>}
         {!!links?.length && <div className="article-links">{links.map((link) => <a key={link.href} href={link.href} target="_blank" rel="noopener noreferrer">{link.label} ↗</a>)}</div>}
-      </header>
+      </PaperHeader>
       <div className="article-layout">
         <nav className="article-contents" aria-label="On this page">
           <p className="eyebrow">On this page</p>
