@@ -7,7 +7,7 @@ const project: Project = {
   "publishedAt": "2026-10-30",
   "period": "2026",
   "role": "Course competition project",
-  "status": "Competition project",
+  "status": "Completed",
   "tags": [
     "LightGBM",
     "GraphSAGE",

@@ -25,6 +25,7 @@ function loadContent(filename) {
 const { projects } = loadContent('src/content/projects/index.ts');
 const { writingEntries } = loadContent('src/content/writing/index.ts');
 const { media } = loadContent('src/content/media.ts');
+const { projectStatuses } = loadContent('src/content/types.ts');
 for (const [kind, entries] of [['projects', projects], ['writing', writingEntries]]) {
   const slugs = new Set();
   for (const entry of entries) {
@@ -36,6 +37,9 @@ for (const [kind, entries] of [['projects', projects], ['writing', writingEntrie
     const parsedDate = new Date(`${completeDate}T00:00:00Z`);
     assert(!Number.isNaN(parsedDate.valueOf()) && parsedDate.toISOString().startsWith(completeDate), `Invalid calendar date: ${entry.slug}`);
     assert(entry.title && entry.summary && entry.sections.length, `Missing content: ${entry.slug}`);
+    if (kind === 'projects') {
+      assert(projectStatuses.includes(entry.status), `Invalid project status: ${entry.slug}/${entry.status}`);
+    }
     const ids = new Set();
     for (const section of entry.sections) {
       assert(/^[a-z0-9-]+$/.test(section.id) && !ids.has(section.id), `Invalid/duplicate section: ${entry.slug}/${section.id}`);

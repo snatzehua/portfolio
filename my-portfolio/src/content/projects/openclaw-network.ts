@@ -7,7 +7,7 @@ const project: Project = {
   publishedAt: "2026-10-29",
   period: "Jan 2025 — present",
   role: "Personal project",
-  status: "In progress",
+  status: "Developing",
   tags: ["Knowledge management", "Obsidian", "Automation"],
   coverSteps: ["People", "Context", "Connections"],
   outcome: "Early implementation and testing, with review of automated changes as the main design question.",

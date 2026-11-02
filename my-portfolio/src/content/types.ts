@@ -7,6 +7,9 @@ export type ContentBlock =
 
 export interface ArticleSection { id: string; title: string; blocks: ContentBlock[] }
 
+export const projectStatuses = ["Developing", "Completed", "Paused", "Archived"] as const;
+export type ProjectStatus = (typeof projectStatuses)[number];
+
 export interface Project {
   slug: string;
   title: string;
@@ -14,7 +17,7 @@ export interface Project {
   publishedAt: string;
   period: string;
   role: string;
-  status: string;
+  status: ProjectStatus;
   tags: string[];
   cover?: string;
   coverAlt?: string;

@@ -28,6 +28,8 @@ The sidebar presents Overview as the parent of the four indented sections, using
 
 `publishedAt` controls newest-first ordering. It describes the write-up, separately from the project's working period. The project collection includes ten entries drafted from local repositories on 30 October 2026, an updated GDELT research summary, and the existing OpenClaw note; older writing retains its existing month-level dates. These are editable content dates, not deployment timestamps.
 
+Project status is restricted to `Developing`, `Completed`, `Paused`, or `Archived` by the shared TypeScript type and content validator. `Developing` covers unfinished work; `Completed` means the stated implementation or study is finished, without implying production readiness. `Paused` means deliberately put on hold; `Archived` means retained for reference with no further development planned. Project type belongs in the description/role, and technologies belong in tags.
+
 Each article section has a stable, unique `id` for its contents link. Optional project `repository` and `demo` URLs appear only when supplied. Do not invent URLs, metrics, contribution details, or project outcomes.
 
 The content uses typed TypeScript records and shared text/image/math blocks. MDX is not required or configured. Add a block type when a real content need arises.

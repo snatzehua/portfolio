@@ -7,7 +7,7 @@ const project: Project = {
   "publishedAt": "2026-10-30",
   "period": "Jul 2025 — 2026",
   "role": "Personal research project",
-  "status": "Research study",
+  "status": "Completed",
   "tags": [
     "Time series",
     "Sentiment analysis",

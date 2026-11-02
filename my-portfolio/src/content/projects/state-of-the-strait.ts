@@ -7,7 +7,7 @@ const project: Project = {
   "publishedAt": "2026-10-30",
   "period": "2026",
   "role": "Personal research project",
-  "status": "Exploratory",
+  "status": "Developing",
   "tags": [
     "Python",
     "Sentinel",

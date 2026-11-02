@@ -30,3 +30,7 @@ The review used the current local READMEs for CareerSphere, Systematic Portfolio
 The Travlah cover now comes from the Vue checkout. The previous poster depicts a different stack and is not suitable evidence for this entry. The POS accuracy screenshot has insufficient evaluation context for a benchmark; it is replaced by a labelled method illustration. Two source figures add context to the satellite-detection and BAF explanations. See the media manifest for exact provenance.
 
 Outstanding: first-hand contribution accounts, confirmed dates for OpenClaw, reproducible POS evaluation, final private competition selection, and public source visibility. These remain content follow-ups rather than facts to fill in automatically.
+
+## Status vocabulary — 2 November 2026
+
+Project status now uses only Developing, Completed, Paused, or Archived. The POS implementation, Bitcoin competition deliverables, and GDELT confirmatory study are marked Completed for their recorded scope; completion does not imply production readiness, a positive research finding, or a confirmed private leaderboard result. Unfinished prototypes, explorations, and ongoing implementations are mapped to Developing. This preserves their previous unfinished classification rather than asserting that every older project is actively maintained. No project is marked Paused or Archived without an explicit decision to put it on hold or retire it. The author can refine these assignments independently of project type and technologies.
