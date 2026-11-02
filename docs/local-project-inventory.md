@@ -20,3 +20,13 @@ The ten imported write-ups and revised GDELT page use their drafting date for `p
 | OpenClaw Network | Existing portfolio content | Retained ongoing exploration note; no matching local implementation inspected. |
 
 Media provenance is recorded in `my-portfolio/public/images/projects/README.md`. Before deepening these pages, ask for specific contributions, alternatives tried, failure cases, dates, and links suitable for public readers. See backlog P01/P04.
+
+## Editorial cleanup — 2 November 2026
+
+All twelve project entries received a wording pass: shorter summaries, concrete implementation explanations, distinct outcomes, and project-specific limitations. Team work remains labelled as team work; no personal contribution or new measured result was inferred. Publication dates and project order remain unchanged.
+
+The review used the current local READMEs for CareerSphere, Systematic Portfolio, State of the Strait, Bitcoin Fraud Detection, JurAI, the calendar assistant, and the POS tagger; the GDELT README and first BAF study findings were also consulted. Later BAF research has grown since the original import, but this is an editorial pass rather than a full audit or new execution of those experiments.
+
+The Travlah cover now comes from the Vue checkout. The previous poster depicts a different stack and is not suitable evidence for this entry. The POS accuracy screenshot has insufficient evaluation context for a benchmark; it is replaced by a labelled method illustration. Two source figures add context to the satellite-detection and BAF explanations. See the media manifest for exact provenance.
+
+Outstanding: first-hand contribution accounts, confirmed dates for OpenClaw, reproducible POS evaluation, final private competition selection, and public source visibility. These remain content follow-ups rather than facts to fill in automatically.

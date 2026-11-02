@@ -1,6 +1,6 @@
 # Portfolio backlog
 
-Updated: 2026-10-30
+Updated: 2026-11-02
 
 Purpose: make the portfolio easier to maintain and expand projects into case studies that show how decisions were made.
 
@@ -59,6 +59,7 @@ None.
 | 2026-10-30 | Trial a paper header on Projects and soften the overview fade | Group the Overview link, title, description, and count on one opaque paper surface aligned with the project cards. Other section headers remain under review. Reduce text-side image whitening slightly while keeping the directional fade. |
 | 2026-10-30 | Extend the banner, share all section headers, and add Background imagery | Greeting reaches from the sidebar to the right browser edge with no top gap; all four section pages share the paper header. Add an optimized Unsplash study-room image by Clay Banks to Background’s overview preview, with source/license recorded. |
 | 2026-10-30 | Remove the stock photo, share entry headers, import local projects, and tidy Background | All project/Extras detail headers use the shared paper surface; 12 project entries with local-source inventory; GDELT conclusion corrected from its current README; year-grouped work/education lists replace connector lines. |
+| 2026-11-02 | Clean project content and media without changing layout | Edit all 12 entries for direct explanations and specific limits; replace mismatched Travlah and POS covers; use a CareerSphere identity cover and retain its detailed diagram in the article; add sourced BAF and satellite figures. Original assets preserved. |
 
 ## Implemented structure
 

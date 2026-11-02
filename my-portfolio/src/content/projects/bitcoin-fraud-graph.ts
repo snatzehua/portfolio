@@ -3,60 +3,64 @@ import type { Project } from "../types";
 const project: Project = {
   "slug": "bitcoin-fraud-graph",
   "title": "Bitcoin Transaction Fraud Detection",
-  "summary": "Comparing tree models and graph neural networks on temporally ordered Bitcoin transaction data.",
+  "summary": "Combining transaction features and graph structure to classify illicit Bitcoin transactions.",
   "publishedAt": "2026-10-30",
   "period": "2026",
   "role": "Course competition project",
-  "status": "Recorded experiments",
+  "status": "Competition project",
   "tags": [
     "LightGBM",
     "GraphSAGE",
     "PyTorch"
   ],
-  "outcome": "Records recent-window models, graph experiments, and rank-blended competition submissions.",
+  "outcome": "Blends recent-window LightGBM and GraphSAGE predictions using percentile ranks.",
   "sections": [
     {
       "id": "problem",
-      "title": "Use transaction features and graph context",
+      "title": "Use the transaction and its neighbourhood",
       "blocks": [
         {
           "type": "text",
-          "content": "The competition classifies illicit Bitcoin transactions from anonymised transaction features and a directed transaction graph. Training and test transactions occupy different time steps."
+          "content": "The BT4012 competition supplies anonymised transaction features and a directed transaction graph. Training and test transactions come from different time steps, making the temporal split central to the modelling problem."
         }
       ]
     },
     {
       "id": "models",
-      "title": "Compare complementary model families",
+      "title": "Compare tabular and graph models",
       "blocks": [
         {
           "type": "text",
-          "content": "The repository contains LightGBM and CatBoost experiments alongside GraphSAGE-style models and other graph architectures. Recorded candidates blend model scores after converting them into percentile ranks."
+          "content": "LightGBM and CatBoost learn from transaction features. GraphSAGE-style models also use neighbouring transactions, offering a different source of information. Experiments compare these approaches and additional graph architectures."
         },
         {
           "type": "image",
           "src": "/images/projects/bitcoin-graph.webp",
-          "caption": "Repository visualization of an anonymised transaction graph and an illicit-node neighbourhood; this is a data illustration, not a prediction-performance chart."
+          "caption": "An anonymised transaction graph and an illicit-node neighbourhood. This figure illustrates the data structure."
         }
       ]
     },
     {
       "id": "decisions",
-      "title": "Treat time and score interpretation carefully",
+      "title": "Combine rankings carefully",
       "blocks": [
         {
           "type": "text",
-          "content": "The recorded recent-window candidates use the final portion of the training period. Within a model family, multiple seeds are averaged before rank blending. The resulting blend is a ranking score rather than a calibrated probability."
+          "content": "The recorded recent-window candidates train on the final part of the labelled period. Multiple seeds are averaged within each model family, then predictions are converted to percentile ranks before blending."
+        },
+        {
+          "type": "text",
+          "content": "Rank blending allows models with different score scales to contribute to one ordering. The output remains a ranking score; it is not a calibrated probability of fraud."
         }
       ]
     },
     {
       "id": "limits",
-      "title": "Recorded public candidates are not the final selection",
+      "title": "Public submissions and final evaluation",
       "blocks": [
         {
           "type": "text",
-          "content": "The README records public submission candidates and their outputs. It explicitly leaves the final private-leaderboard selection unconfirmed. This portfolio does not infer a final rank, winning result, or private score."
+          "content": "The experiment record includes public submission candidates and their outputs. The final private-leaderboard selection is still unconfirmed. Validation windows and public feedback should therefore be kept distinct from a final competition result."
         }
       ]
     }

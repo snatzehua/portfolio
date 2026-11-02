@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="400" viewBox="0 0 960 400" role="img" aria-labelledby="title desc">
+<title id="title">Hidden Markov model for word tagging</title><desc id="desc">Three connected hidden tags, each emitting an observed word. A conceptual method diagram, not model output.</desc>
+<defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0L8 4L0 8" fill="none" stroke="#486778" stroke-width="1.5"/></marker></defs>
+<rect width="960" height="400" fill="#f4f6f7"/>
+<g stroke="#486778" stroke-width="3" fill="none" marker-end="url(#arrow)"><path d="M290 135H435"/><path d="M525 135H670"/><path d="M245 180V266"/><path d="M480 180V266"/><path d="M715 180V266"/></g>
+<g fill="#e2ebef" stroke="#486778" stroke-width="2"><circle cx="245" cy="135" r="44"/><circle cx="480" cy="135" r="44"/><circle cx="715" cy="135" r="44"/></g>
+<g fill="#fff" stroke="#bccbd2" stroke-width="2"><rect x="160" y="272" width="170" height="64" rx="6"/><rect x="395" y="272" width="170" height="64" rx="6"/><rect x="630" y="272" width="170" height="64" rx="6"/></g>
+<g font-family="Arial,sans-serif" text-anchor="middle" fill="#263d49"><g font-size="30"><text x="245" y="145">y₁</text><text x="480" y="145">y₂</text><text x="715" y="145">y₃</text></g><g font-size="25"><text x="245" y="313">word 1</text><text x="480" y="313">word 2</text><text x="715" y="313">word 3</text></g><g font-size="19" fill="#5f737e"><text x="360" y="106">transition</text><text x="598" y="106">transition</text><text x="542" y="228">emission</text></g><text x="480" y="48" font-size="18" letter-spacing="2">HIDDEN TAGS → OBSERVED WORDS</text></g>
+</svg>

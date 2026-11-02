@@ -3,7 +3,7 @@ import type { Project } from "../types";
 const project: Project = {
   "slug": "travlah",
   "title": "Travlah — Shared Travel Planning",
-  "summary": "A Vue travel-planning app connecting shared itineraries, places, expenses, and payments.",
+  "summary": "A shared travel planner that brings itineraries, maps, and group expenses into one trip.",
   "publishedAt": "2026-10-30",
   "period": "2025",
   "role": "Course team project",
@@ -13,52 +13,52 @@ const project: Project = {
     "Firebase",
     "Maps"
   ],
-  "outcome": "The local app contains itinerary editing, place exploration, and shared expense workflows.",
+  "outcome": "Connects trip editing, place exploration, and expense tracking through shared itinerary data.",
   "sections": [
     {
       "id": "problem",
-      "title": "Keep the trip in one place",
+      "title": "Keep the trip together",
       "blocks": [
         {
           "type": "text",
-          "content": "Travlah brings travel discovery and group planning into one application. Its pages cover destinations, attractions, itineraries, profiles, and expenses."
+          "content": "Group travel involves places to visit, a daily schedule, and expenses to track. Travlah brings those activities into a Vue application with views for destinations, attractions, itineraries, and expenses."
         }
       ]
     },
     {
       "id": "implementation",
-      "title": "Trip state and shared expenses",
+      "title": "Keep the selected trip in sync",
       "blocks": [
         {
           "type": "text",
-          "content": "Vue components handle trip selection, daily events, maps, expense entry, and payments. The local implementation uses Firebase authentication and Firestore documents, including snapshot listeners for changes to selected itineraries."
+          "content": "Vue components handle trip selection, daily events, maps, expense entry, and payment records. Firebase manages authentication and Firestore data; snapshot listeners update views when the selected itinerary changes."
         }
       ]
     },
     {
       "id": "decisions",
-      "title": "Make a selected trip the shared context",
+      "title": "Use one trip as the shared context",
       "blocks": [
         {
           "type": "text",
-          "content": "Itinerary and expense views consume the selected trip, so events, expenses, and payments relate to the same plan. The component boundary separates editing dialogs from the displayed trip state."
+          "content": "Itinerary and expense views work from the same selected trip. That keeps events, costs, and payments attached to the relevant plan. Editing dialogs are separated from the components displaying trip state."
         }
       ]
     },
     {
       "id": "scope",
-      "title": "What this snapshot establishes",
+      "title": "A connected application prototype",
       "blocks": [
         {
           "type": "text",
-          "content": "The source demonstrates the application flows and data integration. This summary does not claim production adoption, usage figures, or a continuously available hosted service."
+          "content": "The project demonstrates the planning and expense workflows with Firebase integration. Further evaluation would need to check collaboration across accounts, conflicting edits, and recovery from interrupted updates."
         }
       ]
     }
   ],
   "repository": "https://github.com/snatzehua/bt3103-travlah",
-  "cover": "/images/travla.png",
-  "coverAlt": "Travlah shared travel-planning interface"
+  "cover": "/images/projects/travlah.webp",
+  "coverAlt": "Travlah wordmark from the Vue application"
 };
 
 export default project;

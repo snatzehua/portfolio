@@ -3,7 +3,7 @@ import type { Project } from "../types";
 const project: Project = {
   "slug": "hack4good-marketplace",
   "title": "Hack4Good — Voucher Marketplace",
-  "summary": "A hackathon prototype with a minimart, auctions, vouchers, inventory, and administrative workflows.",
+  "summary": "A voucher marketplace connecting participant purchases with inventory and approval workflows.",
   "publishedAt": "2026-10-30",
   "period": "2025",
   "role": "Team hackathon project",
@@ -13,45 +13,45 @@ const project: Project = {
     "FastAPI",
     "Firebase"
   ],
-  "outcome": "Separates participant purchase flows from inventory, voucher, auction, and user administration.",
+  "outcome": "Provides separate participant and administrator flows for the minimart, vouchers, and auctions.",
   "sections": [
     {
       "id": "problem",
-      "title": "Connect participant and administrator workflows",
+      "title": "Connect shopping with the work behind it",
       "blocks": [
         {
           "type": "text",
-          "content": "The Hack4Good repository contains a marketplace-style prototype with participant pages for a minimart, auctions, pending items, and transaction history."
+          "content": "This Hack4Good team prototype has participant pages for a minimart, auctions, pending items, and transaction history. Behind those interactions are inventory changes, voucher requests, and administrative decisions."
         }
       ]
     },
     {
       "id": "implementation",
-      "title": "Two sides of the same workflow",
+      "title": "Build both sides of the workflow",
       "blocks": [
         {
           "type": "text",
-          "content": "The Next.js application has separate user and administrator routes. Administrative screens manage inventory, auctions, voucher requests, and users; the Python backend supplies corresponding routers and services."
+          "content": "The Next.js app separates participant and administrator routes. Administrative screens manage inventory, auctions, voucher requests, and users. A FastAPI backend provides the corresponding routers and services."
         }
       ]
     },
     {
       "id": "decisions",
-      "title": "Keep operations distinct from shopping",
+      "title": "Give approvals a visible place",
       "blocks": [
         {
           "type": "text",
-          "content": "Separating participant actions from administrative screens makes the different responsibilities visible in the application structure. Voucher approval and auction management are represented as explicit workflows rather than hidden changes to a shopping view."
+          "content": "Voucher approval and auction management have their own administrative workflows. Keeping them separate from participant shopping makes the different responsibilities easier to follow."
         }
       ]
     },
     {
       "id": "scope",
-      "title": "A source-backed prototype",
+      "title": "Prototype scope",
       "blocks": [
         {
           "type": "text",
-          "content": "The repository supports the flows described here. Individual team contributions, deployment status, and real-world adoption are not established by the short project README, so this entry makes no claims about them."
+          "content": "The implemented flows provide a basis for testing the complete journey from a participant request to an administrative action. End-to-end checks of permissions, inventory consistency, and simultaneous actions would be needed before deployment."
         }
       ]
     }

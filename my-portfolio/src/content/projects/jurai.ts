@@ -2,8 +2,8 @@ import type { Project } from "../types";
 
 const project: Project = {
   "slug": "jurai",
-  "title": "JurAI — Geo-Regulation Research",
-  "summary": "A multi-agent prototype that retrieves regulatory evidence and critiques region-specific feature assessments.",
+  "title": "JurAI — Regulatory Research Assistant",
+  "summary": "A multi-agent prototype for reviewing product features against region-specific regulatory evidence.",
   "publishedAt": "2026-10-30",
   "period": "2025",
   "role": "Team hackathon project",
@@ -13,50 +13,54 @@ const project: Project = {
     "Python",
     "RAG"
   ],
-  "outcome": "Implements retrieval, jury/critic iterations, and structured report generation.",
+  "outcome": "Produces structured assessments with retrieved evidence and a jury–critic review loop.",
   "sections": [
     {
       "id": "problem",
-      "title": "Surface questions before a product ships",
+      "title": "Surface questions early in product development",
       "blocks": [
         {
           "type": "text",
-          "content": "JurAI explores early regulatory review for a feature description and target region. Its intended output is a structured report linking the assessment to retrieved evidence."
+          "content": "JurAI takes a feature description and a target region, then assembles an initial regulatory assessment. The goal is to give a reviewer an organised starting point with evidence they can follow."
         }
       ]
     },
     {
       "id": "pipeline",
-      "title": "Retrieval, critique, and consolidation",
+      "title": "Retrieve, critique, and consolidate",
       "blocks": [
         {
           "type": "text",
-          "content": "The repository describes two retrieval routes: similar past assessments and relevant legislation. Jury agents produce assessments, critic agents request revisions, and a judge consolidates their outputs. A Next.js interface calls the Python backend."
+          "content": "Two retrieval routes find similar past assessments and relevant legislation. Jury agents prepare assessments, critic agents request revisions, and a judge consolidates the outputs. A Next.js interface connects to the Python backend."
         },
         {
           "type": "image",
           "src": "/images/projects/jurai.webp",
-          "caption": "Original JurAI retrieval, jury, critic, and summarization workflow from the team repository."
+          "caption": "The team’s JurAI workflow: retrieve evidence, run jury and critic agents, then consolidate their assessments."
         }
       ]
     },
     {
       "id": "decisions",
-      "title": "Make the reasoning reviewable",
+      "title": "Make each assessment inspectable",
       "blocks": [
         {
           "type": "text",
-          "content": "The design uses structured JSON and cited evidence so a reviewer can inspect what each assessment relies on. Model diversity and criticism are parts of the prototype’s workflow, not proof that its answers are correct."
+          "content": "Structured JSON gives the report a consistent shape. Cited evidence lets a reviewer inspect what supports a conclusion, while separate critics create a place to challenge an assessment before consolidation."
+        },
+        {
+          "type": "text",
+          "content": "Several agents can still share the same mistaken assumption. The review loop helps organise scrutiny, but its reliability needs evaluation."
         }
       ]
     },
     {
       "id": "limits",
-      "title": "A prototype for review support",
+      "title": "Human review remains essential",
       "blocks": [
         {
           "type": "text",
-          "content": "The repository lists comparison with human legal reviews as future work. This page describes the implemented research workflow and makes no claim of legally reliable or automated compliance decisions."
+          "content": "The prototype has not been benchmarked against human legal reviews. Retrieval coverage, evidence quality, and unsupported model conclusions remain important evaluation questions before this could support dependable regulatory review."
         }
       ]
     }

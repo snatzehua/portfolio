@@ -3,7 +3,7 @@ import type { Project } from "../types";
 const project: Project = {
   "slug": "systematic-portfolio",
   "title": "Systematic Portfolio Research",
-  "summary": "A reproducible daily-data backtesting framework with explicit signal timing, fees, and portfolio accounting.",
+  "summary": "A Python backtesting framework for tracing how allocation decisions become trades, fees, and portfolio returns.",
   "publishedAt": "2026-10-30",
   "period": "2026",
   "role": "Personal research project",
@@ -13,7 +13,7 @@ const project: Project = {
     "pandas",
     "bt"
   ],
-  "outcome": "Separates strategy decisions from execution and produces inspectable research reports.",
+  "outcome": "Each run saves its inputs, decision weights, transactions, assumptions, and an interactive report.",
   "sections": [
     {
       "id": "problem",
@@ -21,41 +21,49 @@ const project: Project = {
       "blocks": [
         {
           "type": "text",
-          "content": "The project focuses on daily stock and ETF data with weekly or monthly rebalancing. The first milestone is a reproducible historical experiment, with decisions and accounting that can be inspected."
+          "content": "A return chart is easier to trust when the decisions and accounting behind it can be checked. This framework runs weekly or monthly allocation strategies on daily stock and ETF price data, keeping the signal, execution, and reporting steps separate."
         }
       ]
     },
     {
       "id": "implementation",
-      "title": "From prices to a ledger",
+      "title": "From target weights to transactions",
       "blocks": [
         {
           "type": "text",
-          "content": "Strategy functions return weight tables. A small bt adapter handles historical order booking, valuation, fee-aware sizing, and selling before buying. A CLI reads local price snapshots and produces a self-contained Plotly report."
+          "content": "Strategy functions return pandas weight tables. A small adapter uses bt to book historical orders and value the portfolio. It sells before buying and sizes purchases after accounting for fees, preventing commissions from pushing the portfolio beyond its cash budget."
+        },
+        {
+          "type": "text",
+          "content": "The command-line interface reads a local price snapshot and produces a Plotly report. Saved runs include transactions, weights, the input data, a source snapshot, and a manifest of parameters and versions."
         }
       ]
     },
     {
       "id": "timing",
-      "title": "Keep the decision and execution clocks separate",
+      "title": "A decision cannot earn an earlier return",
       "blocks": [
         {
           "type": "text",
-          "content": "A period-end signal executes at the next supplied session’s close. The implementation separates warmup observations from the evaluation window and uses the same timing and costs for its benchmark."
+          "content": "A signal calculated at a session’s close trades at the next supplied session’s close. Its first return therefore comes after that execution. Warmup observations form the signal but sit outside the reported evaluation window."
         },
         {
           "type": "text",
-          "content": "Keeping strategy logic outside the engine makes allocation ideas easier to inspect without tying every research function to a backtesting-library object."
+          "content": "The benchmark uses the same dates, warmup, rebalancing schedule, and fee model. Keeping those assumptions aligned makes comparisons easier to interpret."
         }
       ]
     },
     {
       "id": "limits",
-      "title": "Research assumptions",
+      "title": "What the simulation leaves out",
       "blocks": [
         {
           "type": "text",
-          "content": "The framework models long-only fractional positions in adjusted total-return units. Its documented limits include slippage, market impact, FX, taxes, and corporate-action accounting. The seeded synthetic demo illustrates the workflow; it is not investment performance evidence."
+          "content": "The current model uses long-only fractional positions in adjusted-price units and proportional transaction fees. It does not yet model spread, slippage, market impact, FX, taxes, or settlement delays."
+        },
+        {
+          "type": "text",
+          "content": "The seeded synthetic demo demonstrates the workflow. Its returns are not evidence of investment performance, and adjusted units would need a different accounting model before live execution."
         }
       ]
     }

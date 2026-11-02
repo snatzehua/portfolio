@@ -3,7 +3,7 @@ import type { Project } from "../types";
 const project: Project = {
   "slug": "careersphere",
   "title": "CareerSphere",
-  "summary": "Grounded career exploration that connects a person’s skills to roles, gaps, courses, and jobs.",
+  "summary": "A career exploration app that connects a person’s existing skills to possible roles and practical next steps.",
   "publishedAt": "2026-10-30",
   "period": "2026",
   "role": "Team hackathon project",
@@ -13,65 +13,65 @@ const project: Project = {
     "FastAPI",
     "DuckDB"
   ],
-  "outcome": "Combines a 3D role map with data-backed skills and career recommendations.",
+  "outcome": "Combines a 3D role map with skill-gap explanations, courses, and matching jobs.",
   "sections": [
     {
       "id": "problem",
-      "title": "Finding a useful next move",
+      "title": "From a profile to a next step",
       "blocks": [
         {
           "type": "text",
-          "content": "CareerSphere was built for the PyCon SG Jobs & Skills hackathon. It helps a person understand where they stand, which roles are nearby, and what they could do to move toward them."
+          "content": "CareerSphere was built for the PyCon SG Jobs & Skills hackathon. Someone can describe their background and goals, then explore related roles, the skills they are missing, and courses or jobs that could help them move forward."
         }
       ]
     },
     {
       "id": "approach",
-      "title": "Language models meet structured data",
+      "title": "Let data supply the facts",
       "blocks": [
         {
           "type": "text",
-          "content": "The app parses a profile or résumé, matches skills against the SkillsFuture framework, and uses tools to compare role requirements, identify gaps, and retrieve courses and job postings. A React interface presents the results, including a 3D sphere of related roles."
+          "content": "The app extracts skills from a profile or résumé and matches them against the SkillsFuture framework. A FastAPI backend queries a DuckDB snapshot for role requirements, calculates fit and gaps, and retrieves courses and job postings. React and Three.js present the results as a navigable sphere of roles."
         },
         {
           "type": "text",
-          "content": "The local architecture separates an agent orchestrator from a deterministic tool registry and a DuckDB snapshot. Language interpretation and factual scoring therefore have different responsibilities."
+          "content": "Language models handle profile interpretation, tool selection, and explanations. Explicit Python functions calculate scores and return the source evidence. That boundary makes a recommendation easier to inspect: which requirement or skill led to this result?"
         },
         {
           "type": "image",
           "src": "/images/projects/careersphere.webp",
-          "caption": "Architecture diagram from the CareerSphere repository: browser, orchestration, tools, and data sources."
+          "caption": "CareerSphere architecture: the browser calls an orchestrator, whose tools retrieve data and calculate scores. Original team diagram."
         }
       ]
     },
     {
       "id": "decisions",
-      "title": "A map needs an explanation",
+      "title": "Give the map a clear path",
       "blocks": [
         {
           "type": "text",
-          "content": "The repository describes a deliberate progression from onboarding to analysis, the sphere, and recommendations. The sphere gives a sense of related directions; the explanations and evidence make that map useful."
+          "content": "The experience moves from onboarding to analysis, the sphere, and recommendations. The sphere offers a view of related directions; ranked roles, gaps, and evidence explain what those directions mean."
         },
         {
           "type": "text",
-          "content": "The same distinction shapes the AI boundary: generated language helps explain the result, while explicit tools supply the underlying role and skill facts."
+          "content": "Exact keyword matching was too brittle for varied profile and skill descriptions. Semantic matching helps connect those descriptions, with deterministic fallbacks and scoring rules around the result."
         }
       ]
     },
     {
       "id": "limits",
-      "title": "What remains to assess",
+      "title": "Data quality still shapes the advice",
       "blocks": [
         {
           "type": "text",
-          "content": "The repository documents unreliable scraping experiments and some broken course-detail links. Live job and course availability can change. This write-up describes the implemented prototype rather than claiming measured career outcomes."
+          "content": "Scraping experiments were unreliable, and some course-detail links returned errors. Jobs and courses also change over time. The prototype needs reliable refreshes and checks of recommendation quality before its advice can be treated as dependable."
         }
       ]
     }
   ],
   "repository": "https://github.com/rohanz/careersphere",
-  "cover": "/images/projects/careersphere.webp",
-  "coverAlt": "CareerSphere architecture connecting its browser, agent, tools, and data sources"
+  "cover": "/images/projects/careersphere-cover.svg",
+  "coverAlt": "CareerSphere wordmark and globe icon"
 };
 
 export default project;

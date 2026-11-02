@@ -10,22 +10,22 @@ const project: Project = {
   status: "In progress",
   tags: ["Knowledge management", "Obsidian", "Automation"],
   coverSteps: ["People", "Context", "Connections"],
-  outcome: "Implementation and testing underway; usefulness still unproven.",
+  outcome: "Early implementation and testing, with review of automated changes as the main design question.",
   sections: [
     { id: "problem", title: "The problem", blocks: [
-      { type: "text", content: "I often meet new people, both while travelling and while learning from people in the industry. I wanted a way to keep track of those connections and the context around them, rather than relying on memory alone." },
+      { type: "text", content: "I meet people while travelling and learning from others in the industry. I wanted to remember more than a name: where we met, what we discussed, and how that conversation connects to other people or ideas." },
     ] },
     { id: "approach", title: "Why a connected notebook?", blocks: [
-      { type: "text", content: "I started thinking about using Obsidian to map my network. While exploring OpenClaw, I came across an Obsidian plugin that made the idea feel worth investigating. The project brings together my interest in connected notes and the possibility of automating some of their upkeep." },
+      { type: "text", content: "Obsidian offers a way to connect those notes without forcing every relationship into a fixed contact form. Exploring OpenClaw and an Obsidian plugin prompted me to investigate whether some of the upkeep could be automated." },
     ] },
     { id: "tradeoffs", title: "The tradeoff I am exploring", blocks: [
-      { type: "text", content: "Automation is only useful here if I can trust what it changes. My concern is that OpenClaw could do more harm than good without suitable guardrails. Deciding what should be automated, and what should remain under my control, is part of the investigation." },
+      { type: "text", content: "The central concern is control over changes. A proposed connection should be understandable and reviewable before it changes the notes. Incorrect links or rewritten context could make the notebook less useful." },
     ] },
     { id: "progress", title: "Current progress", blocks: [
-      { type: "text", content: "The project is under implementation and testing. I do not yet have a measured outcome to report. The main question is whether the workflow can make my network easier to understand and maintain without introducing unreliable changes." },
+      { type: "text", content: "Implementation and testing are ongoing. The working question is whether the workflow makes connections easier to remember and maintain while keeping the original context intact." },
     ] },
     { id: "next-steps", title: "Next steps", blocks: [
-      { type: "text", content: "Define a small workflow to test, make the proposed changes reviewable, and evaluate whether the resulting notes are actually useful. A future update can show the workflow, the guardrails, and what happened during testing." },
+      { type: "text", content: "Start with a small workflow, inspect each proposed change, and check whether the resulting connections are useful. That test can guide which tasks are worth automating." },
     ] },
   ],
 };

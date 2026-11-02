@@ -3,25 +3,25 @@ import type { Project } from "../types";
 const project: Project = {
   "slug": "local-calendar-assistant",
   "title": "Local Calendar & Task Assistant",
-  "summary": "A terminal assistant that reads calendars and tasks and makes explicitly requested scheduling changes.",
+  "summary": "A terminal assistant for planning with Google Calendar and Google Tasks.",
   "publishedAt": "2026-10-30",
   "period": "2026",
   "role": "Personal application project",
-  "status": "Local implementation",
+  "status": "Local prototype",
   "tags": [
     "Python",
     "Tool calling",
     "Google APIs"
   ],
-  "outcome": "The local code separates tool execution, model providers, OAuth, and conversation storage.",
+  "outcome": "Keeps tentative plans in a separate calendar and exposes tools for explicitly requested edits.",
   "sections": [
     {
       "id": "problem",
-      "title": "Plan without replacing existing tools",
+      "title": "Work with an existing calendar",
       "blocks": [
         {
           "type": "text",
-          "content": "The assistant works with Google Calendar and Google Tasks while leaving those applications usable directly. Its interface is a local terminal REPL."
+          "content": "The assistant reads calendar events and tasks, helps plan what to work on, and supports requested scheduling changes. Google’s own apps remain available for viewing and editing the same information."
         }
       ]
     },
@@ -31,27 +31,31 @@ const project: Project = {
       "blocks": [
         {
           "type": "text",
-          "content": "The local source separates the REPL, a provider-independent agent loop, model clients, OAuth, API tools, and SQLite history. Calendar and task operations are ordinary Python functions registered as tools."
+          "content": "A Python terminal interface sends messages and tool definitions to a model, executes requested tool calls, and returns their results. The agent loop uses a provider interface, with separate modules for model clients, Google OAuth, API tools, and SQLite conversation history."
         }
       ]
     },
     {
       "id": "decisions",
-      "title": "Read broadly and write deliberately",
+      "title": "Separate commitments from tentative plans",
       "blocks": [
         {
           "type": "text",
-          "content": "The documented behavior distinguishes committed calendar events from a separate planning calendar. Reads can combine sources, while writes default to the planning calendar or dedicated task list. Informational questions are not supposed to create changes as a side effect."
+          "content": "Reads combine committed events and tentative planning blocks. Writes default to a separate planning calendar or dedicated task list, keeping proposed work distinguishable from existing commitments."
+        },
+        {
+          "type": "text",
+          "content": "The behaviour contract requires an explicit request before calendar or task edits. An informational question such as “what should I work on?” should return advice without changing the schedule."
         }
       ]
     },
     {
       "id": "scope",
-      "title": "Local-first implementation",
+      "title": "Check the boundaries",
       "blocks": [
         {
           "type": "text",
-          "content": "The application depends on locally configured OAuth and provider credentials. The implementation was inspected locally; this write-up does not expose credentials or claim a hosted service."
+          "content": "The app runs locally and needs OAuth plus model-provider configuration. Mocked API and provider tests check the agent and wrapper logic; a real scheduling workflow still needs end-to-end verification after setup."
         }
       ]
     }

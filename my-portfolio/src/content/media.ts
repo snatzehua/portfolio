@@ -1,5 +1,8 @@
 // Intrinsic sizes reserve space while article images load.
 export const media: Record<string, { width: number; height: number }> = {
+  "/images/projects/strait-detections.webp": { width: 1488, height: 240 },
+  "/images/projects/baf-development.webp": { width: 1800, height: 655 },
+  "/images/projects/pos-tagger.svg": { width: 960, height: 400 },
   "/images/projects/careersphere.webp": { width: 1400, height: 814 },
   "/images/projects/strait.webp": { width: 900, height: 858 },
   "/images/projects/bitcoin-graph.webp": { width: 1400, height: 700 },
