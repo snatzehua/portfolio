@@ -1,4 +1,5 @@
 import SectionHeader from "@/components/portfolio/section-header";
+import ProjectStatusBadge from "@/components/portfolio/project-status-badge";
 import Image from "next/image";
 import Link from "next/link";
 import { projects } from "@/content/projects";
@@ -25,7 +26,7 @@ export default function ProjectsPanel() {
               <span className="project-number" aria-hidden="true">{String(i + 1).padStart(2, "0")}</span>
             </div>
             <div className="project-card-content">
-              <div className="card-meta"><span className="status"><span aria-hidden="true" />{project.status}</span><time dateTime={project.publishedAt}>{formatDate(project.publishedAt)}</time></div>
+              <div className="card-meta"><ProjectStatusBadge status={project.status} /><time dateTime={project.publishedAt}>{formatDate(project.publishedAt)}</time></div>
               <h2>{project.title}</h2>
               <p>{project.summary}</p>
               <div className="project-takeaway"><span>Where it stands</span><p>{project.outcome}</p></div>

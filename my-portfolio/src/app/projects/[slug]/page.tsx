@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import PortfolioShell from "@/components/portfolio/portfolio-shell";
 import ArticlePage from "@/components/article/article-page";
+import ProjectStatusBadge from "@/components/portfolio/project-status-badge";
 import { getProject, projects } from "@/content/projects";
 import { formatDate } from "@/content/types";
 
@@ -20,7 +21,7 @@ export default async function ProjectPage({ params }: Props) {
   ];
   return (
     <PortfolioShell section="projects">
-      <ArticlePage kind="projects" title={project.title} intro={project.summary} date={formatDate(project.publishedAt)} tags={project.tags} sections={project.sections} facts={[{ label: "Role", value: project.role }, { label: "Period", value: project.period }, { label: "Status", value: project.status }]} outcome={project.outcome} links={links} />
+      <ArticlePage kind="projects" title={project.title} intro={project.summary} date={formatDate(project.publishedAt)} tags={project.tags} sections={project.sections} facts={[{ label: "Role", value: project.role }, { label: "Period", value: project.period }, { label: "Status", value: <ProjectStatusBadge status={project.status} /> }]} outcome={project.outcome} links={links} />
     </PortfolioShell>
   );
 }

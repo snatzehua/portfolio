@@ -61,6 +61,7 @@ None.
 | 2026-10-30 | Remove the stock photo, share entry headers, import local projects, and tidy Background | All project/Extras detail headers use the shared paper surface; 12 project entries with local-source inventory; GDELT conclusion corrected from its current README; year-grouped work/education lists replace connector lines. |
 | 2026-11-02 | Clean project content and media without changing layout | Edit all 12 entries for direct explanations and specific limits; replace mismatched Travlah and POS covers; use a CareerSphere identity cover and retain its detailed diagram in the article; add sourced BAF and satellite figures. Original assets preserved. |
 | 2026-11-02 | Restrict project labels to lifecycle status | Shared allowed values: Developing, Completed, Paused, Archived. Replace project-type labels; enforce the vocabulary in TypeScript and content validation. |
+| 2026-11-02 | Rename Developing and apply status colours | In progress replaces Developing. Shared badges use dusty blue, forest green, muted amber, and warm grey for In progress, Completed, Paused, and Archived across cards, detail headers, and the overview. |
 
 ## Implemented structure
 

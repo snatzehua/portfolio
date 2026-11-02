@@ -7,7 +7,7 @@ const project: Project = {
   "publishedAt": "2026-10-30",
   "period": "2026",
   "role": "Course group project",
-  "status": "Developing",
+  "status": "In progress",
   "tags": [
     "LightGBM",
     "CatBoost",

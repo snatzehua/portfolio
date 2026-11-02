@@ -7,7 +7,7 @@ const project: Project = {
   "publishedAt": "2026-10-30",
   "period": "2025",
   "role": "Course team project",
-  "status": "Developing",
+  "status": "In progress",
   "tags": [
     "Vue",
     "Firebase",

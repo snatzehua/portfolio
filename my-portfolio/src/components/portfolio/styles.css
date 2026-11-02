@@ -33,8 +33,12 @@
 .project-takeaway > p { font-size: 13px; line-height: 1.65; color: #4b5d3f; margin: 5px 0 0; }
 .project-card-content { padding: 23px; display: flex; flex: 1; flex-direction: column; }
 .card-meta { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; font-size: 11px; color: #5e6d53; margin-bottom: 14px; }
-.status { display: inline-flex; align-items: center; gap: 6px; }
-.status > span { width: 5px; height: 5px; background: #849c68; border-radius: 50%; }
+.status { display: inline-flex; align-items: center; gap: 6px; padding: 3px 8px; border-radius: 4px; font-size: 11px; font-weight: 500; line-height: 1.6; white-space: nowrap; color: #66645f; background: #f0efec; }
+.status[data-status="In progress"] { color: #365a78; background: #edf3f8; }
+.status[data-status="Completed"] { color: #3e6547; background: #eef4ee; }
+.status[data-status="Paused"] { color: #806127; background: #fbf4e5; }
+.status[data-status="Archived"] { color: #66645f; background: #f0efec; }
+.status > span { width: 5px; height: 5px; background: currentColor; border-radius: 50%; flex-shrink: 0; }
 .project-card :is(h2, h3), .writing-card :is(h2, h3) { font-size: 20px; letter-spacing: -.035em; line-height: 1.35; font-weight: 550; margin: 0 0 12px; }
 .project-card-content > p, .writing-card-content > p { font-size: 14px; color: var(--muted); line-height: 1.75; }
 .project-card-content .project-role { font-size: 11px; color: #66735c; margin: 17px 0 0; }

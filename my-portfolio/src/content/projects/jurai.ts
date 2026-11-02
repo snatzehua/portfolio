@@ -7,7 +7,7 @@ const project: Project = {
   "publishedAt": "2026-10-30",
   "period": "2025",
   "role": "Team hackathon project",
-  "status": "Developing",
+  "status": "In progress",
   "tags": [
     "Next.js",
     "Python",

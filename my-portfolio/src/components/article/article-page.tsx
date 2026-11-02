@@ -2,6 +2,7 @@ import Link from "next/link";
 import { PaperHeader } from "@/components/portfolio/section-header";
 import ArticleBody, { RichText } from "./article-body";
 import type { ArticleSection } from "@/content/types";
+import type { ReactNode } from "react";
 
 export default function ArticlePage({ kind, title, subtitle, intro, date, tags, sections, facts, outcome, links }: {
   kind: "projects" | "writing";
@@ -11,7 +12,7 @@ export default function ArticlePage({ kind, title, subtitle, intro, date, tags, 
   date: string;
   tags: string[];
   sections: ArticleSection[];
-  facts?: { label: string; value: string }[];
+  facts?: { label: string; value: ReactNode }[];
   outcome?: string;
   links?: { label: string; href: string }[];
 }) {
