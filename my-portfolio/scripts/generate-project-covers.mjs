@@ -41,7 +41,7 @@ async function source(relative) {
 const image = (x, y, w, h, bytes, mime = 'image/webp') => `<image x="${x}" y="${y}" width="${w}" height="${h}" xlink:href="data:${mime};base64,${bytes.toString('base64')}"/>`;
 const images = [];
 const artDirection = {
-  careersphere: 'Original brand typography, unchanged.',
+  careersphere: 'Original globe and wordmark, optically aligned on a shared horizontal centreline.',
   'systematic-portfolio': 'Monospaced research-terminal labels; the equity plot dominates.',
   'state-of-the-strait': 'Small monospaced sensor stamp in the lower-left corner; imagery leads.',
   'bank-account-fraud': 'Ivory statistical plate with a serif heading and monospaced values.',
@@ -51,7 +51,7 @@ const artDirection = {
   'hack4good-marketplace': 'Friendly, rounded marketplace lettering alongside the original cart icon.',
   'local-calendar-assistant': 'Stacked humanist utility lettering, paired with an illustrative planner grid.',
   'hmm-pos-tagger': 'Mathematical serif acronym, conditional-probability notation, and monospaced axes.',
-  'gdelt-sentiment': 'Editorial serif heading and monospaced quantitative annotations.',
+  'gdelt-sentiment': 'Centred, stacked GDELT Sentiment Analysis for Trades title with monospaced quantitative annotations.',
   'openclaw-network-mapping': 'Bookish notebook typography; compact concept label and an open node graph.',
 };
 async function write(slug, input, alt, basis) {
@@ -61,9 +61,15 @@ async function write(slug, input, alt, basis) {
 }
 await fs.mkdir(output, { recursive: true });
 
-// Original branding, expanded to the entire artboard.
-await write('careersphere', await source('public/images/projects/careersphere-cover.svg'),
-  'CareerSphere’s original wordmark and globe icon on a full dark banner.', 'Original CareerSphere wordmark and favicon, retained in careersphere-cover.svg.');
+// Recompose the original branding without altering either original mark.
+{
+  const original = (await source('public/images/projects/careersphere-cover.svg')).toString();
+  const globe = original.match(/<g[^>]*>([\s\S]*?)<\/g>/)[1];
+  const wordmark = await sharp(Buffer.from(original.match(/base64,([^"]+)/)[1], 'base64')).trim().png().toBuffer();
+  const body = `<g transform="translate(132.8 152.8) scale(4.6)">${globe}</g>` + image(450, 195, 980, 210, wordmark, 'image/png');
+  await write('careersphere', svg(body, '#111111'),
+    'CareerSphere’s original wordmark and globe icon aligned on a full dark banner.', 'Original CareerSphere wordmark and favicon, retained in careersphere-cover.svg; repositioned on the banner.');
+}
 
 // Saved synthetic demonstration, indexed to 100. These are not real market returns.
 {
@@ -112,7 +118,7 @@ await write('careersphere', await source('public/images/projects/careersphere-co
 
 // A compact redraw of the documented jury/critic architecture, not a screenshot.
 {
-  let body = serif(80, 245, 'JurAI', 152, '#fff8ed') + serifItalic(85, 318, 'Regulatory research', 46, '#d8c9c0');
+  let body = serif(400, 310, 'JurAI', 152, '#fff8ed', 400, 'middle') + serifItalic(400, 385, 'Regulatory research', 46, '#d8c9c0', 400, 'middle');
   const ys = [125, 245, 365, 485];
   for (const y of ys) body += line(850, y, 1050, y, '#b2957b', 3) + line(1050, y, 1260, 300, '#b2957b', 3) + circle(850, y, 37, '#e6cda7') + circle(1050, y, 26, '#a38677') + circle(1050, y, 11, '#3b3036');
   body += rect(1260, 152, 230, 300, '#fff8ed', 10);
@@ -142,7 +148,7 @@ await write('careersphere', await source('public/images/projects/careersphere-co
 
 // Representative empty calendar grid and task ticks. Never use private calendar data.
 {
-  let body = friendly(80, 216, 'Calendar', 106, '#29445b', 500) + friendly(80, 320, '+ tasks', 106, '#29445b', 500) + friendly(86, 389, 'A local planning assistant', 33, '#5f7c90');
+  let body = friendly(400, 255, 'Calendar', 106, '#29445b', 500, 'middle') + friendly(400, 359, '+ tasks', 106, '#29445b', 500, 'middle') + friendly(400, 428, 'A local planning assistant', 33, '#5f7c90', 400, 'middle');
   for (let row = 0; row < 4; row++) for (let col = 0; col < 5; col++) body += rect(930 + col * 113, 100 + row * 106, 102, 94, '#f9fbfd', 4);
   for (const [col, row, color] of [[0, 0, '#507a9b'], [2, 1, '#95b6c7'], [3, 1, '#507a9b'], [1, 2, '#a5bdad'], [4, 3, '#507a9b']]) body += rect(940 + col * 113, 122 + row * 106, 82, 16, color, 3) + rect(940 + col * 113, 148 + row * 106, 51, 9, color, 2);
   body += friendly(1510, 559, 'Illustrative schedule', 26, '#5f7c90', 400, 'end');
@@ -151,18 +157,18 @@ await write('careersphere', await source('public/images/projects/careersphere-co
 
 // Saved transition probabilities. The displayed subset is not renormalised.
 {
-  let body = mathematical(85, 230, 'HMM', 160, '#f0eee2') + mono(90, 302, 'P(tag[t] | tag[t-1])', 33, '#dce7dc') + mono(90, 351, 'Estimated transitions', 28, '#adc4bd');
+  let body = mathematical(400, 249, 'HMM', 160, '#f0eee2', 400, 'middle') + mono(400, 321, 'P(tag[t] | tag[t-1])', 33, '#dce7dc', 400, 'middle') + mono(400, 370, 'Estimated transitions', 28, '#adc4bd', 400, 'middle');
   const colors = ['#254e4c', '#37655e', '#4d7e6a', '#6e9d7b', '#a2bc8c', '#d5d8a5', '#f1e9bd'];
   for (let row = 0; row < 8; row++) for (let col = 0; col < 8; col++) { const value = data.pos.matrix[row][col]; const color = colors[Math.min(6, Math.floor(Math.sqrt(value) * 7))]; body += rect(990 + col * 56, 70 + row * 56, 51, 51, color, 2); }
   data.pos.tags.forEach((tag, i) => { body += mono(968, 106 + i * 56, tag, 29, '#dce7dc', 400, 'end') + mono(1015 + i * 56, 557, tag, 29, '#dce7dc', 400, 'middle'); });
-  colors.forEach((color, i) => body += rect(90 + i * 45, 389, 45, 18, color));
-  body += mono(90, 451, '0', 27, '#adc4bd') + mono(405, 451, '1', 27, '#adc4bd', 400, 'end');
+  colors.forEach((color, i) => body += rect(242.5 + i * 45, 408, 45, 18, color));
+  body += mono(242.5, 470, '0', 27, '#adc4bd') + mono(557.5, 470, '1', 27, '#adc4bd', 400, 'end');
   await write('hmm-pos-tagger', svg(body, '#193c3c'), 'Heatmap of eight selected tag-to-tag probabilities from the saved HMM transition table; not accuracy or prediction results.', 'pos-tagger/project_files/trans_probs.txt; smoothed probabilities, selected tags, square-root colour scale from 0 to 1.');
 }
 
 // Recorded final causal model only; positive and negative bars share a zero baseline.
 {
-  let body = serif(80, 180, 'News tone', 103, '#353f4a') + serifItalic(85, 250, 'after trading costs', 51, '#68737b') + fieldLabel(86, 330, 'FINAL CAUSAL MODEL', 24, '#68737b') + mono(86, 382, 'Out-of-sample CAGR (%)', 28, '#68737b');
+  let body = serif(380, 190, 'GDELT', 72, '#353f4a', 400, 'middle') + serif(380, 270, 'Sentiment Analysis', 64, '#353f4a', 400, 'middle') + serifItalic(380, 344, 'for Trades', 64, '#353f4a', 400, 'middle') + fieldLabel(380, 414, 'FINAL CAUSAL MODEL', 24, '#68737b', 400, 'middle') + mono(380, 458, 'Out-of-sample CAGR (%)', 28, '#68737b', 400, 'middle');
   const y = v => 260 - v * 83;
   body += line(760, y(0), 1510, y(0), '#909ba1', 3);
   for (const [i, d] of data.gdelt.entries()) { const x = 820 + i * 240, top = Math.min(y(d.oosCagr), y(0)), height = Math.abs(y(d.oosCagr) - y(0)); body += rect(x, top, 130, height, d.oosCagr < 0 ? '#b87762' : '#6b9482', 2) + mono(x + 65, d.oosCagr >= 0 ? top - 24 : top + height + 47, `${d.oosCagr.toFixed(2)}%`, 40, '#46535c', 400, 'middle') + mono(x + 65, 554, `${d.costBps} bps`, 29, '#68737b', 400, 'middle'); }
@@ -175,7 +181,7 @@ await write('careersphere', await source('public/images/projects/careersphere-co
   const nodes = Array.from({ length: 28 }, (_, i) => { const angle = i * 2.399963; const radius = 60 + Math.sqrt(i / 27) * 225; return [1180 + Math.cos(angle) * radius * 1.2, 300 + Math.sin(angle) * radius]; });
   nodes.forEach((p, i) => { if (i) body += line(...p, ...nodes[Math.floor((i - 1) / 2)], '#655a77', 3); if (i > 4 && i % 3 === 0) body += line(...p, ...nodes[i - 4], '#655a77', 2); });
   nodes.forEach((p, i) => { body += circle(...p, i % 5 === 0 ? 15 : 9, i % 5 === 0 ? '#d2bbdd' : '#8c7ba4'); });
-  body += text(80, 228, 'Connected notes', 82, '#eee7f2', 400, 'start', { family: fonts.notebook, italic: true }) + notebook(85, 300, 'People · context · connections', 38, '#bcadc8') + fieldLabel(85, 550, 'CONCEPT DIAGRAM', 23, '#bcadc8');
+  body += text(400, 285, 'Connected notes', 82, '#eee7f2', 400, 'middle', { family: fonts.notebook, italic: true }) + notebook(400, 357, 'People · context · connections', 38, '#bcadc8', 400, 'middle') + fieldLabel(400, 550, 'CONCEPT DIAGRAM', 23, '#bcadc8', 400, 'middle');
   await write('openclaw-network-mapping', svg(body, '#302b3b'), 'Conceptual connected-note graph for the OpenClaw exploration; illustrative nodes, not real contacts or implemented usage.', 'Existing portfolio OpenClaw notes. No matching source checkout was found; graph topology is explicitly illustrative and deterministic.');
 }
 

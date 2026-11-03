@@ -18,7 +18,7 @@ The optional `capture-project-cover-data.py` refreshes the data snapshot from si
 
 | Cover | Source and method | Interpretation |
 | --- | --- | --- |
-| CareerSphere | Existing `careersphere-cover.svg`, built from the original team wordmark and globe icon | Actual branding, resized to the full artboard. |
+| CareerSphere | Existing `careersphere-cover.svg`, built from the original team wordmark and globe icon | Actual branding, with the globe and wordmark recomposed on a shared centreline. |
 | Systematic Portfolio | `systematic-portfolio/runs/demo-monthly/equity.csv` and `manifest.json`; strategy and benchmark indexed to 100, every fifth observation plus the final observation | **Seeded synthetic demo**, not actual market returns or strategy evidence. Saved run, not newly rerun. |
 | State of the Strait | Existing `strait.webp` from `figures/s2_rgb_2026-10-24.png`; full-width southern crop and text overlay | Actual Sentinel-2 scene with cloud cover. Contains modified Copernicus Sentinel data (2026), accessed through Microsoft Planetary Computer. No generated ships or detection counts. |
 | Bank Account Fraud | First-study `reports/baf-study-v1/monthly.csv`; development-month prevalence chart | Descriptive synthetic BAF development data, months 0–6; excludes the consumed holdout. No model-performance claim. |
@@ -40,3 +40,5 @@ The generator uses distinct typography and label placement for each kind of visu
 Font families and fallbacks are recorded in the manifest. These changes affect only banner composition: the scientific data snapshot, values, classes, colour scales, original branding, and website typography are preserved. The satellite overlay uses a subtle lower-edge shade instead of a large title and full-image wash. Rendering still depends on available platform fonts; generated WebPs are committed so site visitors see the reviewed typography.
 
 `src/content/project-covers.ts` adds the generated content hash to banner URLs in project cards and the featured overview. This invalidates browser/image-optimizer caches when artwork changes; canonical file paths remain unchanged in project records and validation.
+
+Banner alignment was refined on 3 November 2026: CareerSphere’s original marks share a centreline, and the JurAI, Calendar, HMM, GDELT, and Connected notes text blocks are centred in their left-hand composition areas. The GDELT banner reads “GDELT Sentiment Analysis for Trades”. Source data, graph values, and original branding are unchanged.

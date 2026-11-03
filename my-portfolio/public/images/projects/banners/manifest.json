@@ -25,11 +25,11 @@
       "src": "/images/projects/banners/careersphere.webp",
       "width": 1600,
       "height": 600,
-      "bytes": 20012,
-      "sha256": "90268f8974296f6721444cf9cbd9c365656616f6349b7f20eda7dcf3e584260a",
-      "alt": "CareerSphere’s original wordmark and globe icon on a full dark banner.",
-      "basis": "Original CareerSphere wordmark and favicon, retained in careersphere-cover.svg.",
-      "artDirection": "Original brand typography, unchanged."
+      "bytes": 20980,
+      "sha256": "478f04ada3ad803f64e7a5563d9b229fd98ac24455b3542f200ddfabe4b7e674",
+      "alt": "CareerSphere’s original wordmark and globe icon aligned on a full dark banner.",
+      "basis": "Original CareerSphere wordmark and favicon, retained in careersphere-cover.svg; repositioned on the banner.",
+      "artDirection": "Original globe and wordmark, optically aligned on a shared horizontal centreline."
     },
     {
       "slug": "systematic-portfolio",
@@ -80,8 +80,8 @@
       "src": "/images/projects/banners/jurai.webp",
       "width": 1600,
       "height": 600,
-      "bytes": 22282,
-      "sha256": "3af64a4bcb3ad9e05c96af5360df1e79c4d02ef58ae45c7a8dc7ef4d5c9040c0",
+      "bytes": 22614,
+      "sha256": "5f8aa5e3555c4a623eb9b28f0167841a0c06444a41d926179b71e005f7bb2252",
       "alt": "Illustration of JurAI’s four jury/critic branches feeding a consolidated report; redrawn from the team’s architecture diagram.",
       "basis": "techjam-2025/README.md and original team workflow image; architecture illustration only.",
       "artDirection": "Serif legal-research title, italic subtitle, and technical workflow labels."
@@ -113,8 +113,8 @@
       "src": "/images/projects/banners/local-calendar-assistant.webp",
       "width": 1600,
       "height": 600,
-      "bytes": 17526,
-      "sha256": "b7e74b14485bd7b46f2ce70de611f91ba55053b6e6e73e229578ac044d5b6fb7",
+      "bytes": 17074,
+      "sha256": "c5539537cf41ff97cf3d7df6c3352db43788827d8f3895ebf0ca27721d8fe1de",
       "alt": "Illustrative calendar blocks for the local planning assistant; no real dates, tasks, events, or personal data.",
       "basis": "claude-pa/README.md and calendar/task tool structure; purpose-drawn illustration, not a product screenshot.",
       "artDirection": "Stacked humanist utility lettering, paired with an illustrative planner grid."
@@ -124,8 +124,8 @@
       "src": "/images/projects/banners/hmm-pos-tagger.webp",
       "width": 1600,
       "height": 600,
-      "bytes": 20236,
-      "sha256": "6cd34667d40b190ae66ebddcb78ba7d7f0119fe8c050ae4654fab5322e64429e",
+      "bytes": 20376,
+      "sha256": "0bf338d6c65123c0913c98692683f7a5bc8bf62c93b668f3c6846a585a194e2d",
       "alt": "Heatmap of eight selected tag-to-tag probabilities from the saved HMM transition table; not accuracy or prediction results.",
       "basis": "pos-tagger/project_files/trans_probs.txt; smoothed probabilities, selected tags, square-root colour scale from 0 to 1.",
       "artDirection": "Mathematical serif acronym, conditional-probability notation, and monospaced axes."
@@ -135,19 +135,19 @@
       "src": "/images/projects/banners/gdelt-sentiment.webp",
       "width": 1600,
       "height": 600,
-      "bytes": 22926,
-      "sha256": "e732ecdfbf40f66d50864be578c3e572517880702c206631dd451af41bbb5296",
+      "bytes": 25060,
+      "sha256": "d4259afde247224484e2d055d75a3027e67439b857958ab4d3e93afc24ae7b64",
       "alt": "Final causal GDELT model’s recorded out-of-sample CAGR: 1.09%, −0.74%, and −2.54% at 0, 5, and 10 bps respectively; not legacy exploratory results.",
       "basis": "c-finance/README.md final causal-model out-of-sample cost table; saved results, no experiments rerun.",
-      "artDirection": "Editorial serif heading and monospaced quantitative annotations."
+      "artDirection": "Centred, stacked GDELT Sentiment Analysis for Trades title with monospaced quantitative annotations."
     },
     {
       "slug": "openclaw-network-mapping",
       "src": "/images/projects/banners/openclaw-network-mapping.webp",
       "width": 1600,
       "height": 600,
-      "bytes": 34968,
-      "sha256": "151e12a23dbc656d4fbd2064d4e81c60e2ad9a38e46130dfb7a25f1cdb18be55",
+      "bytes": 34718,
+      "sha256": "d37a29348c0cda9a1a3e8f93161f513336d5beb750aec2b5c942457845c4790a",
       "alt": "Conceptual connected-note graph for the OpenClaw exploration; illustrative nodes, not real contacts or implemented usage.",
       "basis": "Existing portfolio OpenClaw notes. No matching source checkout was found; graph topology is explicitly illustrative and deterministic.",
       "artDirection": "Bookish notebook typography; compact concept label and an open node graph."
