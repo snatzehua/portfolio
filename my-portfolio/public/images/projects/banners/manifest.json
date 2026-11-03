@@ -12,6 +12,10 @@
     "mathematical": "Times New Roman,Georgia,serif",
     "notebook": "Palatino,Georgia,serif"
   },
+  "recipeSha256": {
+    "scripts/generate-project-covers.mjs": "e1077c14e52e90f2ca5a39657e0d411ca85b832fa50f983a87d41610b46c6816",
+    "scripts/lib/banner-layout.mjs": "148eceffa059c4766ab98906fcb5c6f54c0d88f05f5f640920047dbcd67155ae"
+  },
   "sourceSnapshotSha256": "2084aef6b192ab19fe5218e7a1c62ba7e2480d54053c560c48d98da12a94a664",
   "assetSha256": {
     "public/images/projects/careersphere-cover.svg": "3bffbdd61178ef546e110cf022b65a031456faf4a9820f9f1567b88fd097ab66",
@@ -69,11 +73,11 @@
       "src": "/images/projects/banners/bitcoin-fraud-graph.webp",
       "width": 1600,
       "height": 600,
-      "bytes": 55660,
-      "sha256": "71e653e03bd8acfc23d55504afd1d72fdbab3a55d9c3e86ff3f52d22f715dc04",
+      "bytes": 40430,
+      "sha256": "c24144f8f86e662394fd5574f78c60aff2d198e9aa9f52e45010e3c8f75df76f",
       "alt": "Anonymised transaction graph at time step 28, with licit, illicit, and unlabelled nodes; this is data structure, not model predictions.",
       "basis": "Competition train.parquet and txs_edgelist.csv; 1,653 nodes, original figure’s layout recipe with seed 4. Raw transaction identifiers are omitted from the checked-in snapshot.",
-      "artDirection": "Network-first composition with small technical captions along the bottom."
+      "artDirection": "Uniformly scaled graph on the right, preserving saved layout proportions; compact technical title and legend on the left."
     },
     {
       "slug": "jurai",

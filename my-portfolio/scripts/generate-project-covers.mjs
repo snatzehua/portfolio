@@ -3,6 +3,7 @@ import path from 'node:path';
 import crypto from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 import sharp from 'sharp';
+import { bannerSpec, fitPoints } from './lib/banner-layout.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const output = path.join(root, 'public/images/projects/banners');
@@ -30,7 +31,7 @@ const notebook = type(fonts.notebook);
 const line = (x1, y1, x2, y2, stroke, width = 2, extra = '') => `<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="${stroke}" stroke-width="${width}" ${extra}/>`;
 const circle = (x, y, r, fill, extra = '') => `<circle cx="${x}" cy="${y}" r="${r}" fill="${fill}" ${extra}/>`;
 const rect = (x, y, w, h, fill, rx = 0, extra = '') => `<rect x="${x}" y="${y}" width="${w}" height="${h}" fill="${fill}" rx="${rx}" ${extra}/>`;
-const svg = (body, background = '#f5f3ec', defs = '') => Buffer.from(`<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1600" height="600" viewBox="0 0 1600 600"><defs>${defs}</defs>${rect(0, 0, 1600, 600, background)}${body}</svg>`);
+const svg = (body, background = '#f5f3ec', defs = '') => Buffer.from(`<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="${bannerSpec.width}" height="${bannerSpec.height}" viewBox="0 0 ${bannerSpec.width} ${bannerSpec.height}"><defs>${defs}</defs>${rect(0, 0, bannerSpec.width, bannerSpec.height, background)}${body}</svg>`);
 const polyline = (points, stroke, width = 5, extra = '') => `<polyline points="${points.map(p => p.join(',')).join(' ')}" fill="none" stroke="${stroke}" stroke-width="${width}" stroke-linejoin="round" stroke-linecap="round" ${extra}/>`;
 const imageSources = {};
 async function source(relative) {
@@ -45,7 +46,7 @@ const artDirection = {
   'systematic-portfolio': 'Monospaced research-terminal labels; the equity plot dominates.',
   'state-of-the-strait': 'Small monospaced sensor stamp in the lower-left corner; imagery leads.',
   'bank-account-fraud': 'Ivory statistical plate with a serif heading and monospaced values.',
-  'bitcoin-fraud-graph': 'Network-first composition with small technical captions along the bottom.',
+  'bitcoin-fraud-graph': 'Uniformly scaled graph on the right, preserving saved layout proportions; compact technical title and legend on the left.',
   jurai: 'Serif legal-research title, italic subtitle, and technical workflow labels.',
   travlah: 'Original travel wordmark with a light, spaced supporting caption.',
   'hack4good-marketplace': 'Friendly, rounded marketplace lettering alongside the original cart icon.',
@@ -55,9 +56,13 @@ const artDirection = {
   'openclaw-network-mapping': 'Bookish notebook typography; compact concept label and an open node graph.',
 };
 async function write(slug, input, alt, basis) {
-  const buffer = await sharp(input).resize(1600, 600, { fit: 'cover' }).webp({ quality: 90, effort: 6 }).toBuffer();
+  if (![slug, alt, basis, artDirection[slug]].every(value => typeof value === 'string' && value.trim())) throw new Error(`Missing banner description, basis, or art direction: ${slug}`);
+  if (!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(slug) || images.some(image => image.slug === slug)) throw new Error(`Invalid or duplicate banner slug: ${slug}`);
+  const metadata = await sharp(input).metadata();
+  if (metadata.width !== bannerSpec.width || metadata.height !== bannerSpec.height) throw new Error(`Compose ${slug} at ${bannerSpec.width}×${bannerSpec.height} before exporting`);
+  const buffer = await sharp(input).webp({ quality: bannerSpec.quality, effort: bannerSpec.effort }).toBuffer();
   await fs.writeFile(path.join(output, `${slug}.webp`), buffer);
-  images.push({ slug, src: `/images/projects/banners/${slug}.webp`, width: 1600, height: 600, bytes: buffer.length, sha256: hash(buffer), alt, basis, artDirection: artDirection[slug] });
+  images.push({ slug, src: `/images/projects/banners/${slug}.webp`, width: bannerSpec.width, height: bannerSpec.height, bytes: buffer.length, sha256: hash(buffer), alt, basis, artDirection: artDirection[slug] });
 }
 await fs.mkdir(output, { recursive: true });
 
@@ -105,14 +110,11 @@ await fs.mkdir(output, { recursive: true });
 // Anonymised, genuine graph structure; coordinates are a saved seeded spring layout.
 {
   const { nodes, edges } = data.bitcoin;
-  const xs = nodes.map(n => n.x), ys = nodes.map(n => n.y);
-  const minX = Math.min(...xs), maxX = Math.max(...xs), minY = Math.min(...ys), maxY = Math.max(...ys);
-  const point = n => [65 + (n.x - minX) / (maxX - minX) * 1470, 45 + (n.y - minY) / (maxY - minY) * 455];
-  let body = '';
-  for (const [a, b] of edges) body += line(...point(nodes[a]), ...point(nodes[b]), '#648391', 1.7, 'opacity=".48"');
-  for (const kind of ['unknown', 'licit', 'illicit']) for (const n of nodes.filter(n => n.kind === kind)) body += circle(...point(n), kind === 'illicit' ? 7 : kind === 'licit' ? 5 : 3.3, { unknown: '#7592a0', licit: '#72bce1', illicit: '#f1a06b' }[kind]);
-  body += fieldLabel(48, 566, 'TRANSACTION GRAPH / STEP 28', 28, '#b4cbd4');
-  ['unknown', 'licit', 'illicit'].forEach((kind, i) => { const x = 1040 + i * 175; body += circle(x, 556, 7, { unknown: '#7592a0', licit: '#72bce1', illicit: '#f1a06b' }[kind]) + mono(x + 20, 566, kind, 25, '#d0e1e8'); });
+  const points = fitPoints(nodes.map(n => [n.x, n.y]), { x: 760, y: 30, width: 790, height: 540, padding: 12 });
+  let body = fieldLabel(400, 158, 'BITCOIN / STEP 28', 28, '#b4cbd4', 400, 'middle') + mono(400, 245, 'Transaction', 62, '#e5f1f5', 500, 'middle') + mono(400, 316, 'graph', 62, '#e5f1f5', 500, 'middle');
+  for (const [a, b] of edges) body += line(...points[a], ...points[b], '#648391', 1.7, 'opacity=".48"');
+  for (const kind of ['unknown', 'licit', 'illicit']) nodes.forEach((n, i) => { if (n.kind === kind) body += circle(...points[i], kind === 'illicit' ? 7 : kind === 'licit' ? 5 : 3.3, { unknown: '#7592a0', licit: '#72bce1', illicit: '#f1a06b' }[kind]); });
+  ['unknown', 'licit', 'illicit'].forEach((kind, i) => { const y = 387 + i * 48; body += circle(295, y - 9, 7, { unknown: '#7592a0', licit: '#72bce1', illicit: '#f1a06b' }[kind]) + mono(320, y, kind, 29, '#d0e1e8'); });
   await write('bitcoin-fraud-graph', svg(body, '#162c39'), 'Anonymised transaction graph at time step 28, with licit, illicit, and unlabelled nodes; this is data structure, not model predictions.', 'Competition train.parquet and txs_edgelist.csv; 1,653 nodes, original figure’s layout recipe with seed 4. Raw transaction identifiers are omitted from the checked-in snapshot.');
 }
 
@@ -185,6 +187,8 @@ await fs.mkdir(output, { recursive: true });
   await write('openclaw-network-mapping', svg(body, '#302b3b'), 'Conceptual connected-note graph for the OpenClaw exploration; illustrative nodes, not real contacts or implemented usage.', 'Existing portfolio OpenClaw notes. No matching source checkout was found; graph topology is explicitly illustrative and deterministic.');
 }
 
-const manifest = { size: { width: 1600, height: 600 }, generation: 'Deterministic SVG composition, source-image crops, and saved-data plots; no generative image model.', fontFamilies: fonts, sourceSnapshotSha256: hash(await fs.readFile(snapshotPath)), assetSha256: imageSources, images };
+const recipeSha256 = {};
+for (const relative of ['scripts/generate-project-covers.mjs', 'scripts/lib/banner-layout.mjs']) recipeSha256[relative] = hash(await fs.readFile(path.join(root, relative)));
+const manifest = { size: { width: bannerSpec.width, height: bannerSpec.height }, generation: 'Deterministic SVG composition, source-image crops, and saved-data plots; no generative image model.', fontFamilies: fonts, recipeSha256, sourceSnapshotSha256: hash(await fs.readFile(snapshotPath)), assetSha256: imageSources, images };
 await fs.writeFile(path.join(output, 'manifest.json'), JSON.stringify(manifest, null, 2) + '\n');
 console.log(`Generated ${images.length} full-width project banners (${Math.round(images.reduce((sum, i) => sum + i.bytes, 0) / 1024)} KiB total).`);

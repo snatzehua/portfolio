@@ -44,6 +44,8 @@ Every project supplies a required `cover` and descriptive `coverAlt`. Cards disp
 
 Run `npm run generate:covers` from `my-portfolio/` to rebuild all twelve 1600×600 WebP banners using deterministic SVG composition, source imagery, and checked-in data snapshots. The generator uses pinned Sharp 0.33.5. Banner URLs include their generated content hash so regenerated artwork refreshes immediately. Source provenance, data qualifications, and regeneration instructions are in `my-portfolio/scripts/project-cover-data/README.md` and `public/images/projects/banners/manifest.json`. No models, live APIs, personal calendars, or contact data are needed. Detailed article figures remain intact.
 
+Use the [project banner guide](docs/project-banner-guide.md) for future items: it includes an authoring brief, context-specific style references, geometry rules, and the generation/review workflow. `npm run check:content` validates banner provenance and file integrity as well as content. `npm run preview:covers` generates an ignored contact sheet at `.banner-preview/projects.webp` for review at card size.
+
 Polaroid rotations are subdued: the sidebar portrait is −1.2°, full-gallery photos are ±1.5°, and overview polaroids are ±3°.
 
 ## Checks

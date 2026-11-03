@@ -3,6 +3,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import assert from 'node:assert/strict';
 import ts from 'typescript';
+import { checkProjectCovers } from './check-project-covers.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const cache = new Map();
@@ -59,3 +60,4 @@ for (const [kind, entries] of [['projects', projects], ['writing', writingEntrie
   assert(entries.every((entry, i) => i === 0 || entry.publishedAt <= entries[i - 1].publishedAt), `${kind} must be newest first`);
   console.log(`${kind}: ${entries.length} entries; slugs, dates, sections, and images checked.`);
 }
+await checkProjectCovers(projects.map(project => project.cover));

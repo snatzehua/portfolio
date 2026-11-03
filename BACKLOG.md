@@ -71,6 +71,8 @@ None.
 
 ## Implemented structure
 
+Banner workflow update, 2026-11-03: restore the Bitcoin graph's native proportions with uniform scaling and a compact side title/legend. Add a reusable layout helper, enforce exact artboard size at export, validate output/source/recipe hashes through `check:content`, and generate an ignored card-size review sheet with `preview:covers`. The [banner guide](docs/project-banner-guide.md) formalises the brief, source selection, contextual styling, integration, and visual review for future projects.
+
 The Overview shows four compact previews in order: Projects, Background, Lifestyle, Extras. Each opens its complete section page, with all its subsections in one scroll. The sidebar contains the four section links beneath Overview; individual content links are reached from the section pages. Existing fragment anchors remain usable. Each project and article has a detail page with a route back to its section page. Projects now contains 12 entries, including ten imported from local repository evidence. Deeper first-hand accounts and individual contribution confirmation remain in P01/P04.
 
 Current content structure:

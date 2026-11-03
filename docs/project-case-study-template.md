@@ -55,4 +55,5 @@ Name one to three concrete improvements or experiments and why they matter. Put 
 - Each major technical choice has a reason or a clearly stated uncertainty.
 - Claims match the available evidence; unsuccessful and inconclusive results remain visible.
 - Diagrams, images, and code excerpts explain something the prose alone does not.
+- The project cover follows the [banner guide](project-banner-guide.md), with reviewed source evidence, composition, alt text, and card-size preview.
 - Links work, screenshots are readable on a phone, and dates/status are current.
