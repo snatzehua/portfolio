@@ -1,6 +1,6 @@
 # Portfolio backlog
 
-Updated: 2026-11-02
+Updated: 2026-11-03
 
 Purpose: make the portfolio easier to maintain and expand projects into case studies that show how decisions were made.
 
@@ -62,6 +62,7 @@ None.
 | 2026-11-02 | Clean project content and media without changing layout | Edit all 12 entries for direct explanations and specific limits; replace mismatched Travlah and POS covers; use a CareerSphere identity cover and retain its detailed diagram in the article; add sourced BAF and satellite figures. Original assets preserved. |
 | 2026-11-02 | Restrict project labels to lifecycle status | Shared allowed values: Developing, Completed, Paused, Archived. Replace project-type labels; enforce the vocabulary in TypeScript and content validation. |
 | 2026-11-02 | Rename Developing and apply status colours | In progress replaces Developing. Shared badges use dusty blue, forest green, muted amber, and warm grey for In progress, Completed, Paused, and Archived across cards, detail headers, and the overview. |
+| 2026-11-03 | Move handwritten annotations beside relevant content | Remove the Projects closing slogan. Add three small notes with drawn arrows: above project cards, beside the Japan video, and beneath the blacksmithing polaroids. Reuse the existing handwriting font; notes remain in document flow and preserve media controls. |
 
 ## Implemented structure
 

@@ -40,6 +40,8 @@ The shared shell displays the original mountain photograph once as a continuous 
 
 All four section indexes and individual project/Extras entries share the paper surface from `section-header.tsx`. On section indexes, the Overview link, title, description, and count sit together on an opaque paper surface aligned with each page’s content. Individual entries place their Back link, title, summary, and metadata together on that same surface. Background uses two year-grouped paper lists, with aligned logos, consistent separators, and a current-role badge.
 
+Handwritten annotations use the existing Reenie Beanie font through `doodle-note.tsx`: a short note above the project grid, a Japan video note, and a steel-to-blade note beneath the blacksmithing polaroids. The former closing slogan on Projects is removed. Notes use small decorative SVG arrows and remain in document flow on phones.
+
 Projects can supply `coverSteps`, a three-label tuple for the shared cover diagram. Existing `cover` images remain a fallback; detailed results charts belong inside the case study. The project's `outcome` supplies both its card takeaway and the detail page's current-result summary.
 
 ## Checks
