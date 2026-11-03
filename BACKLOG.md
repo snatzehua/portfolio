@@ -64,10 +64,11 @@ None.
 | 2026-11-02 | Rename Developing and apply status colours | In progress replaces Developing. Shared badges use dusty blue, forest green, muted amber, and warm grey for In progress, Completed, Paused, and Archived across cards, detail headers, and the overview. |
 | 2026-11-03 | Move handwritten annotations beside relevant content | Remove the Projects closing slogan. Add three small notes with drawn arrows: above project cards, beside the Japan video, and beneath the blacksmithing polaroids. Reuse the existing handwriting font; notes remain in document flow and preserve media controls. |
 | 2026-11-03 | Remove the doodle annotation trial | Remove all three notes, arrows, and their shared component/styles at the author’s request. The earlier Projects closing slogan remains removed. |
+| 2026-11-03 | Fill project banners, simplify cards/navigation, and soften polaroids | All 12 projects have deterministic full-width banners from source imagery, data, logos, or documented concepts, with regeneration/provenance files. Hide technology tags on project cards; retain them in write-ups. Reduce portrait/gallery rotation. Remove nested sidebar entries while preserving all write-up routes and anchors, as clarified by the author. |
 
 ## Implemented structure
 
-The Overview shows four compact previews in order: Projects, Background, Lifestyle, Extras. Each opens its complete section page, with all its subsections in one scroll. The active sidebar group expands automatically; child links jump to anchors within that section, and Overview returns to the overview. Each project and article has a detail page with a route back to its section page. Projects now contains 12 entries, including ten imported from local repository evidence. Deeper first-hand accounts and individual contribution confirmation remain in P01/P04.
+The Overview shows four compact previews in order: Projects, Background, Lifestyle, Extras. Each opens its complete section page, with all its subsections in one scroll. The sidebar contains the four section links beneath Overview; individual content links are reached from the section pages. Existing fragment anchors remain usable. Each project and article has a detail page with a route back to its section page. Projects now contains 12 entries, including ten imported from local repository evidence. Deeper first-hand accounts and individual contribution confirmation remain in P01/P04.
 
 Current content structure:
 

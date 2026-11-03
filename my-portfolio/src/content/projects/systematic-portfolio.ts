@@ -69,11 +69,8 @@ const project: Project = {
     }
   ],
   "repository": "https://github.com/snatzehua/systematic-portfolio",
-  "coverSteps": [
-    "Prices",
-    "Weights",
-    "Ledger"
-  ]
+  "cover": "/images/projects/banners/systematic-portfolio.webp",
+  "coverAlt": "Equity curves from the saved seeded synthetic demo, indexed to 100; not real investment performance."
 };
 
 export default project;

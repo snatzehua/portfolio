@@ -15,11 +15,6 @@ const project: Project = {
   ],
   "repository": "https://github.com/snatzehua/c-finance",
   "outcome": "Confirmatory tests found no robust timing edge under the tested design.",
-  "coverSteps": [
-    "News tone",
-    "Causal tests",
-    "No robust edge"
-  ],
   "sections": [
     {
       "id": "problem",
@@ -89,7 +84,9 @@ const project: Project = {
         }
       ]
     }
-  ]
+  ],
+  "cover": "/images/projects/banners/gdelt-sentiment.webp",
+  "coverAlt": "Final causal GDELT model’s recorded out-of-sample CAGR: 1.09%, −0.74%, and −2.54% at 0, 5, and 10 bps respectively; not legacy exploratory results."
 };
 
 export default project;

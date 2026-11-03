@@ -66,8 +66,8 @@ const project: Project = {
     }
   ],
   "repository": "https://github.com/snatzehua/bt-4012-competition-2026",
-  "cover": "/images/projects/bitcoin-graph.webp",
-  "coverAlt": "Transaction network diagram with connected clusters of nodes"
+  "cover": "/images/projects/banners/bitcoin-fraud-graph.webp",
+  "coverAlt": "Anonymised transaction graph at time step 28, with licit, illicit, and unlabelled nodes; this is data structure, not model predictions."
 };
 
 export default project;

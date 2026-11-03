@@ -60,11 +60,8 @@ const project: Project = {
       ]
     }
   ],
-  "coverSteps": [
-    "Ask",
-    "API tools",
-    "Review plan"
-  ]
+  "cover": "/images/projects/banners/local-calendar-assistant.webp",
+  "coverAlt": "Illustrative calendar blocks for the local planning assistant; no real dates, tasks, events, or personal data."
 };
 
 export default project;

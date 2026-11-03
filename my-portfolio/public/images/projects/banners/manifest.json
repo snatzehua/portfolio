@@ -1,0 +1,136 @@
+{
+  "size": {
+    "width": 1600,
+    "height": 600
+  },
+  "generation": "Deterministic SVG composition, source-image crops, and saved-data plots; no generative image model.",
+  "sourceSnapshotSha256": "2084aef6b192ab19fe5218e7a1c62ba7e2480d54053c560c48d98da12a94a664",
+  "assetSha256": {
+    "public/images/projects/careersphere-cover.svg": "3bffbdd61178ef546e110cf022b65a031456faf4a9820f9f1567b88fd097ab66",
+    "public/images/projects/strait.webp": "c05964d8f56e23b0513b56af1bf39ff892a26ed9b7fb17cc25e2eb211fe48973",
+    "public/images/projects/travlah.webp": "a282493da27c7020fbd6587f566bf1397915b1342e74dcf37f6c40c9336f5333",
+    "public/images/projects/banner-sources/shopping-cart.png": "b060265e341d3ae809a177181d27211478e061303a3d001eb03555b3f14122ef"
+  },
+  "images": [
+    {
+      "slug": "careersphere",
+      "src": "/images/projects/banners/careersphere.webp",
+      "width": 1600,
+      "height": 600,
+      "bytes": 20012,
+      "sha256": "90268f8974296f6721444cf9cbd9c365656616f6349b7f20eda7dcf3e584260a",
+      "alt": "CareerSphere’s original wordmark and globe icon on a full dark banner.",
+      "basis": "Original CareerSphere wordmark and favicon, retained in careersphere-cover.svg."
+    },
+    {
+      "slug": "systematic-portfolio",
+      "src": "/images/projects/banners/systematic-portfolio.webp",
+      "width": 1600,
+      "height": 600,
+      "bytes": 38484,
+      "sha256": "fe9bd84568d79dd021e12fa9a7f6eb13fe5e2717faee9a042f5928726a71e1cb",
+      "alt": "Equity curves from the saved seeded synthetic demo, indexed to 100; not real investment performance.",
+      "basis": "systematic-portfolio/runs/demo-monthly/equity.csv and manifest.json; synthetic seed 42, saved run."
+    },
+    {
+      "slug": "state-of-the-strait",
+      "src": "/images/projects/banners/state-of-the-strait.webp",
+      "width": 1600,
+      "height": 600,
+      "bytes": 37394,
+      "sha256": "a5e46386c2a179d4ab407eeb5b25584adef0b3bb81dde7c331171b7ea0fc0bdc",
+      "alt": "Full-width crop of the saved Sentinel-2 Hormuz image from 24 October 2026, including visible cloud cover. Modified Copernicus Sentinel data via Microsoft Planetary Computer.",
+      "basis": "Existing source image strait.webp; crop and legibility overlay only, no generated satellite features."
+    },
+    {
+      "slug": "bank-account-fraud",
+      "src": "/images/projects/banners/bank-account-fraud.webp",
+      "width": 1600,
+      "height": 600,
+      "bytes": 33354,
+      "sha256": "0196e9a4b0a0ccf8462b81eda18e04bc9242aab641b0487cbe77192d7bb20e81",
+      "alt": "Fraud prevalence in development months 0–6 from the first BAF study; the held-out month is excluded.",
+      "basis": "bt-4012-project-2026/reports/baf-study-v1/monthly.csv; original development-only descriptive statistics."
+    },
+    {
+      "slug": "bitcoin-fraud-graph",
+      "src": "/images/projects/banners/bitcoin-fraud-graph.webp",
+      "width": 1600,
+      "height": 600,
+      "bytes": 57366,
+      "sha256": "ad5f9246452ca791efa5b8ada67ca01994e7b8d1413f4c86992b8ca8eb288c9c",
+      "alt": "Anonymised transaction graph at time step 28, with licit, illicit, and unlabelled nodes; this is data structure, not model predictions.",
+      "basis": "Competition train.parquet and txs_edgelist.csv; 1,653 nodes, original figure’s layout recipe with seed 4. Raw transaction identifiers are omitted from the checked-in snapshot."
+    },
+    {
+      "slug": "jurai",
+      "src": "/images/projects/banners/jurai.webp",
+      "width": 1600,
+      "height": 600,
+      "bytes": 20878,
+      "sha256": "d8cc169c98f26497f32f9703464373c46869adff9adf591116157398e73e3942",
+      "alt": "Illustration of JurAI’s four jury/critic branches feeding a consolidated report; redrawn from the team’s architecture diagram.",
+      "basis": "techjam-2025/README.md and original team workflow image; architecture illustration only."
+    },
+    {
+      "slug": "travlah",
+      "src": "/images/projects/banners/travlah.webp",
+      "width": 1600,
+      "height": 600,
+      "bytes": 19972,
+      "sha256": "3f5cf01295ff9c7ca282cb2e7912c9f50e92dba1d5c0d774ec245dcc0e80c54c",
+      "alt": "Travlah’s original wordmark across a pale full-width banner with an illustrative travel-route motif.",
+      "basis": "bt3103-travlah/public/travlah-logo.png, retained as travlah.webp; route motif is decorative, not a recorded itinerary."
+    },
+    {
+      "slug": "hack4good-marketplace",
+      "src": "/images/projects/banners/hack4good-marketplace.webp",
+      "width": 1600,
+      "height": 600,
+      "bytes": 17508,
+      "sha256": "da7fd4c7e2c1710b9ce1d31f90ab09b430362876d27b5c49c40535f478843ca8",
+      "alt": "Original marketplace cart icon beside a coupon illustration on a full-width Hack4Good banner.",
+      "basis": "Hack4Good2025 frontend shopping_cart_icon.png and voucher/minimart routes; conceptual graphic, not a screenshot or real voucher."
+    },
+    {
+      "slug": "local-calendar-assistant",
+      "src": "/images/projects/banners/local-calendar-assistant.webp",
+      "width": 1600,
+      "height": 600,
+      "bytes": 18658,
+      "sha256": "d292b464da789ab16495a402e3f7408bbebbc8537fdab27ef5de4a5d14c1bc97",
+      "alt": "Illustrative calendar blocks for the local planning assistant; no real dates, tasks, events, or personal data.",
+      "basis": "claude-pa/README.md and calendar/task tool structure; purpose-drawn illustration, not a product screenshot."
+    },
+    {
+      "slug": "hmm-pos-tagger",
+      "src": "/images/projects/banners/hmm-pos-tagger.webp",
+      "width": 1600,
+      "height": 600,
+      "bytes": 17300,
+      "sha256": "4c56114168eb16c4d8dbd8c034fcf7f4a077d162af738c350d0edb476f335fd4",
+      "alt": "Heatmap of eight selected tag-to-tag probabilities from the saved HMM transition table; not accuracy or prediction results.",
+      "basis": "pos-tagger/project_files/trans_probs.txt; smoothed probabilities, selected tags, square-root colour scale from 0 to 1."
+    },
+    {
+      "slug": "gdelt-sentiment",
+      "src": "/images/projects/banners/gdelt-sentiment.webp",
+      "width": 1600,
+      "height": 600,
+      "bytes": 23148,
+      "sha256": "385c927310a2d4fa60fb7880fdbe6182a2352bcfcfd16951eed72d3f14979b9c",
+      "alt": "Final causal GDELT model’s recorded out-of-sample CAGR: 1.09%, −0.74%, and −2.54% at 0, 5, and 10 bps respectively; not legacy exploratory results.",
+      "basis": "c-finance/README.md final causal-model out-of-sample cost table; saved results, no experiments rerun."
+    },
+    {
+      "slug": "openclaw-network-mapping",
+      "src": "/images/projects/banners/openclaw-network-mapping.webp",
+      "width": 1600,
+      "height": 600,
+      "bytes": 34078,
+      "sha256": "4339fc9dbfb351adb8fef286e2c6b1c9ef5dc677e0562ccaa57b74bde67e8769",
+      "alt": "Conceptual connected-note graph for the OpenClaw exploration; illustrative nodes, not real contacts or implemented usage.",
+      "basis": "Existing portfolio OpenClaw notes. No matching source checkout was found; graph topology is explicitly illustrative and deterministic."
+    }
+  ]
+}

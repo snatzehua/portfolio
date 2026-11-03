@@ -66,8 +66,8 @@ const project: Project = {
     }
   ],
   "repository": "https://github.com/lcwlouis/techjam-2025",
-  "cover": "/images/projects/jurai.webp",
-  "coverAlt": "JurAI workflow linking retrieval, jury agents, critic, and judge"
+  "cover": "/images/projects/banners/jurai.webp",
+  "coverAlt": "Illustration of JurAI’s four jury/critic branches feeding a consolidated report; redrawn from the team’s architecture diagram."
 };
 
 export default project;

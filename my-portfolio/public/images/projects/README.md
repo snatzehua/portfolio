@@ -22,3 +22,7 @@ The website layout is unchanged. Covers and article figures have different jobs:
 | `baf-development.webp` | `bt-4012-project-2026/reports/baf-study-v1/monthly.png` | Optimized development-only exploratory chart. Caption identifies months 0–6 and excludes the held-out month. |
 
 Raster copies preserve the source composition; only encoding and bounded downscaling change. Original diagrams stay available rather than being generated or recreated as purported evidence.
+
+## Full-width banners — 3 November 2026
+
+Project cards now use the twelve 1600×600 files under `banners/`. Rebuild with `npm run generate:covers`. See `scripts/project-cover-data/README.md` and `banners/manifest.json` for exact source qualifications, input hashes, output hashes, and descriptive alternatives. The small earlier assets remain available for article figures and generation inputs. `banner-sources/shopping-cart.png` is copied from the Hack4Good frontend's original `shopping_cart_icon.png`.

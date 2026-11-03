@@ -66,8 +66,8 @@ const project: Project = {
     }
   ],
   "repository": "https://github.com/snatzehua/pos-tagger",
-  "cover": "/images/projects/pos-tagger.svg",
-  "coverAlt": "Illustrative hidden tag sequence connected to observed words"
+  "cover": "/images/projects/banners/hmm-pos-tagger.webp",
+  "coverAlt": "Heatmap of eight selected tag-to-tag probabilities from the saved HMM transition table; not accuracy or prediction results."
 };
 
 export default project;

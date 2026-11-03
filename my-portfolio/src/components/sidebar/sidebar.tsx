@@ -3,7 +3,6 @@
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
 import { SiLinkedin, SiGithub, SiMaildotru } from "react-icons/si";
 import type { Section } from "@/content/types";
 import type { NavigationGroup } from "@/content/navigation";
@@ -20,14 +19,6 @@ export default function Sidebar({ activeSection, navigation }: {
   navigation: NavigationGroup[];
 }) {
   const pathname = usePathname();
-  const [hash, setHash] = useState("");
-
-  useEffect(() => {
-    const updateHash = () => setHash(window.location.hash);
-    updateHash();
-    window.addEventListener("hashchange", updateHash);
-    return () => window.removeEventListener("hashchange", updateHash);
-  }, [pathname]);
 
   return (
     <aside className="sidebar">
@@ -45,18 +36,8 @@ export default function Sidebar({ activeSection, navigation }: {
         <Link id="overview-navigation-label" href="/" className={`sidebar-tab sidebar-home${activeSection === "home" ? " active" : ""}`} aria-current={activeSection === "home" ? "page" : undefined}>Overview</Link>
         <ul className="sidebar-sections" aria-labelledby="overview-navigation-label">
         {navigation.map((group) => (
-          <li key={group.id} className="sidebar-menu-group">
-            <div className="sidebar-menu-row">
-              <Link href={group.href} className={`sidebar-tab${activeSection === group.id ? " active" : ""}`} aria-current={activeSection === group.id ? pathname === group.href ? "page" : "location" : undefined} aria-expanded={activeSection === group.id} aria-controls={`menu-${group.id}`}>{group.label}</Link>
-            </div>
-            <div id={`menu-${group.id}`} className="sidebar-submenu-wrap" data-expanded={activeSection === group.id} aria-hidden={activeSection !== group.id} inert={activeSection !== group.id}>
-              <div className="sidebar-submenu-content"><ul className="sidebar-submenu">
-              {group.children.map((child) => {
-                const current = child.detailHref === pathname ? "page" : child.href === `${pathname}${hash}` ? "location" : undefined;
-                return <li key={child.href}><Link href={child.href} aria-current={current} onClick={() => setHash(child.href.includes("#") ? `#${child.href.split("#")[1]}` : "")}>{child.label}</Link></li>;
-              })}
-              </ul></div>
-            </div>
+          <li key={group.id}>
+            <Link href={group.href} className={`sidebar-tab${activeSection === group.id ? " active" : ""}`} aria-current={activeSection === group.id ? pathname === group.href ? "page" : "location" : undefined}>{group.label}</Link>
           </li>
         ))}
         </ul></li></ul>

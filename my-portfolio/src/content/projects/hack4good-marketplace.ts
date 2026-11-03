@@ -57,11 +57,8 @@ const project: Project = {
     }
   ],
   "repository": "https://github.com/hrishikeshsathyian/Hack4Good2025",
-  "coverSteps": [
-    "Inventory",
-    "Vouchers",
-    "Auctions"
-  ]
+  "cover": "/images/projects/banners/hack4good-marketplace.webp",
+  "coverAlt": "Original marketplace cart icon beside a coupon illustration on a full-width Hack4Good banner."
 };
 
 export default project;

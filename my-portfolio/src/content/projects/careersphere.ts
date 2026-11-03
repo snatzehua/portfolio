@@ -70,8 +70,8 @@ const project: Project = {
     }
   ],
   "repository": "https://github.com/rohanz/careersphere",
-  "cover": "/images/projects/careersphere-cover.svg",
-  "coverAlt": "CareerSphere wordmark and globe icon"
+  "cover": "/images/projects/banners/careersphere.webp",
+  "coverAlt": "CareerSphere’s original wordmark and globe icon on a full dark banner."
 };
 
 export default project;

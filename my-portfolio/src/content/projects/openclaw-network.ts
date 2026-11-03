@@ -9,7 +9,8 @@ const project: Project = {
   role: "Personal project",
   status: "In progress",
   tags: ["Knowledge management", "Obsidian", "Automation"],
-  coverSteps: ["People", "Context", "Connections"],
+  cover: "/images/projects/banners/openclaw-network-mapping.webp",
+  coverAlt: "Conceptual connected-note graph for the OpenClaw exploration; illustrative nodes, not real contacts or implemented usage.",
   outcome: "Early implementation and testing, with review of automated changes as the main design question.",
   sections: [
     { id: "problem", title: "The problem", blocks: [

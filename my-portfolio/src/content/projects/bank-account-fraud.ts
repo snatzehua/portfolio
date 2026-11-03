@@ -69,8 +69,8 @@ const project: Project = {
       ]
     }
   ],
-  "cover": "/images/projects/baf-development.webp",
-  "coverAlt": "Charts of application volume and fraud prevalence across development months"
+  "cover": "/images/projects/banners/bank-account-fraud.webp",
+  "coverAlt": "Fraud prevalence in development months 0–6 from the first BAF study; the held-out month is excluded."
 };
 
 export default project;

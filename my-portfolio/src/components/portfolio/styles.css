@@ -21,13 +21,8 @@
 .project-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
 .project-card { display: flex; flex-direction: column; min-width: 0; color: inherit; text-decoration: none; background: #fff; border: 1px solid #dfe4d7; border-radius: 9px; overflow: hidden; transition: transform .2s, box-shadow .2s; }
 .project-card:hover, .writing-card:hover { transform: translateY(-3px); box-shadow: 0 10px 22px #33482309; }
-.project-cover { position: relative; height: 144px; display: grid; place-items: center; overflow: hidden; border-bottom: 1px solid #dce3d4; background: radial-gradient(#bdc9b1 .65px, transparent .65px), #edf1e6; background-size: 12px 12px; }
-.project-cover-image { object-fit: contain; padding: 22px 16px; }
-.project-number { position: absolute; top: 12px; left: 14px; font-size: 11px; color: #526346; background: #fffE; padding: 2px 6px; border-radius: 3px; }
-.project-flow { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; width: min(100% - 40px, 360px); }
-.project-flow-step { position: relative; min-width: 0; padding: 12px 6px; background: #fbfcf7; border: 1px solid #a8b79a; border-radius: 5px; color: #3f5831; font-size: 12px; font-weight: 550; text-align: center; box-shadow: 0 3px 7px #32472108; }
-.project-flow-step:not(:last-child)::after { content: "→"; position: absolute; left: calc(100% + 2px); top: 50%; width: 14px; transform: translateY(-50%); color: #7d936c; font-size: 15px; font-weight: 400; }
-.project-flow-index { display: block; color: #718463; font-size: 9px; letter-spacing: .1em; margin-bottom: 4px; font-weight: 400; }
+.project-cover { position: relative; aspect-ratio: 8 / 3; display: block; overflow: hidden; border-bottom: 1px solid #dce3d4; background: #e8ece8; }
+.project-cover-image { object-fit: cover; }
 .project-takeaway { margin-top: 18px; padding: 12px 13px; background: #f3f6ed; border-left: 2px solid #91a57d; }
 .project-takeaway > span { display: block; font-size: 10px; letter-spacing: .07em; text-transform: uppercase; font-weight: 600; color: #536b40; }
 .project-takeaway > p { font-size: 13px; line-height: 1.65; color: #4b5d3f; margin: 5px 0 0; }
@@ -41,11 +36,10 @@
 .status > span { width: 5px; height: 5px; background: currentColor; border-radius: 50%; flex-shrink: 0; }
 .project-card :is(h2, h3), .writing-card :is(h2, h3) { font-size: 20px; letter-spacing: -.035em; line-height: 1.35; font-weight: 550; margin: 0 0 12px; }
 .project-card-content > p, .writing-card-content > p { font-size: 14px; color: var(--muted); line-height: 1.75; }
-.project-card-content .project-role { font-size: 11px; color: #66735c; margin: 17px 0 0; }
+.project-card-content .project-role { font-size: 11px; color: #66735c; margin: 17px 0 24px; }
 .tag-list { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 18px; }
 .tag-list > span { font-size: 11px; letter-spacing: .015em; background: #f0f3e9; color: #58694a; padding: 4px 8px; border-radius: 3px; }
 .card-action { display: flex; justify-content: space-between; align-items: center; gap: 16px; font-size: 13px; color: #415a31; border-top: 1px solid #edf0e7; padding-top: 17px; margin-top: auto; }
-.project-card .tag-list { margin-bottom: 24px; }
 .project-card .card-action { margin-top: auto; }
 .card-action > span { font-size: 18px; }
 .writing-list { display: grid; gap: 22px; }
@@ -85,8 +79,8 @@
 .photography-grid img { width: 100%; height: 100%; object-fit: cover; transition: transform .2s; }
 .photography-grid button:hover img { transform: scale(1.04); }
 .polaroid-gallery { display: flex; gap: 25px; justify-content: center; padding: 20px; }
-.polaroid-gallery button { width: 42%; max-width: 240px; transform: rotate(-3deg); transition: transform .2s; }
-.polaroid-gallery button:nth-child(2) { transform: rotate(3deg); }
+.polaroid-gallery button { width: 42%; max-width: 240px; transform: rotate(-1.5deg); transition: transform .2s; }
+.polaroid-gallery button:nth-child(2) { transform: rotate(1.5deg); }
 .polaroid-gallery img { width: 100%; height: auto; filter: drop-shadow(2px 4px 5px #26331f15); }
 .polaroid-gallery button:hover { transform: rotate(0); }
 .photo-dialog { padding: 0; max-width: 95vw; max-height: 95dvh; width: 1000px; background: #141a12; border-radius: 8px; color: #fff; border: 1px solid #ffffff20; }
@@ -145,17 +139,12 @@
   .section-heading > p:last-of-type { font-size: 14px; }
   .section-caption { margin-top: 27px; }
   .project-grid { gap: 20px; }
-  .project-cover { height: 132px; }
   .project-card-content { padding: 21px; }
   .article-intro { font-size: 15px; }
   .article-section p { font-size: 15px; }
   .article-section h2 { font-size: 21px; }
   .project-facts { gap: 15px; }
   .project-facts dd { font-size: 10px; }
-}
-@media (max-width: 760px) {
-  .project-flow { width: calc(100% - 32px); gap: 16px; }
-  .project-flow-step { font-size: 11px; }
 }
 @media (max-width: 600px) {
   .writing-card { display: flex; flex-direction: column-reverse; gap: 20px; padding: 21px; }
@@ -174,11 +163,6 @@
   .project-facts > div { display: grid; grid-template-columns: 65px minmax(0, 1fr); gap: 14px; }
   .project-facts dt { margin-bottom: 0; }
   .project-facts dd { font-size: 12px; }
-}
-@media (max-width: 360px) {
-  .project-flow { width: calc(100% - 24px); gap: 12px; }
-  .project-flow-step { padding: 12px 4px; font-size: 10px; }
-  .project-flow-step:not(:last-child)::after { left: calc(100% + 1px); width: 10px; font-size: 12px; }
 }
 @media (prefers-reduced-motion: reduce) {
   .portfolio-shell *, .portfolio-shell *::before, .portfolio-shell *::after { transition: none !important; animation: none !important; scroll-behavior: auto !important; }
@@ -264,8 +248,8 @@
 .overview-illustrated .preview-label, .overview-illustrated .preview-meta { color: #575147; }
 .overview-lifestyle { display: grid; grid-template-columns: minmax(110px, .95fr) minmax(0, 1.05fr); gap: 12px; }
 .overview-polaroid-pair { position: relative; z-index: 1; width: 100%; height: 190px; }
-.overview-polaroid-pair img { position: absolute; left: 0; top: 0; width: 65%; height: 100%; object-fit: contain; filter: drop-shadow(1px 3px 3px #0003); transform: rotate(-7deg); }
-.overview-polaroid-pair img + img { left: auto; right: 0; transform: translateY(6px) rotate(7deg); }
+.overview-polaroid-pair img { position: absolute; left: 0; top: 0; width: 65%; height: 100%; object-fit: contain; filter: drop-shadow(1px 3px 3px #0003); transform: rotate(-3deg); }
+.overview-polaroid-pair img + img { left: auto; right: 0; transform: translateY(6px) rotate(3deg); }
 .blacksmithing-layout { display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 24px; }
 .blacksmithing-copy > p { color: #5f6658; font-size: 13px; line-height: 1.95; }
 .blacksmithing-layout .polaroid-gallery { padding: 14px 0; gap: 10px; }

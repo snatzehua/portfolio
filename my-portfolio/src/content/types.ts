@@ -19,9 +19,8 @@ export interface Project {
   role: string;
   status: ProjectStatus;
   tags: string[];
-  cover?: string;
-  coverAlt?: string;
-  coverSteps?: [string, string, string];
+  cover: string;
+  coverAlt: string;
   repository?: string;
   demo?: string;
   outcome: string;

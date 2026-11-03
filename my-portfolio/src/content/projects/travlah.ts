@@ -57,8 +57,8 @@ const project: Project = {
     }
   ],
   "repository": "https://github.com/snatzehua/bt3103-travlah",
-  "cover": "/images/projects/travlah.webp",
-  "coverAlt": "Travlah wordmark from the Vue application"
+  "cover": "/images/projects/banners/travlah.webp",
+  "coverAlt": "Travlah’s original wordmark across a pale full-width banner with an illustrative travel-route motif."
 };
 
 export default project;

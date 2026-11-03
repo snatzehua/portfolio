@@ -75,8 +75,8 @@ const project: Project = {
     }
   ],
   "repository": "https://github.com/snatzehua/state-of-the-strait",
-  "cover": "/images/projects/strait.webp",
-  "coverAlt": "Satellite RGB preview of water and coastline near the Strait of Hormuz"
+  "cover": "/images/projects/banners/state-of-the-strait.webp",
+  "coverAlt": "Full-width crop of the saved Sentinel-2 Hormuz image from 24 October 2026, including visible cloud cover. Modified Copernicus Sentinel data via Microsoft Planetary Computer."
 };
 
 export default project;
