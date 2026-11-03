@@ -7,7 +7,7 @@ const project: Project = {
   publishedAt: "2026-10-29",
   period: "Jan 2025 — present",
   role: "Personal project",
-  status: "In progress",
+  status: "Archived",
   tags: ["Knowledge management", "Obsidian", "Automation"],
   cover: "/images/projects/banners/openclaw-network-mapping.webp",
   coverAlt: "Conceptual connected-note graph for the OpenClaw exploration; illustrative nodes, not real contacts or implemented usage.",
