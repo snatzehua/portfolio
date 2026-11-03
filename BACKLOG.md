@@ -63,6 +63,7 @@ None.
 | 2026-11-02 | Restrict project labels to lifecycle status | Shared allowed values: Developing, Completed, Paused, Archived. Replace project-type labels; enforce the vocabulary in TypeScript and content validation. |
 | 2026-11-02 | Rename Developing and apply status colours | In progress replaces Developing. Shared badges use dusty blue, forest green, muted amber, and warm grey for In progress, Completed, Paused, and Archived across cards, detail headers, and the overview. |
 | 2026-11-03 | Move handwritten annotations beside relevant content | Remove the Projects closing slogan. Add three small notes with drawn arrows: above project cards, beside the Japan video, and beneath the blacksmithing polaroids. Reuse the existing handwriting font; notes remain in document flow and preserve media controls. |
+| 2026-11-03 | Remove the doodle annotation trial | Remove all three notes, arrows, and their shared component/styles at the author’s request. The earlier Projects closing slogan remains removed. |
 
 ## Implemented structure
 

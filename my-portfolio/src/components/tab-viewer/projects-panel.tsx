@@ -1,6 +1,5 @@
 import SectionHeader from "@/components/portfolio/section-header";
 import ProjectStatusBadge from "@/components/portfolio/project-status-badge";
-import DoodleNote from "@/components/portfolio/doodle-note";
 import Image from "next/image";
 import Link from "next/link";
 import { projects } from "@/content/projects";
@@ -10,7 +9,6 @@ export default function ProjectsPanel() {
   return (
     <div className="section-page projects-page">
       <SectionHeader section="projects" eyebrow="01 / Work & experiments" title="Selected projects" headingId="projects-heading" description="The questions, decisions, and lessons behind my work." caption={[`${String(projects.length).padStart(2, "0")} projects`, "Newest case studies first"]} />
-      <DoodleNote className="projects-doodle">the how + why, inside</DoodleNote>
       <div className="project-grid">
         {projects.map((project, i) => (
           <Link href={`/projects/${project.slug}`} key={project.slug} id={`project-${project.slug}`} className="project-card">
