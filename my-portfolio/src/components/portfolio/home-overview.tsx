@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { projects } from "@/content/projects";
+import { projectCoverSrc } from "@/content/project-covers";
 import { writingEntries } from "@/content/writing";
 import { formatDate } from "@/content/types";
 import { experienceEntries } from "@/components/tab-viewer/entries/experience-entries";
@@ -19,7 +20,7 @@ export default function HomeOverview() {
     <section id="projects" aria-labelledby="overview-projects">
       <Link className="overview-sheet" href="/projects">
         <div className="overview-description"><p className="eyebrow">01 / Work & experiments</p><h2 id="overview-projects">Projects</h2><p>The questions, decisions, and lessons behind my work.</p><span className="overview-action">View all projects ({projects.length}) <span aria-hidden="true">→</span></span></div>
-        <div className="overview-preview overview-illustrated"><PreviewImage src={project.cover} priority /><div className="overview-preview-copy"><span className="preview-label">Featured project</span><h3>{project.title}</h3><p>{project.summary}</p><span className="preview-meta"><ProjectStatusBadge status={project.status} /> · {project.tags.slice(0, 2).join(" / ")}</span></div></div>
+        <div className="overview-preview overview-illustrated"><PreviewImage src={projectCoverSrc(project.cover)} priority /><div className="overview-preview-copy"><span className="preview-label">Featured project</span><h3>{project.title}</h3><p>{project.summary}</p><span className="preview-meta"><ProjectStatusBadge status={project.status} /> · {project.tags.slice(0, 2).join(" / ")}</span></div></div>
       </Link>
     </section>
     <section id="experience" aria-labelledby="overview-experience">

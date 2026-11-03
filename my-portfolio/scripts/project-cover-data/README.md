@@ -32,3 +32,11 @@ The optional `capture-project-cover-data.py` refreshes the data snapshot from si
 | OpenClaw | Existing portfolio project notes; no matching implementation checkout found | Deterministic **concept illustration**, not real contacts, a working implementation, or usage counts. |
 
 Original article figures, source images, and older assets remain available. New covers live in `public/images/projects/banners/`; `manifest.json` includes descriptive alternatives and the source basis for each output. The site continues to expose the detailed figures inside each write-up.
+
+## Contextual typography — 3 November 2026
+
+The generator uses distinct typography and label placement for each kind of visual, recorded per image as `artDirection` in the manifest. CareerSphere and Travlah retain their original wordmarks. The satellite scene has a small lower-left monospaced sensor stamp; the graph has a compact technical footer. Systematic Portfolio uses a terminal-like monospaced treatment. BAF and GDELT use serif report/editorial headings with monospaced quantitative labels; JurAI uses a serif legal-research treatment. Calendar and Hack4Good use humanist sans lettering, the HMM plate pairs mathematical serif lettering with conditional-probability notation, and OpenClaw uses a bookish note-page treatment.
+
+Font families and fallbacks are recorded in the manifest. These changes affect only banner composition: the scientific data snapshot, values, classes, colour scales, original branding, and website typography are preserved. The satellite overlay uses a subtle lower-edge shade instead of a large title and full-image wash. Rendering still depends on available platform fonts; generated WebPs are committed so site visitors see the reviewed typography.
+
+`src/content/project-covers.ts` adds the generated content hash to banner URLs in project cards and the featured overview. This invalidates browser/image-optimizer caches when artwork changes; canonical file paths remain unchanged in project records and validation.

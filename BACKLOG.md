@@ -65,6 +65,7 @@ None.
 | 2026-11-03 | Move handwritten annotations beside relevant content | Remove the Projects closing slogan. Add three small notes with drawn arrows: above project cards, beside the Japan video, and beneath the blacksmithing polaroids. Reuse the existing handwriting font; notes remain in document flow and preserve media controls. |
 | 2026-11-03 | Remove the doodle annotation trial | Remove all three notes, arrows, and their shared component/styles at the author’s request. The earlier Projects closing slogan remains removed. |
 | 2026-11-03 | Fill project banners, simplify cards/navigation, and soften polaroids | All 12 projects have deterministic full-width banners from source imagery, data, logos, or documented concepts, with regeneration/provenance files. Hide technology tags on project cards; retain them in write-ups. Reduce portrait/gallery rotation. Remove nested sidebar entries while preserving all write-up routes and anchors, as clarified by the author. |
+| 2026-11-03 | Vary banner typography by context | State of the Strait uses a small corner sensor stamp. Technical plots use monospaced labels; research/legal plates use serif headings; utility banners use humanist lettering; original wordmarks remain intact. Regenerate the reviewed assets with unchanged source data and record each treatment in the manifest. Version banner URLs by content hash to prevent stale artwork. |
 
 ## Implemented structure
 

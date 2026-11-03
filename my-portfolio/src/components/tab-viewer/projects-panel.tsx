@@ -3,6 +3,7 @@ import ProjectStatusBadge from "@/components/portfolio/project-status-badge";
 import Image from "next/image";
 import Link from "next/link";
 import { projects } from "@/content/projects";
+import { projectCoverSrc } from "@/content/project-covers";
 import { formatDate } from "@/content/types";
 
 export default function ProjectsPanel() {
@@ -13,7 +14,7 @@ export default function ProjectsPanel() {
         {projects.map((project, i) => (
           <Link href={`/projects/${project.slug}`} key={project.slug} id={`project-${project.slug}`} className="project-card">
             <div className="project-cover">
-              <Image src={project.cover} alt={project.coverAlt} fill sizes="(max-width: 760px) 90vw, (max-width: 1100px) 70vw, 440px" className="project-cover-image" priority={i === 0} />
+              <Image src={projectCoverSrc(project.cover)} alt={project.coverAlt} fill sizes="(max-width: 760px) 90vw, (max-width: 1100px) 70vw, 440px" className="project-cover-image" priority={i === 0} />
             </div>
             <div className="project-card-content">
               <div className="card-meta"><ProjectStatusBadge status={project.status} /><time dateTime={project.publishedAt}>{formatDate(project.publishedAt)}</time></div>

@@ -42,7 +42,7 @@ All four section indexes and individual project/Extras entries share the paper s
 
 Every project supplies a required `cover` and descriptive `coverAlt`. Cards display the image edge to edge at an 8:3 ratio, without an inset diagram or thumbnail frame. Technology tags remain in the write-ups but are omitted from the Projects index. The project's `outcome` supplies both its card takeaway and the detail page's current-result summary.
 
-Run `npm run generate:covers` from `my-portfolio/` to rebuild all twelve 1600×600 WebP banners using deterministic SVG composition, source imagery, and checked-in data snapshots. The generator uses pinned Sharp 0.33.5. Source provenance, data qualifications, and regeneration instructions are in `my-portfolio/scripts/project-cover-data/README.md` and `public/images/projects/banners/manifest.json`. No models, live APIs, personal calendars, or contact data are needed. Detailed article figures remain intact.
+Run `npm run generate:covers` from `my-portfolio/` to rebuild all twelve 1600×600 WebP banners using deterministic SVG composition, source imagery, and checked-in data snapshots. The generator uses pinned Sharp 0.33.5. Banner URLs include their generated content hash so regenerated artwork refreshes immediately. Source provenance, data qualifications, and regeneration instructions are in `my-portfolio/scripts/project-cover-data/README.md` and `public/images/projects/banners/manifest.json`. No models, live APIs, personal calendars, or contact data are needed. Detailed article figures remain intact.
 
 Polaroid rotations are subdued: the sidebar portrait is −1.2°, full-gallery photos are ±1.5°, and overview polaroids are ±3°.
 

@@ -26,3 +26,5 @@ Raster copies preserve the source composition; only encoding and bounded downsca
 ## Full-width banners — 3 November 2026
 
 Project cards now use the twelve 1600×600 files under `banners/`. Rebuild with `npm run generate:covers`. See `scripts/project-cover-data/README.md` and `banners/manifest.json` for exact source qualifications, input hashes, output hashes, and descriptive alternatives. The small earlier assets remain available for article figures and generation inputs. `banner-sources/shopping-cart.png` is copied from the Hack4Good frontend's original `shopping_cart_icon.png`.
+
+The contextual typography pass uses smaller corner metadata on State of the Strait, monospaced research labels on technical plots, serif report headings, humanist utility lettering, and the original project wordmarks. Per-cover direction and font fallbacks are recorded in `banners/manifest.json`; source data and qualifications are unchanged.
