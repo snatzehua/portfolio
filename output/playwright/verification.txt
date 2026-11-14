@@ -1,0 +1,17 @@
+Portfolio redesign verification — 14 November 2026
+
+Passed: npm run check:content (12 projects, 2 writing entries, 12 banner outputs).
+Passed: npm run typecheck.
+Passed: npm run build (23 generated pages).
+Passed: git diff --check.
+
+Browser: HTTP 200, one h1, and no horizontal document overflow across 320, 390, 768 and 1440px for /, /projects, /projects/state-of-the-strait, /experience, /lifestyle, /writing and /writing/subtiles-2. CareerSphere was also opened at desktop and phone widths.
+Visually reviewed homepage at desktop and phone widths, the Projects index, and the State of the Strait article. All detailed State of the Strait images decoded successfully after scrolling.
+Verified mobile Menu opens; Escape closes it and restores focus to its toggle.
+Verified article contents link updates hash to #findings and places target 28px from viewport top.
+Verified Back to Projects returns to /projects.
+Verified blacksmithing polaroid viewer: opens first image, ArrowRight selects second, Escape closes it, focus returns to original image button.
+
+Known existing diagnostics: unused legacy hero-overlay component has a Next.js no-img-element lint warning. Vercel Analytics script returns 404 on the local production server because its endpoint is supplied by Vercel hosting; this does not affect page navigation or rendering.
+
+Original polaroid assets and factual project/writing records were preserved. No deployment or commit was performed.

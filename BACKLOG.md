@@ -1,6 +1,6 @@
 # Portfolio backlog
 
-Updated: 2026-11-03
+Updated: 2026-11-14
 
 Purpose: make the portfolio easier to maintain and expand projects into case studies that show how decisions were made.
 
@@ -26,13 +26,14 @@ Add new ideas below, one per line:
 | P01 | Next | Deepen project case studies with first-hand evidence | User requested deeper project explanations | The repository-grounded summaries are expanded with actual alternatives, experiments, failure cases, and concrete ownership; missing facts are supplied by the author. |
 | P04 | Next | Finish the factual audit of project cards | Existing content needs author confirmation | Confirm individual contributions, exact dates, current status, and repository/demo visibility for the imported entries. GDELT now reflects its negative confirmatory result; no earlier outperformance claim remains. See the local project inventory. |
 | P09 | Later | Improve media descriptions and education details | Follow-up from implementation | Replace generic photography alt text with scene descriptions; confirm GPA/year-of-study wording and any changed experience/education facts. |
-| P10 | Next | Review component styling against the original design | User feedback: the current design still feels AI generated | Agree the component palette and treatment using the original neutral styling as a reference. Review diagram covers, tinted takeaway boxes, repeated labels, and navigation styling before another broad restyle. |
 
 ## In progress
 
 None.
 
 ## Done
+
+- 2026-11-14 — P10: Implement the user-selected warm, clean reference with horizontal navigation, open selected projects, warm off-white/charcoal/deep green styling, and original polaroids in the introduction and Lifestyle. Keep routes, project facts, articles and galleries. Replace the old plywood/pegboard presentation and delayed navigation. Validate with content/type/build checks and desktop/mobile browser review.
 
 | Date | Item | Evidence |
 | --- | --- | --- |
@@ -73,7 +74,7 @@ None.
 
 Banner workflow update, 2026-11-03: restore the Bitcoin graph's native proportions with uniform scaling and a compact side title/legend. Add a reusable layout helper, enforce exact artboard size at export, validate output/source/recipe hashes through `check:content`, and generate an ignored card-size review sheet with `preview:covers`. The [banner guide](docs/project-banner-guide.md) formalises the brief, source selection, contextual styling, integration, and visual review for future projects.
 
-The Overview shows four compact previews in order: Projects, Background, Lifestyle, Extras. Each opens its complete section page, with all its subsections in one scroll. The sidebar contains the four section links beneath Overview; individual content links are reached from the section pages. Existing fragment anchors remain usable. Each project and article has a detail page with a route back to its section page. Projects now contains 12 entries, including ten imported from local repository evidence. Deeper first-hand accounts and individual contribution confirmation remain in P01/P04.
+The homepage shows the polaroid introduction, three selected projects, a forest Lifestyle banner with blacksmithing polaroids, and compact Background and Extras sections. Horizontal navigation opens each full section page. Existing fragment anchors remain usable. Each project and article has a detail page with a route back to its section page. Projects contains 12 entries, including ten imported from local repository evidence. Deeper first-hand accounts and individual contribution confirmation remain in P01/P04.
 
 Current content structure:
 
@@ -90,7 +91,9 @@ The first implementation uses typed content records and a shared block renderer 
 
 ## Decisions
 
-Component review following the latest feedback: the original surfaces were white/`#fafafa`, headings `#111`, body text `#555`–`#666`, and tags `#f3f3f3`–`#f5f5f5`. The sage palette and repeated three-step diagrams were introduced during the redesign. Returning to the original neutral palette and using real project visuals are proposed directions for P10, not yet applied.
+- 2026-11-14 — The user approved the implemented design running at `http://localhost:3100/` as the baseline. Future work should make incremental updates from this implementation; preserve its warm off-white/charcoal/deep-green palette, horizontal navigation, open project layouts and original polaroids unless the user explicitly requests a change. The rejected mockup variations are not the baseline. Checkpoint screenshots are `output/playwright/redesign-home-desktop.png` and `output/playwright/redesign-home-mobile.png`.
+
+Current design decision (2026-11-14): the user selected the original “Quiet contemporary” concept image, clarified that this was the intended vibe, and authorized implementation while explicitly retaining polaroids. That concrete image supersedes the later rejected Personal studio explorations. Use warm off-white, charcoal, deep green, horizontal navigation, open project layouts and personal photography. Keep the portrait and blacksmithing polaroids; preserve existing content and source evidence.
 
 - 2026-10-29 — Retain four main content areas and separate project/article routes. Later refined at the user's request into one continuous home page with expandable anchor navigation and the original white pegboard surfaces. — P02, P05, P10.
 - 2026-10-29 — Use typed local content files and shared article blocks. — The existing content already uses text/image/math blocks; this supports immediate migration without an additional authoring toolchain. — P03, P07.

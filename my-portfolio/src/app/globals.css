@@ -3,8 +3,9 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #f7f5ef;
+  --foreground: #272b28;
+  color-scheme: light;
 }
 
 html {
@@ -97,12 +98,5 @@ body {
 @media (max-width: 480px) {
   .section-wrapper {
     flex-direction: column;
-  }
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
   }
 }

@@ -1,10 +1,11 @@
 import Link from "next/link";
+import Image from "next/image";
 import { PaperHeader } from "@/components/portfolio/section-header";
 import ArticleBody, { RichText } from "./article-body";
 import type { ArticleSection } from "@/content/types";
 import type { ReactNode } from "react";
 
-export default function ArticlePage({ kind, title, subtitle, intro, date, tags, sections, facts, outcome, links }: {
+export default function ArticlePage({ kind, title, subtitle, intro, date, tags, sections, facts, outcome, links, cover }: {
   kind: "projects" | "writing";
   title: string;
   subtitle?: string;
@@ -15,6 +16,7 @@ export default function ArticlePage({ kind, title, subtitle, intro, date, tags, 
   facts?: { label: string; value: ReactNode }[];
   outcome?: string;
   links?: { label: string; href: string }[];
+  cover?: { src: string; alt: string };
 }) {
   const backHref = `/${kind}`;
   const label = kind === "projects" ? "Projects" : "Extras";
@@ -36,6 +38,7 @@ export default function ArticlePage({ kind, title, subtitle, intro, date, tags, 
           <p className="eyebrow">On this page</p>
           {sections.map((section, i) => <a key={section.id} href={`#${section.id}`}><span aria-hidden="true">{String(i + 1).padStart(2, "0")}</span>{section.title}</a>)}
         </nav>
+        {cover && <figure className="article-hero"><Image src={cover.src} alt={cover.alt} width={1600} height={600} sizes="(max-width: 960px) 94vw, 900px" /></figure>}
         <ArticleBody sections={sections} />
       </div>
       <footer className="article-footer"><Link href={backHref} className="back-link">← Back to {label}</Link><a href="#main-content">Back to top ↑</a></footer>

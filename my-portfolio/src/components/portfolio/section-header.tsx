@@ -16,7 +16,7 @@ export default function SectionHeader({ section, eyebrow, title, headingId, desc
   return <PaperHeader>
     <Link href={`/#${section}`} className="back-link section-header-back">← Overview</Link>
     <p className="eyebrow">{eyebrow}</p>
-    <h1 id={headingId}>{title}<span className="heading-dot">.</span></h1>
+    <h1 id={headingId}>{title}</h1>
     <p>{description}</p>
     {caption && <div className="section-caption"><span>{caption[0]}</span><span>{caption[1]}</span></div>}
   </PaperHeader>;

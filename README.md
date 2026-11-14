@@ -1,6 +1,6 @@
 # Kieran Ho — portfolio
 
-A Next.js portfolio with a compact home overview, four section pages, a compact desktop side menu, responsive mobile navigation, and dedicated project case studies and articles.
+A Next.js portfolio with a warm off-white surface, horizontal navigation, a project-led homepage, original polaroids, and dedicated project case studies and articles.
 
 ## Run locally
 
@@ -11,9 +11,9 @@ npm install
 npm run dev
 ```
 
-The Overview previews Projects, Background (experience and education), Lifestyle, and Extras, in that order. Each overview opens its full section at `/projects`, `/experience`, `/lifestyle`, or `/writing` (Extras). Each section shows all its subsections in one document: both experience/education timelines and all three Lifestyle interests remain visible. Project and writing cards open `/projects/<slug>` and `/writing/<slug>`; their Back links return to the section page.
+The homepage introduces Kieran with the original polaroid portrait, then shows three selected projects, a forest photograph with the two blacksmithing polaroids, and compact Background and Extras sections. The four full sections remain at `/projects`, `/experience`, `/lifestyle`, and `/writing`. Project and writing cards open `/projects/<slug>` and `/writing/<slug>`; Back links return to their section page.
 
-The sidebar presents Overview as the parent of four section links: Projects, Background, Lifestyle, and Extras. Individual project names and section subsections are no longer listed in the sidebar. The active section remains highlighted on its detail pages. Project and Extras write-ups remain accessible through their section cards; existing detail routes and fragment anchors are preserved. Old `/?section=...` links redirect to the corresponding section page; home `/#projects` etc. still locate their overview.
+The horizontal header links to the four sections and email. The name links to the homepage. At phone widths, a Menu button opens the same navigation; Escape closes it and returns focus. The active section stays highlighted on detail routes. Existing fragment anchors and legacy `/?section=...` redirects remain supported. The footer supplies contact links and a return to the top.
 
 “Extras” is the working label for writing, puzzles, competition efforts, and other work outside the main three sections. Its existing `/writing` and `/writing/<slug>` URLs and content records stay in place while the name is being considered.
 
@@ -24,7 +24,7 @@ The sidebar presents Overview as the parent of four section links: Projects, Bac
 - Experience and Education: the corresponding files in `my-portfolio/src/components/tab-viewer/entries/`.
 - Lifestyle: `my-portfolio/src/components/tab-viewer/lifestyle-panel.tsx`.
 - Shared article rendering: `my-portfolio/src/components/article/`.
-- Page layout and responsive styling: `my-portfolio/src/components/portfolio/` and `my-portfolio/src/components/sidebar/`.
+- Page layout and responsive styling: `my-portfolio/src/components/portfolio/` (including `site-header.tsx` and `styles.css`).
 
 `publishedAt` controls newest-first ordering. It describes the write-up, separately from the project's working period. The project collection includes ten entries drafted from local repositories on 30 October 2026, an updated GDELT research summary, and the existing OpenClaw note; older writing retains its existing month-level dates. These are editable content dates, not deployment timestamps.
 
@@ -36,17 +36,19 @@ The content uses typed TypeScript records and shared text/image/math blocks. MDX
 
 Images belong in `my-portfolio/public/images/`. Add article-image dimensions to `my-portfolio/src/content/media.ts`. The writing images have optimized WebP copies under `public/images/writing/`; the original images remain available. Body images load only on article pages and use native lazy loading with reserved aspect ratios.
 
-The shared shell displays the original mountain photograph once as a continuous backdrop. The greeting banner is above Overview, spanning from the sidebar edge to the right browser edge without a top gap. The sidebar name and short bio are restored. The shared frame stays mounted between routes so the banner can shrink before navigation; incoming page content expands slightly and fades in. Reduced-motion preferences skip these effects. The sidebar uses a softly washed plywood texture; see `public/images/textures/README.md` for source and CC0 attribution. The main panel retains the original white pegboard pattern, on a flat surface, without the layered edge or cast shadow. All four overview panels share one height at each responsive breakpoint. All four panels have a shared middle divider (horizontal in the stacked layout). Projects, Lifestyle, and Extras use full-size images at full opacity, with a strong white fade from the text toward the image edge and top/bottom fades. Lifestyle retains its forest backdrop and preview copy, with the two blacksmithing polaroids at the far right of that preview; the full blacksmithing write-up also places the browsable polaroids to the right on desktop, stacking them below on phones. Background shows only the current role; `isCurrent` in the experience entries controls it (Govtech internship, confirmed by the author). The centered polaroid is decorative, without a link or pointer cursor; the forest path photograph backs the Lifestyle overview preview. Background has no stock photograph. Root and menu overscroll are disabled, and the main content uses the document scrollbar.
+The design follows the user-selected clean reference: warm off-white (`#F7F5EF`), charcoal (`#272B28`), deep green (`#244F3E`), humanist sans-serif typography, fine dividers and open project layouts. The old plywood sidebar, pegboard and mountain backdrop are no longer rendered. Original image files remain available.
 
-All four section indexes and individual project/Extras entries share the paper surface from `section-header.tsx`. On section indexes, the Overview link, title, description, and count sit together on an opaque paper surface aligned with each page’s content. Individual entries place their Back link, title, summary, and metadata together on that same surface. Background uses two year-grouped paper lists, with aligned logos, consistent separators, and a current-role badge.
+The original portrait stays in its polaroid frame, with a restrained rotation. Both blacksmithing polaroids appear beside the forest homepage banner and remain browsable in Lifestyle. The photography grid and photo-viewer keyboard controls are preserved. The page uses the document scrollbar, with reduced-motion support for the short page entrance.
 
-Every project supplies a required `cover` and descriptive `coverAlt`. Cards display the image edge to edge at an 8:3 ratio, without an inset diagram or thumbnail frame. Technology tags remain in the write-ups but are omitted from the Projects index. The project's `outcome` supplies both its card takeaway and the detail page's current-result summary.
+`home-overview.tsx` selects State of the Strait, CareerSphere and the local calendar assistant. `project-card.tsx` uses the saved satellite preview and team diagram for the first two homepage entries; the calendar entry is text-only. All project-index cards retain their generated full-width banners, status, role and period. Detailed project records, results and provenance are unchanged; this redesign is not a factual refresh.
+
+Section and article headers sit directly on the page surface. Project articles retain their metadata, current-result summary, source links and all content sections, with wrapping contents links and a cover image above the body. Background retains its year-grouped work and education lists. Article images and galleries preserve their source captions and intrinsic dimensions.
 
 Run `npm run generate:covers` from `my-portfolio/` to rebuild all twelve 1600×600 WebP banners using deterministic SVG composition, source imagery, and checked-in data snapshots. The generator uses pinned Sharp 0.33.5. Banner URLs include their generated content hash so regenerated artwork refreshes immediately. Source provenance, data qualifications, and regeneration instructions are in `my-portfolio/scripts/project-cover-data/README.md` and `public/images/projects/banners/manifest.json`. No models, live APIs, personal calendars, or contact data are needed. Detailed article figures remain intact.
 
 Use the [project banner guide](docs/project-banner-guide.md) for future items: it includes an authoring brief, context-specific style references, geometry rules, and the generation/review workflow. `npm run check:content` validates banner provenance and file integrity as well as content. `npm run preview:covers` generates an ignored contact sheet at `.banner-preview/projects.webp` for review at card size.
 
-Polaroid rotations are subdued: the sidebar portrait is −1.2°, full-gallery photos are ±1.5°, and overview polaroids are ±3°.
+Polaroid rotations are restrained: the introduction portrait is −2°, gallery photos are ±2°, and the homepage blacksmithing pair is ±5°.
 
 ## Checks
 
