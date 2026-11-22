@@ -2,10 +2,9 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import PortfolioShell from "@/components/portfolio/portfolio-shell";
 import ArticlePage from "@/components/article/article-page";
-import ProjectStatusBadge from "@/components/portfolio/project-status-badge";
 import { getProject, projects } from "@/content/projects";
-import { formatDate } from "@/content/types";
 import { projectCoverSrc } from "@/content/project-covers";
+import { visibleProjectSections } from "@/content/project-writeups";
 
 type Props = { params: Promise<{ slug: string }> };
 export function generateStaticParams() { return projects.map(({ slug }) => ({ slug })); }
@@ -17,12 +16,11 @@ export default async function ProjectPage({ params }: Props) {
   const project = getProject((await params).slug);
   if (!project) notFound();
   const links = [
-    ...(project.repository ? [{ label: "View repository", href: project.repository }] : []),
     ...(project.demo ? [{ label: "View demo", href: project.demo }] : []),
   ];
   return (
     <PortfolioShell section="projects">
-      <ArticlePage kind="projects" title={project.title} intro={project.summary} date={formatDate(project.publishedAt)} tags={project.tags} sections={project.sections} facts={[{ label: "Role", value: project.role }, { label: "Period", value: project.period }, { label: "Status", value: <ProjectStatusBadge status={project.status} /> }]} outcome={project.outcome} links={links} cover={{ src: projectCoverSrc(project.cover), alt: project.coverAlt }} />
+      <ArticlePage kind="projects" title={project.title} intro={project.summary} tags={project.tags} sections={visibleProjectSections(project)} facts={[{ label: "Role", value: project.role }, { label: "Period", value: project.period }]} links={links} cover={{ src: projectCoverSrc(project.cover), alt: project.coverAlt }} />
     </PortfolioShell>
   );
 }

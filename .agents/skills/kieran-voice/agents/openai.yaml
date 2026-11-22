@@ -1,0 +1,4 @@
+interface:
+  display_name: "Kieran’s writing voice"
+  short_description: "Draft conversational prose with Kieran’s voice"
+  default_prompt: "Use $kieran-voice to draft or revise this piece, using supplied reasoning and marking important gaps with descriptive labels such as [missing motive] and specific author-input prompts."

@@ -20,6 +20,7 @@
 # production
 /build
 /.banner-preview/
+/.playwright-cli/
 
 # misc
 .DS_Store
@@ -41,3 +42,6 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
+
+# Local editor source backups
+/.local-content-backups/

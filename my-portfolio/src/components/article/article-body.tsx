@@ -3,6 +3,8 @@ import katex from "katex";
 import "katex/dist/katex.min.css";
 import { media } from "@/content/media";
 import type { ArticleSection } from "@/content/types";
+import TechnicalDiagram from "./technical-diagram";
+import DiagramViewer from "./diagram-viewer";
 
 export function RichText({ text }: { text: string }) {
   const tokens = /\$([^$]+)\$|\[([^\]]+)\]\((https?:\/\/[^)]+)\)/g;
@@ -28,9 +30,11 @@ export default function ArticleBody({ sections }: { sections: ArticleSection[] }
         <section id={section.id} key={section.id} className="article-section">
           <h2>{section.title}</h2>
           {section.blocks.map((block, i) => {
+            if (block.type === "diagram") return <TechnicalDiagram key={i} {...block} />;
             if (block.type === "text") return <p key={i}><RichText text={block.content} /></p>;
             if (block.type === "latex") return <figure key={i}><div className="article-math" dangerouslySetInnerHTML={{ __html: katex.renderToString(block.content, { throwOnError: false, displayMode: true }) }} />{block.caption && <figcaption>{block.caption}</figcaption>}</figure>;
             const size = media[block.src];
+            if (block.technical) return <DiagramViewer key={i} src={block.src} caption={block.caption} width={size?.width ?? 1200} height={size?.height ?? 800} narrow={block.width === "half"} />;
             return (
               <figure key={i} className={block.width === "half" ? "article-figure article-figure-narrow" : "article-figure"}>
                 <a href={block.src} target="_blank" rel="noopener noreferrer" aria-label={`View larger: ${block.caption ?? "project image"}`}>

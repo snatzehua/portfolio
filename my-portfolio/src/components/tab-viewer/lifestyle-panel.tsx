@@ -4,7 +4,7 @@ import PhotoGallery from "@/components/portfolio/photo-gallery";
 export default function LifestylePanel() {
   return (
     <div className="section-page lifestyle-page">
-      <SectionHeader section="lifestyle" eyebrow="03 / Outside the screen" title="A few other things" headingId="lifestyle-heading" description="Places, moments, and the occasional unexpected hobby." caption={["3 interests", "Travel · Photography · Blacksmithing"]} />
+      <SectionHeader section="lifestyle" title="A few other things" headingId="lifestyle-heading" description="Places, moments, and the occasional unexpected hobby." />
       <section className="lifestyle-section" id="travel">
         <div className="lifestyle-section-heading"><span className="eyebrow">01 / Travel</span><h2>Exploring authenticity</h2></div>
         <video className="lifestyle-video" controls preload="none" playsInline poster="/images/IMG_3726.webp" aria-label="Japan travel vlog"><source src="/videos/japan-vlog-portfolio.mp4" type="video/mp4" />Your browser does not support this video.</video>

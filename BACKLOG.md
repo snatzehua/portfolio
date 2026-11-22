@@ -1,6 +1,6 @@
 # Portfolio backlog
 
-Updated: 2026-11-14
+Updated: 2026-11-23
 
 Purpose: make the portfolio easier to maintain and expand projects into case studies that show how decisions were made.
 
@@ -26,12 +26,109 @@ Add new ideas below, one per line:
 | P01 | Next | Deepen project case studies with first-hand evidence | User requested deeper project explanations | The repository-grounded summaries are expanded with actual alternatives, experiments, failure cases, and concrete ownership; missing facts are supplied by the author. |
 | P04 | Next | Finish the factual audit of project cards | Existing content needs author confirmation | Confirm individual contributions, exact dates, current status, and repository/demo visibility for the imported entries. GDELT now reflects its negative confirmatory result; no earlier outperformance claim remains. See the local project inventory. |
 | P09 | Later | Improve media descriptions and education details | Follow-up from implementation | Replace generic photography alt text with scene descriptions; confirm GPA/year-of-study wording and any changed experience/education facts. |
+| P10 | Next | Publish the reviewed application portfolio | Application-readiness audit, 23 November 2026 | Resolve the five visible author notes or explicitly choose their public treatment, deploy the reviewed version, verify the new project URLs on the actual domain, and confirm the retired résumé URLs return 404. |
 
 ## In progress
 
 None.
 
 ## Done
+
+- 2026-11-23: Refined the crop project's display name to “Satellite crop forecasting”, retaining the weather context, source route and research content.
+
+- 2026-11-23: Shortened the crop project's display title to “Crop forecasting”; weather and satellite context remain in the summary. Its route and research content are unchanged.
+
+- 2026-11-23: Renamed Crop Yield Research to the author's chosen “Weather, satellites and crop forecasting”, including its cover. Retained `/projects/crop-yield-research` and the research account unchanged.
+
+- 2026-11-23: Renamed Calendar & Task Scheduler to Please Help Me, including its deterministic cover title. Kept `/projects/please-help-me`, the project scope and article content unchanged.
+
+- 2026-11-23: The author confirmed that Teaching & Contract Work has concluded. Updated its range to 2024–2026 and removed its current-role flag.
+
+- 2026-11-23: Audited application readiness, refreshed Background against the current master résumé, added the Fintech research role, corrected stale education wording, removed three inaccessible source buttons and removed the old résumé endpoint/PDF at the author's request. Extended Background validation and checked the local production routes and responsive pages. The live site remains older; publication and the five author notes are still open. See `docs/application-readiness-audit-2026-11-23.md`.
+
+- 2026-11-19: Completed the fixed Strait repair study and rewrote the four priority accounts in the requested short-heading, connected-explanation style. The revised history model reaches 3.896% MAPE; selected petroleum counts reach 3.736% against a 3.931% matched control, with the unfavourable additional October check retained. Crop research now includes its broader production-index work and archived phase; scheduler and CareerSphere distinguish implementation, evidence and ownership. Sources: `docs/writeup-source-audit-2026-11-19.md`; delivery checks: `output/writeup-revision-2026-11-19/validation.json`.
+
+- 2026-11-19: Ran State of the Strait exploratory monthly-change, rolling-window and lead/lag checks; added three original diagnostic figures to the article. Same-month change correlation −0.086; 12-month rolling correlations change sign; one-month ship lead +0.149, without demonstrated forecast improvement. Full scope/results are in the research checkout’s `bunker/exploratory-count-checks.md`.
+
+- 2026-11-19: Formalised the project writeup structure in `docs/project-case-study-template.md`, with source review, author rationale, study context, figures, pivots, validation and outcome boundaries. Linked it from the repository guide. Added the satellite-only follow-up to State of the Strait: 6.685% bunker-sales MAPE on the same 82 months, compared with 4.677% for history alone. Research specification and reproducible results remain in the sibling project’s `bunker/satellite-only-followup.md`.
+
+- 2026-11-15 — Replace bare gap markers with descriptive labels such as `[missing motive]`, `[missing problem context]` and `[missing decision rationale]` in the voice skill. Convert the three calendar-page notes while preserving their specific author-input prompts.
+
+- 2026-11-16 — Refresh Calendar & Task Scheduler from its current repo: canonical title/summary, six candidate strategies and ranked previews, implemented preference evidence and explicit remaining evaluation limits. Add a real calendar capture from an isolated sample-week database to the homepage, article and deterministic cover; align three image-card widths. Preserve source route and author-input markers.
+
+- 2026-11-16 — Speed up the interest rotation to 2.5 seconds and remove its click control, pointer and hover underline. Keep highlights synchronized; pause on card interaction rather than hovering the heading. Reduced motion remains static.
+
+- 2026-11-16 — Undo the green navigation trial at the author’s request; restore the open off-white header, dark/green links, fine divider and existing centre-out green underlines.
+
+- 2026-11-16 — Trial a full-width deep-green navigation strip with warm-white links, underlines and focus outlines. Preserve content alignment and centre-out underline motion; use the same treatment for the expanded phone menu. Keep the trial visible for the author to assess.
+
+- 2026-11-16 — Tighten the name/subtitle gap and increase subtitle tracking to .23em, retaining centred alignment.
+
+- 2026-11-16 — Add the author-supplied “FINAL YEAR BUSINESS ANALYTICS STUDENT” under the name, in small uppercase sans-serif with wider letter spacing, centred beneath the name’s own width. Keep the live development server for save-to-preview updates.
+
+- 2026-11-16 — Remove the draft intro subtext and its styling after the author rejected both the wording and the small muted treatment. Replacement copy and treatment remain undecided.
+
+- 2026-11-16 — Add a restrained introduction line beneath the handwritten name: “Projects, experiments, and things I’m still figuring out.” Use small, regular, muted text, preserving the separate rotating project heading.
+
+- 2026-11-16 — Match the rotating project heading to the shared homepage header typography: Inter, 650 weight, tight heading tracking and a shared line height; retain clay rotating text, synchronized highlights and responsive single-line sizing.
+
+- 2026-11-16 — Move “Looking into” from the intro to replace Selected projects. Synchronise its three rotating interests with a restrained clay outline/tint on the corresponding project. Add manual advance, pause automatic changes during hover/focus and hidden/offscreen states, and honour reduced motion. Promote the handwritten name to the page h1; preserve the polaroid and landscape. Correct the scheduler card to `/projects/please-help-me`, the actual scheduler, rather than the older terminal assistant.
+
+- 2026-11-15 — Increase intro background opacity again to 38% on desktop and 34% on phones, retaining the soft edge fade.
+
+- 2026-11-15 — Increase the intro landscape opacity to 28% on desktop and 24% on phones at the author’s request, retaining the directional fade.
+
+- 2026-11-15 — Replace State of the Strait with Crop Yield Research in the homepage selection, using the project’s actual cached Haut-Rhin Sentinel-2 RGB observation (13 July 2023). Export the full array losslessly, retain clouds, show a lower-biased proportional card crop, and add the full image with source credit to the write-up. State of the Strait remains in the project index.
+
+- 2026-11-15 — Apply the approved landing copy: “Looking into” with alternative data / AI assistants / algorithm design in clay brown, keeping the fixed prefix charcoal. Reframe the calendar homepage card as Calendar & Task Scheduler, explicitly describing the scheduling exploration; retain its existing route and factual detail page without claiming an implemented optimiser.
+
+- 2026-11-15 — Tighten the name-to-interest spacing to 8px, reduce the handwritten line box and slightly enlarge the name again; retain responsive sizing.
+
+- 2026-11-15 — Remove the course/university line from the landing intro and enlarge the handwritten name to fill the freed space, with responsive sizing on phones.
+
+- 2026-11-15 — Enlarge the green handwritten homepage name, reduce intro landscape opacity to 18% (14% on phones), and animate header-link underlines outward from the centre on hover/focus with persistent active-route indication. Reduced-motion rules disable the transition.
+
+- 2026-11-15 — Apply the shared cleanup to Extras: remove index eyebrow, description and count row; simplify index cards, remove duplicate detail date/category and contents navigation, and group detail topic tags beneath the intro. Preserve puzzle subtitles, content, figures and section anchors.
+
+- 2026-11-15 — Add Crop Yield Research as the nineteenth project, with a source-backed write-up, saved region/checkpoint figures and deterministic map banner. Keep the mixed July weather gains, missing validated satellite contribution and unfinished evaluation explicit; no experiments rerun or private repo link exposed.
+
+- 2026-11-15 — Follow the author’s new intro direction: render the name in deep-green Reenie Beanie, give the course/university line smaller muted supporting type, and replace the repeated top-left name with Home. Retain the one-line interest rotation and polaroid.
+
+- 2026-11-15 — Put the homepage “Interested in” prefix and rotating phrase on one line, with typography sized to the available text column; replace “exploring places” with “authentic travel.” Await clarification of the trailing incomplete request.
+
+- 2026-11-15 — Simplify the Lifestyle header by removing its numbered eyebrow and the “3 interests” / “Travel · Photography · Blacksmithing” caption row; tighten title spacing and retain all lifestyle sections and polaroids.
+
+- 2026-11-15 — Rename the combined NUS work entry to Contract Jobs at NUS and replace its bullets with the author-supplied CS1010, CP3880, PI3881 and Hostel Financial Claims roles; retain 2024–Present.
+
+- 2026-11-15 — Refine Synapxe treatment per author correction: use circular clipping and a white background, preserving the white inside the logo circle while removing the square corners. This supersedes the multiply treatment below.
+
+- 2026-11-15 — Blend the Synapxe logo’s white background into the timeline surface with a scoped multiply treatment, retaining the original logo asset.
+
+- 2026-11-15 — Move dates into a compact single line below the organisation in each timeline header; remove the separate date column. Increase logos to 72px (64px on phones), centred alongside the taller header; preserve single-year dates, sorting, current-entry highlighting and bullets aligned under logos.
+
+- 2026-11-15 — Collapse identical start/end years to one year in both timelines. Date-placement alternatives remain under review after the user rejected the stacked range.
+
+- 2026-11-15 — Stack timeline dates as start / dash / end in a narrow left column, remove the dot before Present and align all date text consistently. Add the author-supplied A-level result (83.75/90.00) as the first Raffles bullet.
+
+- 2026-11-15 — Apply author-confirmed RSAF (2022–2022), Glass (2025–2025) and Raffles (2015–2020) ranges. Consolidate all three NUS work entries into one 2024–Present entry, preserving each role and its work in a separate bullet. Current NUS work sorts below GovTech by start year; the homepage continues to feature the newest current role. All timeline entries now have confirmed ranges.
+
+- 2026-11-15 — Add start/end-year fields and sort Background entries by end year, then start year, descending with Present first. Mark résumé-confirmed NUS education (2023–Present) and GovTech (2026–Present) with a green side rule and tint; populate Synapxe and DTU ranges. Other date ranges and the scope of current NUS work roles await author clarification; retain existing single years meanwhile.
+
+- 2026-11-15 — Remove the Background description and role/education counts, including the header caption. Align timeline bullet lists with the logo column instead of indenting them under the title; preserve all work and education entries.
+
+- 2026-11-15 — Expand travel to “exploring places,” tighten the portrait/text gap, extend the intro background to the viewport’s right edge and raise its opacity towards that edge.
+
+- 2026-11-15 — Refine the intro: remove its pause control, keep three unique rotating interests, shorten the bio to avoid repeating the headline, and trial the existing Japan landscape as a faint, edge-faded background confined to the intro. Keep the polaroid left and reduced-motion fallback.
+
+- 2026-11-15 — Place the homepage portrait polaroid to the left of the entire introduction. Replace the static slogan with “Interested in” and vertically rotating problem solving / travel / how things work; include pause/resume, a stable accessible heading and a static reduced-motion presentation.
+
+- 2026-11-15 — Simplify project presentation: remove visible status badges, “Where it stands” and “On this page”; remove the redundant project publication line. Group role, period and tools/topics under the summary, distinguish source links, and retain covers, section anchors, factual records and the approved warm design. Writing navigation is unchanged.
+
+- 2026-11-15 — Extend `kieran-voice` with context-sensitive `[...]` author-input markers. For project accounts, use problem → solution → demonstrated competencies to identify material gaps in motive, rationale and decision making. Add the author-supplied time-blocking motive to both calendar pages; leave three targeted notes for still-missing preferences and design-choice reasoning. Retain the distinction between the intended calendar and implemented behaviour.
+
+- 2026-11-15 — Apply the user-requested `kieran-voice` skill across all eighteen project summaries, current-result lines and write-ups. Replace report-like narration with conversational explanations, preserve established contributions and result qualifications, and retain metadata, URLs, anchors, media and the approved design. Treat this as a draft voice pass for the author to review.
+
+- 2026-11-15 — Import the active full-résumé project selection: create Room, StashPA, Please Help Me, Amazon recommendations, Orbital Travla and the maze robot; revise CareerSphere, Bitcoin, JurAI, GDELT and State of the Strait with supplied contributions and results. Preserve older entries, URL identities and the locked design. Eighteen projects now have generated covers and detail pages. See the résumé source mapping in `docs/local-project-inventory.md`.
 
 - 2026-11-14 — P10: Implement the user-selected warm, clean reference with horizontal navigation, open selected projects, warm off-white/charcoal/deep green styling, and original polaroids in the introduction and Lifestyle. Keep routes, project facts, articles and galleries. Replace the old plywood/pegboard presentation and delayed navigation. Validate with content/type/build checks and desktop/mobile browser review.
 
@@ -114,3 +211,10 @@ Future entry format: `YYYY-MM-DD — Decision — Why — Affected backlog IDs`.
 2. Draft its story with the template before changing the interface.
 3. Add evidence and only extend the shared content blocks if the story needs it.
 4. Run the content check and build, then review the reading experience and direct link.
+
+## 19 November 2026 — Framework rewrite and project-date consistency
+
+- Completed four separately delegated, source-audited writeups: CareerSphere, Calendar & Task Scheduler, Crop Yield Research and GDELT. Preserve their stable anchors and original figures; author-context gaps remain explicit where unresolved.
+- Standardized all nineteen public project periods to years or year ranges. Added content and local-editor validation to prevent months, days, Present and reversed ranges. Internal publication dates still support sorting.
+- Kept State of the Strait’s article body unchanged. The other fourteen public project pages show a writeup-WIP placeholder; their full drafts remain in source and the local editor.
+- Validation and source notes: `docs/project-framework-rewrite-2026-11-19.md` and `output/project-framework-revision-2026-11-19/validation.json`. These checks establish delivery/source consistency, not author approval of every voice choice or new product/research performance.

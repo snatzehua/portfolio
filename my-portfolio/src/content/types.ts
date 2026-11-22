@@ -1,11 +1,19 @@
 export type Section = "projects" | "experience" | "writing" | "lifestyle";
 
+export interface DiagramBlock {
+  type: "diagram";
+  title: string;
+  steps: { label: string; detail: string }[];
+  caption: string;
+}
+
 export type ContentBlock =
   | { type: "text"; content: string }
-  | { type: "image"; src: string; caption?: string; width?: "full" | "half" }
-  | { type: "latex"; content: string; caption?: string };
+  | { type: "image"; src: string; caption?: string; width?: "full" | "half"; technical?: boolean }
+  | { type: "latex"; content: string; caption?: string }
+  | DiagramBlock;
 
-export interface ArticleSection { id: string; title: string; blocks: ContentBlock[] }
+export interface ArticleSection { id: string; title: string; navTitle?: string; blocks: ContentBlock[] }
 
 export const projectStatuses = ["In progress", "Completed", "Paused", "Archived"] as const;
 export type ProjectStatus = (typeof projectStatuses)[number];

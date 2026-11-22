@@ -1,3 +1,10 @@
+import cropYieldResearch from "./crop-yield-research";
+import room from "./room";
+import stashpa from "./stashpa";
+import pleaseHelpMe from "./please-help-me";
+import amazonRecommendation from "./amazon-recommendation";
+import travla from "./travla";
+import autonomousRobot from "./autonomous-robot";
 import gdelt from "./gdelt-sentiment";
 import openclaw from "./openclaw-network";
 import careersphere from "./careersphere";
@@ -13,9 +20,10 @@ import hmmPosTagger from "./hmm-pos-tagger";
 import { newestFirst } from "../types";
 
 export const projects = newestFirst([
-  careersphere, systematicPortfolio, stateOfTheStrait, bankAccountFraud,
-  bitcoinFraudGraph, jurai, travlah, hack4goodMarketplace,
-  localCalendarAssistant, hmmPosTagger, gdelt, openclaw,
+  cropYieldResearch, room, careersphere, stashpa, pleaseHelpMe, gdelt, bitcoinFraudGraph,
+  jurai, stateOfTheStrait, amazonRecommendation, travla, autonomousRobot,
+  systematicPortfolio, bankAccountFraud, travlah, hack4goodMarketplace,
+  localCalendarAssistant, hmmPosTagger, openclaw,
 ]);
 export function getProject(slug: string) {
   return projects.find((project) => project.slug === slug);

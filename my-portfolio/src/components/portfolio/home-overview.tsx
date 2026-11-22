@@ -1,31 +1,37 @@
 import Image from "next/image";
 import Link from "next/link";
 import { getProject } from "@/content/projects";
+import { selectedProjectSlugs } from "@/content/project-collections";
 import { writingEntries } from "@/content/writing";
 import { experienceEntries } from "@/components/tab-viewer/entries/experience-entries";
-import ProjectCard from "./project-card";
+import HomeProjects from "./home-projects";
 
-const selectedSlugs = ["state-of-the-strait", "careersphere", "local-calendar-assistant"];
+
 
 export default function HomeOverview() {
-  const selected = selectedSlugs.flatMap((slug) => { const project = getProject(slug); return project ? [project] : []; });
-  const experience = experienceEntries.find((entry) => entry.isCurrent);
+  const selected = selectedProjectSlugs.flatMap((slug) => {
+    const project = getProject(slug);
+    if (!project) return [];
+    const { title, summary, cover, coverAlt, period, role } = project;
+    return [{ slug, title, summary, cover, coverAlt, period, role }];
+  });
+  const experience = experienceEntries.filter((entry) => entry.isCurrent).sort((a, b) => (b.startYear ?? 0) - (a.startYear ?? 0))[0];
   return <div className="home-overview">
     <header className="home-intro" id="intro">
-      <div className="intro-profile">
-        <Image className="intro-polaroid" src="/images/polaroid_pfp_edited.png" alt="Kieran holding a white dog in a polaroid photograph" width={377} height={601} sizes="(max-width: 600px) 76px, 96px" priority />
-        <div><p className="intro-name">Kieran Ho</p><p className="intro-bio">Business Analytics at NUS. Curious about data, systems, and how things work.</p></div>
+      <div className="intro-backdrop" aria-hidden="true"><Image src="/images/IMG_3726.webp" alt="" fill sizes="(max-width: 600px) 100vw, 900px" /></div>
+      <Image className="intro-polaroid" src="/images/polaroid_pfp_edited.png" alt="Kieran holding a white dog in a polaroid photograph" width={377} height={601} sizes="(max-width: 600px) 76px, 150px" priority />
+      <div className="intro-copy">
+        <div className="intro-identity">
+          <h1 className="intro-name">Kieran Ho</h1>
+          <p className="intro-subtitle">FINAL YEAR BUSINESS ANALYTICS STUDENT</p>
+        </div>
       </div>
-      <h1>Building, learning, exploring.</h1>
     </header>
-    <section className="home-projects" id="projects" aria-labelledby="overview-projects">
-      <div className="home-section-heading"><h2 id="overview-projects">Selected projects</h2><Link className="text-link" href="/projects">All projects <span aria-hidden="true">→</span></Link></div>
-      <div className="selected-project-grid">{selected.map((project, i) => <ProjectCard key={project.slug} project={project} featured priority={i === 0} />)}</div>
-    </section>
+    <HomeProjects projects={selected} />
     <section className="home-lifestyle" id="lifestyle" aria-labelledby="overview-lifestyle">
       <Link className="lifestyle-banner" href="/lifestyle">
         <Image src="/images/path.jpg" alt="A stone path winding through a quiet forest" fill sizes="(max-width: 1200px) 94vw, 1120px" />
-        <div className="lifestyle-banner-copy"><h2 id="overview-lifestyle">Outside the screen</h2><p>Travel, photography, and blacksmithing.</p><span>Lifestyle <span aria-hidden="true">→</span></span></div>
+        <div className="lifestyle-banner-copy"><h2 id="overview-lifestyle">Outside the screen</h2><p>What I do in my spare time</p><span>Lifestyle <span aria-hidden="true">→</span></span></div>
       </Link>
       <div className="home-polaroids" aria-label="Blacksmithing photographs"><Image src="/images/blacksmith1-polaroid.png" alt="A polaroid from my blacksmithing workshop" width={240} height={300} sizes="(max-width: 600px) 100px, 134px" /><Image src="/images/blacksmith2-polaroid.png" alt="A second polaroid from my blacksmithing workshop" width={240} height={300} sizes="(max-width: 600px) 100px, 134px" /></div>
     </section>

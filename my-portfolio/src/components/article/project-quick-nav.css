@@ -1,0 +1,30 @@
+.project-detail-with-navigation { max-width: 1120px; }
+.project-detail-with-navigation > .article-header,
+.project-detail-with-navigation .article-hero,
+.project-detail-with-navigation > .article-footer { max-width: 900px; margin-inline: auto; }
+.project-reading-layout { display: grid; grid-template-columns: 180px minmax(0, 760px); justify-content: center; align-items: start; gap: 48px; }
+.project-reading-layout > .article-body { width: 100%; margin: 0; }
+.project-quick-nav { position: sticky; top: 28px; min-width: 0; }
+.project-quick-nav-label { margin: 0 0 16px; color: var(--muted); font-size: 11px; font-weight: 550; letter-spacing: .08em; text-transform: uppercase; }
+.project-quick-nav ol,
+.project-quick-nav-mobile ol { margin: 0; padding: 0; list-style: none; }
+.project-quick-nav ol { position: relative; max-height: calc(100dvh - 100px); overflow-y: auto; scrollbar-width: thin; border-left: 1px solid var(--line); }
+.project-quick-nav a { display: flex; align-items: center; min-height: 44px; padding: 9px 10px 9px 16px; border-left: 2px solid transparent; color: var(--muted); font-size: 13px; line-height: 1.5; text-decoration: none; overflow-wrap: anywhere; }
+.project-quick-nav a:hover { color: var(--accent); border-left-color: #244f3e70; }
+.project-quick-nav a[aria-current="location"] { color: var(--accent); border-left-color: var(--accent); background: #244f3e09; font-weight: 550; }
+.project-quick-nav-mobile { display: none; }
+.project-reading-layout .article-section { scroll-margin-top: 36px; }
+
+@media (max-width: 1050px) {
+  .project-reading-layout { display: block; }
+  .project-reading-layout > .article-body { margin-inline: auto; }
+  .project-quick-nav { display: none; }
+  .project-quick-nav-mobile { display: block; max-width: 760px; margin: 0 auto 32px; border-block: 1px solid var(--line); }
+  .project-quick-nav-mobile summary { display: flex; justify-content: space-between; align-items: center; min-height: 48px; padding: 12px 0; color: var(--accent); font-size: 14px; cursor: pointer; list-style: none; }
+  .project-quick-nav-mobile summary::-webkit-details-marker { display: none; }
+  .project-quick-nav-mobile[open] summary { border-bottom: 1px solid var(--line); }
+  .project-quick-nav-mobile[open] summary > span { transform: rotate(180deg); }
+  .project-quick-nav-mobile ol { padding-block: 8px; }
+  .project-quick-nav-mobile a { display: block; min-height: 44px; padding: 10px 12px; color: var(--muted); font-size: 14px; line-height: 1.6; text-decoration: none; overflow-wrap: anywhere; }
+  .project-quick-nav-mobile a:is(:hover, [aria-current="location"]) { color: var(--accent); background: #244f3e09; }
+}

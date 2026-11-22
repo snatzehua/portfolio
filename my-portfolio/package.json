@@ -3,11 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev --turbopack",
+    "dev": "next dev --turbopack --hostname 127.0.0.1",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
     "check:content": "node scripts/check-content.mjs",
+    "test:editor": "node scripts/test-project-editor.mjs",
     "typecheck": "tsc --noEmit",
     "generate:covers": "node scripts/generate-project-covers.mjs",
     "check:covers": "node scripts/check-project-covers.mjs",

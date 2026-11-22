@@ -13,7 +13,7 @@
     "notebook": "Palatino,Georgia,serif"
   },
   "recipeSha256": {
-    "scripts/generate-project-covers.mjs": "e1077c14e52e90f2ca5a39657e0d411ca85b832fa50f983a87d41610b46c6816",
+    "scripts/generate-project-covers.mjs": "92646a1841e92fa94f6b17e1ca0c837b6159fdcf537a164d6ceea6e63c6bfcdd",
     "scripts/lib/banner-layout.mjs": "148eceffa059c4766ab98906fcb5c6f54c0d88f05f5f640920047dbcd67155ae"
   },
   "sourceSnapshotSha256": "2084aef6b192ab19fe5218e7a1c62ba7e2480d54053c560c48d98da12a94a664",
@@ -21,7 +21,11 @@
     "public/images/projects/careersphere-cover.svg": "3bffbdd61178ef546e110cf022b65a031456faf4a9820f9f1567b88fd097ab66",
     "public/images/projects/strait.webp": "c05964d8f56e23b0513b56af1bf39ff892a26ed9b7fb17cc25e2eb211fe48973",
     "public/images/projects/travlah.webp": "a282493da27c7020fbd6587f566bf1397915b1342e74dcf37f6c40c9336f5333",
-    "public/images/projects/banner-sources/shopping-cart.png": "b060265e341d3ae809a177181d27211478e061303a3d001eb03555b3f14122ef"
+    "public/images/projects/banner-sources/shopping-cart.png": "b060265e341d3ae809a177181d27211478e061303a3d001eb03555b3f14122ef",
+    "public/images/projects/scheduler-sample-week.png": "6f80a0b7542ba6a93afac3b48c35e175db0dbe78d0654e5fb7f8167f1d5c40e9",
+    "public/images/travla.png": "ac902fec84f6608de153adf17eadb3979b039d7a323bfc747e0d61b8f09d7acd",
+    "public/images/robot.png": "2cc5a14ff08f890eca57b639082a0d6b2e9b0c4a2725bc11bf40e7c2efd3f22b",
+    "public/images/projects/crop-yield-regions.png": "22f52641b3349dc87ae301b5dc9c3cdabf68f156a378dc0e14212cee753416e4"
   },
   "images": [
     {
@@ -155,6 +159,83 @@
       "alt": "Conceptual connected-note graph for the OpenClaw exploration; illustrative nodes, not real contacts or implemented usage.",
       "basis": "Existing portfolio OpenClaw notes. No matching source checkout was found; graph topology is explicitly illustrative and deterministic.",
       "artDirection": "Bookish notebook typography; compact concept label and an open node graph."
+    },
+    {
+      "slug": "room",
+      "src": "/images/projects/banners/room.webp",
+      "width": 1600,
+      "height": 600,
+      "bytes": 15712,
+      "sha256": "5691c5041c5c4ba31698c2372a8359d2e0f99f4b29b4cca160767fec6e35e31e",
+      "alt": "Illustrative Room dependency view separating edits, declared contracts and downstream impact; not a product screenshot.",
+      "basis": "full_resume.tex and supporting projects/room.md: Network dashboard contribution; illustrative topology, not captured live activity.",
+      "artDirection": "Monospaced coordination plate with distinct edit, contract and impact treatments."
+    },
+    {
+      "slug": "stashpa",
+      "src": "/images/projects/banners/stashpa.webp",
+      "width": 1600,
+      "height": 600,
+      "bytes": 14216,
+      "sha256": "888b85e41ecff6682e01129b29f3092b884cc0e421bc4f772fdeedad8176c750",
+      "alt": "Illustrative StashPA link-to-note workflow; no real messages, saved links or personal data.",
+      "basis": "full_resume.tex and projects/stashpa.md: link saving, video processing and Lambda deployment; generic note illustration.",
+      "artDirection": "Warm utility identity with a simple saved-note illustration."
+    },
+    {
+      "slug": "please-help-me",
+      "src": "/images/projects/banners/please-help-me.webp",
+      "width": 1600,
+      "height": 600,
+      "bytes": 38124,
+      "sha256": "e432543dde06f4ab29fcbebdb01cb55de5037c7e4ebd6d4960c7c3ed004a521f",
+      "alt": "Actual Please Help Me calendar interface with the built-in sample week, beside the Please Help Me title; demo records, not a personal calendar.",
+      "basis": "Captured 16 November 2026 from the please-help-me local app at source snapshot d513c9b plus current working files, using an isolated temporary SQLite database and the built-in sample week. Full screenshot preserved at uniform scale; no private calendar data or provider calls.",
+      "artDirection": "Please Help Me title beside an actual calendar interface capture using built-in sample data; preserve the screenshot proportions."
+    },
+    {
+      "slug": "amazon-recommendation",
+      "src": "/images/projects/banners/amazon-recommendation.webp",
+      "width": 1600,
+      "height": 600,
+      "bytes": 19482,
+      "sha256": "a14ca89e39b2660c2f423730b6c2962fe2966c7b3eb4959fafdaf0ce131fd082",
+      "alt": "Conceptual review-sentiment input feeding a recommendation ranking; no invented evaluation chart or real customer reviews.",
+      "basis": "full_resume.tex and projects/amazon-recsys.md: DistilBERT sentiment added to NeuMF; diagram depicts the method only, bar lengths are illustrative.",
+      "artDirection": "Research plate showing sentiment as an input to recommendation ranking."
+    },
+    {
+      "slug": "travla",
+      "src": "/images/projects/banners/travla.webp",
+      "width": 1600,
+      "height": 600,
+      "bytes": 54794,
+      "sha256": "2e70ac6b46e402a563ccec468b4a8793bd383e4b2175a44b4d5ea5cc513b9920",
+      "alt": "Original Travla mobile-app screens cropped from the team’s Orbital poster; separate from the Vue Travlah web app.",
+      "basis": "Existing public/images/travla.png: original Orbital poster; crop of the actual mobile app screens, no reconstructed interface.",
+      "artDirection": "Warm travel title beside actual mobile screens cropped from the original Orbital poster."
+    },
+    {
+      "slug": "autonomous-robot",
+      "src": "/images/projects/banners/autonomous-robot.webp",
+      "width": 1600,
+      "height": 600,
+      "bytes": 37714,
+      "sha256": "d579b393b01ce12f3c378ad647c6a2cf6e5fe176f7a191bf017f798a4a1d7554",
+      "alt": "Photograph of the team’s actual mBot maze robot, preserved in its native proportions.",
+      "basis": "Existing public/images/robot.png and full_resume projects/mbot-maze.md; actual project photograph, not a generated robot.",
+      "artDirection": "Original mBot photograph in its native proportions, with a compact hardware caption."
+    },
+    {
+      "slug": "crop-yield-research",
+      "src": "/images/projects/banners/crop-yield-research.webp",
+      "width": 1600,
+      "height": 600,
+      "bytes": 42538,
+      "sha256": "d5420fc7e3e8a3ed15e76e86947f38638a44227e51b50467090b1d6a0f9f41f6",
+      "alt": "Satellite crop forecasting title beside the saved map of five French maize pilot regions; study geography, not a forecast or crop-health result.",
+      "basis": "crop-yield-research/maize/outputs/selected_pilot_regions.png, saved map copied without alteration; GISCO boundaries and Agreste departmental aggregates. Complete map retained at uniform scale; no model outputs inferred.",
+      "artDirection": "White research plate, green serif title and the complete saved French pilot-region map in its original proportions."
     }
   ]
 }

@@ -3,7 +3,7 @@ import type { Project } from "../types";
 const project: Project = {
   "slug": "local-calendar-assistant",
   "title": "Local Calendar & Task Assistant",
-  "summary": "A terminal assistant for planning with Google Calendar and Google Tasks.",
+  "summary": "A terminal assistant for working with my Google Calendar and Tasks through plain-English requests.",
   "publishedAt": "2026-10-30",
   "period": "2026",
   "role": "Personal application project",
@@ -13,51 +13,104 @@ const project: Project = {
     "Tool calling",
     "Google APIs"
   ],
-  "outcome": "Keeps tentative plans in a separate calendar and exposes tools for explicitly requested edits.",
+  "outcome": "It reads commitments and tentative plans together, while proposed blocks go into a separate planning calendar.",
   "sections": [
     {
-      "id": "problem",
-      "title": "Work with an existing calendar",
+      "id": "motivation",
+      "title": "What I wanted from the calendar",
       "blocks": [
         {
           "type": "text",
-          "content": "The assistant reads calendar events and tasks, helps plan what to work on, and supports requested scheduling changes. Google’s own apps remain available for viewing and editing the same information."
+          "content": "I wanted to outsource time blocking and have one definitive calendar I could follow, with all my deadlines accounted for and the plan built around my preferences and habits. That is the goal behind this project; the terminal assistant is one part of working towards it."
         }
-      ]
+      ],
+      "navTitle": "Motivation"
+    },
+    {
+      "id": "problem",
+      "title": "Working with the calendar I already have",
+      "blocks": [
+        {
+          "type": "text",
+          "content": "This is a local terminal assistant that reads Google Calendar and Google Tasks, helps work out what to work on and can make scheduling changes when asked. The same events and tasks are still available in Google’s own apps, so using the assistant does not mean giving up the usual way of editing them."
+        }
+      ],
+      "navTitle": "Calendar integration"
     },
     {
       "id": "architecture",
-      "title": "A small tool-calling loop",
+      "title": "The loop behind the assistant",
       "blocks": [
         {
           "type": "text",
-          "content": "A Python terminal interface sends messages and tool definitions to a model, executes requested tool calls, and returns their results. The agent loop uses a provider interface, with separate modules for model clients, Google OAuth, API tools, and SQLite conversation history."
-        }
-      ]
-    },
-    {
-      "id": "decisions",
-      "title": "Separate commitments from tentative plans",
-      "blocks": [
-        {
-          "type": "text",
-          "content": "Reads combine committed events and tentative planning blocks. Writes default to a separate planning calendar or dedicated task list, keeping proposed work distinguishable from existing commitments."
+          "content": "The Python interface sends the conversation and tool definitions to the model, runs the tools it requests and returns the results for the next response. A small provider interface keeps that loop separate from the model client, with Google OAuth, API tools and SQLite conversation history in their own modules."
         },
         {
           "type": "text",
-          "content": "The behaviour contract requires an explicit request before calendar or task edits. An informational question such as “what should I work on?” should return advice without changing the schedule."
+          "content": "[missing decision rationale] Explain why the terminal interface and tool-calling approach were chosen for this version, including any alternatives considered, so the step from the calendar goal to this design is clear."
         }
-      ]
+      ],
+      "navTitle": "Agent architecture"
     },
     {
-      "id": "scope",
-      "title": "Check the boundaries",
+      "id": "tool-execution",
+      "title": "Passing a tool call through to Google",
+      "blocks": [
+        {
+          "type": "diagram",
+          "title": "The tool-calling loop",
+          "steps": [
+            {
+              "label": "User message",
+              "detail": "Send conversation and tool schemas through the provider interface."
+            },
+            {
+              "label": "Model tool request",
+              "detail": "Dispatch the requested Calendar or Tasks operation."
+            },
+            {
+              "label": "Google API result",
+              "detail": "Return the wrapper’s result to the conversation."
+            },
+            {
+              "label": "Continue or answer",
+              "detail": "Repeat for another tool call, or return final text."
+            }
+          ],
+          "caption": "OAuth and SQLite conversation history sit outside the loop. Mutating actions require an explicit request."
+        },
+        {
+          "type": "text",
+          "content": "Reads combine the primary and planning calendars and tag their sources, while task reads span existing lists. Writes default to dedicated planning destinations, created only on the first write. Reading the schedule therefore does not create a calendar or task list as a side effect."
+        }
+      ],
+      "navTitle": "Tool execution"
+    },
+    {
+      "id": "decisions",
+      "title": "Keeping tentative plans separate",
       "blocks": [
         {
           "type": "text",
-          "content": "The app runs locally and needs OAuth plus model-provider configuration. Mocked API and provider tests check the agent and wrapper logic; a real scheduling workflow still needs end-to-end verification after setup."
+          "content": "When it reads the schedule, the assistant combines existing commitments with tentative planning blocks. When it writes, it defaults to a separate planning calendar or task list, so proposed work stays distinguishable from the commitments already there."
+        },
+        {
+          "type": "text",
+          "content": "Edits require an explicit request. Asking for advice about what to work on should give me an answer while leaving the calendar and tasks as they are."
         }
-      ]
+      ],
+      "navTitle": "Planning boundaries"
+    },
+    {
+      "id": "scope",
+      "title": "Running it locally",
+      "blocks": [
+        {
+          "type": "text",
+          "content": "The app needs OAuth and model-provider configuration to run. Mocked API and provider tests cover the agent and wrapper logic, while an actual scheduling workflow still needs end-to-end checking with that setup in place."
+        }
+      ],
+      "navTitle": "Local setup"
     }
   ],
   "cover": "/images/projects/banners/local-calendar-assistant.webp",

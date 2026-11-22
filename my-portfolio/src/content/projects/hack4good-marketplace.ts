@@ -3,7 +3,7 @@ import type { Project } from "../types";
 const project: Project = {
   "slug": "hack4good-marketplace",
   "title": "Hack4Good — Voucher Marketplace",
-  "summary": "A voucher marketplace connecting participant purchases with inventory and approval workflows.",
+  "summary": "A team hackathon prototype connecting a voucher marketplace with the inventory and approvals behind it.",
   "publishedAt": "2026-10-30",
   "period": "2025",
   "role": "Team hackathon project",
@@ -13,50 +13,91 @@ const project: Project = {
     "FastAPI",
     "Firebase"
   ],
-  "outcome": "Provides separate participant and administrator flows for the minimart, vouchers, and auctions.",
+  "outcome": "The prototype has participant and administrator flows for the minimart, vouchers and auctions.",
   "sections": [
     {
       "id": "problem",
-      "title": "Connect shopping with the work behind it",
+      "title": "Both sides of the marketplace",
       "blocks": [
         {
           "type": "text",
-          "content": "This Hack4Good team prototype has participant pages for a minimart, auctions, pending items, and transaction history. Behind those interactions are inventory changes, voucher requests, and administrative decisions."
+          "content": "Our Hack4Good prototype has participant pages for the minimart, auctions, pending items and transaction history. Each of those interactions also has work behind it, from an inventory change to a voucher request that needs an administrative decision."
         }
-      ]
+      ],
+      "navTitle": "Marketplace workflow"
     },
     {
       "id": "implementation",
-      "title": "Build both sides of the workflow",
+      "title": "The participant and administrator views",
       "blocks": [
         {
           "type": "text",
-          "content": "The Next.js app separates participant and administrator routes. Administrative screens manage inventory, auctions, voucher requests, and users. A FastAPI backend provides the corresponding routers and services."
+          "content": "The Next.js app separates the participant routes from the administrator routes, where inventory, auctions, voucher requests and users are managed. The FastAPI backend has the corresponding routers and services to support those interactions."
         }
-      ]
+      ],
+      "navTitle": "Architecture"
     },
     {
       "id": "decisions",
-      "title": "Give approvals a visible place",
+      "title": "Following an approval through",
       "blocks": [
         {
           "type": "text",
-          "content": "Voucher approval and auction management have their own administrative workflows. Keeping them separate from participant shopping makes the different responsibilities easier to follow."
+          "content": "Voucher approval and auction management have their own administrative workflows, separate from the participant’s shopping experience. That gives each request a place to be handled and makes it easier to follow who is responsible for the next action."
         }
-      ]
+      ],
+      "navTitle": "Admin approvals"
+    },
+    {
+      "id": "bid-flow",
+      "title": "What happens when a bid is placed",
+      "blocks": [
+        {
+          "type": "diagram",
+          "title": "The current bid path",
+          "steps": [
+            {
+              "label": "Read auction",
+              "detail": "Fetch the current amount and end time."
+            },
+            {
+              "label": "Validate bid",
+              "detail": "Require an active auction and a higher amount."
+            },
+            {
+              "label": "Insert bid",
+              "detail": "Save the bidder’s new offer."
+            },
+            {
+              "label": "Update auction",
+              "detail": "Write its new highest amount separately."
+            }
+          ],
+          "caption": "The last two operations are separate writes in the inspected prototype, not an atomic transaction."
+        },
+        {
+          "type": "text",
+          "content": "A concurrent-bid test needs to check whether another request can change the highest bid between the read and update, and what happens if only one write succeeds. The route and validation flow exist, while atomic bidding remains an implementation issue to resolve."
+        },
+        {
+          "type": "text",
+          "content": "[missing contribution] Describe which participant or administrator flows you implemented and any constraints from the intended users. The repository describes the prototype, but does not establish your individual role or the reason particular workflows were prioritised."
+        }
+      ],
+      "navTitle": "Bidding flow"
     },
     {
       "id": "scope",
-      "title": "Prototype scope",
+      "title": "Checking the whole journey",
       "blocks": [
         {
           "type": "text",
-          "content": "The implemented flows provide a basis for testing the complete journey from a participant request to an administrative action. End-to-end checks of permissions, inventory consistency, and simultaneous actions would be needed before deployment."
+          "content": "The implemented flows give us a starting point for testing a participant request through to the administrative action. Before deployment, the complete journey would still need checks around permissions, inventory consistency and what happens when actions arrive at the same time."
         }
-      ]
+      ],
+      "navTitle": "Prototype limits"
     }
   ],
-  "repository": "https://github.com/hrishikeshsathyian/Hack4Good2025",
   "cover": "/images/projects/banners/hack4good-marketplace.webp",
   "coverAlt": "Original marketplace cart icon beside a coupon illustration on a full-width Hack4Good banner."
 };

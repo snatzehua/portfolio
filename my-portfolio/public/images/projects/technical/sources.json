@@ -1,0 +1,45 @@
+[
+  {
+    "asset": "scheduler-workflow.png",
+    "source": "Author-supplied Downloads/mermaid-diagram.png; diagram source: please-help-me/docs/workflow.md",
+    "sourceSha256": "184cfc4682b4fae531f75f5b78021afeee8cb7e828d2c6921264dc280175780c",
+    "documentSha256": "c10ff422e85bbc7cc5ae6f2d0512172a813e2c8d2d1f5548ac5b8698d7f572cc",
+    "assetSha256": "184cfc4682b4fae531f75f5b78021afeee8cb7e828d2c6921264dc280175780c",
+    "treatment": "Unmodified author-supplied Mermaid export; replaces the implementation-map rendering."
+  },
+  {
+    "asset": "crop-forecast-flow.png",
+    "source": "crop-yield-research/maize/diagram/forecast_flow.png",
+    "sourceSha256": "f0c49d411a203c28078dec7e7903da5569f25bfc7f32833aa334a7134652e7e3",
+    "treatment": "Unmodified source figure.",
+    "assetSha256": "f0c49d411a203c28078dec7e7903da5569f25bfc7f32833aa334a7134652e7e3"
+  },
+  {
+    "asset": "crop-model-detail.png",
+    "source": "crop-yield-research/maize/diagram/walkthrough_model_detail.png",
+    "sourceSha256": "316b98b49b102f76a6b13bdcb5bd992631ccab7e8741f79063fc0e30509b86d9",
+    "treatment": "Unmodified source figure.",
+    "assetSha256": "316b98b49b102f76a6b13bdcb5bd992631ccab7e8741f79063fc0e30509b86d9"
+  },
+  {
+    "asset": "bitcoin-timeline.png",
+    "source": "bt-4012-competition-2026/docs/figures/2_timeline.png",
+    "sourceSha256": "0e47a69dac3051d06324fca0179c74b7efc9d20b635ba8b486432189471a968f",
+    "treatment": "Unmodified source figure.",
+    "assetSha256": "0e47a69dac3051d06324fca0179c74b7efc9d20b635ba8b486432189471a968f"
+  },
+  {
+    "asset": "../careersphere.webp",
+    "source": "careersphere/docs/architecture.png",
+    "sourceSha256": "49010c4c074c5212faba80f5b30882589aebd9ae44e49e13c0974f399415dd12",
+    "treatment": "Previously imported proportional WebP copy; reused without redrawing.",
+    "assetSha256": "4b1f0f156f4e18574cae337c543f04fe3a1b3e8cba23a772d73b11817cc17011"
+  },
+  {
+    "asset": "../jurai.webp",
+    "source": "techjam-2025/techjam-frontend/image.png",
+    "sourceSha256": "72c4a83d5961806c35d5f8be817afb24aa9b96ad1a9b4a86403d01d4202614e5",
+    "treatment": "Previously imported proportional WebP copy; reused without redrawing.",
+    "assetSha256": "0af558396aff4306d8bbe87d1ee67da9ea677aa651d007a249cc97dca457f967"
+  }
+]

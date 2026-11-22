@@ -187,6 +187,75 @@ await fs.mkdir(output, { recursive: true });
   await write('openclaw-network-mapping', svg(body, '#302b3b'), 'Conceptual connected-note graph for the OpenClaw exploration; illustrative nodes, not real contacts or implemented usage.', 'Existing portfolio OpenClaw notes. No matching source checkout was found; graph topology is explicitly illustrative and deterministic.');
 }
 
+// Resume additions, 15 November 2026. Illustrations explain the subject;
+// they are not screenshots, model outputs or records of private user data.
+Object.assign(artDirection, {
+  room: 'Monospaced coordination plate with distinct edit, contract and impact treatments.',
+  stashpa: 'Warm utility identity with a simple saved-note illustration.',
+  'please-help-me': 'Please Help Me title beside an actual calendar interface capture using built-in sample data; preserve the screenshot proportions.',
+  'amazon-recommendation': 'Research plate showing sentiment as an input to recommendation ranking.',
+  travla: 'Warm travel title beside actual mobile screens cropped from the original Orbital poster.',
+  'autonomous-robot': 'Original mBot photograph in its native proportions, with a compact hardware caption.',
+});
+{
+  let body = mono(90, 230, 'Room', 112, '#f4f0e6', 500) + mono(94, 297, 'Changes in context', 35, '#b8c6c0');
+  const nodes = [[900,160,'file edit','#75a5c0'],[1230,300,'contract','#aa8db9'],[900,445,'impact','#d49785']];
+  body += line(960,160,1230,300,'#758b86',3) + line(1230,300,960,445,'#758b86',3);
+  for (const [x,y,label,color] of nodes) body += rect(x-30,y-45,260,90,'#263e3a',5,'stroke="'+color+'" stroke-width="2"') + circle(x,y,6,color) + mono(x+24,y+9,label,28,'#e3eae4');
+  body += fieldLabel(94,540,'COORDINATION / ILLUSTRATION',23,'#a3b9ae');
+  await write('room',svg(body,'#1b302c'),'Illustrative Room dependency view separating edits, declared contracts and downstream impact; not a product screenshot.','full_resume.tex and supporting projects/room.md: Network dashboard contribution; illustrative topology, not captured live activity.');
+}
+{
+  let body = friendly(100,250,'StashPA',112,'#433b33',500) + friendly(105,325,'Keep what you find.',40,'#706153');
+  body += rect(955,75,480,445,'#fffaf0',6,'stroke="#d9cbb8" stroke-width="2"') + fieldLabel(1005,145,'SAVED NOTE',23,'#92765e') + friendly(1005,220,'Source',31,'#54493e') + line(1005,250,1375,250,'#d4c5ae',3) + friendly(1005,310,'Summary',31,'#54493e');
+  for(let i=0;i<3;i++)body+=line(1005,350+i*38,1375-(i%2)*80,350+i*38,'#d4c5ae',6);
+  body += fieldLabel(105,535,'LINK-TO-NOTE ILLUSTRATION',23,'#92765e');
+  await write('stashpa',svg(body,'#eee3d0'),'Illustrative StashPA link-to-note workflow; no real messages, saved links or personal data.','full_resume.tex and projects/stashpa.md: link saving, video processing and Lambda deployment; generic note illustration.');
+}
+{
+  const calendar = await source('public/images/projects/scheduler-sample-week.png');
+  const body = friendly(70, 230, 'Please', 100, '#2b484a', 500)
+    + friendly(70, 335, 'Help Me', 100, '#2b484a', 500)
+    + fieldLabel(75, 470, 'CALENDAR & TASKS / SAMPLE DATA', 21, '#607a77')
+    + image(720, 0, 864, 600, calendar, 'image/png');
+  await write('please-help-me', svg(body, '#f7f8f2'),
+    'Actual Please Help Me calendar interface with the built-in sample week, beside the Please Help Me title; demo records, not a personal calendar.',
+    'Captured 16 November 2026 from the please-help-me local app at source snapshot d513c9b plus current working files, using an isolated temporary SQLite database and the built-in sample week. Full screenshot preserved at uniform scale; no private calendar data or provider calls.');
+}
+{
+  let body=serif(85,220,'Review sentiment',77,'#3e4348')+serifItalic(90,300,'as a recommendation signal',39,'#77786e');
+  body+=rect(880,120,225,145,'#e0d8c5',4)+mono(992,180,'Review',30,'#554d3f',400,'middle')+mono(992,225,'sentiment',28,'#554d3f',400,'middle')+line(1105,195,1240,195,'#a7a38d',4);
+  body+=rect(1240,80,280,420,'#fbfaf5',5,'stroke="#d6d2c4" stroke-width="2"')+fieldLabel(1270,135,'RANKING',23,'#7c8074');
+  [180,150,120,85].forEach((w,i)=>{body+=mono(1270,210+i*70,String(i+1).padStart(2,'0'),26,'#6c7e73')+rect(1330,189+i*70,w,23,'#7b9582',2);});
+  body+=fieldLabel(90,535,'CONCEPT / NOT AN EVALUATION PLOT',22,'#77786e');
+  await write('amazon-recommendation',svg(body,'#f2f0e8'),'Conceptual review-sentiment input feeding a recommendation ranking; no invented evaluation chart or real customer reviews.','full_resume.tex and projects/amazon-recsys.md: DistilBERT sentiment added to NeuMF; diagram depicts the method only, bar lengths are illustrative.');
+}
+{
+  const poster=await source('public/images/travla.png');
+  const screens=await sharp(poster).extract({left:1250,top:2200,width:950,height:979}).resize(700,600,{fit:'contain',background:'#eee7da'}).toBuffer();
+  const body=friendly(100,255,'Travla',116,'#56483c',500)+friendly(105,330,'The trip, in your pocket.',38,'#88715d')+image(900,0,700,600,screens,'image/png')+fieldLabel(105,535,'ORBITAL 2024 / ORIGINAL APP SCREENS',22,'#88715d');
+  await write('travla',svg(body,'#eee7da'),'Original Travla mobile-app screens cropped from the team’s Orbital poster; separate from the Vue Travlah web app.','Existing public/images/travla.png: original Orbital poster; crop of the actual mobile app screens, no reconstructed interface.');
+}
+{
+  const robot=await source('public/images/robot.png');
+  const body=mono(90,210,'Sense.',80,'#2a414c',500)+mono(90,300,'Turn.',80,'#2a414c',500)+mono(90,390,'Keep moving.',70,'#2a414c',500)+image(850,15,700,570,robot,'image/png')+fieldLabel(95,540,'CG1111A / MBOT MAZE',23,'#69808a');
+  await write('autonomous-robot',svg(body,'#edf0eb'),'Photograph of the team’s actual mBot maze robot, preserved in its native proportions.','Existing public/images/robot.png and full_resume projects/mbot-maze.md; actual project photograph, not a generated robot.');
+}
+
+// Crop yield research: saved study geography, not a yield or crop-health result.
+// Preserve the complete source map and its aspect ratio beside an editorial title.
+artDirection['crop-yield-research'] = 'White research plate, green serif title and the complete saved French pilot-region map in its original proportions.';
+{
+  const regions = await source('public/images/projects/crop-yield-regions.png');
+  const body = serif(90, 245, 'Satellite crop', 84, '#244f3e')
+    + serif(90, 345, 'forecasting', 96, '#244f3e')
+    + fieldLabel(95, 475, 'FRANCE / MAIZE PILOT', 30, '#817151')
+    + image(960, 20, 550 * 1078 / 1098, 550, regions, 'image/png');
+  await write('crop-yield-research', svg(body, '#ffffff'),
+    'Satellite crop forecasting title beside the saved map of five French maize pilot regions; study geography, not a forecast or crop-health result.',
+    'crop-yield-research/maize/outputs/selected_pilot_regions.png, saved map copied without alteration; GISCO boundaries and Agreste departmental aggregates. Complete map retained at uniform scale; no model outputs inferred.');
+}
+
 const recipeSha256 = {};
 for (const relative of ['scripts/generate-project-covers.mjs', 'scripts/lib/banner-layout.mjs']) recipeSha256[relative] = hash(await fs.readFile(path.join(root, relative)));
 const manifest = { size: { width: bannerSpec.width, height: bannerSpec.height }, generation: 'Deterministic SVG composition, source-image crops, and saved-data plots; no generative image model.', fontFamilies: fonts, recipeSha256, sourceSnapshotSha256: hash(await fs.readFile(snapshotPath)), assetSha256: imageSources, images };

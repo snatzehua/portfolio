@@ -1,2 +1,5 @@
 # macOS system files
 .DS_Store
+
+# Local review screenshots, audit snapshots and temporary release records
+/output/

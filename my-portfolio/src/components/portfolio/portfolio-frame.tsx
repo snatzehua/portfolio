@@ -23,6 +23,7 @@ export default function PortfolioFrame({ children, navigation }: { children: Rea
     <footer className="portfolio-footer">
       <Link href="/" className="footer-name">Kieran Ho</Link>
       <nav aria-label="Contact links"><a href="https://github.com/snatzehua" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a><a href="https://www.linkedin.com/in/kieranhch" target="_blank" rel="noopener noreferrer">LinkedIn <span aria-hidden="true">↗</span></a><a href="mailto:snatzehua@gmail.com">Email <span aria-hidden="true">↗</span></a></nav>
+      {process.env.NODE_ENV === "development" && <Link href="/edit">Edit content</Link>}
       <a href="#main-content">Back to top <span aria-hidden="true">↑</span></a>
     </footer>
   </div>;

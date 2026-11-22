@@ -1,6 +1,6 @@
 # Deterministic project banners
 
-Updated 3 November 2026. All twelve covers are 1600×600 WebP images. They are composed to fill the banner, rather than placing a smaller illustration inside a patterned container.
+Updated 15 November 2026. All nineteen covers are 1600×600 WebP images. They are composed to fill the banner, rather than placing a smaller illustration inside a patterned container.
 
 ## Rebuild
 
@@ -46,3 +46,22 @@ Font families and fallbacks are recorded in the manifest. These changes affect o
 `src/content/project-covers.ts` adds the generated content hash to banner URLs in project cards and the featured overview. This invalidates browser/image-optimizer caches when artwork changes; canonical file paths remain unchanged in project records and validation.
 
 Banner alignment was refined on 3 November 2026: CareerSphere’s original marks share a centreline, and the JurAI, Calendar, HMM, GDELT, and Connected notes text blocks are centred in their left-hand composition areas. The GDELT banner reads “GDELT Sentiment Analysis for Trades”. Source data, graph values, and original branding are unchanged.
+
+## Résumé additions — 15 November 2026
+
+Six covers were added without changing the earlier twelve image recipes or their scientific snapshot. Generator fingerprints were updated for the extended recipe.
+
+| Cover | Basis | Interpretation |
+| --- | --- | --- |
+| Room | Supplied full résumé and `projects/room.md`, Network dashboard | Illustrative dependency topology distinguishing edits, contracts and impact; not a screenshot. |
+| StashPA | Supplied résumé and `projects/stashpa.md` | Generic saved-note illustration; no actual links, messages or private database content. |
+| Please Help Me (`please-help-me`) | Actual app capture `scheduler-sample-week.png`, 16 November 2026 | Real interface with the built-in sample week in a temporary database. All records are demo data; not a scheduling benchmark or a personal calendar. |
+| Amazon recommendations | Supplied résumé and `projects/amazon-recsys.md` | Sentiment feeding a ranking. Bar lengths are illustrative, not evaluation values. |
+| Orbital Travla | Existing `public/images/travla.png` | Crop of the original poster’s actual mobile screens, distinct from the Vue Travlah wordmark. |
+| Maze robot | Existing `public/images/robot.png` | Photograph of the actual mBot, kept in proportion. |
+
+## Crop-yield research — 15 November 2026
+
+`crop-yield-research` uses the complete saved `crop-yield-research/maize/outputs/selected_pilot_regions.png`, copied unchanged to `public/images/projects/crop-yield-regions.png`. The white research plate pairs a green serif title with the complete map at uniform scale. The figure shows five French pilot regions using GISCO boundaries and Agreste department aggregates; it is geography, not a yield prediction or crop-health result. Source hashes are captured by the generator. No research experiment or data download was rerun.
+
+The Please Help Me banner was refreshed on 16 November 2026 to use the actual calendar capture instead of the earlier illustrative blocks. The complete screenshot retains its proportions beside a functional title. See `public/images/projects/README.md` for capture provenance.
