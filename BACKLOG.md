@@ -30,9 +30,11 @@ Add new ideas below, one per line:
 
 ## In progress
 
-- Publish the requested follow-up: feature Room, make writing previews fully clickable with hover/focus animations, add the DTU photo, and derive capped previews from article openings. Initial article publication is live; final revision validation is in progress.
+None.
 
 ## Done
+
+- 2026-11-24: Published the complete Writing update through GitHub → Vercel, commit `eda9433`. “State of Affairs” is live at `https://snatzehua.com/writing/state-of-affairs` and pinned on the landing page. Verified Room selection, full-area previews, hover/focus and reduced-motion behaviour, two-line article openings, DTU photo/thumbnail and centered 85%-width figures on desktop and mobile. All 35 production route/status checks passed. Evidence: `output/deployment-2026-11-24/`.
 
 - 2026-11-24: Made Writing article images 85% of the reading-column width and centered by default. Added an inline CSS comment and repository guidance so future figures inherit this sizing while narrower puzzle images keep their existing limit.
 

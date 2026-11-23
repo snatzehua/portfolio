@@ -42,3 +42,7 @@ Run the existing development server and open:
 The query branch is enabled only in development. The author adopted Writing as the navigation, homepage and archive label, then requested the expanded section on the normal landing page. The local homepage now uses that layout with its actual published posts; sample topics and experimental index/reading views remain in the preview branch. The author approved publication of the real-data homepage and Writing label on 24 November 2026, alongside “State of Affairs”. The experimental index, sample topics and sample reading views remain development-only. The prototype keeps the existing archive accessible; it does not register the sample ideas as posts.
 
 The Writing name has been adopted across the local site, including navigation and article back links, and the homepage layout now uses published entries. The remaining follow-up is to review the experimental index and select actual new posts or author-supplied drafts for publication. No new CMS or platform migration is needed for this concept.
+
+## Publication, 24 November 2026
+
+The real Writing section and archive were published with “State of Affairs” pinned on the landing page. The article uses the author-supplied text and DTU photograph. All ordinary previews derive from article openings and are capped at two lines. The experimental index and sample topics remain development-only. Production commit: `eda9433`; responsive browser and route checks are recorded under `output/deployment-2026-11-24/`.
