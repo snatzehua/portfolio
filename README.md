@@ -34,7 +34,7 @@ Each article section has a stable, unique `id` for direct section links. Optiona
 
 The content uses typed TypeScript records and shared text/image/math blocks. MDX is not required or configured. Add a block type when a real content need arises.
 
-Images belong in `my-portfolio/public/images/`. Add article-image dimensions to `my-portfolio/src/content/media.ts`. The writing images have optimized WebP copies under `public/images/writing/`; the original images remain available. Body images load only on article pages and use native lazy loading with reserved aspect ratios.
+Images belong in `my-portfolio/public/images/`. Add article-image dimensions to `my-portfolio/src/content/media.ts`. The writing images have optimized WebP copies under `public/images/writing/`; the original images remain available. Body images load only on article pages and use native lazy loading with reserved aspect ratios. Writing figures default to a centered 85% of the reading-column width, with narrower image limits preserved; keep this default for future Writing images.
 
 The design follows the user-selected clean reference: warm off-white (`#F7F5EF`), charcoal (`#272B28`), deep green (`#244F3E`), humanist sans-serif typography, fine dividers and open project layouts. The old plywood sidebar, pegboard and mountain backdrop are no longer rendered. Original image files remain available.
 

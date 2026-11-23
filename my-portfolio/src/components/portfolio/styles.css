@@ -196,6 +196,8 @@
 .article-section p { font-size: 17px; color: #50574f; line-height: 1.9; margin-bottom: 22px; overflow-wrap: anywhere; }
 .article-figure { margin: 32px 0; }
 .article-figure-narrow { max-width: 500px; margin-inline: auto; }
+/* Writing images default to 85% of the reading column; keep future figures centered and preserve narrower image limits. */
+.writing-detail .article-figure { width: 85%; margin-inline: auto; }
 .article-image { display: block; width: 100%; height: auto; border-radius: 4px; }
 .article-section figcaption { color: var(--muted); font-size: 12px; line-height: 1.8; margin-top: 10px; }
 .article-math { max-width: 100%; overflow-x: auto; }

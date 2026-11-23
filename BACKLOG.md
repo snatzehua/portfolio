@@ -34,6 +34,8 @@ Add new ideas below, one per line:
 
 ## Done
 
+- 2026-11-24: Made Writing article images 85% of the reading-column width and centered by default. Added an inline CSS comment and repository guidance so future figures inherit this sizing while narrower puzzle images keep their existing limit.
+
 - 2026-11-24: Implemented the requested landing follow-up: Room replaces CareerSphere with its uncropped illustrative banner, every writing preview is a full-area accessible link, and writing cards/project arrows have hover/focus motion with reduced-motion support. Added the author’s DTU photo to “State of Affairs” and its archive thumbnail. Writing previews now use the article opening, capped at two lines on homepage and archive. Fixed the page transition’s hydration mismatch when reduced motion is enabled.
 
 - 2026-11-24: Added the author-approved “State of Affairs” article with corrected source wording, its revised ending and repaired Markdown links. Added persistent homepage pin metadata and continuous-essay rendering. Reordered the menu and homepage to Projects, Writing, Background, Lifestyle, and reused the landing satellite photo in the crop project card. Published as `779248a`; Vercel succeeded and 35 live route/status checks passed.
