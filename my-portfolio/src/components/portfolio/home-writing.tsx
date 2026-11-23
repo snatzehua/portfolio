@@ -26,12 +26,14 @@ export default function HomeWriting() {
         <EntryMeta entry={featured} />
         <h3 id={`preview-${featured.slug}`}>{featured.title}</h3>
         <p className="writing-section-excerpt">{writingExcerpt(featured)}</p>
+        <span className="card-action">View article <span aria-hidden="true">→</span></span>
       </Link>
       {recent.length > 0 && <div className="writing-section-side">
         {recent.map(entry => <Link key={entry.slug} className="writing-preview" href={`/writing/${entry.slug}`} aria-labelledby={`preview-${entry.slug}`}>
           <EntryMeta entry={entry} />
           <h3 id={`preview-${entry.slug}`}>{entry.title}</h3>
           <p>{writingExcerpt(entry)}</p>
+          <span className="card-action">View article <span aria-hidden="true">→</span></span>
         </Link>)}
       </div>}
     </div>

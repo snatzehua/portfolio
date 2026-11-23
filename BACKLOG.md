@@ -34,6 +34,8 @@ None.
 
 ## Done
 
+- 2026-11-24: Matched homepage Writing previews to the project-card action and hover treatment: added “View article →” beneath each opening excerpt, reused the shared underline/arrow animation and title colour feedback, and removed the separate lift/background tint. Full-area links and reduced-motion support remain.
+
 - 2026-11-24: Removed puzzle previews from the landing page at the author's request. The homepage Writing selection excludes entries tagged Puzzles and uses one full-width preview when only the pinned reflection is present. Both puzzle posts remain in the Writing archive and at their existing URLs.
 
 - 2026-11-24: Published the complete Writing update through GitHub → Vercel, commit `eda9433`. “State of Affairs” is live at `https://snatzehua.com/writing/state-of-affairs` and pinned on the landing page. Verified Room selection, full-area previews, hover/focus and reduced-motion behaviour, two-line article openings, DTU photo/thumbnail and centered 85%-width figures on desktop and mobile. All 35 production route/status checks passed. Evidence: `output/deployment-2026-11-24/`.
