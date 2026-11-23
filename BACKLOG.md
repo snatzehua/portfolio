@@ -30,11 +30,13 @@ Add new ideas below, one per line:
 
 ## In progress
 
-- Publish “State of Affairs” with an explicit homepage pin, alongside the approved Writing navigation/homepage changes. Run an isolated production build and verify the live article after deployment.
+- Publish the requested follow-up: feature Room, make writing previews fully clickable with hover/focus animations, add the DTU photo, and derive capped previews from article openings. Initial article publication is live; final revision validation is in progress.
 
 ## Done
 
-- 2026-11-24: Added the author-approved “State of Affairs” article with corrected source wording, its revised ending and repaired Markdown links. Added persistent homepage pin metadata and continuous-essay rendering. Reordered the menu and homepage to Projects, Writing, Background, Lifestyle, and reused the landing satellite photo in the crop project card. Publication verification is in progress.
+- 2026-11-24: Implemented the requested landing follow-up: Room replaces CareerSphere with its uncropped illustrative banner, every writing preview is a full-area accessible link, and writing cards/project arrows have hover/focus motion with reduced-motion support. Added the author’s DTU photo to “State of Affairs” and its archive thumbnail. Writing previews now use the article opening, capped at two lines on homepage and archive. Fixed the page transition’s hydration mismatch when reduced motion is enabled.
+
+- 2026-11-24: Added the author-approved “State of Affairs” article with corrected source wording, its revised ending and repaired Markdown links. Added persistent homepage pin metadata and continuous-essay rendering. Reordered the menu and homepage to Projects, Writing, Background, Lifestyle, and reused the landing satellite photo in the crop project card. Published as `779248a`; Vercel succeeded and 35 live route/status checks passed.
 
 - 2026-11-23: Made the homepage Writing section compact at the author's request: smaller headings, at most two summary lines per post, and no article-opening paragraphs or repeated Read post links. Article titles and All writing remain clickable; full posts are unchanged.
 

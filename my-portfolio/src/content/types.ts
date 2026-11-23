@@ -9,7 +9,7 @@ export interface DiagramBlock {
 
 export type ContentBlock =
   | { type: "text"; content: string }
-  | { type: "image"; src: string; caption?: string; width?: "full" | "half"; technical?: boolean }
+  | { type: "image"; src: string; alt?: string; caption?: string; width?: "full" | "half"; technical?: boolean }
   | { type: "latex"; content: string; caption?: string }
   | DiagramBlock;
 
@@ -44,6 +44,7 @@ export interface WritingEntry {
   summary: string;
   pinned?: boolean;
   banner?: string;
+  bannerAlt?: string;
   body: string;
   sections: ArticleSection[];
   tags: string[];

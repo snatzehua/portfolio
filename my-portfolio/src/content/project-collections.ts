@@ -1,4 +1,4 @@
-export const selectedProjectSlugs = ["crop-yield-research", "careersphere", "please-help-me"];
+export const selectedProjectSlugs = ["crop-yield-research", "room", "please-help-me"];
 
 // Collections describe a project's primary context, independently of its technologies.
 export const projectCollections = [

@@ -9,7 +9,7 @@ import type { Project } from "@/content/types";
 type FeaturedProject = Pick<Project, "slug" | "title" | "summary" | "cover" | "coverAlt" | "period" | "role">;
 const interests = [
   { label: "alternative data", slug: "crop-yield-research" },
-  { label: "AI assistants", slug: "careersphere" },
+  { label: "AI assistants", slug: "room" },
   { label: "algorithm design", slug: "please-help-me" },
 ];
 

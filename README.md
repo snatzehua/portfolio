@@ -15,7 +15,7 @@ The homepage introduces Kieran with the original polaroid portrait, then shows t
 
 The horizontal header links to the four sections and email. The name links to the homepage. At phone widths, a Menu button opens the same navigation; Escape closes it and returns focus. The active section stays highlighted on detail routes. Existing fragment anchors and legacy `/?section=...` redirects remain supported. The footer supplies contact links and a return to the top.
 
-Writing is the home for learning notes, opinions, updates, puzzle walkthroughs and competition reflections. The author adopted this label on 23 November 2026. Existing `/writing` and `/writing/<slug>` URLs and content records are preserved; the homepage previews published posts, while sample article ideas and the experimental index remain development-only.
+Writing is the home for learning notes, opinions, updates, puzzle walkthroughs and competition reflections. The author adopted this label on 23 November 2026. Existing `/writing` and `/writing/<slug>` URLs and content records are preserved; the homepage previews published posts with full-area links and two-line article openings, while sample article ideas and the experimental index remain development-only.
 
 ## Add or edit content
 

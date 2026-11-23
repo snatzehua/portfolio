@@ -7,6 +7,8 @@ const entry: WritingEntry = {
   period: "NOV 2026",
   summary: "On learning for its own sake, career pressure, and finding room to build with AI.",
   pinned: true,
+  banner: "/images/writing/state-of-affairs-dtu.webp",
+  bannerAlt: "Kieran beside the large red DTU letters at the end of his student exchange.",
   body: "I've been thinking a lot about the state of software engineering recently, and where it's headed.",
   sections: [
     {
@@ -17,6 +19,13 @@ const entry: WritingEntry = {
         {
           type: "text",
           content: "It's almost been half a year since I came back from my student exchange in Copenhagen, Denmark, and during the 6 months I was gone, I somehow managed to miss [the rapid development and adoption of coding agents](https://blog.jetbrains.com/research/2026/08/ai-coding-agent-adoption-2026/) and the [incredible advancements that 2026 brought](https://openai.com/index/research-acceleration-jagged-frontier/).",
+        },
+        {
+          type: "image",
+          src: "/images/writing/state-of-affairs-dtu.webp",
+          alt: "Kieran standing beside the large red DTU sign, with trees behind him.",
+          caption: "Coming back from my exchange at DTU.",
+          width: "full",
         },
         {
           type: "text",

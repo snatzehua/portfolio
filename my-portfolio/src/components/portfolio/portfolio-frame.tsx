@@ -2,14 +2,22 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { motion, useReducedMotion } from "framer-motion";
+import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
 import SiteHeader from "./site-header";
 import type { NavigationGroup } from "@/content/navigation";
 import "./styles.css";
 
 export default function PortfolioFrame({ children, navigation }: { children: React.ReactNode; navigation: NavigationGroup[] }) {
   const pathname = usePathname();
-  const reducedMotion = useReducedMotion();
+  const [reducedMotion, setReducedMotion] = useState(true);
+  useEffect(() => {
+    const preference = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const update = () => setReducedMotion(preference.matches);
+    update();
+    preference.addEventListener("change", update);
+    return () => preference.removeEventListener("change", update);
+  }, []);
   function settleFragment() {
     if (!window.location.hash) return;
     document.getElementById(decodeURIComponent(window.location.hash.slice(1)))?.scrollIntoView({ block: "start", behavior: "instant" });
