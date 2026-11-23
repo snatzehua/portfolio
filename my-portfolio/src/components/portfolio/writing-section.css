@@ -56,6 +56,7 @@
 .home-writing-compact .writing-section-heading { margin-bottom: 20px; }
 .home-writing-compact .writing-section-heading h2 { font-size: 26px; }
 .home-writing-compact .writing-section-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px; }
+.home-writing-compact .writing-section-grid-single { grid-template-columns: minmax(0, 1fr); }
 .home-writing-compact .writing-idea-meta { margin-bottom: 8px; }
 .home-writing-compact .writing-section-feature h3, .home-writing-compact .writing-section-side h3 { font-size: 28px; margin-bottom: 10px; }
 .home-writing-compact .writing-section-side { padding-left: 28px; }

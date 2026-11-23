@@ -12,15 +12,16 @@ function EntryMeta({ entry }: { entry: WritingEntry }) {
 }
 
 export default function HomeWriting() {
-  const featured = writingEntries.find(entry => entry.pinned) ?? writingEntries[0];
+  const homepageEntries = writingEntries.filter(entry => !entry.tags.includes("Puzzles"));
+  const featured = homepageEntries.find(entry => entry.pinned) ?? homepageEntries[0];
   if (!featured) return null;
-  const recent = writingEntries.filter(entry => entry.slug !== featured.slug).slice(0, 2);
+  const recent = homepageEntries.filter(entry => entry.slug !== featured.slug).slice(0, 2);
   return <section className="home-writing-section home-writing-compact" id="writing" aria-labelledby="overview-writing">
     <div className="writing-section-heading">
       <h2 id="overview-writing">Writing</h2>
       <Link className="text-link" href="/writing">All writing</Link>
     </div>
-    <div className="writing-section-grid">
+    <div className={`writing-section-grid${recent.length === 0 ? " writing-section-grid-single" : ""}`}>
       <Link className="writing-section-feature writing-preview" href={`/writing/${featured.slug}`} aria-labelledby={`preview-${featured.slug}`}>
         <EntryMeta entry={featured} />
         <h3 id={`preview-${featured.slug}`}>{featured.title}</h3>
