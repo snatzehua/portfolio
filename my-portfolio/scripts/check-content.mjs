@@ -32,6 +32,8 @@ const { fullProjectWriteupSlugs, visibleProjectSections } = loadContent('src/con
 const { projectCollections, selectedProjectSlugs } = loadContent('src/content/project-collections.ts');
 const { experienceEntries } = loadContent('src/components/tab-viewer/entries/experience-entries.ts');
 const { educationEntries } = loadContent('src/components/tab-viewer/entries/education-entries.ts');
+assert(writingEntries.filter(entry => entry.pinned).length <= 1, 'Only one Writing entry may be pinned on the homepage');
+assert(writingEntries.every(entry => entry.pinned === undefined || typeof entry.pinned === 'boolean'), 'Writing pinned metadata must be boolean');
 for (const [kind, entries] of [['experience', experienceEntries], ['education', educationEntries]]) {
   for (const entry of entries) {
     assert(entry.title?.trim() && entry.subtitle?.trim(), `Missing ${kind} title or organisation`);

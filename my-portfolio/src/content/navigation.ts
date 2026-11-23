@@ -8,7 +8,7 @@ export interface NavigationGroup {
 
 export const navigation: NavigationGroup[] = [
   { id: "projects", label: "Projects", href: "/projects" },
+  { id: "writing", label: "Writing", href: "/writing" },
   { id: "experience", label: "Background", href: "/experience" },
   { id: "lifestyle", label: "Lifestyle", href: "/lifestyle" },
-  { id: "writing", label: "Extras", href: "/writing" },
 ];

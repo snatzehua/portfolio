@@ -13,7 +13,7 @@ export type ContentBlock =
   | { type: "latex"; content: string; caption?: string }
   | DiagramBlock;
 
-export interface ArticleSection { id: string; title: string; navTitle?: string; blocks: ContentBlock[] }
+export interface ArticleSection { id: string; title: string; hideTitle?: boolean; navTitle?: string; blocks: ContentBlock[] }
 
 export const projectStatuses = ["In progress", "Completed", "Paused", "Archived"] as const;
 export type ProjectStatus = (typeof projectStatuses)[number];
@@ -42,6 +42,7 @@ export interface WritingEntry {
   publishedAt: string;
   period: string;
   summary: string;
+  pinned?: boolean;
   banner?: string;
   body: string;
   sections: ArticleSection[];

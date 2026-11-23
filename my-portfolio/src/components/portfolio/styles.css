@@ -85,6 +85,7 @@
 .home-polaroids img { width: 134px; height: auto; object-fit: contain; transform: rotate(-5deg); filter: drop-shadow(1px 4px 4px #0003); }
 .home-polaroids img + img { transform: translateY(30px) rotate(5deg); }
 .home-notes { display: grid; grid-template-columns: 1.15fr 1fr; gap: 64px; border-top: 1px solid var(--line); padding-top: 36px; }
+.home-notes.home-notes-background { grid-template-columns: minmax(0, 1fr); margin-top: 28px; margin-bottom: 48px; }
 .home-notes .home-section-heading { flex-wrap: wrap; gap: 12px; margin-bottom: 25px; }
 .home-notes h2 { font-size: 25px; }
 .home-notes .text-link { font-size: 13px; }
@@ -93,11 +94,6 @@
 .home-current-role h3 { font-size: 16px; line-height: 1.5; font-weight: 550; letter-spacing: -.025em; }
 .home-current-role p { font-size: 13px; color: var(--muted); margin-top: 3px; }
 .home-current-role .small-label { font-size: 12px; margin: 0 0 3px; }
-.home-writing-list { display: grid; }
-.home-writing-list a { display: flex; justify-content: space-between; gap: 20px; color: var(--ink); font-size: 16px; text-decoration: none; padding: 13px 0; border-bottom: 1px solid var(--line); }
-.home-writing-list a:first-child { padding-top: 0; }
-.home-writing-list a:hover { color: var(--accent); }
-.home-writing-list a > span:last-child { color: var(--accent); }
 
 /* Section pages and project collection */
 .section-page { min-width: 0; }
@@ -255,6 +251,7 @@
   .home-polaroids img { width: 100px; }
   .home-polaroids img + img { transform: translateY(10px) rotate(5deg); }
   .home-notes { grid-template-columns: minmax(0, 1fr); padding-top: 30px; gap: 34px; }
+  .home-notes.home-notes-background { margin-bottom: 36px; }
   .home-notes > section + section { border-top: 1px solid var(--line); padding-top: 30px; }
   .portfolio-footer { flex-wrap: wrap; gap: 20px; font-size: 12px; padding-block: 24px 32px; }
   .portfolio-footer .footer-name { width: 100%; }

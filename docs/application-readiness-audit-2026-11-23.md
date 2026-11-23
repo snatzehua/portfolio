@@ -2,6 +2,8 @@
 
 Audited overnight on 22–23 November 2026 (Singapore time). This review covers the current working copy, including the substantial pre-existing uncommitted changes. It does not describe those changes as published.
 
+**Deployment follow-up, 23 November 2026:** The author subsequently requested publication. Commit `5e3494a` was pushed to `main`, Vercel reported success, and the actual `https://snatzehua.com` domain was verified: all 26 content routes return 200, the five full writeups have their expected titles and article sections, and the old résumé and development-only editor routes return 404. Please Help Me and Satellite crop forecasting use the author's final titles and matching cover assets. The original findings below describe the pre-deployment audit; publication is now complete, while the five personal-context notes remain as reviewed. Deployment evidence is under `output/deployment-2026-11-23/`.
+
 ## Finding
 
 The local portfolio builds and its pages work, but the live website is still an older version. Do not treat the current local content as what an employer will see at `https://snatzehua.com` until a deployment is verified. Five author-input notes also remain visible in three full articles, awaiting the author's decision.

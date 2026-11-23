@@ -18,7 +18,7 @@ export default function ArticlePage({ kind, title, subtitle, intro, tags, sectio
   cover?: { src: string; alt: string };
 }) {
   const backHref = `/${kind}`;
-  const label = kind === "projects" ? "Projects" : "Extras";
+  const label = kind === "projects" ? "Projects" : "Writing";
   const isProject = kind === "projects";
   const hasQuickNav = isProject && sections.length > 1;
   return (

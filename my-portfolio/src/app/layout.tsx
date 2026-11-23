@@ -7,7 +7,7 @@ import { Analytics } from "@vercel/analytics/react";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Kieran Ho | Projects, lifestyle & extras",
+  title: "Kieran Ho | Projects, lifestyle & writing",
   description: "Kieran Ho — Business Analytics at NUS. Projects, experience, lifestyle, and things I’m working on.",
 };
 

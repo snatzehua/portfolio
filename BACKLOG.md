@@ -1,6 +1,6 @@
 # Portfolio backlog
 
-Updated: 2026-11-23
+Updated: 2026-11-24
 
 Purpose: make the portfolio easier to maintain and expand projects into case studies that show how decisions were made.
 
@@ -16,8 +16,7 @@ Purpose: make the portfolio easier to maintain and expand projects into case stu
 
 Add new ideas below, one per line:
 
-- Expand Extras with Codeforces competitions and practice efforts once the author supplies the entries, dates, links, and any results.
-- Choose the final name for Extras. Candidates: Extras, Explorations, Practice & Play, Side Quests.
+- Expand Writing with Codeforces competitions and practice efforts once the author supplies the entries, dates, links, and any results.
 
 ## Planned
 
@@ -26,13 +25,26 @@ Add new ideas below, one per line:
 | P01 | Next | Deepen project case studies with first-hand evidence | User requested deeper project explanations | The repository-grounded summaries are expanded with actual alternatives, experiments, failure cases, and concrete ownership; missing facts are supplied by the author. |
 | P04 | Next | Finish the factual audit of project cards | Existing content needs author confirmation | Confirm individual contributions, exact dates, current status, and repository/demo visibility for the imported entries. GDELT now reflects its negative confirmatory result; no earlier outperformance claim remains. See the local project inventory. |
 | P09 | Later | Improve media descriptions and education details | Follow-up from implementation | Replace generic photography alt text with scene descriptions; confirm GPA/year-of-study wording and any changed experience/education facts. |
-| P10 | Next | Publish the reviewed application portfolio | Application-readiness audit, 23 November 2026 | Resolve the five visible author notes or explicitly choose their public treatment, deploy the reviewed version, verify the new project URLs on the actual domain, and confirm the retired résumé URLs return 404. |
+| P10 | Next | Resolve the remaining public author-input notes | Application-readiness audit, 23 November 2026 | Supply the five missing personal-context answers or explicitly choose their public treatment. The reviewed portfolio was deployed and its public routes verified on 23 November 2026. |
+| P11 | Next | Review the Writing layout and initial posts | Author requested a blog-style landing section, 23 November 2026 | Review the experimental index and reading layout separately from the published archive. The author approved “State of Affairs” as the first new reflection; keep sample ideas in the development preview. See `docs/writing-section-prototype.md`. |
 
 ## In progress
 
-None.
+- Publish “State of Affairs” with an explicit homepage pin, alongside the approved Writing navigation/homepage changes. Run an isolated production build and verify the live article after deployment.
 
 ## Done
+
+- 2026-11-24: Added the author-approved “State of Affairs” article with corrected source wording, its revised ending and repaired Markdown links. Added persistent homepage pin metadata and continuous-essay rendering. Reordered the menu and homepage to Projects, Writing, Background, Lifestyle, and reused the landing satellite photo in the crop project card. Publication verification is in progress.
+
+- 2026-11-23: Made the homepage Writing section compact at the author's request: smaller headings, at most two summary lines per post, and no article-opening paragraphs or repeated Read post links. Article titles and All writing remain clickable; full posts are unchanged.
+
+- 2026-11-23: Put the expanded Writing section on the normal local landing page after Projects, using real published entries and their original dates, summaries and opening text. Removed the duplicate compact list. Sample article ideas remain in the development preview; the Writing archive and URLs are preserved.
+
+- 2026-11-23: Adopted Writing as the section name throughout navigation, the homepage, page titles, article Back links and the local concept. Preserved all existing `/writing` URLs and puzzle content. Updated current repository guidance; historical audit records retain the label used at the time.
+
+- 2026-11-23: Prototyped a development-only Writing section, index and sample reading view at `?preview=writing`, using clearly marked editorial ideas alongside the two existing puzzle posts. The ordinary homepage, Extras navigation and published site remain unchanged. Recorded the integration options and proposed content approach in `docs/writing-section-prototype.md`.
+
+- 2026-11-23: Published the reviewed portfolio through the existing GitHub → Vercel production connection, commit `5e3494a`. All 26 content routes respond successfully on `https://snatzehua.com`; the five full writeups have matching article bodies and the renamed scheduler/crop covers match their source hashes. Removed résumé URLs and development-only editor routes return 404. The five existing author notes remain visible as reviewed. Verification: `output/deployment-2026-11-23/`.
 
 - 2026-11-23: Refined the crop project's display name to “Satellite crop forecasting”, retaining the weather context, source route and research content.
 

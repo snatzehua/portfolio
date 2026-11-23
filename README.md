@@ -11,16 +11,16 @@ npm install
 npm run dev
 ```
 
-The homepage introduces Kieran with the original polaroid portrait, then shows three selected projects, a forest photograph with the two blacksmithing polaroids, and compact Background and Extras sections. The four full sections remain at `/projects`, `/experience`, `/lifestyle`, and `/writing`. Project and writing cards open `/projects/<slug>` and `/writing/<slug>`; Back links return to their section page.
+The homepage introduces Kieran with the original polaroid portrait, then shows three selected projects, a compact Writing section with a pinned article and recent posts, a compact Background section, then a forest photograph with the two blacksmithing polaroids. The four full sections remain at `/projects`, `/experience`, `/lifestyle`, and `/writing`. Project and writing cards open `/projects/<slug>` and `/writing/<slug>`; Back links return to their section page.
 
 The horizontal header links to the four sections and email. The name links to the homepage. At phone widths, a Menu button opens the same navigation; Escape closes it and returns focus. The active section stays highlighted on detail routes. Existing fragment anchors and legacy `/?section=...` redirects remain supported. The footer supplies contact links and a return to the top.
 
-“Extras” is the working label for writing, puzzles, competition efforts, and other work outside the main three sections. Its existing `/writing` and `/writing/<slug>` URLs and content records stay in place while the name is being considered.
+Writing is the home for learning notes, opinions, updates, puzzle walkthroughs and competition reflections. The author adopted this label on 23 November 2026. Existing `/writing` and `/writing/<slug>` URLs and content records are preserved; the homepage previews published posts, while sample article ideas and the experimental index remain development-only.
 
 ## Add or edit content
 
 - Projects: one typed content file in `my-portfolio/src/content/projects/`; register it in that folder's `index.ts`.
-- Writing: one typed content file in `my-portfolio/src/content/writing/`; register it in that folder's `index.ts`.
+- Writing: one typed content file in `my-portfolio/src/content/writing/`; register it in that folder's `index.ts`. Set `pinned: true` on at most one entry to keep it featured on the homepage independently of publication date. A section can set `hideTitle: true` for a continuous essay without added subheadings.
 - Experience and Education: the corresponding files in `my-portfolio/src/components/tab-viewer/entries/`.
 - Lifestyle: `my-portfolio/src/components/tab-viewer/lifestyle-panel.tsx`.
 - Shared article rendering: `my-portfolio/src/components/article/`.
@@ -42,7 +42,7 @@ The original portrait stays in its polaroid frame, with a restrained rotation. B
 
 `home-overview.tsx` selects Satellite crop forecasting, CareerSphere and the Please Help Me scheduler. `project-card.tsx` uses the saved Haut-Rhin Sentinel-2 context image and team diagram for the first two homepage entries; the scheduler uses an actual calendar screenshot with built-in sample data. All three homepage project cards have matching image proportions. The “Looking into” project heading cycles through three interests and highlights the corresponding card; rotation is automatic every 2.5 seconds, with interaction pausing and reduced motion supported. All project-index cards retain their generated full-width banners, role and period. Detailed project records, results and provenance are unchanged; this redesign is not a factual refresh.
 
-Section and article headers sit directly on the page surface. Project articles lead with the title and summary, followed by a divided details row for role, period and tools/topics, optional source links, then the cover and content. Status and the separate “Where it stands” summary are omitted. Project sections have a sticky quick-navigation rail using section headings and a collapsible mobile menu; factual source records and section anchors remain intact. Extras articles use the same simplified title-first header, a supporting subtitle and compact topic tags, with no contents navigation. Background shows work and education date ranges, sorted by end year then start year (newest first, Present first). Present rows use a green side rule and subtle tint. NUS contract and teaching roles are consolidated under one completed 2024–2026 work entry, with individual roles listed as bullets. Article images and galleries preserve their source captions and intrinsic dimensions.
+Section and article headers sit directly on the page surface. Project articles lead with the title and summary, followed by a divided details row for role, period and tools/topics, optional source links, then the cover and content. Status and the separate “Where it stands” summary are omitted. Project sections have a sticky quick-navigation rail using section headings and a collapsible mobile menu; factual source records and section anchors remain intact. Writing articles use the same simplified title-first header, a supporting subtitle and compact topic tags, with no contents navigation. Background shows work and education date ranges, sorted by end year then start year (newest first, Present first). Present rows use a green side rule and subtle tint. NUS contract and teaching roles are consolidated under one completed 2024–2026 work entry, with individual roles listed as bullets. Article images and galleries preserve their source captions and intrinsic dimensions.
 
 Run `npm run generate:covers` from `my-portfolio/` to rebuild all nineteen 1600×600 WebP banners using deterministic SVG composition, source imagery, and checked-in data snapshots. The generator uses pinned Sharp 0.33.5. Banner URLs include their generated content hash so regenerated artwork refreshes immediately. Source provenance, data qualifications, and regeneration instructions are in `my-portfolio/scripts/project-cover-data/README.md` and `public/images/projects/banners/manifest.json`. No models, live APIs, personal calendars, or contact data are needed. Detailed article figures remain intact.
 
@@ -52,7 +52,7 @@ Polaroid rotations are restrained: the introduction portrait is −2°, gallery 
 
 ## Checks
 
-The content validator includes Background titles, dates, details and logo files alongside project and Extras records. The old résumé-download endpoint and bundled PDF were removed on 23 November 2026; the portfolio does not host a résumé download.
+The content validator includes Background titles, dates, details and logo files alongside project and writing records. The old résumé-download endpoint and bundled PDF were removed on 23 November 2026; the portfolio does not host a résumé download.
 
 Run from `my-portfolio/`:
 
@@ -66,6 +66,7 @@ The content check catches duplicate/invalid slugs and section IDs, invalid dates
 
 ## Planning
 
+- [Writing concept](docs/writing-section-prototype.md): local prototype for a Writing section containing learning notes, opinions, updates and existing puzzles; preview with `/?preview=writing#writing` in development.
 - [Application-readiness audit](docs/application-readiness-audit-2026-11-23.md): local fixes, remaining author-input notes, verification and the gap between the local version and the live domain.
 - [Portfolio backlog](BACKLOG.md): ideas, remaining content work, completed changes, and decisions.
 - [Local project inventory](docs/local-project-inventory.md): source snapshots, imported entries, and remaining factual review.

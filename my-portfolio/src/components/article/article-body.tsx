@@ -28,7 +28,7 @@ export default function ArticleBody({ sections }: { sections: ArticleSection[] }
     <div className="article-body">
       {sections.map((section) => (
         <section id={section.id} key={section.id} className="article-section">
-          <h2>{section.title}</h2>
+          {!section.hideTitle && <h2>{section.title}</h2>}
           {section.blocks.map((block, i) => {
             if (block.type === "diagram") return <TechnicalDiagram key={i} {...block} />;
             if (block.type === "text") return <p key={i}><RichText text={block.content} /></p>;

@@ -14,7 +14,9 @@ export type ProjectCardData = Pick<Project, "slug" | "title" | "summary" | "cove
 
 export default function ProjectCard({ project, featured = false, priority = false, highlighted = false, headingLevel }: { project: ProjectCardData; featured?: boolean; priority?: boolean; highlighted?: boolean; headingLevel?: 2 | 3 }) {
   const Heading = (headingLevel ?? (featured ? 3 : 2)) === 3 ? "h3" : "h2";
-  const image = featured ? featuredImages[project.slug] : { src: projectCoverSrc(project.cover), alt: project.coverAlt };
+  const image = featured || project.slug === "crop-yield-research"
+    ? featuredImages[project.slug]
+    : { src: projectCoverSrc(project.cover), alt: project.coverAlt };
   return <Link href={`/projects/${project.slug}`} id={featured ? undefined : `project-${project.slug}`} data-highlighted={highlighted || undefined} className={`project-card${featured ? " project-card-featured" : ""}${!image ? " project-card-text" : ""}`}>
     {image && <div className={`project-cover${"contain" in image && image.contain ? " project-cover-contain" : ""}`}><Image src={image.src} alt={image.alt} fill sizes="(max-width: 600px) 92vw, (max-width: 900px) 45vw, 360px" className="project-cover-image" style={"position" in image ? { objectPosition: image.position } : undefined} priority={priority} /></div>}
     <div className="project-card-content">

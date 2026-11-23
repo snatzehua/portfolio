@@ -7,7 +7,7 @@ import { formatDate } from "@/content/types";
 export default function WritingPanel() {
   return (
     <div className="section-page">
-      <SectionHeader section="writing" title="Extras" headingId="writing-heading" />
+      <SectionHeader section="writing" title="Writing" headingId="writing-heading" />
       <div className="writing-list">
         {writingEntries.map((entry) => (
           <Link key={entry.slug} id={`article-${entry.slug}`} href={`/writing/${entry.slug}`} className="writing-card">

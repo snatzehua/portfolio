@@ -2,13 +2,14 @@ import Image from "next/image";
 import Link from "next/link";
 import { getProject } from "@/content/projects";
 import { selectedProjectSlugs } from "@/content/project-collections";
-import { writingEntries } from "@/content/writing";
 import { experienceEntries } from "@/components/tab-viewer/entries/experience-entries";
 import HomeProjects from "./home-projects";
+import HomeWriting from "./home-writing";
+import { HomeWritingPrototype } from "./writing-prototype";
 
 
 
-export default function HomeOverview() {
+export default function HomeOverview({ writingPreview = false }: { writingPreview?: boolean }) {
   const selected = selectedProjectSlugs.flatMap((slug) => {
     const project = getProject(slug);
     if (!project) return [];
@@ -28,6 +29,10 @@ export default function HomeOverview() {
       </div>
     </header>
     <HomeProjects projects={selected} />
+    {writingPreview ? <HomeWritingPrototype /> : <HomeWriting />}
+    <div className="home-notes home-notes-background">
+      <section id="experience" aria-labelledby="overview-experience"><div className="home-section-heading"><h2 id="overview-experience">Background</h2><Link className="text-link" href="/experience">Experience & education <span aria-hidden="true">→</span></Link></div>{experience && <div className="home-current-role"><Image src={experience.image} alt="" width={44} height={44} /><div><p className="small-label">Current role</p><h3>{experience.title}</h3><p>{experience.subtitle}</p></div></div>}</section>
+    </div>
     <section className="home-lifestyle" id="lifestyle" aria-labelledby="overview-lifestyle">
       <Link className="lifestyle-banner" href="/lifestyle">
         <Image src="/images/path.jpg" alt="A stone path winding through a quiet forest" fill sizes="(max-width: 1200px) 94vw, 1120px" />
@@ -35,9 +40,5 @@ export default function HomeOverview() {
       </Link>
       <div className="home-polaroids" aria-label="Blacksmithing photographs"><Image src="/images/blacksmith1-polaroid.png" alt="A polaroid from my blacksmithing workshop" width={240} height={300} sizes="(max-width: 600px) 100px, 134px" /><Image src="/images/blacksmith2-polaroid.png" alt="A second polaroid from my blacksmithing workshop" width={240} height={300} sizes="(max-width: 600px) 100px, 134px" /></div>
     </section>
-    <div className="home-notes">
-      <section id="experience" aria-labelledby="overview-experience"><div className="home-section-heading"><h2 id="overview-experience">Background</h2><Link className="text-link" href="/experience">Experience & education <span aria-hidden="true">→</span></Link></div>{experience && <div className="home-current-role"><Image src={experience.image} alt="" width={44} height={44} /><div><p className="small-label">Current role</p><h3>{experience.title}</h3><p>{experience.subtitle}</p></div></div>}</section>
-      <section id="writing" aria-labelledby="overview-writing"><div className="home-section-heading"><h2 id="overview-writing">Extras</h2><Link className="text-link" href="/writing">All extras <span aria-hidden="true">→</span></Link></div><div className="home-writing-list">{writingEntries.slice(0, 2).map((entry) => <Link key={entry.slug} href={`/writing/${entry.slug}`}><span>{entry.title}</span><span aria-hidden="true">→</span></Link>)}</div></section>
-    </div>
   </div>;
 }
