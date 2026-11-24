@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { projectPath } from "@/content/project-path";
 import { writingEntries } from "@/content/writing";
 import { formatDate } from "@/content/types";
 import { getProject } from "@/content/projects";
@@ -94,7 +95,7 @@ export function WritingPrototypePage({ selectedPost }: { selectedPost?: string }
           <ul><li>What the available time made possible.</li><li>Which decisions the author wanted to keep making.</li><li>Where implementation assistance helped, and where understanding still mattered.</li></ul>
         </> : <>
           <p>This could be a dated checkpoint alongside the longer research account: what changed, what the evidence currently supports, and the conditions for resuming the work.</p>
-          {crop && <><blockquote>{crop.outcome}</blockquote><Link href={`/projects/${crop.slug}`}>Read the existing research account</Link></>}
+          {crop && <><blockquote>{crop.outcome}</blockquote><Link href={projectPath(crop)}>Read the existing research account</Link></>}
         </>}
       </div>}
     </article>

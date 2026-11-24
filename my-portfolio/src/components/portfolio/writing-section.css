@@ -53,7 +53,6 @@
 .home-writing-compact .writing-section-heading { margin-bottom: 20px; }
 .home-writing-compact .writing-section-heading h2 { font-size: 26px; }
 .home-writing-compact .writing-section-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px; }
-.home-writing-compact .writing-section-grid-single { grid-template-columns: minmax(0, 1fr); }
 .home-writing-compact .writing-idea-meta { margin-bottom: 8px; }
 .home-writing-compact .writing-section-feature h3, .home-writing-compact .writing-section-side h3 { font-size: 28px; margin-bottom: 10px; }
 .home-writing-compact .writing-section-side { padding-left: 28px; }
@@ -80,4 +79,43 @@
   .writing-section-reader h1 { font-size: 38px; }
   .writing-section-deck { font-size: 17px; }
   .writing-section-prose p, .writing-section-outline p, .writing-section-outline li, .writing-section-outline blockquote { font-size: 17px; }
+}
+
+/* Paper notes on the landing page. */
+.home-writing-paper {
+  padding: 38px 0 18px;
+}
+.home-writing-paper .writing-section-grid {
+  align-items: start;
+  gap: 26px;
+  padding: 6px;
+}
+.home-writing-paper .writing-section-feature {
+  position: relative;
+  padding: clamp(22px, 3vw, 38px);
+  background: linear-gradient(170deg, #f2e7b9, #f9f1d4 40%, #f6edcc);
+  box-shadow: 0 1px 2px #302c191a, 1px 5px 7px -4px #302c194a;
+  transform: rotate(-.8deg);
+}
+.home-writing-paper .writing-section-feature::before {
+  content: "";
+  position: absolute;
+  top: -8px;
+  left: 42%;
+  width: 65px;
+  height: 17px;
+  background: #d7cbb4ba;
+  transform: rotate(4deg);
+  clip-path: polygon(2% 0, 99% 3%, 97% 28%, 100% 51%, 97% 100%, 0 96%, 3% 62%, 0 40%);
+}
+.home-writing-paper .writing-section-feature h3 {
+  max-width: none;
+  font-size: clamp(28px, 3vw, 38px);
+}
+.home-writing-paper .writing-section-feature:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 5px;
+}
+@media (max-width: 600px) {
+  .home-writing-paper .writing-section-feature { transform: none; }
 }

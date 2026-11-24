@@ -5,11 +5,10 @@ import { selectedProjectSlugs } from "@/content/project-collections";
 import { experienceEntries } from "@/components/tab-viewer/entries/experience-entries";
 import HomeProjects from "./home-projects";
 import HomeWriting from "./home-writing";
-import { HomeWritingPrototype } from "./writing-prototype";
 
 
 
-export default function HomeOverview({ writingPreview = false }: { writingPreview?: boolean }) {
+export default function HomeOverview() {
   const selected = selectedProjectSlugs.flatMap((slug) => {
     const project = getProject(slug);
     if (!project) return [];
@@ -29,7 +28,7 @@ export default function HomeOverview({ writingPreview = false }: { writingPrevie
       </div>
     </header>
     <HomeProjects projects={selected} />
-    {writingPreview ? <HomeWritingPrototype /> : <HomeWriting />}
+    <HomeWriting />
     <div className="home-notes home-notes-background">
       <section id="experience" aria-labelledby="overview-experience"><div className="home-section-heading"><h2 id="overview-experience">Background</h2><Link className="text-link" href="/experience">Experience & education <span aria-hidden="true">→</span></Link></div>{experience && <div className="home-current-role"><Image src={experience.image} alt="" width={44} height={44} /><div><p className="small-label">Current role</p><h3>{experience.title}</h3><p>{experience.subtitle}</p></div></div>}</section>
     </div>

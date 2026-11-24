@@ -37,10 +37,10 @@ export default function ArticleBody({ sections }: { sections: ArticleSection[] }
             if (block.technical) return <DiagramViewer key={i} src={block.src} caption={block.caption} width={size?.width ?? 1200} height={size?.height ?? 800} narrow={block.width === "half"} />;
             return (
               <figure key={i} className={block.width === "half" ? "article-figure article-figure-narrow" : "article-figure"}>
-                <a href={block.src} target="_blank" rel="noopener noreferrer" aria-label={`View larger: ${block.caption ?? "project image"}`}>
+                <a href={block.src} target="_blank" rel="noopener noreferrer" aria-label={`View larger: ${block.alt ?? block.caption ?? "project image"}`}>
                   <Image src={block.src} alt={block.alt ?? block.caption ?? ""} width={size?.width ?? 1200} height={size?.height ?? 800} sizes="(max-width: 760px) 90vw, 700px" className="article-image" />
                 </a>
-                {block.caption && <figcaption>{block.caption}</figcaption>}
+                {block.caption && <figcaption><RichText text={block.caption} /></figcaption>}
               </figure>
             );
           })}

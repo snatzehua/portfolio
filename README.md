@@ -57,10 +57,14 @@ The content validator includes Background titles, dates, details and logo files 
 Run from `my-portfolio/`:
 
 ```sh
-npm run check:content
-npm run typecheck
+npm run validate
+npm run test:hooks
 npm run build
 ```
+
+Installing dependencies in a Git checkout configures the versioned pre-commit and pre-push hooks. To activate them in an existing checkout, run `npm run prepare` from `my-portfolio/`. Verify with `git config --get core.hooksPath` (expected `.githooks`). Use a POSIX shell or Git Bash for the hook scripts.
+
+Both hooks run `npm run validate` against an isolated snapshot. Pre-commit checks the staged files, and pre-push checks each distinct commit tip being sent. Validation runs TypeScript, content and cover checks, public link tests and editor tests. The link tests cover the URLs shown on project and writing cards, detail pages, and legacy redirects. GitHub Actions repeats validation and the isolated Git hook integration test on pushes and pull requests.
 
 The content check catches duplicate/invalid slugs and section IDs, invalid dates, empty sections, missing images/dimensions, and incorrect ordering. Check navigation, Back links and scroll restoration, photo-viewer keyboard controls, and mobile layouts in a browser after changing behaviour.
 

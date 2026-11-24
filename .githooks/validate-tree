@@ -1,0 +1,32 @@
+#!/bin/sh
+set -eu
+root=$(git rev-parse --show-toplevel)
+cd "$root"
+snapshot=$(mktemp -d "${TMPDIR:-/tmp}/portfolio-validate.XXXXXXXX")
+trap 'rm -rf "$snapshot"' EXIT
+trap 'exit 1' HUP INT TERM
+mkdir "$snapshot/tree"
+
+# checkout-index honours GIT_INDEX_FILE, including partial and path-only commits.
+if [ "$1" = index ]; then
+  git checkout-index --all --prefix="$snapshot/tree/"
+else
+  GIT_INDEX_FILE="$snapshot/index" git read-tree "$1"
+  GIT_INDEX_FILE="$snapshot/index" git checkout-index --all --prefix="$snapshot/tree/"
+fi
+
+app="$snapshot/tree/my-portfolio"
+cd "$app"
+# GUI Git clients on macOS often have only the system directories on PATH.
+PATH="$PATH:/opt/homebrew/bin:/usr/local/bin"
+export PATH
+if [ -d "$root/my-portfolio/node_modules" ] &&
+   cmp -s package-lock.json "$root/my-portfolio/package-lock.json" &&
+   cmp -s package.json "$root/my-portfolio/package.json"; then
+  ln -s "$root/my-portfolio/node_modules" node_modules
+else
+  # Clear repository context before running npm lifecycle scripts in the snapshot.
+  unset GIT_DIR GIT_WORK_TREE GIT_INDEX_FILE
+  npm ci --include=dev --no-audit --no-fund
+fi
+npm run validate

@@ -1,9 +1,10 @@
 "use client";
 
 import Link from "next/link";
+import { projectPath } from "@/content/project-path";
 import { useEffect, useRef, useState } from "react";
 import ArticlePage from "@/components/article/article-page";
-import { projectCoverSrc } from "@/content/project-covers";
+import { projectCover } from "@/content/project-covers";
 import type { ArticleSection, ContentBlock, Project } from "@/content/types";
 import { isYearOnlyProjectPeriod } from "@/content/project-dates";
 import { hasFullProjectWriteup } from "@/content/project-writeups";
@@ -153,7 +154,7 @@ export default function ProjectEditor() {
       <label className="editor-project-select">Project<select aria-label="Project" value={document?.project.slug ?? ""} disabled={!options.length || loading || saving} onChange={event => { if (!dirty || window.confirm("Discard unsaved changes and switch projects?")) void load(event.target.value); }}>
         {!document && <option value="">Choose a project</option>}{options.map(option => <option key={option.slug} value={option.slug}>{option.title}</option>)}
       </select></label>
-      <div className="editor-save-actions"><span className="editor-save-state" aria-live="polite">{saving ? "Saving…" : dirty ? "Unsaved changes" : document ? "All changes saved" : ""}</span><button type="button" className="editor-primary-button" disabled={!dirty || loading || saving || conflict} onClick={save}>{saving ? "Saving…" : "Save changes"}</button>{document && <Link href={`/projects/${document.project.slug}`} target="_blank" rel="noopener noreferrer">Open saved page ↗</Link>}</div>
+      <div className="editor-save-actions"><span className="editor-save-state" aria-live="polite">{saving ? "Saving…" : dirty ? "Unsaved changes" : document ? "All changes saved" : ""}</span><button type="button" className="editor-primary-button" disabled={!dirty || loading || saving || conflict} onClick={save}>{saving ? "Saving…" : "Save changes"}</button>{document && <Link href={projectPath(document.project)} target="_blank" rel="noopener noreferrer">Open saved page ↗</Link>}</div>
     </div>
     {error && <div role="alert" className="editor-error"><p>{error}</p>{conflict && <div className="editor-inline-actions"><button type="button" onClick={downloadDraft}>Download my draft</button><button type="button" onClick={reload}>Load latest saved version</button></div>}</div>}
     {notice && <p role="status" className="editor-notice">{notice}</p>}
@@ -171,7 +172,7 @@ export default function ProjectEditor() {
         </section>)}
         <div className="editor-bottom-actions"><button type="button" className="editor-primary-button" disabled={!dirty || saving || conflict} onClick={save}>Save changes</button><button type="button" onClick={reload} disabled={saving}>Reload saved version</button><button type="button" onClick={downloadDraft}>Download draft</button></div>
       </form>
-      <section className="editor-preview-panel" aria-label="Live project preview"><div className="editor-preview-heading"><h2>Live preview</h2><span>{hasFullProjectWriteup(draft.slug) ? "Unsaved changes appear here" : "Draft preview · public write-up is marked WIP"}</span></div><div className="editor-preview-scroll"><ArticlePage kind="projects" title={draft.title} intro={draft.summary} tags={draft.tags} sections={draft.sections} facts={[{ label: "Role", value: draft.role }, { label: "Period", value: draft.period }]} cover={{ src: projectCoverSrc(draft.cover), alt: draft.coverAlt }} /></div></section>
+      <section className="editor-preview-panel" aria-label="Live project preview"><div className="editor-preview-heading"><h2>Live preview</h2><span>{hasFullProjectWriteup(draft.slug) ? "Unsaved changes appear here" : "Draft preview · public write-up is marked WIP"}</span></div><div className="editor-preview-scroll"><ArticlePage kind="projects" title={draft.title} intro={draft.summary} tags={draft.tags} sections={draft.sections} facts={[{ label: "Role", value: draft.role }, { label: "Period", value: draft.period }]} cover={projectCover(draft.cover, draft.coverAlt)} /></div></section>
     </div>}
   </div>;
 }

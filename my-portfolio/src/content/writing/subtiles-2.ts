@@ -1,10 +1,10 @@
 import type { WritingEntry } from "../types";
 
 const entry: WritingEntry = {
-  "slug": "subtiles-2",
-  "title": "Subtiles 2",
-  "subtitle": "Jane Street's Feb 2026 Monthly Puzzle",
-  "publishedAt": "2026-02",
+  "slug": "jane-street-puzzle-february-2026",
+  "title": "Jane Street Puzzle February 2026",
+  "subtitle": "Subtiles 2",
+  "publishedAt": "2026-02-19",
   "period": "FEB 2026",
   "summary": "Solving a grid of growing shapes with integer constraints, connected regions, and a little backtracking.",
   "banner": "/images/writing/subtiles-2.webp",

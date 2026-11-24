@@ -1,5 +1,4 @@
 import SectionHeader from "@/components/portfolio/section-header";
-import Image from "next/image";
 import Link from "next/link";
 import { writingEntries } from "@/content/writing";
 import { formatDate } from "@/content/types";
@@ -15,11 +14,10 @@ export default function WritingPanel() {
             <div className="writing-card-content">
               <time className="eyebrow" dateTime={entry.publishedAt}>{formatDate(entry.publishedAt)}</time>
               <h2>{entry.title}</h2>
-              <p className="writing-subtitle">{entry.subtitle}</p>
+              {entry.subtitle && <p className="writing-subtitle">{entry.subtitle}</p>}
               <p className="writing-card-excerpt">{writingExcerpt(entry)}</p>
               <span className="card-action">Read article <span aria-hidden="true">→</span></span>
             </div>
-            {entry.banner && <div className="writing-thumbnail"><Image src={entry.banner} alt={entry.bannerAlt ?? `${entry.title} puzzle grid`} fill sizes="(max-width: 600px) 90vw, 220px" /></div>}
           </Link>
         ))}
       </div>

@@ -20,11 +20,41 @@ const project: Project = {
   "sections": [
     {
       "id": "problem",
-      "title": "Before the harvest",
+      "title": "Historic Heatwave",
       "blocks": [
         {
           "type": "text",
-          "content": "I started by looking at whether satellite observations could help measure what heatwaves and other disasters were doing to crop growth and yields. An early estimate was the aim, while there was still a season left to observe, rather than an explanation assembled after the harvest. The work developed from a five-region French maize pilot into a broader regional production-index study, and phase one is now archived: there are some retrospective July improvements, but no model was promoted and the most important drought failure remains unresolved."
+          "content": "Earlier this year, I experienced one of [the hottest summers on record](https://en.wikipedia.org/wiki/2026_European_heatwaves), when I happened to be in Paris for a week during the heatwave starting in end-May. It was surreal going from the coldest January in Denmark to one of the hottest Junes in Paris, worsened by the lack of appropriate infrastructure to deal with the extreme weather."
+        },
+        {
+          "type": "image",
+          "src": "/images/projects/crop-paris-riverside.png",
+          "width": "half",
+          "alt": "A couple silhouetted beneath overhanging trees by the water at sunset in Paris.",
+          "caption": "Couple at Sunset, taken by me"
+        },
+        {
+          "type": "text",
+          "content": "Despite how great and grand it was, I suffered daily in my cramped Airbnb; a structure with zero ventilation in a building that was built to trap heat. This experience left me deeply vengeful against the horrific effects of climate change and soured the otherwise wonderful experience I had in Paris, especially given my personal vendetta against the heat in Singapore.\n"
+        },
+        {
+          "type": "image",
+          "src": "/images/projects/crop-paris-night.png",
+          "width": "half",
+          "alt": "Red flares illuminate a crowd gathered in Paris at night.",
+          "caption": "[PSG riots](https://en.wikipedia.org/wiki/2026_Paris_Saint-Germain_celebration_riots), taken by me"
+        },
+        {
+          "type": "text",
+          "content": "Fast forward a few months, I started playing around with satellite imaging data. It was then that I noticed that among the many different types of data, there were temperature maps, and I recalled my experience in Paris. Curious, I pulled the data for the region and looked at the heat maps. "
+        },
+        {
+          "type": "text",
+          "content": "Messing about with the data, I realised that there were vegetation-index maps, and I then became curious about whether I could measure what the heatwaves were doing to crop growth and yields. "
+        },
+        {
+          "type": "text",
+          "content": "An early estimate was the aim, while there was still a season left to observe, rather than an explanation assembled after the harvest. Staying with the theme of Paris & France, I began with a five-region French maize pilot into a broader regional production-index study."
         },
         {
           "type": "image",
@@ -34,46 +64,46 @@ const project: Project = {
         },
         {
           "type": "text",
-          "content": "Maize gave the initial forecast a specific target: annual grain-and-seed yield in tonnes per hectare across the five regions shown above. Weather-only and historical-trend models stayed beside the satellite versions, because a plausible-looking forecast would tell me very little unless the imagery improved that comparison. The later target was one regional index of overall crop-production impact, with the earliest reasonably accurate forecast as the goal and July the priority. That is a broader question than the yield of one crop, so it needed a separate target and evaluation rather than another maize model with a different title."
+          "content": "Maize gave the initial forecast a specific target for now; I wanted to isolate the heat-based effects given that different crops may have vastly different temperature sensitivity. Weather-only and historical-trend models stayed beside the satellite versions, allowing us to develop a benchmark to determine if satellite imagery truly improved that comparison. "
         }
       ]
     },
     {
       "id": "evaluation",
-      "title": "Know your crop",
+      "title": "Crop Circles",
       "blocks": [
         {
           "type": "text",
-          "content": "The inputs included official agricultural statistics, NASA POWER weather, Sentinel-2 optical observations and Sentinel-1 radar, but each described a different part of the problem. A historical maize mask showed where maize had been grown, and crop rotation meant that was not necessarily maize in the year being forecast. Grain maize, seed and silage also had different definitions across the labels and reference statistics. Missing satellite observations had to remain missing rather than becoming zero vegetation, otherwise the pipeline would manufacture a change in crop condition."
+          "content": "Picking maize was the easy bit. Working out whether the satellite was actually looking at maize took a little more doing. The historical crop map could tell me what had grown in a field before, but farmers rotate their crops, and even a field marked “maize” might have been grown for silage while my yield figures covered grain and seed. A cloudy image raised a simpler problem. If I gave a missing reading a value of zero, I’d record a sudden loss of vegetation every time I lost sight of the field."
         },
         {
           "type": "text",
-          "content": "The measurement pilots therefore checked the imagery against same-year crop declarations and dated regional condition reports, instead of treating green pixels as validated crop health. A cleaner grain-maize cohort could be reconstructed for Centre in 2024 and 2025, but the greenness summaries still did not establish the expected positive relationship with the regional ratings. Those two seasonal trajectories were useful for checking crop identity and the image-to-index arithmetic; they were not independent field-health labels, and they did not establish a better regional yield forecast."
+          "content": "For Centre in 2024 and 2025, I could use each year’s crop declarations to narrow the sample down to grain maize. I compared how green those fields looked from space with the regional crop-condition reports as each season went on. I expected the two to move together more clearly than they did. Those two seasons helped me check which fields I was measuring and how I was calculating greenness. I still needed the harvest figures to find out whether any of it helped predict yield."
         },
         {
           "type": "text",
-          "content": "For the legacy maize forecasts, fitting used earlier seasons only, with weather ending seven days before the month-end issue and the same region-years compared across models. May through September stayed visible alongside the primary July check, including a sensitivity excluding provisional 2025. The broader production study used two- and three-year delays for annual outcome labels, because a historical model should not train on figures published later. Independent forecasts also stayed separate from versions allowed to use current official estimates. These controls made the comparisons auditable, although a current archive still could not establish which version of every input existed at the original forecast date."
+          "content": "I treated each forecast as if I were making it that month. For maize, I trained on earlier seasons, stopped the weather data seven days before month-end and compared models on the same regions and years. July mattered most to me, though I kept the May to September results and reran the comparison without provisional 2025. For the later production study I held back the annual figures by two or three years to allow for publication delays, and kept forecasts that used current official estimates in a separate group. The harder part was recreating the satellite archive. I could date a satellite pass, but couldn’t always tell which version of its readings I could have downloaded that July."
         }
       ]
     },
     {
       "id": "forecast-implementation",
-      "title": "Pixels to predictions",
+      "title": "Predictions",
       "blocks": [
         {
           "type": "text",
-          "content": "The original maize pipeline turned heat, growing degree days, rainfall and dry spells into weather features, alongside optical vegetation indices and radar summaries from monitoring windows. A window covered several parcels rather than one verified field. Its measurements were weighted and aggregated through departments to regions, and a regularised regression estimated a percentage departure from historical yield trend before reconstructing tonnes per hectare. For the held-out July 2023 Alsace example below, the input transformations and fitted contributions all come from earlier-year training; adding those contributions back to the trend produces the forecast that can then be checked against annual yield. That separation made it possible to inspect the arithmetic without calling a fitted heat coefficient a causal heat effect."
+          "content": "I started with the region’s historical yield trend. The part I wanted the model to learn was how far this particular harvest might finish above or below it. For each patch of farmland I sampled, I summarised the season’s heat, growing degree days, rain and dry spells using NASA POWER weather data, alongside Sentinel-2 vegetation indices and Sentinel-1 radar. Each patch could cover several parcels. I weighted the readings and combined them by department, then by region. In the July 2023 example for Alsace below, you can follow the regularised regression from the yield trend through each estimated contribution and back to tonnes per hectare. I fitted it using earlier harvests, so I could compare its finished forecast with the actual 2023 yield. That comparison measures forecast error. Isolating what heat caused would take a different experiment."
         },
         {
           "type": "image",
           "src": "/images/projects/technical/crop-forecast-flow.png",
-          "caption": "Original forecasting diagram from the research documentation: source observations, crop-weighted features, trend/residual modelling, reconstructed yield and later-season evaluation. This documents the earlier 25/50-window baseline, before the later 150-window weather-sampling experiment described below. Solid and dashed arrows distinguish implemented data flow from evaluation and reference paths.",
+          "caption": "The maize forecast from weather and satellite readings to tonnes per hectare. This is the earlier version that used 25 or 50 sampling windows. The dashed arrows show where reference data and later harvest figures enter the evaluation.",
           "technical": true
         },
         {
           "type": "image",
           "src": "/images/projects/technical/crop-model-detail.png",
-          "caption": "Worked example from the existing model walkthrough: training-only transformations, the held-out July 2023 Alsace inputs, fitted contributions and reconstructed yield. The saved example uses 25 windows; its fitted arithmetic is not a causal interpretation or evidence of overall forecast accuracy.",
+          "caption": "Alsace, July 2023. This example uses 25 windows and shows how the model fitted on earlier harvests turned that July’s observations into a yield forecast.",
           "technical": true
         }
       ]
@@ -84,17 +114,17 @@ const project: Project = {
       "blocks": [
         {
           "type": "text",
-          "content": "Image frequency and resolution were early constraints, and I considered PlanetScope as another source, but I did not have an account and its usable archive was not established. The public Sentinel work continued with explicit checks on clouds, observation age and sample support. Radar provided another measurement path when optical observations were missing, but it measured microwave scattering rather than reconstructing a cloud-free vegetation image, and the sensor comparison did not establish a July yield improvement."
+          "content": "With the first forecasts in hand, I wondered whether the satellite was simply getting too few clear looks at the fields. I considered PlanetScope, though I had no account and hadn’t established how much of its archive I could use. I stayed with the public Sentinel data and checked how much land I could see, how cloudy it was and how old each reading was. Radar could still take a measurement through cloud, but microwave scattering tells you something different about a field from its colour in an optical image. Adding it didn’t improve the July yield forecast."
         },
         {
           "type": "image",
           "src": "/images/projects/crop-yield-satellite.png",
           "width": "half",
-          "caption": "Sentinel-2 RGB context around Haut-Rhin, Alsace, 13 July 2023. Contains modified Copernicus Sentinel data (2023), accessed through Microsoft Planetary Computer. Fields, settlements and clouds are visible; the image is not a maize-only mask or a validated crop-health measurement."
+          "caption": "Fields, settlements and cloud over Haut-Rhin, Alsace, on 13 July 2023. An RGB image like this gives a sense of the landscape. I needed crop declarations to identify the maize. Contains modified Copernicus Sentinel data (2023), accessed through Microsoft Planetary Computer."
         },
         {
           "type": "text",
-          "content": "The optical timing experiment tested whether old or incomplete observations were limiting the forecast. A latest-in-month recipe increased observed July mask weight from 94.7% to 99.5% across the sampled historical sites and reduced mean image age from 12.9 to 5.8 days, so the sampled observations became more complete and recent. Those figures describe the sampled windows rather than the percentage of all regional maize land observed, and July forecast error still worsened from about 0.828 to 0.839 tonnes per hectare. More recent pictures had addressed one problem without establishing useful information about the eventual harvest."
+          "content": "I tried taking the latest available optical reading within the month. Across the sampled sites, the share of the July maize mask covered by observations rose from 94.7% to 99.5%, and the average reading was 5.8 days old instead of 12.9. I was getting a more recent look at almost all the maize in my sample. The awkward result was that the July forecasts got a little worse, with the average error going from about 0.828 to 0.839 tonnes per hectare."
         }
       ]
     },
@@ -104,16 +134,16 @@ const project: Project = {
       "blocks": [
         {
           "type": "text",
-          "content": "The weather model was still using one point in each of 25 departments while the satellite sample had expanded to 150 windows, so I tested weather at those windows with the satellite inputs, targets and model settings held fixed. Across 20 matched region-years in 2022–2025, July weather-only MAE fell from 0.816 to 0.808 tonnes per hectare, and from 0.895 to 0.883 when provisional 2025 was excluded. The satellite fusion version remained worse than expanded weather-only at about 0.819."
+          "content": "By this point I was looking at 150 patches of farmland from space and still using just one weather point in each of the 25 departments. I tried sampling the weather at those same 150 locations, keeping the satellite inputs, yield figures and model settings fixed. Across 20 region-years from 2022 to 2025, the July weather-only forecast missed the eventual yield by 0.808 tonnes per hectare on average, down from 0.816. Taking out provisional 2025 gave a similar improvement, from 0.895 to 0.883. Putting the satellite readings back in brought the error up to about 0.819."
         },
         {
           "type": "image",
           "src": "/images/projects/crop-yield-checkpoints.png",
-          "caption": "Saved controlled comparison across May–September, including the sensitivity excluding provisional 2025. Lower MAE is better. These are repeatedly inspected historical seasons, not a fresh holdout."
+          "caption": "Average maize yield error from May to September, with and without provisional 2025. Lower values mean the forecast landed closer to the harvest. I used the same historical seasons throughout these experiments."
         },
         {
           "type": "text",
-          "content": "The gain was small, varied across regions and years, and did not hold at every issue date, with September getting worse. A later diagnostic separated changed forecast-year exposure from changed calibration and showed that swapping the new weather inputs into the old fit did not reproduce the gain. A climate-based scaling repair reduced extreme standardised inputs but worsened forecast checks, so it was rejected rather than adopted because the intermediate features looked more reasonable."
+          "content": "It was a small improvement, and by September the denser weather sample was doing worse. I tried giving the old fitted model the new weather readings to see whether the extra locations alone explained July. That didn’t reproduce the gain. I also tried using local climate to scale the inputs. The extreme values looked more reasonable afterwards, but the forecasts got worse, so I dropped that change."
         }
       ]
     },
@@ -123,25 +153,25 @@ const project: Project = {
       "blocks": [
         {
           "type": "text",
-          "content": "The broader objective was one overall production-impact index for a region, rather than separate forecasts for a growing list of crops. The official plant-output account supplied that target, combining cereals, forage, vegetables, fruit, wine and other outputs using economic weights. An index of 89.3 means production volume fell 10.7% from the preceding year; it is neither summed tonnes nor yield per hectare, and price inflation is not the measured change. A heatwave could contribute to that outcome, but predicting the index would not by itself identify how much of the loss the heatwave caused."
+          "content": "Maize had given me somewhere to start, but a region can lose a good chunk of its harvest even if the maize does fine. To get back to the broader question that had interested me in Paris, I turned to the official regional plant-output accounts. These combine cereals, forage, vegetables, fruit, wine and other crops, weighting each by its economic importance. An index of 89.3 means the region produced 10.7% less by volume than the previous year. That gave me one outcome to forecast across crops, although it still left open how much of any loss was down to heat."
         },
         {
           "type": "text",
-          "content": "For this track, the satellite inputs were cropland and rangeland FPAR, the fraction of incoming photosynthetically active radiation absorbed by vegetation. That is a different measurement from the maize greenness indices. The direct models combined seasonal vegetation summaries and weather to predict the annual regional change, with a follow-up comparing vegetation at matching calendar periods across years so ordinary seasonal growth was not treated as an unusual improvement. Raw aggregate levels had performed worse than the retained baseline, and more detailed economic crop shares had not fixed that; those shares describe a region’s production mix, not the identity of each observed field."
+          "content": "For this version I used satellite estimates of how much of the light available for photosynthesis the vegetation absorbed, known as FPAR, across cropland and rangeland. A field can look much greener than it did last month simply because it’s June. I tried comparing vegetation at the same point in the calendar across years and combined those changes with the weather. Using the vegetation levels directly had done worse than the baseline. Adding detail about each region’s crop mix hadn’t fixed that either, since a regional share still tells me very little about what’s growing in any particular pixel."
         },
         {
           "type": "text",
-          "content": "I evaluated Centre-Val de Loire, Pays de la Loire and Bretagne as three exact regional matches, separately from a seven-region extension whose merged-region benchmarks needed approximate combinations of older regional forecasts. On the three exact regions, July MAE fell from 6.466 to 5.912 percentage points of annual production change under a two-year label delay, and from 6.674 to 5.978 under a three-year delay. Each delay covered the same 27 region-years in 2017–2025, with 2024 semi-final and 2025 provisional, and the gain remained when 2025 was removed. MAE is the average absolute forecast error, so lower is better. The all-crop issues were 1 April, 1 June, 1 July, 1 August and 1 October; July took priority, but an improvement there did not replace the checks at the other dates."
+          "content": "I could match Centre-Val de Loire, Pays de la Loire and Bretagne directly to the historical forecasts I was using for comparison. I kept the seven-region extension separate because some modern regions needed older forecasts pieced together. Across the 27 region-years from 2017 to 2025 in those three regions, the July mean absolute error fell from 6.466 to 5.912 percentage points when I held back the annual figures by two years, and from 6.674 to 5.978 with a three-year delay. The 2024 figures were semi-final and 2025 was provisional, but taking out 2025 still left a gain. I also checked forecasts for the first day of April, June, August and October alongside 1 July."
         },
         {
           "type": "image",
           "src": "/images/projects/technical/crop-production-july.png",
           "technical": true,
-          "caption": "Archived all-crop July comparison for Centre-Val de Loire, Pays de la Loire and Bretagne, using a two-year outcome-label delay. Annual production change is measured in percentage points, not maize yield in tonnes per hectare. The 27 region-years include provisional 2025. These retrospective comparisons use revised archives and are not a fresh holdout."
+          "caption": "July forecasts for Centre-Val de Loire, Pays de la Loire and Bretagne with annual figures held back by two years. Error is measured in percentage points of annual production change. The 27 region-years include provisional 2025 and use the revised archives."
         },
         {
           "type": "text",
-          "content": "A recent-stress research model gave a lower July error of 5.649 points on those exact regions under the two-year delay, but the result varied with the date, region set and label delay, and none of those comparisons supplied a fresh validation sample. The more serious issue was timing: a ninety-day holdback removed the July gain from calendar vegetation changes, and the archive could contain later processing or smoothing. That did not prove that the information was always ninety days late, but it did show why an acquisition-date cutoff alone was insufficient to claim an early forecasting advantage."
+          "content": "A model that put more emphasis on recent stress brought the July error down to 5.649 points for the three regions with a two-year delay. By then I’d worked with these same seasons quite a few times, and the size of the gain depended on the month, the regions and the delay I used. What gave me more pause was the timing of the images themselves. When I held the satellite data back by ninety days, the July benefit from comparing vegetation across years disappeared. Ninety days was a sensitivity check. The actual delay, and whether the archived values had since been smoothed or revised, were still open questions."
         }
       ]
     },
@@ -151,31 +181,31 @@ const project: Project = {
       "blocks": [
         {
           "type": "text",
-          "content": "Bretagne in 2022 was the case that average error could hide. Actual annual crop production fell 10.7%, with forage contributing −6.77 percentage points and horticulture and vegetables another −2.88, while the retained July baseline predicted a 1.49% increase. The earlier calendar model predicted +5.77% and the recent-stress version +7.89%, so their better average scores did not repair the wrong sign in that damaging year."
+          "content": "Bretagne in 2022 was exactly the sort of summer that got me interested in this project. The harvest figures put regional crop production down 10.7% on the previous year. Forage accounted for 6.77 percentage points of that fall, and horticulture and vegetables for another 2.88. In July the baseline had predicted a 1.49% increase. My calendar comparison put it up 5.77%, and the recent-stress version put it up 7.89%. The two models with better average scores were both further off in the year I most wanted them to get right."
         },
         {
           "type": "image",
           "src": "/images/projects/technical/crop-bretagne-timeline.png",
           "technical": true,
-          "caption": "Original Bretagne 2022 diagnostic timeline. Later-published spring/summer assessments help explain the annual loss but were not available as July forecast inputs. The timeline is a retrospective failure analysis, not additional evidence of early prediction accuracy."
+          "caption": "Bretagne’s 2022 growing season. The timeline includes reports published after July, which helped me piece together where the forecast went wrong."
         },
         {
           "type": "text",
-          "content": "The case audit found damage already present by late June and a later period when grass growth stopped, while heat, drying winds, irrigation constraints and marketable vegetable quality complicated the relationship between canopy measurements and production. The weather inputs contained the drought, but the broad vegetation summaries and fitted output mapping did not recover the cumulative forage loss. Some reports explaining that sequence were published in September, so they could help diagnose the July miss without being quietly fed back into the July model."
+          "content": "Reading the regional reports afterwards filled in some of what the forecasts had missed. There was already damage by late June, and later on the grass stopped growing. Drying winds and irrigation limits mattered, and a vegetable could still have a visible canopy even if its quality had deteriorated enough to affect what growers could sell. The drought showed up in the weather data, but my model’s regional vegetation summaries failed to capture how much forage was being lost over the season. Some of the clearest accounts came out in September, which made them useful for understanding the miss and two months too late to help the July forecast."
         }
       ]
     },
     {
       "id": "limits",
-      "title": "Time to stop",
+      "title": "Conclusion",
       "blocks": [
         {
           "type": "text",
-          "content": "I packaged phase one on 18 November 2026 and put further model development on hold pending new evidence. There was enough here to preserve the measurement audits, the conditional retrospective gains and the failure cases, but another round of tuning on the same inspected years would still leave the early-forecast claim unresolved. No candidate was promoted. A separate source-copy-gated July replay was also too small to settle it: just six region-year cases per label delay, using a different crop-only recipe, with revised weather and outcome labels still limiting the comparison."
+          "content": "I archived the first phase on 18 November 2026. I tried one more July replay using only satellite data for which I had a dated source copy, but that left six region-years per label delay. It also used a different crop-only recipe and still relied on revised weather and harvest figures. At that point I’d learnt quite a bit about those particular summers, and I didn’t have a new one left to test a different model on. I kept the baseline and paused development."
         },
         {
           "type": "text",
-          "content": "The restart conditions concern the data behind the claim: usable satellite vintages with actual availability and revision stages, source-compatible production targets and crop scope, and stronger forage observations and timing. A longer source-consistent history or prospectively collected inputs would let a future model face a genuinely new comparison. Finer imagery or another favourable score on the same seasons would not, on their own, resolve the failures identified here."
+          "content": "If I pick this up again, I’d start by saving the observations as they arrive, including the date each version becomes available. A longer archive with that history would work too. I’d also want forage measurements that capture when growth slows and stops, and harvest figures covering the same crops and regions as the satellite sample. Then I could make a forecast in July, put it aside, and see how close I was when the harvest came in."
         }
       ]
     }

@@ -4,7 +4,7 @@ import crypto from 'node:crypto';
 import assert from 'node:assert/strict';
 import { fileURLToPath } from 'node:url';
 import sharp from 'sharp';
-import { bannerSpec } from './lib/banner-layout.mjs';
+import { bannerHeight, bannerSpec } from './lib/banner-layout.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const directory = path.join(root, 'public/images/projects/banners');
@@ -28,14 +28,14 @@ export async function checkProjectCovers(coverPaths = []) {
     paths.add(image.src);
     for (const key of ['alt', 'basis', 'artDirection']) assert(typeof image[key] === 'string' && image[key].trim(), `Missing ${key}: ${image.slug}`);
     assert.equal(image.width, bannerSpec.width, `Incorrect recorded width: ${image.slug}`);
-    assert.equal(image.height, bannerSpec.height, `Incorrect recorded height: ${image.slug}`);
+    assert.equal(image.height, bannerHeight(image.slug), `Incorrect recorded height: ${image.slug}`);
     const bytes = await fs.readFile(path.join(root, 'public', image.src));
     assert.equal(bytes.length, image.bytes, `Incorrect file size: ${image.slug}`);
     assert.equal(hash(bytes), image.sha256, `Banner changed outside generator: ${image.slug}`);
     const metadata = await sharp(bytes).metadata();
     assert.equal(metadata.format, 'webp', `Expected WebP: ${image.slug}`);
     assert.equal(metadata.width, bannerSpec.width, `Incorrect width: ${image.slug}`);
-    assert.equal(metadata.height, bannerSpec.height, `Incorrect height: ${image.slug}`);
+    assert.equal(metadata.height, bannerHeight(image.slug), `Incorrect height: ${image.slug}`);
   }
   const files = (await fs.readdir(directory)).filter(file => file.endsWith('.webp')).sort();
   assert.deepEqual(files, manifest.images.map(image => `${image.slug}.webp`).sort(), 'Banner files and manifest disagree');

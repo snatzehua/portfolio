@@ -1,10 +1,10 @@
 import type { WritingEntry } from "../types";
 
 const entry: WritingEntry = {
-  "slug": "shut-the-box",
-  "title": "Shut the Box",
-  "subtitle": "Jane Street's Nov 2025 Monthly Puzzle",
-  "publishedAt": "2025-11",
+  "slug": "jane-street-puzzle-november-2025",
+  "title": "Jane Street Puzzle November 2025",
+  "subtitle": "Shut the Box",
+  "publishedAt": "2025-11-21",
   "period": "NOV 2025",
   "summary": "From a grid of arrows and numbers to a folded 3D box: a walkthrough of the deductions and the final physical model.",
   "banner": "/images/writing/shut-the-box.webp",

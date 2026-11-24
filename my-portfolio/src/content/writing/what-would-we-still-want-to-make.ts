@@ -1,7 +1,7 @@
 import type { WritingEntry } from "../types";
 
 const entry: WritingEntry = {
-  slug: "what-would-we-still-want-to-make",
+  slug: "amodeis-experience-machine",
   title: "Amodei's Experience Machine",
   publishedAt: "2026-11-25",
   period: "NOV 2026",

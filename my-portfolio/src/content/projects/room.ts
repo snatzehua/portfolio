@@ -18,89 +18,88 @@ const project: Project = {
   "sections": [
     {
       "id": "problem",
-      "title": "When the changes depend on each other",
+      "title": "Two files, one assumption",
+      "navTitle": "The coordination problem",
       "blocks": [
         {
           "type": "text",
-          "content": "Two agents can be working in different files and still break each other’s work. One changes a function signature while the other builds against the old version, and there may be no conflicting line for Git to point out. That is the kind of coordination problem Room deals with."
+          "content": "In the demo we planned for the AI Tinkerers × OpenAI hackathon, one coding agent was changing how an order represented its customer while another was adding coupons. They worked in separate Git clones and edited different files. Git could merge both patches cleanly, even if the coupon code expected a customer object and the order model still returned a string."
+        },
+        {
+          "type": "text",
+          "content": "The awkward part was that the order agent could change its mind halfway through. Both agents would want to know the eventual shape of an order, but the coupon agent could already be writing against yesterday’s answer. We built Room to let that conversation happen while the changes were still on each developer’s machine."
         }
-      ],
-      "navTitle": "Coordination problem"
+      ]
     },
     {
       "id": "system",
-      "title": "What we built",
+      "title": "Before either agent commits",
+      "navTitle": "How Room works",
       "blocks": [
         {
           "type": "text",
-          "content": "We built Room to connect coding agents working in separate clones of the same repository, so they can see uncommitted edits and declare contract changes while the work is still happening. A dependency view shows which other work may be affected, and the dashboard gives the people working with those agents a way to follow it too."
+          "content": "Each developer joined the same room from their own clone. A local process watched their files and published a view of their uncommitted edits against a known Git revision. Through the plugin, an agent could also declare which interface it intended to change. A plan like “keep customer as a string” could reach a teammate before there was a single changed line to show them."
+        },
+        {
+          "type": "text",
+          "content": "Room used a live index of symbol definitions and references to find code that depended on a declaration. If the order agent revised its plan, Room could send the revision to the agent working on a consumer. Either developer could then preview the combined edits and run the relevant tests in a temporary checkout, with their own working files still in place. [Hackathon README](https://github.com/rohanz/room/blob/db41d87d/README.md)"
+        },
+        {
+          "type": "image",
+          "src": "/images/projects/room-v2-redesign.png",
+          "alt": "Room’s file viewer showing the participants, file changes and activity timeline from a two-agent run.",
+          "caption": "The file view from an early two-agent run. My work was on the Network tab, which showed how one participant’s changes related to other files."
         }
-      ],
-      "navTitle": "Team system"
+      ]
     },
     {
       "id": "my-contribution",
-      "title": "My part: the Network view",
+      "title": "Whose dependencies matter",
+      "navTitle": "The Network view",
       "blocks": [
         {
           "type": "text",
-          "content": "I worked on the Network tab of the dashboard, which puts a selected participant’s changes and their dependencies into a live graph. File edits and declared contract changes have different colours, and downstream contract impact has its own marking, because a file being edited does not by itself tell you that the interface someone else depends on has changed."
+          "content": "I built the Network view in the browser dashboard. The first version showed a participant’s changed files and the code they depended on. I then brought declared interface changes into the same view. That made it useful to distinguish a file someone had already edited from a change they had announced, since either could happen first."
         },
         {
           "type": "text",
-          "content": "I also wrote the README and hackathon submission."
+          "content": "Selecting a participant anchored the graph on their edits and claims. Blue marked an actual edit, purple marked a declared interface change, and a file with both used a split fill. I reserved red for potential downstream impact. That let someone looking at checkout trace a pricing change that might affect their work, without lighting up every other pricing consumer in the repository. [Participant-focused graph implementation](https://github.com/rohanz/room/commit/28201c2d)"
         }
-      ],
-      "navTitle": "My contribution"
+      ]
     },
     {
       "id": "graph-implementation",
-      "title": "Turning dependency data into the Network view",
+      "title": "Follow the price quote",
+      "navTitle": "Checking the graph",
       "blocks": [
         {
-          "type": "diagram",
-          "title": "From live work to the Network view",
-          "steps": [
-            {
-              "label": "Participants’ work",
-              "detail": "Share edits and declare intended contract changes."
-            },
-            {
-              "label": "Dependency index",
-              "detail": "Find the code related to those changes."
-            },
-            {
-              "label": "Selected participant",
-              "detail": "Build the view around that participant’s work."
-            },
-            {
-              "label": "Network graph",
-              "detail": "Distinguish file edits, contracts and downstream impact."
-            }
-          ],
-          "caption": "My contribution was the dashboard graph model and presentation. The indexer and broader plugin machinery were part of the team system."
+          "type": "text",
+          "content": "One of my tests uses a small chain. Pricing defines a function called quote_total, checkout calls it, and receipts use the checkout summary. If the pricing agent declares a change to what quote_total returns, checkout is directly exposed and receipts are one step further away. If the agent declares a rename for a different function in the same pricing file, that same route should stay quiet."
         },
         {
           "type": "text",
-          "content": "I added a larger commerce sample to check the layout under denser work, using compact nodes, previews and responsive zoom to keep it readable. That checked the presentation rather than establishing that the tool prevents integration failures at that scale."
+          "content": "The tests also cover circular dependencies, declarations on files the index has yet to see, and switching between participants. These checks establish which paths the dashboard highlights. The index infers references, so a highlighted path gives the developer somewhere to inspect. Whether the combined code still works is a question for its tests. [Network model tests](https://github.com/rohanz/room/blob/db41d87d/packages/web/src/network-model.test.ts)"
+        },
+        {
+          "type": "text",
+          "content": "I added a synthetic 168-file commerce project to see how the layout held up with more files on screen. Compact nodes kept labels visible, previews carried the extra detail, and zoom let the graph fit the available space. The fixture was a way to exercise the interface. We used the smaller Python shop for the behavioural example. [Commerce fixture](https://github.com/rohanz/room/blob/db41d87d/packages/web/scripts/seed-scale.ts)"
         }
-      ],
-      "navTitle": "Network graph"
+      ]
     },
     {
       "id": "scope",
-      "title": "The hackathon and afterwards",
+      "title": "After the hackathon",
+      "navTitle": "Outcome and scope",
       "blocks": [
         {
           "type": "text",
-          "content": "We placed third at the hackathon. My teammate kept developing Room afterwards, so the repository now contains quite a lot beyond the version I worked on; my contribution here is the hackathon Network view and write-up."
+          "content": "We placed third at the AI Tinkerers × OpenAI hackathon. Alongside the Network view, I worked on the README and wrote the submission around the order-and-coupon example. My teammate continued developing Room afterwards. The cover diagram shows the later architecture, including the local relay and optional team server. The implementation described here is the hackathon version. [Hackathon submission](https://github.com/rohanz/room/blob/db41d87d/docs/submission.md)"
         }
-      ],
-      "navTitle": "Hackathon scope"
+      ]
     }
   ],
   "cover": "/images/projects/banners/room.webp",
-  "coverAlt": "Illustrative Room dependency view separating edits, declared contracts and downstream impact; not a product screenshot.",
+  "coverAlt": "Room architecture showing the host and Git checkout, per-session MCP process, local relay, optional team server and other agent sessions.",
   "repository": "https://github.com/rohanz/room"
 };
 

@@ -1,8 +1,13 @@
 import manifest from "../../public/images/projects/banners/manifest.json";
 
-const versions = new Map(manifest.images.map(({ src, sha256 }) => [src, sha256.slice(0, 12)]));
+const covers = new Map(manifest.images.map(image => [image.src, image]));
 
-export function projectCoverSrc(src: string) {
-  const version = versions.get(src);
-  return version ? `${src}?v=${version}` : src;
+export function projectCover(src: string, alt: string) {
+  const image = covers.get(src);
+  return {
+    src: image ? `${src}?v=${image.sha256.slice(0, 12)}` : src,
+    alt,
+    width: image?.width ?? manifest.size.width,
+    height: image?.height ?? manifest.size.height,
+  };
 }
