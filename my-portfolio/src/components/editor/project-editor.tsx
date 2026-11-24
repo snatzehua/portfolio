@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import ArticlePage from "@/components/article/article-page";
-import { projectCoverSrc } from "@/content/project-covers";
+import { projectCover } from "@/content/project-covers";
 import type { ArticleSection, ContentBlock, Project } from "@/content/types";
 import { isYearOnlyProjectPeriod } from "@/content/project-dates";
 import { hasFullProjectWriteup } from "@/content/project-writeups";
@@ -171,7 +171,7 @@ export default function ProjectEditor() {
         </section>)}
         <div className="editor-bottom-actions"><button type="button" className="editor-primary-button" disabled={!dirty || saving || conflict} onClick={save}>Save changes</button><button type="button" onClick={reload} disabled={saving}>Reload saved version</button><button type="button" onClick={downloadDraft}>Download draft</button></div>
       </form>
-      <section className="editor-preview-panel" aria-label="Live project preview"><div className="editor-preview-heading"><h2>Live preview</h2><span>{hasFullProjectWriteup(draft.slug) ? "Unsaved changes appear here" : "Draft preview · public write-up is marked WIP"}</span></div><div className="editor-preview-scroll"><ArticlePage kind="projects" title={draft.title} intro={draft.summary} tags={draft.tags} sections={draft.sections} facts={[{ label: "Role", value: draft.role }, { label: "Period", value: draft.period }]} cover={{ src: projectCoverSrc(draft.cover), alt: draft.coverAlt }} /></div></section>
+      <section className="editor-preview-panel" aria-label="Live project preview"><div className="editor-preview-heading"><h2>Live preview</h2><span>{hasFullProjectWriteup(draft.slug) ? "Unsaved changes appear here" : "Draft preview · public write-up is marked WIP"}</span></div><div className="editor-preview-scroll"><ArticlePage kind="projects" title={draft.title} intro={draft.summary} tags={draft.tags} sections={draft.sections} facts={[{ label: "Role", value: draft.role }, { label: "Period", value: draft.period }]} cover={projectCover(draft.cover, draft.coverAlt)} /></div></section>
     </div>}
   </div>;
 }

@@ -53,7 +53,7 @@ Six covers were added without changing the earlier twelve image recipes or their
 
 | Cover | Basis | Interpretation |
 | --- | --- | --- |
-| Room | Supplied full résumé and `projects/room.md`, Network dashboard | Illustrative dependency topology distinguishing edits, contracts and impact; not a screenshot. |
+| Room | Author-supplied `room/docs/diagrams/room-architecture-editorial.svg` | System architecture plate on a white canvas, in its native 1600 × 1000 proportions. |
 | StashPA | Supplied résumé and `projects/stashpa.md` | Generic saved-note illustration; no actual links, messages or private database content. |
 | Please Help Me (`please-help-me`) | Actual app capture `scheduler-sample-week.png`, 16 November 2026 | Real interface with the built-in sample week in a temporary database. All records are demo data; not a scheduling benchmark or a personal calendar. |
 | Amazon recommendations | Supplied résumé and `projects/amazon-recsys.md` | Sentiment feeding a ranking. Bar lengths are illustrative, not evaluation values. |

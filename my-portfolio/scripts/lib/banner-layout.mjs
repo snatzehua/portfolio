@@ -1,6 +1,9 @@
 // Shared output contract; individual banners retain their own art direction.
 export const bannerSpec = Object.freeze({ width: 1600, height: 600, quality: 90, effort: 6 });
 
+// Preserve the original aspect ratio of the supplied Room architecture plate.
+export const bannerHeight = slug => slug === 'room' ? 1000 : bannerSpec.height;
+
 // Fit a complete point set without changing its geometry or clipping its nodes.
 // Padding reserves room for point radii and strokes inside the target rectangle.
 export function fitPoints(points, { x, y, width, height, padding = 0 }) {

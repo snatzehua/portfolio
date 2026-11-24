@@ -1,5 +1,6 @@
 // Intrinsic sizes reserve space while article images load.
 export const media: Record<string, { width: number; height: number }> = {
+  "/images/projects/room-v2-redesign.png": { width: 1512, height: 806 },
   "/images/writing/state-of-affairs-dtu.webp": { width: 2000, height: 1169 },
   "/images/projects/technical/strait-model-repairs.png": { width: 2040, height: 1360 },
   "/images/projects/technical/strait-satellite-additions.png": { width: 2040, height: 850 },

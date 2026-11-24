@@ -15,7 +15,7 @@ export default function ArticlePage({ kind, title, subtitle, intro, tags, sectio
   sections: ArticleSection[];
   facts?: { label: string; value: ReactNode }[];
   links?: { label: string; href: string }[];
-  cover?: { src: string; alt: string };
+  cover?: { src: string; alt: string; width: number; height: number };
 }) {
   const backHref = `/${kind}`;
   const label = kind === "projects" ? "Projects" : "Writing";
@@ -37,7 +37,7 @@ export default function ArticlePage({ kind, title, subtitle, intro, tags, sectio
         {!!links?.length && <div className="article-links">{links.map((link) => <a key={link.href} href={link.href} target="_blank" rel="noopener noreferrer">{link.label} ↗</a>)}</div>}
       </PaperHeader>
       <div className="article-layout">
-        {cover && <figure className="article-hero"><Image src={cover.src} alt={cover.alt} width={1600} height={600} sizes="(max-width: 960px) 94vw, 900px" /></figure>}
+        {cover && <figure className="article-hero"><Image src={cover.src} alt={cover.alt} width={cover.width} height={cover.height} sizes="(max-width: 960px) 94vw, 900px" /></figure>}
         {hasQuickNav ? <div className="project-reading-layout"><ProjectQuickNav sections={sections.map(({ id, title, navTitle }) => ({ id, title, navTitle }))} /><ArticleBody sections={sections} /></div> : <ArticleBody sections={sections} />}
       </div>
       <footer className="article-footer"><Link href={backHref} className="back-link">← Back to {label}</Link><a href="#main-content">Back to top ↑</a></footer>

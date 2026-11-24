@@ -22,7 +22,7 @@
 .menu-toggle { display: none; }
 .portfolio-main { min-height: 65dvh; }
 .portfolio-paper { padding-block: 54px 72px; }
-.portfolio-paper-overview { padding-top: 0; }
+.portfolio-paper-overview { padding-block: 0; }
 .skip-link { position: fixed; z-index: 100; top: -100px; left: 20px; background: var(--accent); color: white; padding: 12px 20px; }
 .skip-link:focus { top: 12px; }
 .portfolio-footer { display: flex; align-items: center; gap: 32px; padding: 28px 0 36px; border-top: 1px solid var(--line); font-size: 13px; color: var(--muted); }
@@ -58,7 +58,8 @@
 .project-cover { position: relative; aspect-ratio: 8 / 3; border-radius: 5px; overflow: hidden; background: #e7e7df; }
 .project-cover-image { object-fit: cover; transition: transform .25s ease; }
 .project-cover-contain { background: #090b13; }
-.project-cover-contain .project-cover-image { object-fit: contain; }
+.project-cover-contain .project-cover-image, #project-room .project-cover-image { object-fit: contain; }
+#project-room .project-cover { background: white; }
 .project-card:is(:hover, :focus-visible) .project-cover-image { transform: scale(1.025); }
 .project-card:is(:hover, :focus-visible) :is(h2, h3) { color: var(--accent); }
 .project-card-content { display: flex; flex-direction: column; align-items: flex-start; flex: 1; padding-top: 18px; }
@@ -205,7 +206,7 @@
 .article-footer { display: flex; justify-content: space-between; gap: 24px; border-top: 1px solid var(--line); margin-top: 48px; padding-top: 24px; }
 .article-footer > a:last-child { font-size: 13px; color: var(--accent); }
 .article-hero { margin: 0 0 40px; }
-.article-hero img { width: 100%; height: auto; aspect-ratio: 8 / 3; object-fit: cover; border-radius: 5px; }
+.article-hero img { width: 100%; height: auto; border-radius: 5px; }
 .article-hero figcaption { font-size: 12px; color: var(--muted); margin-top: 10px; }
 .not-found p { color: var(--muted); margin-bottom: 24px; }
 :is(section[id], article[id]) { scroll-margin-top: 28px; }
@@ -232,7 +233,7 @@
   .site-navigation.is-open { display: grid; grid-template-columns: 1fr 1fr; }
   .site-navigation a { padding: 12px 4px; }
   .portfolio-paper { padding-block: 34px 48px; }
-  .portfolio-paper-overview { padding-top: 0; }
+  .portfolio-paper-overview { padding-block: 0; }
   .home-intro { grid-template-columns: 76px minmax(0, 1fr); align-items: start; gap: 18px; padding: 32px 0; }
   .intro-polaroid { width: 76px; }
   .intro-name { font-size: clamp(60px, 32cqw, 88px); }

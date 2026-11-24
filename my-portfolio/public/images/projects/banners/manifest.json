@@ -13,8 +13,8 @@
     "notebook": "Palatino,Georgia,serif"
   },
   "recipeSha256": {
-    "scripts/generate-project-covers.mjs": "92646a1841e92fa94f6b17e1ca0c837b6159fdcf537a164d6ceea6e63c6bfcdd",
-    "scripts/lib/banner-layout.mjs": "148eceffa059c4766ab98906fcb5c6f54c0d88f05f5f640920047dbcd67155ae"
+    "scripts/generate-project-covers.mjs": "95c4b14206efa6bd3a8ccb10d98ed5b38dcffec70d718d692a307d284a2efbba",
+    "scripts/lib/banner-layout.mjs": "bf463ba0756828c1a2f8bbd19138a73ff091e6f2a6f0880cda63b45c53e9a76a"
   },
   "sourceSnapshotSha256": "2084aef6b192ab19fe5218e7a1c62ba7e2480d54053c560c48d98da12a94a664",
   "assetSha256": {
@@ -22,6 +22,7 @@
     "public/images/projects/strait.webp": "c05964d8f56e23b0513b56af1bf39ff892a26ed9b7fb17cc25e2eb211fe48973",
     "public/images/projects/travlah.webp": "a282493da27c7020fbd6587f566bf1397915b1342e74dcf37f6c40c9336f5333",
     "public/images/projects/banner-sources/shopping-cart.png": "b060265e341d3ae809a177181d27211478e061303a3d001eb03555b3f14122ef",
+    "public/images/projects/banner-sources/room-architecture-editorial.svg": "12b1541cf6075c28cefbb72c425276e4fdc9974ca864acab3de7965c09d7609a",
     "public/images/projects/scheduler-sample-week.png": "6f80a0b7542ba6a93afac3b48c35e175db0dbe78d0654e5fb7f8167f1d5c40e9",
     "public/images/travla.png": "ac902fec84f6608de153adf17eadb3979b039d7a323bfc747e0d61b8f09d7acd",
     "public/images/robot.png": "2cc5a14ff08f890eca57b639082a0d6b2e9b0c4a2725bc11bf40e7c2efd3f22b",
@@ -164,12 +165,12 @@
       "slug": "room",
       "src": "/images/projects/banners/room.webp",
       "width": 1600,
-      "height": 600,
-      "bytes": 15712,
-      "sha256": "5691c5041c5c4ba31698c2372a8359d2e0f99f4b29b4cca160767fec6e35e31e",
-      "alt": "Illustrative Room dependency view separating edits, declared contracts and downstream impact; not a product screenshot.",
-      "basis": "full_resume.tex and supporting projects/room.md: Network dashboard contribution; illustrative topology, not captured live activity.",
-      "artDirection": "Monospaced coordination plate with distinct edit, contract and impact treatments."
+      "height": 1000,
+      "bytes": 115212,
+      "sha256": "85acde2f12ea13ceb965f1d2bfbc1921fd582684de7274c19b000da1b84a904f",
+      "alt": "Room architecture showing the host and Git checkout, per-session MCP process, local relay, optional team server and other agent sessions.",
+      "basis": "Room repository: docs/diagrams/room-architecture-editorial.svg, with a white canvas for the portfolio.",
+      "artDirection": "Original system architecture diagram shown at its native aspect ratio."
     },
     {
       "slug": "stashpa",

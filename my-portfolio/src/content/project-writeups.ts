@@ -1,13 +1,13 @@
 import type { ArticleSection, Project } from "./types";
 
 // Draft sections remain in their source records and in the local editor.
-// Only these five accounts are currently requested as full public writeups.
 export const fullProjectWriteupSlugs = [
   "state-of-the-strait",
   "careersphere",
   "please-help-me",
   "crop-yield-research",
   "gdelt-sentiment",
+  "room",
 ] as const;
 
 export function hasFullProjectWriteup(slug: string): boolean {

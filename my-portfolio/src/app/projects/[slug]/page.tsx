@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 import PortfolioShell from "@/components/portfolio/portfolio-shell";
 import ArticlePage from "@/components/article/article-page";
 import { getProject, projects } from "@/content/projects";
-import { projectCoverSrc } from "@/content/project-covers";
+import { projectCover } from "@/content/project-covers";
 import { visibleProjectSections } from "@/content/project-writeups";
 
 type Props = { params: Promise<{ slug: string }> };
@@ -20,7 +20,7 @@ export default async function ProjectPage({ params }: Props) {
   ];
   return (
     <PortfolioShell section="projects">
-      <ArticlePage kind="projects" title={project.title} intro={project.summary} tags={project.tags} sections={visibleProjectSections(project)} facts={[{ label: "Role", value: project.role }, { label: "Period", value: project.period }]} links={links} cover={{ src: projectCoverSrc(project.cover), alt: project.coverAlt }} />
+      <ArticlePage kind="projects" title={project.title} intro={project.summary} tags={project.tags} sections={visibleProjectSections(project)} facts={[{ label: "Role", value: project.role }, { label: "Period", value: project.period }]} links={links} cover={projectCover(project.cover, project.coverAlt)} />
     </PortfolioShell>
   );
 }

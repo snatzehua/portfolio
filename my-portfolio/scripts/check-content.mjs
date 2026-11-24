@@ -46,7 +46,7 @@ for (const [kind, entries] of [['experience', experienceEntries], ['education', 
   console.log(`${kind}: ${entries.length} entries; titles, dates, details and logos checked.`);
 }
 const projectSlugs = new Set(projects.map(project => project.slug));
-assert(fullProjectWriteupSlugs.length === 5 && new Set(fullProjectWriteupSlugs).size === 5 && fullProjectWriteupSlugs.every(slug => projectSlugs.has(slug)), 'Full writeup exceptions must name exactly five registered projects');
+assert(new Set(fullProjectWriteupSlugs).size === fullProjectWriteupSlugs.length && fullProjectWriteupSlugs.every(slug => projectSlugs.has(slug)), 'Published writeups must name unique registered projects');
 const collectionSlugs = projectCollections.flatMap(group => group.slugs);
 assert(collectionSlugs.length === new Set(collectionSlugs).size, 'A project belongs to more than one collection');
 assert(collectionSlugs.length === projects.length && collectionSlugs.every(slug => projectSlugs.has(slug)), 'Collections must cover every project exactly once');

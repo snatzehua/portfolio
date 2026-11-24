@@ -3,7 +3,7 @@ import path from 'node:path';
 import crypto from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 import sharp from 'sharp';
-import { bannerSpec, fitPoints } from './lib/banner-layout.mjs';
+import { bannerHeight, bannerSpec, fitPoints } from './lib/banner-layout.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const output = path.join(root, 'public/images/projects/banners');
@@ -59,10 +59,10 @@ async function write(slug, input, alt, basis) {
   if (![slug, alt, basis, artDirection[slug]].every(value => typeof value === 'string' && value.trim())) throw new Error(`Missing banner description, basis, or art direction: ${slug}`);
   if (!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(slug) || images.some(image => image.slug === slug)) throw new Error(`Invalid or duplicate banner slug: ${slug}`);
   const metadata = await sharp(input).metadata();
-  if (metadata.width !== bannerSpec.width || metadata.height !== bannerSpec.height) throw new Error(`Compose ${slug} at ${bannerSpec.width}×${bannerSpec.height} before exporting`);
+  if (metadata.width !== bannerSpec.width || metadata.height !== bannerHeight(slug)) throw new Error(`Compose ${slug} at ${bannerSpec.width}×${bannerHeight(slug)} before exporting`);
   const buffer = await sharp(input).webp({ quality: bannerSpec.quality, effort: bannerSpec.effort }).toBuffer();
   await fs.writeFile(path.join(output, `${slug}.webp`), buffer);
-  images.push({ slug, src: `/images/projects/banners/${slug}.webp`, width: bannerSpec.width, height: bannerSpec.height, bytes: buffer.length, sha256: hash(buffer), alt, basis, artDirection: artDirection[slug] });
+  images.push({ slug, src: `/images/projects/banners/${slug}.webp`, width: bannerSpec.width, height: metadata.height, bytes: buffer.length, sha256: hash(buffer), alt, basis, artDirection: artDirection[slug] });
 }
 await fs.mkdir(output, { recursive: true });
 
@@ -190,7 +190,7 @@ await fs.mkdir(output, { recursive: true });
 // Resume additions, 15 November 2026. Illustrations explain the subject;
 // they are not screenshots, model outputs or records of private user data.
 Object.assign(artDirection, {
-  room: 'Monospaced coordination plate with distinct edit, contract and impact treatments.',
+  room: 'Original system architecture diagram shown at its native aspect ratio.',
   stashpa: 'Warm utility identity with a simple saved-note illustration.',
   'please-help-me': 'Please Help Me title beside an actual calendar interface capture using built-in sample data; preserve the screenshot proportions.',
   'amazon-recommendation': 'Research plate showing sentiment as an input to recommendation ranking.',
@@ -198,12 +198,9 @@ Object.assign(artDirection, {
   'autonomous-robot': 'Original mBot photograph in its native proportions, with a compact hardware caption.',
 });
 {
-  let body = mono(90, 230, 'Room', 112, '#f4f0e6', 500) + mono(94, 297, 'Changes in context', 35, '#b8c6c0');
-  const nodes = [[900,160,'file edit','#75a5c0'],[1230,300,'contract','#aa8db9'],[900,445,'impact','#d49785']];
-  body += line(960,160,1230,300,'#758b86',3) + line(1230,300,960,445,'#758b86',3);
-  for (const [x,y,label,color] of nodes) body += rect(x-30,y-45,260,90,'#263e3a',5,'stroke="'+color+'" stroke-width="2"') + circle(x,y,6,color) + mono(x+24,y+9,label,28,'#e3eae4');
-  body += fieldLabel(94,540,'COORDINATION / ILLUSTRATION',23,'#a3b9ae');
-  await write('room',svg(body,'#1b302c'),'Illustrative Room dependency view separating edits, declared contracts and downstream impact; not a product screenshot.','full_resume.tex and supporting projects/room.md: Network dashboard contribution; illustrative topology, not captured live activity.');
+  const diagram = await source('public/images/projects/banner-sources/room-architecture-editorial.svg');
+  await write('room', diagram, 'Room architecture showing the host and Git checkout, per-session MCP process, local relay, optional team server and other agent sessions.',
+    'Room repository: docs/diagrams/room-architecture-editorial.svg, with a white canvas for the portfolio.');
 }
 {
   let body = friendly(100,250,'StashPA',112,'#433b33',500) + friendly(105,325,'Keep what you find.',40,'#706153');
