@@ -16,7 +16,7 @@ export default function HomeWriting() {
   const featured = homepageEntries.find(entry => entry.pinned) ?? homepageEntries[0];
   if (!featured) return null;
   const recent = homepageEntries.filter(entry => entry.slug !== featured.slug).slice(0, 2);
-  return <section className="home-writing-section home-writing-compact" id="writing" aria-labelledby="overview-writing">
+  return <section className="home-writing-section home-writing-compact home-writing-paper" id="writing" aria-labelledby="overview-writing">
     <div className="writing-section-heading">
       <h2 id="overview-writing">Writing</h2>
       <Link className="text-link" href="/writing">All writing</Link>

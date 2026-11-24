@@ -81,3 +81,73 @@
   .writing-section-deck { font-size: 17px; }
   .writing-section-prose p, .writing-section-outline p, .writing-section-outline li, .writing-section-outline blockquote { font-size: 17px; }
 }
+
+/* Paper notes on the landing page. */
+.home-writing-paper {
+  display: grid;
+  grid-template-columns: minmax(130px, .65fr) minmax(0, 2fr);
+  align-items: start;
+  gap: clamp(24px, 5vw, 72px);
+  padding: 38px 0 18px;
+}
+.home-writing-paper .writing-section-heading {
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 14px;
+  margin: 0;
+}
+.home-writing-paper .writing-section-grid {
+  gap: 26px;
+  padding: 6px;
+}
+.home-writing-paper .writing-section-grid-single {
+  max-width: 620px;
+}
+.home-writing-paper .writing-section-side {
+  display: grid;
+  gap: 22px;
+  padding: 0;
+  border: 0;
+}
+.home-writing-paper .writing-preview {
+  position: relative;
+  padding: clamp(22px, 3vw, 38px);
+  background: linear-gradient(170deg, #f2e7b9, #f9f1d4 40%, #f6edcc);
+  box-shadow: 0 1px 2px #302c191a, 1px 5px 7px -4px #302c194a;
+  transform: rotate(-.8deg);
+}
+.home-writing-paper .writing-preview::before {
+  content: "";
+  position: absolute;
+  top: -8px;
+  left: 42%;
+  width: 65px;
+  height: 17px;
+  background: #d7cbb4ba;
+  transform: rotate(4deg);
+  clip-path: polygon(2% 0, 99% 3%, 97% 28%, 100% 51%, 97% 100%, 0 96%, 3% 62%, 0 40%);
+}
+.home-writing-paper .writing-section-side .writing-preview {
+  background: #e6edde;
+  transform: rotate(.6deg);
+}
+.home-writing-paper .writing-section-side .writing-preview + .writing-preview {
+  margin: 0;
+  border: 0;
+  padding: clamp(22px, 3vw, 38px);
+}
+.home-writing-paper .writing-preview h3 {
+  max-width: none;
+  font-size: clamp(28px, 3vw, 38px);
+}
+.home-writing-paper .writing-preview:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 5px;
+}
+@media (max-width: 800px) {
+  .home-writing-paper { grid-template-columns: minmax(0, 1fr); gap: 18px; }
+  .home-writing-paper .writing-section-heading { flex-direction: row; align-items: baseline; }
+}
+@media (max-width: 600px) {
+  .home-writing-paper .writing-preview { transform: none; }
+}
