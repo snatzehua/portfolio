@@ -2,7 +2,7 @@ import type { WritingEntry } from "../types";
 
 const entry: WritingEntry = {
   slug: "what-would-we-still-want-to-make",
-  title: "What would we still want to make?",
+  title: "Amodei's Experience Machine",
   publishedAt: "2026-11-25",
   period: "NOV 2026",
   summary: "On immersive games, Nozick’s experience machine, and the desire to contribute in a world with less paid work.",
