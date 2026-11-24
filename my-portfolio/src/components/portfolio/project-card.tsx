@@ -8,7 +8,7 @@ const featuredImages: Record<string, { src: string; alt: string; contain?: boole
   "crop-yield-research": { src: "/images/projects/crop-yield-satellite.png", alt: "Sentinel-2 view of fields and cloud cover around Haut-Rhin, Alsace, on 13 July 2023, used in the maize research project", position: "center 80%" },
   "please-help-me": { src: "/images/projects/scheduler-sample-week.png", alt: "Actual Calendar & Task Scheduler interface showing its built-in sample week, with demo commitments, tasks and work sessions", position: "left top" },
   careersphere: { src: "/images/projects/careersphere.webp", alt: "CareerSphere team architecture diagram", contain: true },
-  room: { src: projectCoverSrc("/images/projects/banners/room.webp"), alt: "Illustrative Room dependency view separating edits, declared contracts and downstream impact; not a product screenshot.", contain: true, background: "#1b302c" },
+  room: { src: "/images/projects/room-v2-redesign.png", alt: "Room v2 redesign from the project repository" },
 };
 
 export type ProjectCardData = Pick<Project, "slug" | "title" | "summary" | "cover" | "coverAlt" | "period" | "role">;

@@ -2,7 +2,7 @@ import type { Project } from "../types";
 
 const project: Project = {
   "slug": "room",
-  "title": "Room — Multi-Agent Coding Coordination",
+  "title": "Room",
   "summary": "A plugin we built so teammates’ coding agents can see each other’s work before it reaches a merge.",
   "publishedAt": "2026-11-15",
   "period": "2026",
