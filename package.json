@@ -1,0 +1,43 @@
+{
+  "name": "my-portfolio",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev --turbopack --hostname 127.0.0.1",
+    "build": "next build",
+    "start": "next start",
+    "prepare": "sh .githooks/install",
+    "validate": "npm run typecheck && npm run check:content && npm run test:links && npm run test:editor",
+    "test:hooks": "sh scripts/test-git-hooks.sh",
+    "test:links": "node scripts/test-public-links.cjs",
+    "lint": "next lint",
+    "check:content": "node scripts/check-content.mjs",
+    "test:editor": "node scripts/test-project-editor.mjs",
+    "typecheck": "tsc --noEmit",
+    "generate:covers": "node scripts/generate-project-covers.mjs",
+    "check:covers": "node scripts/check-project-covers.mjs",
+    "preview:covers": "node scripts/preview-project-covers.mjs"
+  },
+  "dependencies": {
+    "@vercel/analytics": "^1.5.0",
+    "framer-motion": "^12.0.6",
+    "katex": "^0.16.45",
+    "next": "15.1.11",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "react-icons": "^5.5.0"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3",
+    "@types/katex": "^0.16.8",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "15.1.4",
+    "postcss": "^8",
+    "sharp": "0.33.5",
+    "tailwindcss": "^3.4.1",
+    "typescript": "^5"
+  }
+}

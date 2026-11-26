@@ -33,7 +33,7 @@ Completed 19 November 2026. The full requested scope is represented by the follo
   3.736% candidate versus its matched 3.931% control; total counts still do not help. October's
   later-retrieved target does not confirm the petroleum increment. No general satellite advantage
   or promoted satellite model is claimed.
-- **Four rewritten accounts:** `my-portfolio/src/content/projects/{state-of-the-strait,
+- **Four rewritten accounts:** `src/content/projects/{state-of-the-strait,
   crop-yield-research,please-help-me,careersphere}.ts`. Each follows the actual start-to-current
   research/development, with source-grounded decisions, failures and limits. The latest crop
   phase and CareerSphere ingestion/serving distinction are included.

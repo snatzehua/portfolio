@@ -1,6 +1,6 @@
 # Crop Yield Research writeup audit — 19 November 2026
 
-Scope: prose in `my-portfolio/src/content/projects/crop-yield-research.ts`. No research files, model outputs, shared components or media were changed.
+Scope: prose in `src/content/projects/crop-yield-research.ts`. No research files, model outputs, shared components or media were changed.
 
 ## Narrative and author evidence
 

@@ -2,7 +2,7 @@
 
 ## Commands
 
-Run from `my-portfolio/`; use npm and the committed `package-lock.json`.
+Run from the repository root; use npm and the committed `package-lock.json`.
 
 ```sh
 npm install
