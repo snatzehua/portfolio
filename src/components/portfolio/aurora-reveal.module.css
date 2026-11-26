@@ -1,0 +1,69 @@
+.track {
+  --reveal: 0;
+  --viewport-width: var(--media-viewport-width, 100vw);
+}
+
+.scene {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  background: #000;
+  isolation: isolate;
+  container-type: size;
+  display: grid;
+  place-items: center;
+}
+
+.frame {
+  position: relative;
+  width: min(100cqw, 177.7778cqh, 1440px, calc(var(--source-width) / var(--media-dpr, 1)));
+  aspect-ratio: 16 / 9;
+}
+
+.image {
+  position: absolute;
+  inset: 0;
+  cursor: zoom-in;
+}
+
+.image img { object-fit: contain; }
+
+.image:focus-visible {
+  outline: 3px solid #fff;
+  outline-offset: -4px;
+  z-index: 1;
+}
+
+.title {
+  position: absolute;
+  bottom: 7%;
+  left: 5%;
+  color: #fff9e9;
+  pointer-events: none;
+  text-shadow: 0 1px 12px #000b;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .track[data-scroll] {
+    height: 120svh;
+    position: relative;
+  }
+
+  .track[data-scroll] .sticky {
+    position: sticky;
+    top: 0;
+    height: 100svh;
+  }
+
+  .track[data-scroll] .scene {
+    /* Interpolate from the editorial column to the actual viewport (excluding its scrollbar). */
+    width: calc(100% + (var(--viewport-width) - 100%) * var(--reveal));
+    height: calc(min(56.25cqw, 85svh) + (100svh - min(56.25cqw, 85svh)) * var(--reveal));
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .track[data-scroll] .sticky { container-type: inline-size; }
+}
+
+[data-pinned] .track[data-scroll] { height: 100svh; }
+[data-pinned] .track[data-scroll] .sticky { position: relative; }

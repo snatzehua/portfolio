@@ -1,6 +1,6 @@
 # CareerSphere writeup evidence — 19 November 2026
 
-This pass changes only `my-portfolio/src/content/projects/careersphere.ts` and this audit note.
+This pass changes only `src/content/projects/careersphere.ts` and this audit note.
 It builds on the existing working-copy text; the original architecture figure, section identifiers,
 headings and metadata are retained. No application experiments or live-service checks were run.
 

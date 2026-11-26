@@ -198,7 +198,7 @@ The homepage shows the polaroid introduction, three selected projects, a forest 
 Current content structure:
 
 ```text
-my-portfolio/src/
+src/
   content/projects/             # One long-form file per project
   components/article/          # Shared project and article layout
   app/projects/[slug]/page.tsx # Shareable detail route

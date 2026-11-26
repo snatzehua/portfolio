@@ -1,6 +1,6 @@
 # Scheduler writeup source audit — 19 November 2026
 
-Scope: only `my-portfolio/src/content/projects/please-help-me.ts`, the canonical Calendar & Task Scheduler entry. No scheduler source, private calendar database, shared media or other project entry was changed. Existing manual metadata, all seven section IDs, both original image blocks and their captions were preserved. The opening author motive and contextual author-input slots were retained.
+Scope: only `src/content/projects/please-help-me.ts`, the canonical Calendar & Task Scheduler entry. No scheduler source, private calendar database, shared media or other project entry was changed. Existing manual metadata, all seven section IDs, both original image blocks and their captions were preserved. The opening author motive and contextual author-input slots were retained.
 
 ## Evidence map
 

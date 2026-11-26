@@ -24,7 +24,7 @@ Existing section anchors and media are retained. Bracketed author-input prompts 
 
 Five projects show their full article sections: State of the Strait and the four requested rewrites. The other fourteen show a single “Write-up in progress” section, and their cards show “Write-up WIP”. Their existing draft sections remain unchanged in source and available in the local editor. WIP describes the article, not whether the underlying project is completed.
 
-The shared presentation helper is `my-portfolio/src/content/project-writeups.ts`. The editor continues to preview full drafts and labels a draft whose public article is WIP.
+The shared presentation helper is `src/content/project-writeups.ts`. The editor continues to preview full drafts and labels a draft whose public article is WIP.
 
 ## Dates
 

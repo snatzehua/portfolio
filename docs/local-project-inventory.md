@@ -19,7 +19,7 @@ The ten imported write-ups and revised GDELT page use their drafting date for `p
 | GDELT Sentiment | `c-finance`, `f38d2c9` | Current README distinguishes exploratory results from causal out-of-sample confirmation. Updated conclusion: no robust timing edge under the tested design. This page summarizes existing records, not a new run. |
 | OpenClaw Network | Existing portfolio content | Retained ongoing exploration note; no matching local implementation inspected. |
 
-Media provenance is recorded in `my-portfolio/public/images/projects/README.md`. Before deepening these pages, ask for specific contributions, alternatives tried, failure cases, dates, and links suitable for public readers. See backlog P01/P04.
+Media provenance is recorded in `public/images/projects/README.md`. Before deepening these pages, ask for specific contributions, alternatives tried, failure cases, dates, and links suitable for public readers. See backlog P01/P04.
 
 ## Editorial cleanup — 2 November 2026
 

@@ -4,8 +4,8 @@ Use this workflow for every new project and every replacement cover. Keep the ou
 
 ## Output contract
 
-- Compose at **1600 × 600** (8:3); export WebP with the shared `bannerSpec` in `my-portfolio/scripts/lib/banner-layout.mjs` (quality 90, effort 6).
-- Save to `my-portfolio/public/images/projects/banners/<project-slug>.webp`. The slug must match the content entry.
+- Compose at **1600 × 600** (8:3); export WebP with the shared `bannerSpec` in `scripts/lib/banner-layout.mjs` (quality 90, effort 6).
+- Save to `public/images/projects/banners/<project-slug>.webp`. The slug must match the content entry.
 - Fill the background edge to edge. Arrange the subject within that artboard; do not stretch a square image or graph into a wide rectangle.
 - Preserve logos, image proportions, and graph geometry. For data, preserve values, units, baselines, class meanings, and necessary source qualifications.
 - Generate through `scripts/generate-project-covers.mjs`. Commit the output and manifest alongside the recipe and its inputs. Do not hand-edit generated WebPs or `manifest.json`.
@@ -57,7 +57,7 @@ Provenance and permissions / required credit:
 
 ## 4. Generate, validate, and review
 
-From `my-portfolio/`:
+From the repository root:
 
 ```sh
 npm run generate:covers

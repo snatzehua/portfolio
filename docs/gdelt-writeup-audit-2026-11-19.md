@@ -1,6 +1,6 @@
 # GDELT writeup evidence review — 19 November 2026
 
-Scope: `my-portfolio/src/content/projects/gdelt-sentiment.ts` only. This is a source-based editorial update, not a new financial evaluation. Title, metadata, dates, URLs, cover/alternative text, section IDs and original causal-flow diagram remain in place. Root integration handles shared files and date/status decisions.
+Scope: `src/content/projects/gdelt-sentiment.ts` only. This is a source-based editorial update, not a new financial evaluation. Title, metadata, dates, URLs, cover/alternative text, section IDs and original causal-flow diagram remain in place. Root integration handles shared files and date/status decisions.
 
 ## Evidence map
 

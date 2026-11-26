@@ -134,8 +134,8 @@ artifacts over decorative or generated substitutes for technical evidence.
 
 Each caption should establish what is shown, how to read the labels/colours, the relevant date or
 scope, and any qualification needed to interpret it. Record source paths and transformations in
-`my-portfolio/public/images/projects/README.md`, and intrinsic dimensions in
-`my-portfolio/src/content/media.ts`. Distinguish different dates/extents between related images.
+`public/images/projects/README.md`, and intrinsic dimensions in
+`src/content/media.ts`. Distinguish different dates/extents between related images.
 Use expandable technical images when labels or fine detail need inspection. Check readability on a
 phone and preserve attribution. Do not publish private records or use synthetic images as results.
 
@@ -160,4 +160,4 @@ never silently treat a marker as finished public copy.
 - The sequence works as a complete story after edits, with no disconnected patches or contradictory claims.
 - Preserve manual edits, stable section IDs and approved wording. Navigation labels follow headings.
 - Check the existing [banner guide](project-banner-guide.md), source provenance and relevant links.
-- Run `npm run check:content` from `my-portfolio/`. Visually check changed figures and layouts as needed.
+- Run `npm run check:content` from the repository root. Visually check changed figures and layouts as needed.

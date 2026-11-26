@@ -1,0 +1,25 @@
+#!/bin/sh
+set -eu
+
+# Deployment installs do not make local Git commits or pushes.
+if [ -n "${CI:-}" ] || [ "${NODE_ENV:-}" = production ]; then exit 0; fi
+
+# npm also installs this package in exported source trees without Git metadata.
+root=$(git rev-parse --show-toplevel 2>/dev/null) || exit 0
+cd "$root"
+configured=$(git config --get core.hooksPath || true)
+case "$configured" in
+  .githooks) exit 0 ;;
+  '') ;;
+  *) echo "Existing core.hooksPath ($configured): add the portfolio pre-commit and pre-push hooks to that configuration." >&2; exit 1 ;;
+esac
+for hook in "$(git rev-parse --git-path hooks)"/*; do
+  case "$hook" in *.sample) continue ;; esac
+  if [ -f "$hook" ] && [ -x "$hook" ]; then
+    echo "Existing hook $hook: integrate the portfolio hooks before changing core.hooksPath." >&2
+    exit 1
+  fi
+done
+if ! git config --local core.hooksPath .githooks; then
+  echo "Portfolio hooks are inactive in this read-only checkout. Run npm run prepare at the repository root when Git config is writable." >&2
+fi

@@ -1,0 +1,47 @@
+.note {
+  position: relative;
+  box-sizing: border-box;
+  display: grid;
+  align-content: center;
+  text-align: left;
+  width: 11.5rem;
+  aspect-ratio: 1.12;
+  max-width: 100%;
+  padding: 22px 20px;
+  color: var(--ink);
+  background: linear-gradient(170deg, #f2e7b9, #f9f1d4 40%, #f6edcc);
+  box-shadow: 0 1px 2px #302c191a, 1px 5px 7px -4px #302c194a;
+  transform: rotate(-.8deg);
+}
+
+.note::before {
+  content: "";
+  position: absolute;
+  top: -7px;
+  left: calc(50% - 27px);
+  width: 54px;
+  height: 15px;
+  background: #d7cbb4ba;
+  transform: rotate(4deg);
+  clip-path: polygon(2% 0, 99% 3%, 97% 28%, 100% 51%, 97% 100%, 0 96%, 3% 62%, 0 40%);
+  pointer-events: none;
+}
+
+.note h2 {
+  margin: 0 0 10px;
+  color: #59553f;
+  font-size: 11px;
+  font-weight: 650;
+  line-height: 1.35;
+  letter-spacing: .09em;
+  text-transform: uppercase;
+}
+
+.note ul {
+  margin: 0;
+  padding: 0;
+  list-style: disc inside;
+  font-size: clamp(14px, 1.35vw, 16px);
+  font-weight: 450;
+  line-height: 1.55;
+}
